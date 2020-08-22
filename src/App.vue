@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    running version: {{ version }}
     <div id="nav">
       <router-link :to="item.path" v-for="(item, index) in list" :key="index">
         {{ item.component }}
@@ -13,11 +14,12 @@
 
 <script>
 import { List } from "./config/routerList";
-
+import { version } from "vue";
 export default {
   data() {
     return {
       list: List,
+      version,
     };
   },
 };
@@ -62,6 +64,6 @@ li {
 #footer {
   position: fixed;
   bottom: 5vh;
-  left:50%;
+  left: 50%;
 }
 </style>

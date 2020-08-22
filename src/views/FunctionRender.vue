@@ -61,8 +61,14 @@ export default {
               ),
             ]
           ),
+          // [directive, value, arg, modifiers]
           withDirectives(h("div", { class: "column-layout" }, state.count), [
-            [MyDirective, state.count % 16  * 50, state.count % 16 > 8 ? "top" : "right"],
+            [
+              MyDirective,
+              (state.count % 16) * 50,
+              state.count % 16 > 8 ? "top" : "right",
+              { prevent: true, other: "otherStr" },
+            ],
           ]),
         ]
       );

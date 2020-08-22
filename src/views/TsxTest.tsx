@@ -126,7 +126,7 @@ export default defineComponent({
           v-model={[state.a, "customName", ["capitalize", "other"]]}
           label="label : "
         />
-        <vModelCom2 v-pin={500} v-model={state.a} />
+        <vModelCom2 v-pin={state.a} v-model={state.a} />
       </>
     );
   },

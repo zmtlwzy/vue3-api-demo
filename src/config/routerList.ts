@@ -64,7 +64,6 @@ export const List: routeList[] = [
         path: '/CaptureTest',
         component: 'CaptureTest',
     },
-
     {
         path: '/RouterApi',
         component: 'RouterApi',

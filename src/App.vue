@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    running version: {{ version }}
+  <div id="layout">
+    <h4>running version: {{ version }}</h4>
     <div id="nav">
       <router-link :to="item.path" v-for="(item, index) in list" :key="index">
         {{ item.component }}
         <span>{{ index === list.length - 1 ? "" : " | " }}</span>
       </router-link>
     </div>
-    <router-view />
-    <footer id="footer">footer</footer>
+    <main id="main">
+      <router-view />
+    </main>
+    <footer>footer</footer>
   </div>
 </template>
 
@@ -25,18 +27,26 @@ export default {
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style lang="scss" scoped>
+main {
+  flex: auto;
+}
+
+footer {
+  height: 3rem;
+  background-color: #ccc;
+}
+
+#layout {
   text-align: center;
   color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -45,25 +55,5 @@ export default {
       color: #42b983;
     }
   }
-}
-
-.column-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 15px;
-  border: 1px dashed grey;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-#footer {
-  position: fixed;
-  bottom: 5vh;
-  left: 50%;
 }
 </style>

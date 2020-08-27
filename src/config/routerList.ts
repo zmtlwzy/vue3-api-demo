@@ -32,10 +32,6 @@ export const List: routeList[] = [
         component: 'WatchEffect'
     },
     {
-        path: '/WatchEffect2',
-        component: 'WatchEffect2',
-    },
-    {
         path: '/slots',
         component: 'Slots'
     },
@@ -82,6 +78,6 @@ export const List: routeList[] = [
         path: '/Transition',
         component: 'Transition',
     },
-    
+
 
 ]

@@ -18,7 +18,7 @@ export default {
 
     function increment(str) {
       state.count++;
-      // str && alert(str);
+      str && alert(str);
     }
 
     // return the render function

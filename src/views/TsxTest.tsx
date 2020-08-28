@@ -59,7 +59,7 @@ export const vModelCom2 = {
 
 export default defineComponent({
   name: "TsxTest",
-  setup() {
+  setup(props,{attrs}) {
     const state = reactive({
       a: 600,
       flag: false,
@@ -76,7 +76,7 @@ export default defineComponent({
 
     return () => (
       <>
-        <div class="column-layout">
+        <div class="column-layout" {...attrs}>
           <span>{state.a}</span>
           <span>{typeof state.a}</span>
           <button

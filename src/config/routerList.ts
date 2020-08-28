@@ -78,6 +78,8 @@ export const List: routeList[] = [
         path: '/Transition',
         component: 'Transition',
     },
-
-
+    {
+        path: '/Fragments',
+        component: 'Fragments',
+    },
 ]

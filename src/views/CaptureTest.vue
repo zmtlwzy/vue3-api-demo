@@ -1,22 +1,24 @@
 <template>
-  <div class="border" @click.capture="handleClick('1')">
-    1
-    <div class="border" @click="handleClick('2')">
-      2
-      <div class="border" @click="handleClick('3')">
-        3
+  <div>
+    <div class="border" @click.capture="handleClick('1')">
+      1
+      <div class="border" @click="handleClick('2')">
+        2
+        <div class="border" @click="handleClick('3')">
+          3
+        </div>
       </div>
     </div>
+    {{ msg }}
+    {{ typeof msg }}
+    <input v-model.number="msg" />
+    <!-- <vModelCom1 v-model:customName="msg" /> -->
+    <vModelCom2 v-model="msg" />
+    <input type="range" min="0" max="500" v-model="pinPadding" />
+    <p v-pin:[direction]="pinPadding">
+      Stick me 200px from the {{ direction }} of the page
+    </p>
   </div>
-  {{ msg }}
-  {{ typeof msg }}
-  <input v-model.number="msg" />
-  <!-- <vModelCom1 v-model:customName="msg" /> -->
-  <vModelCom2 v-model="msg" />
-  <input type="range" min="0" max="500" v-model="pinPadding">
-  <p v-pin:[direction]="pinPadding">
-    Stick me 200px from the {{ direction }} of the page
-  </p>
 </template>
 
 <script>

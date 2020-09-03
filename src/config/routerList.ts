@@ -52,6 +52,11 @@ export const List: routeList[] = [
         component: 'MouseDemo'
     },
     {
+        path: '/JsxTest',
+        component: 'JsxTest',
+        suffix: '.jsx'
+    },
+    {
         path: '/tsxTest',
         component: 'TsxTest',
         suffix: '.tsx'

@@ -1,6 +1,7 @@
 import { app } from '@/app'
 app.directive('pin', {
     mounted(el, binding) {
+        console.log(el)
         console.log(binding)
         el.style.position = 'fixed'
         const s = binding.arg || 'top'

@@ -15,7 +15,7 @@
     <!-- <vModelCom1 v-model:customName="msg" /> -->
     <vModelCom2 v-model="msg" />
     <input type="range" min="0" max="500" v-model="pinPadding" />
-    <p v-pin:[direction]="pinPadding">
+    <p v-pin:[direction].a.b="pinPadding">
       Stick me 200px from the {{ direction }} of the page
     </p>
   </div>

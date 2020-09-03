@@ -5,7 +5,7 @@ export default defineComponent({
     return () => (
       <>
         <h3>Non-Prop Attributes</h3>
-        <div {...attrs}>main</div>
+        <div {...attrs}>Attribute Inheritance on Multiple Root Nodes</div>
         <p>other</p>
       </>
     );

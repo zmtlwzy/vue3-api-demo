@@ -27,10 +27,17 @@ export default {
         "div",
         {
           class: "column-layout",
-          onClick: withModifiers(() => increment(1), ["capture"]),
+          onClickCapture:() => increment(1),
         },
         [
+          'onClickCapture',
           state.count,
+          h("div",
+          {
+            onClickOnce:() => increment(2)
+          },
+          'onClickOnce'
+          ),
           h(
             "div",
             {
@@ -38,7 +45,7 @@ export default {
               onClick: withModifiers(() => increment(2), ["self"]),
             },
             [
-              state.count,
+              'self',
               h(
                 "div",
                 {
@@ -57,7 +64,7 @@ export default {
                     "stop",
                   ]),
                 },
-                state.count
+                'prevent+stop'
               ),
             ]
           ),

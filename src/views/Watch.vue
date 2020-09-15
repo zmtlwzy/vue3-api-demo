@@ -4,6 +4,8 @@
     <SingleSourceWithRef />
     <MultipleSource />
     <Flush />
+    <!-- <Deep /> -->
+    <Immediate />
     <WatchArray />
     <WatchObject />
     <span>open console</span>
@@ -18,6 +20,8 @@ import {
   SingleSourceWithRef,
   MultipleSource,
   Flush,
+  // Deep,
+  Immediate,
   WatchArray,
   WatchObject,
 } from "../components/Watch";
@@ -29,6 +33,8 @@ export default defineComponent({
     SingleSourceWithRef,
     MultipleSource,
     Flush,
+    // Deep,
+    Immediate,
     WatchArray,
     WatchObject,
   },

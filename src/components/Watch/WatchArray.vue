@@ -1,64 +1,99 @@
 <template>
   <div class="column-layout">
     <h2>WatchArray</h2>
-    <ul>
-      <li v-for="i in arr" :key="i">{{ i }}</li>
-    </ul>
+    <span class="ma">{{ arr }}</span>
     <div
       :style="{ display: 'inline-grid', gridAutoRows: '30px', gridGap: '5px' }"
     >
-      <button @click="change">changeArrIndex</button>
       <button @click="add">Increase</button>
       <button @click="del">Decrease</button>
-      <button @click="change2">changeArr</button>
+      <button @click="change">changeArrIndex</button>
+      <button @click="change2">replaceArr</button>
+      <button @click="change3">changeArrUseSplice</button>
     </div>
   </div>
 </template>
 
 <script>
 // 只能监听 数组,Set 长度的变化，如length,size,push,pop,add,delete,splice等,
-// 更改成员某个值属性时无法触发watch，需要整个重新赋值
-// ，或者使用变通方法Object.values
+// vue3 新api deep:true
+// 或者使用变通方法Object.values
+import { computed, onUpdated, reactive, toRefs, watchEffect, watch } from "vue";
 
 export default {
   name: "WatchArray",
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       count: 0,
       arr: [1, 2, 3],
+    });
+    const add = () => {
+      state.arr.splice(0, 0, ++state.count);
     };
-  },
-  methods: {
-    change() {
-      this.arr[0] = ++this.count;
-    },
-    add() {
-      this.arr.splice(0, 0, ++this.count);
-    },
-    del() {
-      this.arr.splice(0, 1);
-    },
-    change2() {
-      const _arr = [...this.arr];
-      _arr[0] = ++this.count;
-      this.arr = _arr;
-    },
-  },
-  updated() {
-    console.log("updated");
-  },
-  watch: {
-    arr(val, oval) {
-      console.log("watch", val, oval);
-    },
-    len(val) {
-      console.log("len:", this.len);
-    },
-  },
-  computed: {
-    len() {
-      return this.arr.length;
-    },
+    const del = () => {
+      let a = [...state.arr];
+      a.pop();
+      state.arr = a;
+    };
+    const change = () => {
+      state.arr[0] = ++state.count;
+    };
+    const change2 = () => {
+      const _arr = [...state.arr];
+      _arr[0] = ++state.count;
+      state.arr = _arr;
+    };
+    const change3 = () => {
+      state.arr.splice(1, 1, ++state.count);
+    };
+    const len = computed(() => {
+      return state.arr.length;
+    });
+
+    onUpdated(() => {
+      console.log("updated");
+    });
+
+    watchEffect(() => {
+      console.log(state.arr);
+    });
+
+    watch(
+      () => state.arr,
+      (val) => {
+        console.log(`watch arr:${val}`);
+      }
+    );
+
+    watch(
+      () => Object.values(state.arr),
+      (val) => {
+        console.log(`Object.values watch arr:${val}`);
+      }
+    );
+
+    watch(
+      () => state.arr,
+      (val) => {
+        console.log(`deep watch arr:${val}`);
+      },
+      {
+        deep: true,
+      }
+    );
+    watch(len, (val) => {
+      console.log(`watch len:${val}`);
+    });
+
+    return {
+      ...toRefs(state),
+      len,
+      add,
+      del,
+      change,
+      change2,
+      change3,
+    };
   },
 };
 </script>

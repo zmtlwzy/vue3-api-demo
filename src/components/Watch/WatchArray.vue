@@ -81,6 +81,7 @@ export default {
         deep: true,
       }
     );
+    
     watch(len, (val) => {
       console.log(`watch len:${val}`);
     });

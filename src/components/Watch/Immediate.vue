@@ -22,7 +22,7 @@ export default {
     count: {
       handler(val) {
         this.other = val * 2;
-        debugger;
+        alert(this.count,this.other)
       },
       immediate: true,
     },

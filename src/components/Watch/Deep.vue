@@ -1,7 +1,7 @@
 <template>
   <div class="column-layout">
     <h2>Deep</h2>
-    <span class="ma">{{arr}}</span>
+    <span class="ma">{{ arr }}</span>
     <div
       :style="{ display: 'inline-grid', gridAutoRows: '30px', gridGap: '5px' }"
     >
@@ -24,6 +24,14 @@ export default defineComponent({
       arr: [1, 2, 3],
     };
   },
+  watch: {
+    arr: {
+      handler(val) {
+        console.log(val, "use deep");
+      },
+      deep: true,
+    },
+  },
   methods: {
     changeArrIndex() {
       this.arr[0] = ++this.count;
@@ -40,17 +48,6 @@ export default defineComponent({
       this.arr.sort((a, b) => {
         return Math.random() - 0.5;
       });
-    },
-    updated() {
-      console.log("updated");
-    },
-    watch: {
-      arr: {
-        handler(val) {
-          console.log(val);
-        },
-        deep: true,
-      },
     },
   },
 });

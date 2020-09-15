@@ -13,8 +13,8 @@
 
 <script>
 import { reactive, watchEffect, toRefs, ref, watch } from "vue";
-// 需要对象的某个值改变时就触发watch,最好整个重新赋值，或者使用变通方法Object.values
-// vue3 新api deep:true
+// 需要对象的某个值改变时就触发watch,可以整个重新赋值，或者使用变通方法Object.values
+// 还有vue3 新api deep:true
 
 export default {
   name: "WatchObject",

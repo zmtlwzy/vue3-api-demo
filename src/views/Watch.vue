@@ -4,7 +4,7 @@
     <SingleSourceWithRef />
     <MultipleSource />
     <Flush />
-    <!-- <Deep /> -->
+    <Deep />
     <Immediate />
     <WatchArray />
     <WatchObject />
@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import { ref, watch, defineComponent } from "vue";
+import { defineComponent } from "vue";
 
 import {
   SingleSourceWithGetter,
   SingleSourceWithRef,
   MultipleSource,
   Flush,
-  // Deep,
+  Deep,
   Immediate,
   WatchArray,
   WatchObject,
@@ -33,7 +33,7 @@ export default defineComponent({
     SingleSourceWithRef,
     MultipleSource,
     Flush,
-    // Deep,
+    Deep,
     Immediate,
     WatchArray,
     WatchObject,
@@ -42,12 +42,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  > span {
-    grid-column: 1 / span 2;
-  }
-}
 </style>

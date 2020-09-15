@@ -42,6 +42,15 @@ ul {
   padding:0;
 }
 
-span.ma {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  > span {
+    grid-column: 1 / span 2;
+  }
+}
+
+.ma {
   margin:10px;
 }

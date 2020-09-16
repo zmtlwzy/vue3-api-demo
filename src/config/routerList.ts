@@ -1,12 +1,16 @@
 export interface routeList {
     path: string;
-    component: string;
+    component?: string;
     redirect?: string;
     children?: routeList[];
     suffix?: string;
 }
 
 export const List: routeList[] = [
+    {
+        path:'/',
+        redirect:'/ref'
+    },
     {
         path: '/ref',
         component: 'Ref'
@@ -87,4 +91,8 @@ export const List: routeList[] = [
         path: '/Fragments',
         component: 'Fragments',
     },
+    {
+        path: '/CustomRef',
+        component: 'CustomRef',
+    }
 ]

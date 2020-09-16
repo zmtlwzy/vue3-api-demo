@@ -1,5 +1,5 @@
 import { app } from './app'
-import router from "./router";
+import router from "./router/index.js";
 import store from "./store";
 
 import './global.scss'

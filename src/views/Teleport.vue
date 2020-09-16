@@ -11,16 +11,15 @@
 function* toggleTarget() {
   while (true) {
     yield document.querySelector("footer");
-    yield "#main";
-    yield "#nav";
-    yield document.querySelector("#main");
+    yield "#teleport-container";
+    yield document.querySelector("main");
   }
 }
 const toggle = toggleTarget();
 export default {
   data() {
     return {
-      target: "#main",
+      target: "#teleport-container",
     };
   },
   methods: {

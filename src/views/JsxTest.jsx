@@ -1,15 +1,9 @@
-import {
-  h,
-  defineComponent,
-  reactive,
-  withModifiers,
-  onMounted,
-} from "vue";
+import { h, defineComponent, reactive, withModifiers, onMounted } from "vue";
 
 export const vModelCom1 = {
   name: "vModelCom1",
   props: ["customName", "customNameModifiers", "label"],
-  setup(props,{ emit }) {
+  setup(props, { emit }) {
     const handleChange = (num) => {
       emit("update:customName", Number(num));
     };
@@ -38,7 +32,7 @@ export const vModelCom2 = {
   props: {
     modelValue: [Number, String], // v-model不带参数必须使用modelValue
   },
-  setup(props,{ emit }) {
+  setup(props, { emit }) {
     const handleChange = (num) => {
       emit("update:modelValue", Number(num));
     };
@@ -56,17 +50,17 @@ export const vModelCom2 = {
   },
 };
 
-const customDirective =  {
+const customDirective = {
   mounted(el, binding) {
-      console.log(el)
-      console.log(binding)
+    console.log(el);
+    console.log(binding);
   },
-}
+};
 
 export default defineComponent({
   name: "JsxTest",
   directives: { custom: customDirective },
-  setup(props,{attrs}) {
+  setup(props, { attrs }) {
     const state = reactive({
       a: 600,
       flag: false,
@@ -133,8 +127,10 @@ export default defineComponent({
           v-model={[state.a, "customName", ["capitalize", "other"]]}
           label="label : "
         />
-        {/* 无法将arg赋值 */}
-        <vModelCom2 v-custom={[state.a,'right',['a','b']]} v-model={state.a} />
+        <vModelCom2
+          //  v-custom={[state.a,'right',['a','b']]}
+          v-model={state.a}
+        />
       </>
     );
   },

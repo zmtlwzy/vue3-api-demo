@@ -50,7 +50,7 @@ const A = {
     onActivated(() => {
       console.log("onActivated in LifeCycleA");
       // make error
-      makeError();
+      throw new Error('some error')
     });
     onDeactivated(() => {
       console.log("onDeactivated in LifeCycleA");
@@ -151,7 +151,7 @@ export default {
     });
     onErrorCaptured((err, vm, info) => {
       console.log("onErrorCaptured", err, vm, info);
-      return true;
+      return false;
     });
     onUnmounted(() => {
       console.log("onUnmounted");

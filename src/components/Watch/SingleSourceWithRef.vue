@@ -4,8 +4,8 @@
     <span>{{ count }}</span>
     <span>{{ other }}</span>
     <br />
-    <button @click="add">add</button>
-    <button @click="sub">sub</button>
+    <button class="btn" @click="add">add</button>
+    <button class="btn" @click="sub">sub</button>
   </div>
 </template>
 

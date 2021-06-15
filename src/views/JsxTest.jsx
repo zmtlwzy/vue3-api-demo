@@ -80,7 +80,7 @@ export default defineComponent({
         <div class="column-layout" {...attrs}>
           <span>{state.a}</span>
           <span>{typeof state.a}</span>
-          <button
+          <button class="btn"
             onClick={() => {
               state.a++;
               state.flag || (state.flag = true);

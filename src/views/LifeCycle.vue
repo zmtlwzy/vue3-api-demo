@@ -1,9 +1,9 @@
 <template>
   <div class="column-layout">
     {{ count }}
-    <button @click="add">+</button>
+    <button class="btn" @click="add">+</button>
     <div class="container">
-      <button
+      <button class="btn"
         v-for="tab in tabs"
         :key="tab"
         :class="['tab-button', { active: currentTab === tab }]"
@@ -65,7 +65,7 @@ const A = {
       <div class="column-layout">
         <h3>{name}</h3>
         {this.count}
-        <button onclick={this.add}>+</button>
+        <button class="btn" onclick={this.add}>+</button>
       </div>
     );
   },
@@ -85,7 +85,7 @@ const B = {
       <div class="column-layout">
         <h3>{name}</h3>
         {this.count2}
-        <button onclick={this.add}>+</button>
+        <button class="btn" onclick={this.add}>+</button>
       </div>
     );
   },
@@ -105,7 +105,7 @@ const C = {
       <div class="column-layout">
         <h3>{name}</h3>
         {this.count3}
-        <button onclick={this.add}>+</button>
+        <button class="btn" onclick={this.add}>+</button>
       </div>
     );
   },

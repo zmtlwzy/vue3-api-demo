@@ -1,7 +1,7 @@
 <template>
   <div id="layout">
     <nav id="nav">
-      <h2>API TEST</h2>
+      <h2 class="font-bold text-3xl py-5">API TEST</h2>
       <router-link :to="item.path" v-for="(item, index) in list" :key="index">
         {{ item.component }}
       </router-link>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { List as routerList } from "./router/routerList";
+import { List as routerList } from "@/router/routerList";
 import { version } from "vue";
 export default {
   data() {

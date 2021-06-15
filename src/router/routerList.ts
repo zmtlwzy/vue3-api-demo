@@ -1,12 +1,12 @@
-export interface routeList {
+export interface routesListType {
     path: string;
     component?: string;
-    redirect?: string;
-    children?: routeList[];
+    redirect?: string | undefined;
+    children?: routesListType[];
     suffix?: string;
 }
 
-export const List: routeList[] = [
+export const List: routesListType[] = [
     {
         path:'/',
         redirect:'/ref'

@@ -3,9 +3,9 @@
     <span>shared width provide and inject:{{ count }}</span>
     <span>shared width reactive:{{ num }}--{{ num2 }}--{{ num3 }}</span>
     <span>shared width vuex:{{ x }}--{{ y }}</span>
-    <button @click="add">injectAdd</button>
-    <button @click="reactiveAdd">reactiveAdd</button>
-    <button @click="vuexAdd(count)">vuexAdd</button>
+    <button class="btn" @click="add">injectAdd</button>
+    <button class="btn" @click="reactiveAdd">reactiveAdd</button>
+    <button class="btn" @click="vuexAdd(count)">vuexAdd</button>
     <br />
     <A />
     <B />

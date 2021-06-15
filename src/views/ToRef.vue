@@ -3,7 +3,7 @@
     <p>count: {x:{{ x }} , y:{{ y }}}</p>
     <p>other: {a:{{ a }} , b:{{ b }}}</p>
     <p>r:{{ z }}</p>
-    <button @click="handle">click</button>
+    <button class="btn" @click="handle">click</button>
   </div>
 </template>
 

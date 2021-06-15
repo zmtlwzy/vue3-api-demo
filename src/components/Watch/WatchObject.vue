@@ -6,8 +6,8 @@
     -------------------------
     <span>{{ num }}</span>
     <span>{{ str }}</span>
-    <button @click="add">add</button>
-    <button @click="sub">sub</button>
+    <button class="btn" @click="add">add</button>
+    <button class="btn" @click="sub">sub</button>
   </div>
 </template>
 

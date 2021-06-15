@@ -1,7 +1,7 @@
 <template>
   <div class="column-layout">
     <p>count: {x:{{ count.x }} , y:{{ count.y }}}</p>
-    <button @click="add">+</button>
+    <button class="btn" @click="add">+</button>
   </div>
 </template>
 

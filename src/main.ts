@@ -1,12 +1,31 @@
-import { app } from './app'
-import router from "./router";
-import { setupStore } from '@/store';
+// Register windi
+import 'virtual:windi.css';
 
 import './global.less'
 
-setupStore(app)
-app.use(router)
-import "@/directive/pin"
+import { createApp } from 'vue';
+import App from './App.vue';
 
+import router, { setupRouter } from '@/router';
+import { setupStore } from '@/store';
+import { setupGlobDirectives } from '@/directive';
 
-app.mount("#app");
+async function bootstrap() {
+    const app = createApp(App);
+
+    // Configure store
+    setupStore(app);
+
+    // Configure routing
+    setupRouter(app);
+
+    // Register global directive
+    setupGlobDirectives(app);
+
+    await router.isReady()
+
+    app.mount('#app', true);
+}
+
+void bootstrap();
+

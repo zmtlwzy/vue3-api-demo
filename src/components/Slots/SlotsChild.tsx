@@ -40,7 +40,7 @@ export default defineComponent({
             b: state.b,
           })}
           {state.el instanceof HTMLElement ? `offsetHeight:${state.el?.offsetHeight}px` : ""}
-          <button onClick={handleClick}>click</button>
+          <button class="btn" onClick={handleClick}>click</button>
         </div>
       </>
     );

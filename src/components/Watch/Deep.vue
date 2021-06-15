@@ -5,10 +5,10 @@
     <div
       :style="{ display: 'inline-grid', gridAutoRows: '30px', gridGap: '5px' }"
     >
-      <button @click="changeArrIndex">changeArrIndex</button>
-      <button @click="replaceArr">replaceArr</button>
-      <button @click="changeArrUseSplice">changeArrUseSplice</button>
-      <button @click="changeArrUseSort">changeArrUseSort</button>
+      <button class="btn" @click="changeArrIndex">changeArrIndex</button>
+      <button class="btn" @click="replaceArr">replaceArr</button>
+      <button class="btn" @click="changeArrUseSplice">changeArrUseSplice</button>
+      <button class="btn" @click="changeArrUseSort">changeArrUseSort</button>
     </div>
   </div>
 </template>

@@ -5,9 +5,9 @@
     <span><span class="label">computed2:</span> {{ com2 }}</span>
     <span><span class="label">computed3:</span> {{ com3 }}</span>
     <br />
-    <button @click="add">++</button>
-    <button @click="sub">--</button>
-    <button @click="set">reset</button>
+    <button class="btn" @click="add">++</button>
+    <button class="btn" @click="sub">--</button>
+    <button class="btn" @click="set">reset</button>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style lang="less">
 .label {
   display: inline-block;
   width: 110px;

@@ -1,27 +1,23 @@
-import { createRouter, createWebHashHistory, createMemoryHistory, createWebHistory, RouteRecordRaw } from "vue-router";
-import { Component } from 'vue'
-import { List, routeList } from '../config/routerList'
+import type { RouteRecordRaw } from 'vue-router';
+import type { App } from 'vue';
 
-interface Route {
-  path: string;
-  component: () => Promise<Component> | Component;
-  redirect?: string;
-  children?: Route[];
-}
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from "vue-router";
 
-const getRoutesArr = (Arr: routeList[]) => {
-  const arr = [
-    {
-      path: "/",
-      redirect: Arr[0].path,
-    }
-  ] as Array<Route>;
+import { List, routesListType } from "./routerList";
+
+const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
+  const arr: RouteRecordRaw[] = [];
   for (let item of Arr) {
-    const obj = {} as Route
-    const { path, component, children, suffix } = item;
-    obj.path = path;
-    obj.component = () =>
-      import(/* webpackChunkName: "[request]" */ `../views/${component}${suffix ? suffix : '.vue'}`);
+    const { component, children, suffix, ...other } = item;
+    let obj: RouteRecordRaw
+    obj = {
+      ...other,
+      component: () => import(`../views/${component}${suffix ? suffix : ".vue"}`),
+    }
     if (children) {
       obj.children = getRoutesArr(children);
     }
@@ -30,13 +26,19 @@ const getRoutesArr = (Arr: routeList[]) => {
   return arr;
 };
 
-const routes: Array<RouteRecordRaw> = getRoutesArr(List)
+const routes = getRoutesArr(List);
 
 const router = createRouter({
-  // history: createWebHashHistory(),
-  // history: createMemoryHistory(),
-  history: process.env.NODE_ENV !== 'production' ? createWebHistory() : createWebHashHistory(),
-  routes
+  history:
+    import.meta.env.DEV
+      ? createWebHashHistory()
+      : createWebHistory(),
+  routes,
 });
+
+// config router
+export function setupRouter(app: App<Element>) {
+  app.use(router);
+}
 
 export default router;

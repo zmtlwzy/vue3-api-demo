@@ -1,7 +1,7 @@
 <template>
   <div class="column-layout">
     <span>x : {{ x }}--y : {{ y }}</span>
-    <button @click="add(8,$event)">++</button>
+    <button class="btn" @click="add(8,$event)">++</button>
   </div>
 </template>
 

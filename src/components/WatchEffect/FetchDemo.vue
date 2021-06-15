@@ -8,7 +8,7 @@
           :checked="item.completed"
         />
       </li>
-      <button @click="update">fetch</button>
+      <button class="btn" @click="update">fetch</button>
     </ul>
     <div v-else>loading...</div>
   </div>

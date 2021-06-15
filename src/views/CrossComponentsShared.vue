@@ -15,7 +15,7 @@
 
 <script>
 import { ref, provide, toRefs, computed } from "vue";
-import { useStore } from "vuex";
+import { useAppStore } from "@/store/modules/app";
 
 import { A, B, C } from "../components/CrossComponents";
 import { common, sharedState } from "../components/Common";
@@ -35,6 +35,7 @@ export default {
     const reactiveAdd = () => {
       sharedState.num += 2;
     };
+    const appStore = useAppStore();
     return {
       ...toRefs(sharedState),
       count,
@@ -42,7 +43,9 @@ export default {
       reactiveAdd,
       x: computed(() => store.state.x),
       y: computed(() => store.state.y),
-      vuexAdd: (...val) => store.commit("setValue", val),
+      vuexAdd: (...val) => {
+        appStore.setValue(val)
+      },
     };
   },
 };

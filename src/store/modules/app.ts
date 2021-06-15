@@ -3,19 +3,25 @@ import { defineStore } from 'pinia';
 import { store } from '@/store';
 
 interface AppState {
-  value: number
+  value: any,
+  pageLoading: boolean;
 }
 
 export const useAppStore = defineStore({
   id: 'app',
   state: (): AppState => ({
     value: 1,
+    pageLoading: false,
   }),
   getters: {
-
+    getValue(): any {
+      return this.value;
+    }
   },
   actions: {
-
+    setValue(val: any) {
+      this.value = val;
+    }
   }
 })
 

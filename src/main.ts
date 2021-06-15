@@ -1,10 +1,10 @@
 import { app } from './app'
-import router from "./router/index.js";
-import store from "./store";
+import router from "./router";
+import { setupStore } from '@/store';
 
-import './global.scss'
+import './global.less'
 
-app.use(store)
+setupStore(app)
 app.use(router)
 import "@/directive/pin"
 

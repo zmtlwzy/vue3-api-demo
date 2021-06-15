@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { List as routerList } from "./config/routerList";
+import { List as routerList } from "./router/routerList";
 import { version } from "vue";
 export default {
   data() {
@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 #layout {
   text-align: center;
   color: #2c3e50;

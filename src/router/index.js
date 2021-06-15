@@ -3,18 +3,14 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from "vue-router";
-import { List } from "../config/routerList";
+
+import { List } from "./routerList";
 
 const getRoutesArr = (Arr) => {
   const arr = [];
   for (let item of Arr) {
     const { component, children, suffix, ...obj } = item;
-    obj.component = () =>
-      import(
-        /* webpackChunkName: "[request]" */ `../views/${component}${
-          suffix ? suffix : ".vue"
-        }`
-      );
+    obj.component = () => import(`../views/${component}${suffix ? suffix : ".vue"}`)
     if (children) {
       obj.children = getRoutesArr(children);
     }
@@ -27,7 +23,7 @@ const routes = getRoutesArr(List);
 
 const router = createRouter({
   history:
-    process.env.NODE_ENV !== "production"
+    import.meta.env.MODE !== "production"
       ? createWebHistory()
       : createWebHashHistory(),
   routes,

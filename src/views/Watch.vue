@@ -13,22 +13,9 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+  import { defineComponent } from 'vue';
 
-import {
-  SingleSourceWithGetter,
-  SingleSourceWithRef,
-  MultipleSource,
-  Flush,
-  Deep,
-  Immediate,
-  WatchArray,
-  WatchObject,
-} from "../components/Watch";
-
-export default defineComponent({
-  name: "watch",
-  components: {
+  import {
     SingleSourceWithGetter,
     SingleSourceWithRef,
     MultipleSource,
@@ -37,9 +24,21 @@ export default defineComponent({
     Immediate,
     WatchArray,
     WatchObject,
-  },
-});
+  } from '../components/Watch';
+
+  export default defineComponent({
+    name: 'watch',
+    components: {
+      SingleSourceWithGetter,
+      SingleSourceWithRef,
+      MultipleSource,
+      Flush,
+      Deep,
+      Immediate,
+      WatchArray,
+      WatchObject,
+    },
+  });
 </script>
 
-<style lang="less">
-</style>
+<style lang="less"></style>

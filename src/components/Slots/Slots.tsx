@@ -1,10 +1,10 @@
-import { defineComponent } from "vue";
-import Child from "./SlotsChild";
-import { theNum } from "./interface";
+import { defineComponent } from 'vue';
+import Child from './SlotsChild';
+import { theNum } from './interface';
 
 export default defineComponent({
   components: {
-    Child
+    Child,
   },
   setup() {
     const slots = {
@@ -15,8 +15,8 @@ export default defineComponent({
             father space -- child-state:{a},{b}
           </span>
         );
-      }
+      },
     };
     return () => <Child v-slots={slots} />;
-  }
+  },
 });

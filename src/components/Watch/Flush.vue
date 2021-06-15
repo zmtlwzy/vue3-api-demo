@@ -10,34 +10,34 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "watchFlush",
-  data() {
-    return {
-      count: 1,
-      other: 2
-    };
-  },
-  watch: {
-    count: {
-      handler(val) {
-        this.other = val * 2;
-        debugger
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    name: 'watchFlush',
+    data() {
+      return {
+        count: 1,
+        other: 2,
+      };
+    },
+    watch: {
+      count: {
+        handler(val) {
+          this.other = val * 2;
+          debugger;
+        },
+        flush: 'post',
+        // post: 默认值 dom更新后运行
+        // sync: 同步运行
+        // pre : 提前运行
       },
-      flush: "post",
-      // post: 默认值 dom更新后运行
-      // sync: 同步运行
-      // pre : 提前运行
     },
-  },
-  methods: {
-    add() {
-      this.count++;
+    methods: {
+      add() {
+        this.count++;
+      },
+      sub() {
+        this.count--;
+      },
     },
-    sub() {
-      this.count--;
-    },
-  },
-});
+  });
 </script>

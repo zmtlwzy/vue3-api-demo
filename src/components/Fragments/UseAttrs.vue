@@ -5,11 +5,11 @@
 </template>
 
 <script>
-export default {
-  mounted() {
-    console.log(this.$attrs);
-  },
-};
+  export default {
+    mounted() {
+      console.log(this.$attrs);
+    },
+  };
 </script>
 
 <style></style>

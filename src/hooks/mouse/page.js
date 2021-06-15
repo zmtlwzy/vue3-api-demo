@@ -1,21 +1,21 @@
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue';
 
-export default function() {
-  const x = ref(0)
-  const y = ref(0)
+export default function () {
+  const x = ref(0);
+  const y = ref(0);
 
   function update(e) {
-    x.value = e.pageX
-    y.value = e.pageY
+    x.value = e.pageX;
+    y.value = e.pageY;
   }
 
   onMounted(() => {
-    window.addEventListener('mousemove', update)
-  })
+    window.addEventListener('mousemove', update);
+  });
 
   onUnmounted(() => {
-    window.removeEventListener('mousemove', update)
-  })
+    window.removeEventListener('mousemove', update);
+  });
 
-  return { x, y }
+  return { x, y };
 }

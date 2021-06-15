@@ -11,24 +11,21 @@
 </template>
 
 <script>
-import {
-  useMousePosition,
-  useScreenPosition,
-  useHalfPosition,
-} from "../utils/mouse";
-export default {
-  setup() {
-    const { x, y } = useMousePosition();
-    const { halfX, px } = useHalfPosition(x, y);
-    return {
-      x,
-      y,
-      halfX,
-      px,
-      ...useScreenPosition(),
-    };
-  },
-};
+  import { useMousePosition, useScreenPosition, useHalfPosition } from '@/hooks/mouse';
+
+  export default {
+    setup() {
+      const { x, y } = useMousePosition();
+      const { halfX, px } = useHalfPosition(x, y);
+      return {
+        x,
+        y,
+        halfX,
+        px,
+        ...useScreenPosition(),
+      };
+    },
+  };
 </script>
 
 <style></style>

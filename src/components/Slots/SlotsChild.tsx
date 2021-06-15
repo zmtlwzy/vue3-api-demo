@@ -1,5 +1,5 @@
-import { reactive, defineComponent, watchEffect } from "vue";
-import { all } from "./interface";
+import { reactive, defineComponent, watchEffect } from 'vue';
+import { all } from './interface';
 
 export default defineComponent({
   setup(props, { slots }) {
@@ -9,13 +9,7 @@ export default defineComponent({
       el: null,
     });
 
-    const tsx_default = () => (
-      <span 
-        style={{ margin: "0 5px" }}
-      >
-        default
-      </span>
-    );
+    const tsx_default = () => <span style={{ margin: '0 5px' }}>default</span>;
     const handleClick = () => {
       state.a *= 2;
       state.b += 2;
@@ -28,9 +22,9 @@ export default defineComponent({
             state.el = el;
           }}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
           state.a:-{state.a}
@@ -39,8 +33,10 @@ export default defineComponent({
             a: state.a,
             b: state.b,
           })}
-          {state.el instanceof HTMLElement ? `offsetHeight:${state.el?.offsetHeight}px` : ""}
-          <button class="btn" onClick={handleClick}>click</button>
+          {state.el instanceof HTMLElement ? `offsetHeight:${state.el?.offsetHeight}px` : ''}
+          <button class="btn" onClick={handleClick}>
+            click
+          </button>
         </div>
       </>
     );

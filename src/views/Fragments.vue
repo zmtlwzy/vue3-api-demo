@@ -10,26 +10,22 @@
       id="parent-tsx-id"
       :style="{ padding: '15px', backgroundColor: 'red' }"
     />
-    <FInherit
-      class="parent-inherit-class"
-      id="parent-inherit-id"
-      :style="{ color:'yellow' }"
-    />
+    <FInherit class="parent-inherit-class" id="parent-inherit-id" :style="{ color: 'yellow' }" />
   </div>
 </template>
 
 <script>
-import Ftsx from "@/components/Fragments/UseAttrs";
-import FInherit from "@/components/Fragments/InheritAttrs";
-import F from "@/components/Fragments/UseAttrs.vue";
-export default {
-  name: "Fragments",
-  components: {
-    F,
-    Ftsx,
-    FInherit
-  },
-};
+  import Ftsx from '@/components/Fragments/UseAttrs';
+  import FInherit from '@/components/Fragments/InheritAttrs';
+  import F from '@/components/Fragments/UseAttrs.vue';
+  export default {
+    name: 'Fragments',
+    components: {
+      F,
+      Ftsx,
+      FInherit,
+    },
+  };
 </script>
 
 <style></style>

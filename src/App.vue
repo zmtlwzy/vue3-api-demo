@@ -1,9 +1,17 @@
 <template>
-  <div id="layout">
-    <nav id="nav">
-      <h2 class="font-bold text-3xl py-5">API TEST</h2>
-      <router-link :to="item.path" v-for="(item, index) in list" :key="index">
-        {{ item.component }}
+  <div id="layout" class="text-hex-2c3e50 text-center flex min-h-screen">
+    <nav id="nav" class="font-bold text-md flex border-r border-gray-500 flex-col">
+      <h2 class="font-bold text-3xl py-5 border-b border-black">API TEST</h2>
+      <router-link
+        :to="item.path"
+        v-for="(item, index) in list"
+        :key="index"
+        custom
+        v-slot="{ navigate, href, isActive }"
+      >
+        <a :href="href" @click="navigate" w:hover="bg-gray-200" class="px-3" :class="[isActive ? 'bg-primary' : '']">
+          {{ item.component }}
+        </a>
       </router-link>
     </nav>
     <div class="content">
@@ -12,66 +20,45 @@
         <router-view />
       </main>
       <footer>
-        <h4 :style="{ textAlign: 'center' }">
-          vue version: {{ version }} (footer)
-        </h4>
+        <h4 :style="{ textAlign: 'center' }">vue version: {{ version }} (footer)</h4>
       </footer>
     </div>
   </div>
 </template>
 
 <script>
-import { List as routerList } from "@/router/routerList";
-import { version } from "vue";
-export default {
-  data() {
-    return {
-      version,
-    };
-  },
-  computed: {
-    list() {
-      return routerList.filter((item) => {
-        return !Object.keys(item).includes("redirect");
-      });
+  import { List as routerList } from '@/router/routerList';
+  import { version } from 'vue';
+  export default {
+    data() {
+      return {
+        version,
+      };
     },
-  },
-};
+    computed: {
+      list() {
+        return routerList.filter((item) => {
+          return !Object.keys(item).includes('redirect');
+        });
+      },
+    },
+  };
 </script>
 
 <style lang="less" scoped>
-#layout {
-  text-align: center;
-  color: #2c3e50;
-  display: flex;
-  min-height: 100vh;
-
-  #nav {
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      padding: 5px;
-
-      &.router-link-exact-active {
-        color: #42b983;
+  #layout {
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      main {
+        flex: 1;
+        padding: 2rem;
+      }
+      footer {
+        flex-basis: 3rem;
+        background-color: #ccc;
       }
     }
   }
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    main {
-      flex: 1;
-      padding:2rem;
-    }
-    footer {
-      flex-basis: 3rem;
-      background-color: #ccc;
-    }
-  }
-}
 </style>

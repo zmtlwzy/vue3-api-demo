@@ -12,50 +12,50 @@
 </template>
 
 <script>
-import { reactive, watchEffect, toRefs, ref, watch } from "vue";
-// 需要对象的某个值改变时就触发watch,可以整个重新赋值，或者使用变通方法Object.values
-// 还有vue3 新api deep:true
+  import { reactive, watchEffect, toRefs, ref, watch } from 'vue';
+  // 需要对象的某个值改变时就触发watch,可以整个重新赋值，或者使用变通方法Object.values
+  // 还有vue3 新api deep:true
 
-export default {
-  name: "WatchObject",
-  setup() {
-    const state = reactive({
-      count: 0,
-      name: "name",
-    });
-    const watchObj = reactive({
-      num: 100,
-      str: "age",
-    });
-    const add = () => {
-      watchObj.num++;
-    };
-    const sub = () => {
-      watchObj.num--;
-    };
-    watchEffect(() => {
-      console.log(Object.values(watchObj));
-      console.log(watchObj);
-    });
-    watch(
-      () => Object.entries(watchObj),
-      (val, oldVal) => {
-        console.log(val, oldVal);
-      }
-    );
-    watch(
-      watchObj,
-      (val) => {
-        console.log('watch use depp',val);
-      },
-      { deep: true }
-    );
-    return {
-      ...toRefs(state),
-      ...toRefs(watchObj),
-      add,
-      sub,
-    };
-  },
-};
+  export default {
+    name: 'WatchObject',
+    setup() {
+      const state = reactive({
+        count: 0,
+        name: 'name',
+      });
+      const watchObj = reactive({
+        num: 100,
+        str: 'age',
+      });
+      const add = () => {
+        watchObj.num++;
+      };
+      const sub = () => {
+        watchObj.num--;
+      };
+      watchEffect(() => {
+        console.log(Object.values(watchObj));
+        console.log(watchObj);
+      });
+      watch(
+        () => Object.entries(watchObj),
+        (val, oldVal) => {
+          console.log(val, oldVal);
+        }
+      );
+      watch(
+        watchObj,
+        (val) => {
+          console.log('watch use depp', val);
+        },
+        { deep: true }
+      );
+      return {
+        ...toRefs(state),
+        ...toRefs(watchObj),
+        add,
+        sub,
+      };
+    },
+  };
 </script>

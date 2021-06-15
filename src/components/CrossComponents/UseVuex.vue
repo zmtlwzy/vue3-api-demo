@@ -1,25 +1,26 @@
 <template>
   <div class="column-layout">
     <span>x : {{ x }}--y : {{ y }}</span>
-    <button class="btn" @click="add(8,$event)">++</button>
+    <button class="btn" @click="add(8, $event)">++</button>
   </div>
 </template>
 
 <script>
-import { toRefs, computed } from "vue";
+  import { toRefs, computed } from 'vue';
 
-import { useStore } from "vuex";
+  import { useAppStore } from '@/store/modules/app';
 
-export default {
-  setup() {
-    const store = useStore();
-    return {
-      x: computed(() => store.state.x),
-      y: computed(() => store.state.y),
-      add: (...params) => store.commit("setValue",params),
-    };
-  },
-};
+  export default {
+    setup() {
+      const appStore = useAppStore();
+
+      return {
+        x: computed(() => appStore.getX),
+        y: computed(() => appStore.getY),
+        add: (...params) => appStore.setValue(params),
+      };
+    },
+  };
 </script>
 
 <style></style>

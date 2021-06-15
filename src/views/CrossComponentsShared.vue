@@ -14,41 +14,43 @@
 </template>
 
 <script>
-import { ref, provide, toRefs, computed } from "vue";
-import { useAppStore } from "@/store/modules/app";
+  import { ref, provide, toRefs, computed } from 'vue';
+  import { useAppStore } from '@/store/modules/app';
 
-import { A, B, C } from "../components/CrossComponents";
-import { common, sharedState } from "../components/Common";
-import { CountSymbol_2 } from "../components/CrossComponents/sharedKey";
+  import { A, B, C } from '@/components/CrossComponents';
+  import { common, sharedState } from '@/components/Common';
+  import { CountSymbol_2 } from '@/components/CrossComponents/sharedKey';
 
-export default {
-  name: "CrossComponentsShared",
-  components: {
-    A,
-    B,
-    C,
-  },
-  setup() {
-    const { count, add } = common();
-    const store = useStore();
-    provide(CountSymbol_2, count);
-    const reactiveAdd = () => {
-      sharedState.num += 2;
-    };
-    const appStore = useAppStore();
-    return {
-      ...toRefs(sharedState),
-      count,
-      add,
-      reactiveAdd,
-      x: computed(() => store.state.x),
-      y: computed(() => store.state.y),
-      vuexAdd: (...val) => {
-        appStore.setValue(val)
-      },
-    };
-  },
-};
+  export default {
+    name: 'CrossComponentsShared',
+    components: {
+      A,
+      B,
+      C,
+    },
+    setup() {
+      const { count, add } = common();
+      const appStore = useAppStore();
+
+      provide(CountSymbol_2, count);
+
+      const reactiveAdd = () => {
+        sharedState.num += 2;
+      };
+
+      return {
+        ...toRefs(sharedState),
+        count,
+        add,
+        reactiveAdd,
+        x: computed(() => appStore.getX),
+        y: computed(() => appStore.getY),
+        vuexAdd: (...val) => {
+          appStore.setValue(val);
+        },
+      };
+    },
+  };
 </script>
 
 <style></style>

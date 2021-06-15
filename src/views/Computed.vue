@@ -12,46 +12,46 @@
 </template>
 
 <script>
-import { defineComponent, toRefs, reactive, computed } from "vue";
-export default defineComponent({
-  name: "computed",
-  setup() {
-    const state = reactive({
-      count: 0,
-      com: computed(() => state.count + 1),
-    });
-    const com2 = computed(() => state.com + 1);
-    const com3 = computed({
-      get: () => com2.value + 1,
-      set: (val) => {
-        state.count = val;
-      },
-    });
-    const add = () => {
-      state.count++;
-    };
-    const sub = () => {
-      state.count--;
-    };
-    const set = () => {
-      com3.value = 0;
-    };
+  import { defineComponent, toRefs, reactive, computed } from 'vue';
+  export default defineComponent({
+    name: 'computed',
+    setup() {
+      const state = reactive({
+        count: 0,
+        com: computed(() => state.count + 1),
+      });
+      const com2 = computed(() => state.com + 1);
+      const com3 = computed({
+        get: () => com2.value + 1,
+        set: (val) => {
+          state.count = val;
+        },
+      });
+      const add = () => {
+        state.count++;
+      };
+      const sub = () => {
+        state.count--;
+      };
+      const set = () => {
+        com3.value = 0;
+      };
 
-    return {
-      ...toRefs(state),
-      com2,
-      com3,
-      add,
-      sub,
-      set,
-    };
-  },
-});
+      return {
+        ...toRefs(state),
+        com2,
+        com3,
+        add,
+        sub,
+        set,
+      };
+    },
+  });
 </script>
 
 <style lang="less">
-.label {
-  display: inline-block;
-  width: 110px;
-}
+  .label {
+    display: inline-block;
+    width: 110px;
+  }
 </style>

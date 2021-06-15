@@ -10,30 +10,30 @@
 </template>
 
 <script>
-export default {
-  name: "watchOptionsImmediate",
-  data() {
-    return {
-      count: 1,
-      other: 2,
-    };
-  },
-  watch: {
-    count: {
-      handler(val) {
-        this.other = val * 2;
-        alert(this.count,this.other)
+  export default {
+    name: 'watchOptionsImmediate',
+    data() {
+      return {
+        count: 1,
+        other: 2,
+      };
+    },
+    watch: {
+      count: {
+        handler(val) {
+          this.other = val * 2;
+          alert(this.count, this.other);
+        },
+        immediate: true,
       },
-      immediate: true,
     },
-  },
-  methods: {
-    add() {
-      this.count++;
+    methods: {
+      add() {
+        this.count++;
+      },
+      sub() {
+        this.count--;
+      },
     },
-    sub() {
-      this.count--;
-    },
-  },
-};
+  };
 </script>

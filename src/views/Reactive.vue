@@ -6,23 +6,23 @@
 </template>
 
 <script>
-import { reactive } from "vue";
-export default {
-  setup() {
-    const count = reactive({
-      x: 0,
-      y: 0,
-    });
-    const add = () => {
-      count.x++;
-      count.y += 2;
-    };
-    return {
-      add,
-      count,
-    };
-  },
-};
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const count = reactive({
+        x: 0,
+        y: 0,
+      });
+      const add = () => {
+        count.x++;
+        count.y += 2;
+      };
+      return {
+        add,
+        count,
+      };
+    },
+  };
 </script>
 
 <style></style>

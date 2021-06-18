@@ -15,8 +15,11 @@
 
 <script setup lang="ts">
   ref: color = {
-    font: 'red',
+    font: null,
     input: '#cccccc',
+  } as {
+    font: null | string;
+    input: string;
   };
 
   const handleClick = () => {
@@ -28,9 +31,10 @@
 
 <style lang="less">
   .theme-provider {
-    --color-primary: v-bind(color.font);
+    --color-primary: v-bind('color.font || "orange"');
     p {
       color: var(--color-primary);
+      box-shadow: 0.2rem 0.2rem 0.5rem v-bind('color.input');
     }
   }
 </style>

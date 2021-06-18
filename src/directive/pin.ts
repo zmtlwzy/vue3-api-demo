@@ -21,4 +21,5 @@ const pinDirective: Directive = {
 export function setupPinDirective(app: App) {
     app.directive('pin', pinDirective)
 }
+
 export default setupPinDirective;

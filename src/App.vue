@@ -1,5 +1,5 @@
 <template>
-  <div id="layout" class="text-hex-2c3e50 text-center flex min-h-screen">
+  <div id="layout" class="text-black text-center flex min-h-screen">
     <nav id="nav" class="font-bold text-md flex border-r border-gray-500 flex-col">
       <h2 class="font-bold text-3xl py-5 border-b border-black">API TEST</h2>
       <router-link
@@ -9,7 +9,13 @@
         custom
         v-slot="{ navigate, href, isActive }"
       >
-        <a :href="href" @click="navigate" w:hover="bg-gray-200" class="px-3" :class="[isActive ? 'bg-primary' : '']">
+        <a
+          :href="href"
+          @click="navigate"
+          w:hover="bg-gray-200"
+          class="px-3"
+          :class="[isActive ? '!bg-primary' : '']"
+        >
           {{ item.component }}
         </a>
       </router-link>

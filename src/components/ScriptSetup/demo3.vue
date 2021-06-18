@@ -1,0 +1,36 @@
+<template>
+  <div class="theme-provider">
+    <p class="px-2 py-1 mb-2 bg-gray-200">{{ color }}</p>
+    <input type="color" class="mb-2" v-model="color.input" />
+    <button class="btn" @click="handleClick">changeColor</button>
+  </div>
+</template>
+
+<script lang="ts">
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    name: 'ScriptSetup_demo3',
+  });
+</script>
+
+<script setup lang="ts">
+  ref: color = {
+    font: 'red',
+    input: '#cccccc',
+  };
+
+  const handleClick = () => {
+    color.font = color.font === 'red' ? 'yellow' : color.font === 'yellow' ? 'red' : 'red';
+    color.input =
+      color.input === '#cccccc' ? '#666ddd' : color.input === '#666ddd' ? '#cccccc' : '#cccccc';
+  };
+</script>
+
+<style lang="less">
+  .theme-provider {
+    --color-primary: v-bind(color.font);
+    p {
+      color: var(--color-primary);
+    }
+  }
+</style>

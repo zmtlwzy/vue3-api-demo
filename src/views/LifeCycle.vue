@@ -7,26 +7,25 @@
         class="btn"
         v-for="tab in tabs"
         :key="tab"
-        :class="['tab-button', { active: currentTab === tab }]"
+        :class="{ 'active': currentTab === tab }"
         @click="currentTab = tab"
       >
         {{ tab }}
       </button>
 
       <keep-alive>
-        <component :is="currentTabComponent" class="tab"></component>
+        <component :is="currentTab"></component>
       </keep-alive>
     </div>
     open console
   </div>
 </template>
 
-<script>
+<script lang="tsx">
   import {
     onBeforeMount,
-    reactive,
-    ref,
     toRefs,
+    reactive,
     onMounted,
     onBeforeUpdate,
     onUpdated,
@@ -36,14 +35,13 @@
     onUnmounted,
     onRenderTracked,
     onRenderTriggered,
-    computed,
-    watchEffect,
     onErrorCaptured,
+    defineComponent,
   } from 'vue';
 
   import { common } from '../components/Common';
 
-  const A = {
+  const A = defineComponent({
     name: 'lifeCycleItemA',
     setup() {
       const { count, add } = common();
@@ -66,18 +64,27 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count}
-          <button class="btn" onclick={this.add}>
+          <button class="btn" onClick={this.add}>
             +
           </button>
         </div>
       );
     },
-  };
+  });
 
-  const B = {
+  const B = defineComponent({
     name: 'lifeCycleItemB',
     setup() {
       const { count2, add } = common();
+
+      onActivated(() => {
+        console.log('onActivated in LifeCycleA');
+        // make error
+        throw new Error('some error');
+      });
+      onDeactivated(() => {
+        console.log('onDeactivated in LifeCycleA');
+      });
       return {
         count2,
         add,
@@ -88,18 +95,27 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count2}
-          <button class="btn" onclick={this.add}>
+          <button class="btn" onClick={this.add}>
             +
           </button>
         </div>
       );
     },
-  };
+  });
 
-  const C = {
+  const C = defineComponent({
     name: 'lifeCycleItemC',
     setup() {
       const { count3, add } = common();
+
+      onActivated(() => {
+        console.log('onActivated in LifeCycleA');
+        // make error
+        throw new Error('some error');
+      });
+      onDeactivated(() => {
+        console.log('onDeactivated in LifeCycleA');
+      });
       return {
         count3,
         add,
@@ -110,15 +126,20 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count3}
-          <button class="btn" onclick={this.add}>
+          <button class="btn" onClick={this.add}>
             +
           </button>
         </div>
       );
     },
-  };
+  });
 
-  export default {
+  interface State {
+    tabs: string[];
+    currentTab: string;
+  }
+
+  export default defineComponent({
     name: 'LifeCycle',
     components: {
       A,
@@ -132,10 +153,9 @@
       console.log('created');
     },
     setup() {
-      const state = reactive({
+      const state = reactive<State>({
         tabs: ['A', 'B', 'C'],
         currentTab: 'A',
-        currentTabComponent: computed(() => state.currentTab.toLowerCase()),
       });
 
       const { count, add } = common();
@@ -173,31 +193,38 @@
       return {
         ...toRefs(state),
         count,
-        add,
-      };
+        add
+      }
+
+      // return () => (
+      //   <div class="column-layout">
+      //     {count}
+      //     <button class="btn" onClick={add}>
+      //       +
+      //     </button>
+      //     <div class="container">
+      //       {state.tabs.map((item, index) => (
+      //         <button
+      //           class="btn"
+      //           key={index}
+      //           class={state.currentTab === item ? 'active' : ''}
+      //           onClick={() => {
+      //             state.currentTab = item;
+      //           }}
+      //         >
+      //           {item}
+      //         </button>
+      //       ))}
+
+      //       <keep-alive>
+      //         <component is='a'>666</component>
+      //       </keep-alive>
+      //     </div>
+      //     open console
+      //   </div>
+      // );
     },
-  };
+  });
 </script>
 
-<style>
-  .tab-button {
-    padding: 6px 10px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    background: #f0f0f0;
-    margin-bottom: -1px;
-    margin-right: -1px;
-  }
-  .tab-button:hover {
-    background: #e0e0e0;
-  }
-  .tab-button.active {
-    background: #e0e0e0;
-  }
-  .demo-tab {
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-</style>
+<style></style>

@@ -1,9 +1,10 @@
-export interface routesListType {
-    path: string;
+import type { RouteRecordRaw } from 'vue-router';
+
+type same = Pick<RouteRecordRaw,'path' | 'redirect'>
+export interface routesListType extends same {
     component?: string;
-    redirect?: string | undefined;
-    children?: routesListType[];
-    suffix?: string;
+    children?: routesListType[] | undefined;
+    suffix?: string | undefined;
 }
 
 export const List: routesListType[] = [
@@ -94,5 +95,9 @@ export const List: routesListType[] = [
     {
         path: '/CustomRef',
         component: 'CustomRef',
+    },
+    {
+        path: '/ScriptSetup',
+        component: 'ScriptSetup',
     }
 ]

@@ -10,12 +10,16 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        primary: '#42b983',
+        primary: {
+          DEFAULT:'#42b983',
+          'lighten': '#65c8a0',
+          'darken':'#379c6e'
+        },
       },
     },
   },
   shortcuts: {
-    'btn': 'px-2 border bg-primary rounded-md hover:opacity-80',
+    'btn': 'px-2 border bg-primary rounded-md active:bg-primary-darken',
     'column-layout':'flex flex-col items-center mb-5 p-3 border border-dashed border-gray-300'
   },
   variants: {},

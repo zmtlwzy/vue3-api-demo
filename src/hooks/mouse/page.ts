@@ -4,7 +4,7 @@ export default function () {
   const x = ref(0);
   const y = ref(0);
 
-  function update(e) {
+  function update(e: MouseEvent) {
     x.value = e.pageX;
     y.value = e.pageY;
   }

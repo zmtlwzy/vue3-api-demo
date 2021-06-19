@@ -5,12 +5,14 @@ import {
   withDirectives,
   CSSProperties,
   onMounted,
+  PropType,
+  computed,
 } from 'vue';
 
-export const vModelCom1 = {
+export const vModelCom1 = defineComponent({
   name: 'vModelCom1',
   props: ['customName', 'customNameModifiers', 'label'],
-  setup(props: any, { emit }: any) {
+  setup(props, { emit }) {
     const handleChange = (num: number | string) => {
       emit('update:customName', Number(num));
     };
@@ -25,45 +27,47 @@ export const vModelCom1 = {
             <input
               type="text"
               value={props.customName}
-              onInput={(e: any) => handleChange(e?.target.value)}
+              onInput={(e: ChangeEvent) => handleChange(e.target.value)}
             />
           </label>
         </div>
       </>
     );
   },
-};
+});
 
-export const vModelCom2 = {
+export const vModelCom2 = defineComponent({
   name: 'vModelCom2',
   props: {
-    modelValue: [Number, String], // v-model不带参数必须使用modelValue
+    modelValue: {
+      type: [String, Number] as PropType<string | number>,
+    }, // v-model不带参数必须使用modelValue
   },
-  setup(props: any, { emit }: any) {
+  setup(props, { emit }) {
     const handleChange = (num: string | number) => {
       emit('update:modelValue', Number(num));
     };
     return (): JSX.Element => (
-      <>
-        <div class="column-layout">
-          <input
-            type="number"
-            value={props.modelValue}
-            onInput={(e: any) => handleChange(e?.target.value)}
-          />
-        </div>
-      </>
+      <div>
+        <input
+          type="number"
+          value={props.modelValue}
+          onInput={(e: ChangeEvent) => handleChange(e.target.value)}
+        />
+      </div>
     );
   },
-};
+});
 
 export default defineComponent({
   name: 'TsxTest',
-  setup(props, { attrs }) {
+  setup(_, { attrs }) {
     const state = reactive({
       a: 600,
       flag: false,
     });
+
+    const direction = computed(() => (state.a > 600 ? 'left' : 'right'));
     const style: CSSProperties = {
       padding: '20px',
       border: '1px dashed',
@@ -115,7 +119,7 @@ export default defineComponent({
           </div>
         </div>
         <vModelCom1 v-model={[state.a, 'customName', ['capitalize', 'other']]} label="label : " />
-        <vModelCom2 v-pin={state.a} v-model={state.a} />
+        <vModelCom2 v-pin={[state.a, direction.value, ['a', 'b']]} v-model={state.a} />
       </>
     );
   },

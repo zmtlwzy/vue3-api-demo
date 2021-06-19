@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, onMounted, getCurrentInstance } from 'vue';
+  import { defineComponent, ref, onMounted, getCurrentInstance, computed, reactive } from 'vue';
   export default defineComponent({
     name: 'ScriptSetup_demo1',
   });

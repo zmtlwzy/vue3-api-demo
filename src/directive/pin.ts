@@ -1,15 +1,17 @@
 import type { App, Directive, DirectiveBinding } from 'vue';
 
 const mounted = (el: HTMLElement, binding: DirectiveBinding<any>) => {
-    console.log(el)
-    console.log(binding)
+    console.log(el, 'el')
+    console.log(binding, 'binding')
     el.style.position = 'fixed'
-    const s = binding.arg || 'top'
+    const s = binding.arg || 'left'
     el.style[s] = binding.value + 'px'
 };
 
 const updated = (el: HTMLElement, binding: DirectiveBinding<any>) => {
-    const s = binding.arg || 'top'
+    const s = binding.arg || 'left'
+    el.style.left = ''
+    el.style.right = ''
     el.style[s] = binding.value + 'px'
 };
 

@@ -14,9 +14,9 @@
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap"
   },
   "dependencies": {
+    "pinia": "2.0.0-beta.2",
     "vue": "^3.1.1",
-    "vue-router": "^4.0.8",
-    "pinia": "2.0.0-beta.2"
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",

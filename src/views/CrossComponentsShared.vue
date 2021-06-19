@@ -18,7 +18,7 @@
   import { useAppStore } from '@/store/modules/app';
 
   import { A, B, C } from '@/components/CrossComponents';
-  import { common, sharedState } from '@/components/Common';
+  import { common, sharedState } from '@/hooks/Common';
   import { CountSymbol_2 } from '@/components/CrossComponents/sharedKey';
 
   export default {

@@ -23,10 +23,11 @@
     <div class="content">
       <div id="teleport-container"></div>
       <main>
-        <router-view />
+        <router-view :key="refreshId" />
       </main>
-      <footer>
+      <footer class="column-layout mb-0">
         <h4 :style="{ textAlign: 'center' }">vue version: {{ version }} (footer)</h4>
+        <button class="mt-3 btn" @click="refreshId++">refresh</button>
       </footer>
     </div>
   </div>
@@ -39,6 +40,7 @@
     data() {
       return {
         version,
+        refreshId: 0,
       };
     },
     computed: {

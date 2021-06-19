@@ -21,6 +21,6 @@ export const common = function () {
 
 export const sharedState = reactive({
     num: 0,
-    num2: computed(() => sharedState.num + 1),
+    num2: computed(():number => sharedState.num + 1),
     num3: 2,
 })

@@ -11,14 +11,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import { defineComponent, toRefs, reactive, computed } from 'vue';
   export default defineComponent({
     name: 'computed',
     setup() {
       const state = reactive({
         count: 0,
-        com: computed(() => state.count + 1),
+        com: computed(():number => state.count + 1),
       });
       const com2 = computed(() => state.com + 1);
       const com3 = computed({

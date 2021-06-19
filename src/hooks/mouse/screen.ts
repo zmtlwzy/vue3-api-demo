@@ -4,7 +4,7 @@ export default function () {
   const X = ref(0);
   const Y = ref(0);
 
-  function update(e) {
+  function update(e: MouseEvent) {
     X.value = e.screenX;
     Y.value = e.screenY;
   }

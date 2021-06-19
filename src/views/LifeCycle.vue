@@ -1,30 +1,7 @@
-<template>
-  <div class="column-layout">
-    {{ count }}
-    <button class="btn" @click="add">+</button>
-    <div class="container">
-      <button
-        class="btn"
-        v-for="tab in tabs"
-        :key="tab"
-        :class="{ 'active': currentTab === tab }"
-        @click="currentTab = tab"
-      >
-        {{ tab }}
-      </button>
-
-      <keep-alive>
-        <component :is="currentTab"></component>
-      </keep-alive>
-    </div>
-    open console
-  </div>
-</template>
-
 <script lang="tsx">
   import {
+    h,
     onBeforeMount,
-    toRefs,
     reactive,
     onMounted,
     onBeforeUpdate,
@@ -37,9 +14,11 @@
     onRenderTriggered,
     onErrorCaptured,
     defineComponent,
+    resolveComponent,
+    KeepAlive,
   } from 'vue';
 
-  import { common } from '../components/Common';
+  import { common } from '@/hooks/Common';
 
   const A = defineComponent({
     name: 'lifeCycleItemA',
@@ -134,17 +113,13 @@
     },
   });
 
-  interface State {
-    tabs: string[];
-    currentTab: string;
-  }
-
   export default defineComponent({
     name: 'LifeCycle',
     components: {
       A,
       B,
       C,
+      KeepAlive,
     },
     beforeCreate() {
       console.log('beforeCreate');
@@ -153,7 +128,7 @@
       console.log('created');
     },
     setup() {
-      const state = reactive<State>({
+      const state = reactive({
         tabs: ['A', 'B', 'C'],
         currentTab: 'A',
       });
@@ -190,39 +165,32 @@
         console.log('onRenderTriggered', key, target, type);
       });
 
-      return {
-        ...toRefs(state),
-        count,
-        add
-      }
-
-      // return () => (
-      //   <div class="column-layout">
-      //     {count}
-      //     <button class="btn" onClick={add}>
-      //       +
-      //     </button>
-      //     <div class="container">
-      //       {state.tabs.map((item, index) => (
-      //         <button
-      //           class="btn"
-      //           key={index}
-      //           class={state.currentTab === item ? 'active' : ''}
-      //           onClick={() => {
-      //             state.currentTab = item;
-      //           }}
-      //         >
-      //           {item}
-      //         </button>
-      //       ))}
-
-      //       <keep-alive>
-      //         <component is='a'>666</component>
-      //       </keep-alive>
-      //     </div>
-      //     open console
-      //   </div>
-      // );
+      return () => {
+        return (
+          <div class="column-layout">
+            {count.value}
+            <button class="btn" onClick={add}>
+              +
+            </button>
+            <div class="container">
+              {state.tabs.map((item, index) => (
+                <button
+                  class="btn"
+                  key={index}
+                  class={state.currentTab === item ? 'active' : ''}
+                  onClick={() => {
+                    state.currentTab = item;
+                  }}
+                >
+                  {item}
+                </button>
+              ))}
+              <keep-alive>{h(resolveComponent(state.currentTab))}</keep-alive>
+            </div>
+            open console
+          </div>
+        );
+      };
     },
   });
 </script>

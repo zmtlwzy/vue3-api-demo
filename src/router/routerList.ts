@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-type same = Pick<RouteRecordRaw,'path' | 'redirect'>
+type same = Pick<RouteRecordRaw, 'path' | 'redirect'>
 export interface routesListType extends same {
     component?: string;
     children?: routesListType[] | undefined;
@@ -9,8 +9,8 @@ export interface routesListType extends same {
 
 export const List: routesListType[] = [
     {
-        path:'/',
-        redirect:'/ref'
+        path: '/',
+        redirect: '/ref'
     },
     {
         path: '/ref',
@@ -57,11 +57,6 @@ export const List: routesListType[] = [
         component: 'MouseDemo'
     },
     {
-        path: '/JsxTest',
-        component: 'JsxTest',
-        suffix: '.jsx'
-    },
-    {
         path: '/tsxTest',
         component: 'TsxTest',
         suffix: '.tsx'
@@ -99,5 +94,9 @@ export const List: routesListType[] = [
     {
         path: '/ScriptSetup',
         component: 'ScriptSetup',
+    },
+    {
+        path: '/Directive',
+        component: 'Directive'
     }
 ]

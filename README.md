@@ -1,24 +1,32 @@
 # vue3-demo
 
 ## Project setup
+
 ```
-yarn install
+yarn bootstrap
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
-yarn serve
+yarn dev
+yarn dev:nw
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### preview
+
 ```
-yarn lint
+yarn preview
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Lints and fixes files
+
+```
+yarn lint:prettier
+```

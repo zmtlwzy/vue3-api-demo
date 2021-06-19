@@ -3,6 +3,12 @@ import type {
   FunctionalComponent,
 } from 'vue';
 
+declare global {
+
+  declare interface ChangeEvent extends Event {
+    target: HTMLInputElement;
+  }
+}
 
 declare module 'vue' {
   export type JSXComponent<Props = any> =

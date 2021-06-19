@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import { sharedState } from '../Common';
+  import { sharedState } from '@/hooks/Common';
   import { toRefs } from 'vue';
   export default {
     setup() {

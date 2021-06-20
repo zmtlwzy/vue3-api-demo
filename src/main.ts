@@ -1,5 +1,7 @@
 // Register windi
-import 'virtual:windi.css';
+import 'virtual:windi-base.css'
+import 'virtual:windi-components.css'
+import 'virtual:windi-utilities.css'
 
 import './global.less'
 
@@ -9,6 +11,7 @@ import App from './App.vue';
 import router, { setupRouter } from '@/router';
 import { setupStore } from '@/store';
 import { setupGlobDirectives } from '@/directive';
+import { setupNaiveUI } from '@/lib/naive';
 
 async function bootstrap() {
     const app = createApp(App);
@@ -18,6 +21,8 @@ async function bootstrap() {
 
     // Configure routing
     setupRouter(app);
+
+    setupNaiveUI(app);
 
     // Register global directive
     setupGlobDirectives(app);

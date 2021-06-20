@@ -1,8 +1,8 @@
-import { reactive, defineComponent, watchEffect } from 'vue';
+import { reactive, defineComponent } from 'vue';
 import { all } from './interface';
 
 export default defineComponent({
-  setup(props, { slots }) {
+  setup(_, { slots }) {
     const state: all = reactive({
       a: 1,
       b: 1,
@@ -34,9 +34,9 @@ export default defineComponent({
             b: state.b,
           })}
           {state.el instanceof HTMLElement ? `offsetHeight:${state.el?.offsetHeight}px` : ''}
-          <button class="btn" onClick={handleClick}>
+          <n-button type="primary" onClick={handleClick}>
             click
-          </button>
+          </n-button>
         </div>
       </>
     );

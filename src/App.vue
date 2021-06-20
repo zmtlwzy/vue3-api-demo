@@ -1,72 +1,80 @@
 <template>
-  <div id="layout" class="text-black text-center flex min-h-screen">
-    <nav id="nav" class="font-bold text-md flex border-r border-gray-500 flex-col">
-      <h2 class="font-bold text-3xl py-5 border-b border-black">API TEST</h2>
-      <router-link
-        :to="item.path"
-        v-for="(item, index) in list"
-        :key="index"
-        custom
-        v-slot="{ navigate, href, isActive }"
-      >
-        <a
-          :href="href"
-          @click="navigate"
-          w:hover="bg-gray-200"
-          class="px-3"
-          :class="[isActive ? '!bg-primary' : '']"
-        >
-          {{ item.component }}
-        </a>
-      </router-link>
-    </nav>
-    <div class="content">
-      <div id="teleport-container"></div>
-      <main>
-        <router-view :key="refreshId" />
-      </main>
-      <footer class="column-layout mb-0">
-        <h4 :style="{ textAlign: 'center' }">vue version: {{ version }} (footer)</h4>
-        <button class="mt-3 btn" @click="refreshId++">refresh</button>
-      </footer>
-    </div>
-  </div>
+  <n-layout-header class="h-$header-height" bordered>
+    <h2 class="leading-$header-height ml-8 text-2xl font-bold">Vue3 Api Demo</h2>
+  </n-layout-header>
+  <n-layout
+    position="absolute"
+    class="!top-$header-height"
+    has-sider
+  >
+    <n-layout-sider
+      :native-scrollbar="false"
+      bordered
+      collapse-mode="width"
+      :collapsed-width="0"
+      :width="250"
+      :show-collapsed-content="false"
+      show-trigger
+      :inverted="inverted"
+      content-style="padding-right: 10px;"
+    >
+      <n-menu :inverted="inverted" :options="menuOptions" />
+    </n-layout-sider>
+    <n-layout :native-scrollbar="false" content-style="min-height: calc(100vh - var(--header-height));padding:3rem;">
+      <div>
+        <div id="teleport-container"></div>
+        <main>
+          <router-view :key="refreshId" />
+        </main>
+      </div>
+      <n-layout-footer bordered position="absolute" class="p-5">
+        <n-space vertical align="center">
+          <h4>vue version: {{ version }} (footer)</h4>
+         <n-button type="primary" @click="refreshId++">refresh</n-button>
+        </n-space>
+      </n-layout-footer>
+    </n-layout>
+  </n-layout>
 </template>
 
-<script>
-  import { List as routerList } from '@/router/routerList';
-  import { version } from 'vue';
-  export default {
-    data() {
+<script lang="ts">
+  import { h, defineComponent, ref, version } from 'vue';
+  import { MenuOption } from 'naive-ui';
+
+  import { RouterLink } from 'vue-router';
+  import { List as routerList, routesListType } from '@/router/routerList';
+
+  function rederRouter(obj: routesListType) {
+    return () =>
+      h(
+        RouterLink,
+        {
+          to: obj.path,
+        },
+        { default: () => obj.component }
+      );
+  }
+
+  const list = routerList.filter((item) => {
+    return !Object.keys(item).includes('redirect');
+  });
+  const menuOptions = list.map((item) => {
+    return {
+      label: rederRouter(item),
+      key: item.component,
+    };
+  }) as MenuOption[];
+
+  export default defineComponent({
+    setup() {
+      const inverted = ref<boolean>(false);
+      const refreshId = ref<number>(0);
       return {
         version,
-        refreshId: 0,
+        refreshId,
+        inverted,
+        menuOptions,
       };
     },
-    computed: {
-      list() {
-        return routerList.filter((item) => {
-          return !Object.keys(item).includes('redirect');
-        });
-      },
-    },
-  };
+  });
 </script>
-
-<style lang="less" scoped>
-  #layout {
-    .content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      main {
-        flex: 1;
-        padding: 2rem;
-      }
-      footer {
-        flex-basis: 3rem;
-        background-color: #ccc;
-      }
-    }
-  }
-</style>

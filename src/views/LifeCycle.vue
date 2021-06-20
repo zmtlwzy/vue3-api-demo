@@ -43,7 +43,7 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count}
-          <button class="btn" onClick={this.add}>
+         <n-button type="primary" onClick={this.add}>
             +
           </button>
         </div>
@@ -183,7 +183,7 @@
                   }}
                 >
                   {item}
-                </button>
+                </n-button>
               ))}
               <keep-alive>{h(resolveComponent(state.currentTab))}</keep-alive>
             </div>

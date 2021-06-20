@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn" @click="changeTarget">change</button>
+   <n-button type="primary" @click="changeTarget">change</n-button>
     <teleport :to="target">
       <span>teleport</span>
     </teleport>

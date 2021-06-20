@@ -10,6 +10,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   background-color: #f9fafc;
+  --header-height: 64px;
+}
+
+button:focus {
+  outline: none;
 }
 
 .container {
@@ -23,7 +28,7 @@ body {
   overflow-x: auto;
 }
 
-.grid {
+.grid-layout {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;

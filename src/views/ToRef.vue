@@ -1,16 +1,18 @@
 <template>
-  <div class="column-layout">
-    <p>count: {x:{{ x }} , y:{{ y }}}</p>
-    <p>other: {a:{{ a }} , b:{{ b }}}</p>
-    <p>r:{{ z }}</p>
-    <button class="btn" @click="handle">click</button>
-  </div>
+  <n-card>
+    <n-space vertical align="center">
+      <p>count: {x:{{ x }} , y:{{ y }}}</p>
+      <p>other: {a:{{ a }} , b:{{ b }}}</p>
+      <p>r:{{ z }}</p>
+      <n-button type="primary" @click="handle">click</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>
-  import { reactive, toRefs, toRef, ref } from 'vue';
+  import { reactive, toRefs, toRef, ref, defineComponent } from 'vue';
 
-  export default {
+  export default defineComponent({
     setup() {
       const count = reactive({
         x: 0,
@@ -40,7 +42,7 @@
         handle,
       };
     },
-  };
+  });
 </script>
 
 <style></style>

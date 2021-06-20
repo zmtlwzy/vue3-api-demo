@@ -2,12 +2,12 @@
   <div class="column-layout">
     <h2>Deep</h2>
     <span class="m-2">{{ arr }}</span>
-    <div :style="{ display: 'inline-grid', gridAutoRows: '30px', gridGap: '5px' }">
-      <button class="btn" @click="changeArrIndex">changeArrIndex</button>
-      <button class="btn" @click="replaceArr">replaceArr</button>
-      <button class="btn" @click="changeArrUseSplice">changeArrUseSplice</button>
-      <button class="btn" @click="changeArrUseSort">changeArrUseSort</button>
-    </div>
+    <n-space vertical align="center">
+      <n-button type="primary" @click="changeArrIndex">changeArrIndex</n-button>
+      <n-button type="primary" @click="replaceArr">replaceArr</n-button>
+      <n-button type="primary" @click="changeArrUseSplice">changeArrUseSplice</n-button>
+      <n-button type="primary" @click="changeArrUseSort">changeArrUseSort</n-button>
+    </n-space>
   </div>
 </template>
 

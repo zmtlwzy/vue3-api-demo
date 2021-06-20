@@ -1,8 +1,10 @@
 <template>
-  <div class="column-layout">
-    <p>count(use ref):{{ count }}</p>
-    <button @click="add" class="btn">+</button>
-  </div>
+  <n-card>
+    <n-space vertical align="center">
+      <p>count(use ref):{{ count }}</p>
+     <n-button type="primary" @click="add">+</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>

@@ -5,7 +5,7 @@
       <li v-for="item in todoList" :key="item.id">
         {{ item.id }}---{{ item.title }}---<input type="checkbox" :checked="item.completed" />
       </li>
-      <button class="btn" @click="update">fetch</button>
+     <n-button type="primary" @click="update">fetch</n-button>
     </ul>
     <div v-else>loading...</div>
   </div>

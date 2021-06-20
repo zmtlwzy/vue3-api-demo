@@ -1,8 +1,10 @@
 <template>
-  <div class="column-layout">
-    <p>count: {x:{{ count.x }} , y:{{ count.y }}}</p>
-    <button class="btn" @click="add">+</button>
-  </div>
+  <n-card>
+    <n-space vertical align="center">
+      <p>count: {x:{{ count.x }} , y:{{ count.y }}}</p>
+     <n-button type="primary" @click="add">+</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>

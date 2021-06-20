@@ -2,7 +2,7 @@
   <div class="theme-provider">
     <p class="px-2 py-1 mb-2 bg-gray-200">{{ color }}</p>
     <input type="color" class="mb-2" v-model="color.input" />
-    <button class="btn" @click="handleClick">changeColor</button>
+   <n-button type="primary" @click="handleClick">changeColor</n-button>
   </div>
 </template>
 

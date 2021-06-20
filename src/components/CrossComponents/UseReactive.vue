@@ -1,7 +1,7 @@
 <template>
   <div class="column-layout">
     <span>{{ num }}--{{ num2 }}--{{ num3 }}</span>
-    <button class="btn" @click="add">++</button>
+   <n-button type="primary" @click="add">++</n-button>
   </div>
 </template>
 

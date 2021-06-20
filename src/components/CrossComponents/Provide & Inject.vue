@@ -1,8 +1,10 @@
 <template>
-  <div class="column-layout">
-    <span> {{ String(a) }}--{{ b }}--{{ c }} </span>
-    <button class="btn" @click="add">add</button>
-  </div>
+  <n-card>
+    <n-space vertical align="center">
+      <span> {{ String(a) }}--{{ b }}--{{ c }} </span>
+     <n-button type="primary" @click="add">add</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>

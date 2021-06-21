@@ -1,18 +1,46 @@
 <template>
   <div class="column-layout">
     <h3>Flush</h3>
-    <span>{{ count }}</span>
-    <span>{{ other }}</span>
+    <p>open console</p>
+    <DesTable :varObj="{ count, other }" ref="el"></DesTable>
     <br />
-   <n-button type="primary" @click="add">add</n-button>
+    <n-button type="primary" @click="add">add</n-button>
+    <n-button-group class="mt-5">
+      <n-button
+        v-for="item in ['pre', 'post', 'sync']"
+        :type="flushState === `${item}` ? 'primary' : 'default'"
+        @click="changeFlush(`${item}`)"
+      >
+        {{ item }}
+      </n-button>
+    </n-button-group>
   </div>
 </template>
 
-<script>
-  import { defineComponent, reactive, toRefs, watchEffect } from 'vue';
+<script lang="ts">
+  import {
+    defineComponent,
+    reactive,
+    toRefs,
+    watch,
+    watchEffect,
+    WatchOptionsBase,
+    ref,
+    ComponentPublicInstance,
+    computed,
+  } from 'vue';
+  import DesTable from '@/components/VarDescriptions';
   export default defineComponent({
     name: 'watchFlushFlush',
-    setup() {
+    props: ['mode'],
+    emits: ['change'],
+    components: { DesTable },
+    setup(props, { emit }) {
+      const el = ref<ComponentPublicInstance>();
+      const flushState = ref<WatchOptionsBase['flush']>(props.mode ?? 'post');
+      // pre : 默认值 dom更新前运行
+      // post: dom更新后运行
+      // sync: 同步运行(这将强制效果始终同步触发。然而，这是低效的，应该很少需要)
       const state = reactive({
         count: 1,
         other: 2,
@@ -23,21 +51,36 @@
       const sub = () => {
         state.count--;
       };
-      watchEffect(
+
+      const changeFlush = (str: string) => {
+        flushState.value = str as WatchOptionsBase['flush'];
+      };
+
+      const optsBase = computed(() => ({ flush: flushState.value }));
+
+      watch(
+        () => flushState.value,
         () => {
-          state.other = state.count * 2;
-          console.log(state);
-          debugger;
-        },
-        {
-          flush: 'pre',
-          // post: 默认值 dom更新后运行
-          // sync: 同步运行
-          // pre : 提前运行
+          emit('change', flushState);
         }
       );
+
+      const watchFun = () => {
+        state.other = state.count * 2;
+        const domValue =
+          el.value?.$el.firstElementChild.lastElementChild.firstElementChild.innerText * 1;
+        if (domValue === state.count && state.count !== 1) {
+          debugger;
+        }
+      };
+
+      watchEffect(watchFun, optsBase.value);
+
       return {
         ...toRefs(state),
+        el,
+        flushState,
+        changeFlush,
         add,
         sub,
       };

@@ -43,9 +43,9 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count}
-         <n-button type="primary" onClick={this.add}>
+          <n-button type="primary" onClick={this.add}>
             +
-          </button>
+          </n-button>
         </div>
       );
     },
@@ -74,9 +74,9 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count2}
-          <button class="btn" onClick={this.add}>
+          <n-button type="primary" onClick={this.add}>
             +
-          </button>
+          </n-button>
         </div>
       );
     },
@@ -105,9 +105,9 @@
         <div class="column-layout">
           <h3>{name}</h3>
           {this.count3}
-          <button class="btn" onClick={this.add}>
+          <n-button type="primary" onClick={this.add}>
             +
-          </button>
+          </n-button>
         </div>
       );
     },
@@ -167,28 +167,30 @@
 
       return () => {
         return (
-          <div class="column-layout">
-            {count.value}
-            <button class="btn" onClick={add}>
-              +
-            </button>
-            <div class="container">
-              {state.tabs.map((item, index) => (
-                <button
-                  class="btn"
-                  key={index}
-                  class={state.currentTab === item ? 'active' : ''}
-                  onClick={() => {
-                    state.currentTab = item;
-                  }}
-                >
-                  {item}
-                </n-button>
-              ))}
+          <n-card>
+            <n-space vertical align="center">
+              {count.value}
+              <n-button type="primary" onClick={add}>
+                +
+              </n-button>
+              <n-space>
+                {state.tabs.map((item, index) => (
+                  <n-button
+                    type="primary"
+                    key={index}
+                    class={state.currentTab === item ? 'active' : ''}
+                    onClick={() => {
+                      state.currentTab = item;
+                    }}
+                  >
+                    {item}
+                  </n-button>
+                ))}
+              </n-space>
               <keep-alive>{h(resolveComponent(state.currentTab))}</keep-alive>
-            </div>
-            open console
-          </div>
+              open console
+            </n-space>
+          </n-card>
         );
       };
     },

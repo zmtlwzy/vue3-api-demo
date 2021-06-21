@@ -3,21 +3,33 @@
     <h3>FetchDemo</h3>
     <ul v-if="todoList.length !== 0">
       <li v-for="item in todoList" :key="item.id">
-        {{ item.id }}---{{ item.title }}---<input type="checkbox" :checked="item.completed" />
+        {{ item.id }} --- {{ item.title }} --- <n-checkbox v-model:checked="item.completed" />
       </li>
-     <n-button type="primary" @click="update">fetch</n-button>
     </ul>
     <div v-else>loading...</div>
+    <n-button type="primary" @click="update">fetch</n-button>
   </div>
 </template>
 
-<script>
-  import { reactive, toRefs, watchEffect } from 'vue';
+<script lang="ts">
+  import { defineComponent, reactive, toRefs, watchEffect } from 'vue';
 
-  export default {
+  interface fetchDataType {
+    completed: boolean;
+    id: number;
+    title: string;
+    userId: number;
+  }
+
+  interface State {
+    todoList: fetchDataType[],
+    urlId: number
+  }
+
+  export default defineComponent({
     name: 'watchEffectFetch',
     setup() {
-      const state = reactive({
+      const state = reactive<State>({
         todoList: [],
         urlId: 1,
       });
@@ -27,7 +39,10 @@
       watchEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/todos/${state.urlId}`)
           .then((response) => response.json())
-          .then((json) => (state.todoList = [json]));
+          .then((json) => {
+            console.log(json);
+            state.todoList = [json]
+          });
       });
 
       return {
@@ -35,7 +50,7 @@
         update,
       };
     },
-  };
+  });
 </script>
 
 <style></style>

@@ -1,19 +1,20 @@
 <template>
-  <div>
-    <div @click="hangleClick" class="btn">inc</div>
-    <span>{{ a }}</span>
-    <span>{{ b }}</span>
-  </div>
+  <n-space vertical>
+    <h3>{{$options.name}}</h3>
+    <n-button type="primary" @click="hangleClick">inc</n-button>
+    <DesTable :var-obj="{a,b}" />
+  </n-space>
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, onMounted, getCurrentInstance, computed, reactive } from 'vue';
+  import { defineComponent, ref } from 'vue';
   export default defineComponent({
-    name: 'ScriptSetup_demo1',
+    name: 'Base',
   });
 </script>
 
 <script setup lang="ts">
+  import DesTable from '@/components/VarDescriptions';
   ref: a = 1;
   const b = ref<number>(200);
   const inc = () => {
@@ -32,9 +33,6 @@
     inc2();
     inc3();
   };
-  onMounted(() => {
-    console.log(getCurrentInstance()?.ctx.$options.name);
-  });
 </script>
 
 <style></style>

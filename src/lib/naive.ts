@@ -1,4 +1,3 @@
-import { h } from 'vue';
 import type { App } from 'vue';
 
 import {
@@ -6,9 +5,11 @@ import {
     // component
     NH1,
     NH2,
+    NSpin,
     NIcon,
     NMenu,
     NCard,
+    NAlert,
     NSpace,
     NButton,
     NButtonGroup,
@@ -26,9 +27,11 @@ const naive = create({
     components: [
         NH1,
         NH2,
+        NSpin,
         NIcon,
         NMenu,
         NCard,
+        NAlert,
         NSpace,
         NButton,
         NButtonGroup,
@@ -45,8 +48,4 @@ const naive = create({
 
 export function setupNaiveUI(app: App) {
     app.use(naive)
-}
-
-export function renderIcon(icon) {
-    return () => h(NIcon, null, { default: () => h(icon) });
 }

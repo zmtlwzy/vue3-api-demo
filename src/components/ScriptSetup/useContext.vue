@@ -1,15 +1,17 @@
 <template>
-  <div>
-    <div class="btn" @click="handleClick">{{ msg }}</div>
-    <div>{{ count }}</div>
+  <n-space vertical>
+    <h3>{{$options.name}}</h3>
+    <n-button type="primary" @click="handleClick">{{ msg }}</n-button>
+    <div>count : {{ count }}</div>
     <slot></slot>
-  </div>
+    <slot name="other"></slot>
+  </n-space>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
   export default defineComponent({
-    name: 'ScriptSetup_demo2',
+    name: 'useContext',
   });
 </script>
 
@@ -24,7 +26,7 @@
   });
 
   const Emit = defineEmit(['inc']);
-  
+
   ref: count = 1;
 
   const handleClick = () => {
@@ -33,7 +35,7 @@
   };
 
   console.log(props?.msg);
-  console.log(Emit,emit);
+  console.log(Emit, emit);
   console.log(attrs, 'attrs');
   console.log(slots, 'slots');
 </script>

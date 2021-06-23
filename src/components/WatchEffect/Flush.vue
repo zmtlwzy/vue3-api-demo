@@ -28,6 +28,8 @@
     ref,
     ComponentPublicInstance,
     computed,
+    // toRef,
+    // Ref
   } from 'vue';
   import DesTable from '@/components/VarDescriptions';
   export default defineComponent({
@@ -37,7 +39,9 @@
     components: { DesTable },
     setup(props, { emit }) {
       const el = ref<ComponentPublicInstance>();
+
       const flushState = ref<WatchOptionsBase['flush']>(props.mode ?? 'post');
+      // const flushState:Ref<WatchOptionsBase['flush']> = toRef(props,'mode');
       // pre : 默认值 dom更新前运行
       // post: dom更新后运行
       // sync: 同步运行(这将强制效果始终同步触发。然而，这是低效的，应该很少需要)

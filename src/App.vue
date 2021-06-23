@@ -2,11 +2,7 @@
   <n-layout-header class="h-$header-height" bordered>
     <h2 class="leading-$header-height ml-8 text-2xl font-bold">Vue3 Api Demo</h2>
   </n-layout-header>
-  <n-layout
-    position="absolute"
-    class="!top-$header-height"
-    has-sider
-  >
+  <n-layout position="absolute" class="!top-$header-height" has-sider>
     <n-layout-sider
       :native-scrollbar="false"
       bordered
@@ -18,9 +14,12 @@
       :inverted="inverted"
       content-style="padding-right: 10px;"
     >
-      <n-menu :inverted="inverted" :options="menuOptions" />
+      <n-menu :default-value="defaultValue" :inverted="inverted" :options="menuOptions" />
     </n-layout-sider>
-    <n-layout :native-scrollbar="false" content-style="min-height: calc(100vh - var(--header-height));padding:3rem;">
+    <n-layout
+      :native-scrollbar="false"
+      content-style="min-height: calc(100vh - var(--header-height));padding:3rem;"
+    >
       <div>
         <div id="teleport-container"></div>
         <main>
@@ -30,7 +29,7 @@
       <n-layout-footer bordered position="absolute" class="p-5">
         <n-space vertical align="center">
           <h4>vue version: {{ version }} (footer)</h4>
-         <n-button type="primary" @click="refreshId++">refresh</n-button>
+          <n-button type="primary" @click="refreshId++">refresh</n-button>
         </n-space>
       </n-layout-footer>
     </n-layout>
@@ -38,22 +37,14 @@
 </template>
 
 <script lang="ts">
-  import { h, defineComponent, ref, version } from 'vue';
+  import { defineComponent, onBeforeMount, ref, version } from 'vue';
   import { MenuOption } from 'naive-ui';
 
-  import { RouterLink } from 'vue-router';
-  import { List as routerList, routesListType } from '@/router/routerList';
+  import { List as routerList } from '@/router/routerList';
 
-  function rederRouter(obj: routesListType) {
-    return () =>
-      h(
-        RouterLink,
-        {
-          to: obj.path,
-        },
-        { default: () => obj.component }
-      );
-  }
+  import { rederRouter } from '@/components/render';
+
+  import { useRoute } from 'vue-router';
 
   const list = routerList.filter((item) => {
     return !Object.keys(item).includes('redirect');
@@ -69,11 +60,17 @@
     setup() {
       const inverted = ref<boolean>(false);
       const refreshId = ref<number>(0);
+      const defaultValue = ref<string>();
+      onBeforeMount(() => {
+        const path = useRoute().path;
+        defaultValue.value = path.slice(1, 2).toUpperCase() + path.slice(2);
+      });
       return {
         version,
         refreshId,
         inverted,
         menuOptions,
+        defaultValue,
       };
     },
   });

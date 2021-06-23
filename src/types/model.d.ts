@@ -8,3 +8,5 @@ declare module 'virtual:*' {
   const result: any;
   export default result;
 }
+
+declare const gsap = any

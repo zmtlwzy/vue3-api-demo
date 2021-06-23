@@ -15,3 +15,4 @@ declare module 'vue' {
     | { new(): ComponentPublicInstance<Props> }
     | FunctionalComponent<Props>;
 }
+

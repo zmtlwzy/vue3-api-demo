@@ -1,34 +1,51 @@
 <template>
   <div>
-    <input type="button" value="快到碗里来" @click="flag = !flag" />
-    <transition :css="false" @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+    <n-button type="primary" @click="flag = !flag">start</n-button>
+    <transition :css="false" @before-enter="bfEnter" @enter="enter" @after-enter="afEnter">
       <div class="ball" v-if="flag"></div>
     </transition>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import {
+    defineComponent,
+    ref,
+    useTransitionState,
+    BaseTransitionProps,
+    onBeforeMount,
+    onUnmounted,
+    onMounted,
+  } from 'vue';
+
   const moveTime = 1;
   const fallTime = 0.6;
-  export default {
-    data() {
-      return {
-        flag: false,
-      };
-    },
-    watch: {
-      flag: function () {
-        console.log(this.flag);
-      },
-    },
-    methods: {
-      beforeEnter(el) {
+  export default defineComponent({
+    setup() {
+      const flag = ref<boolean>(false);
+      const state = useTransitionState();
+
+      onBeforeMount(() => {
+        console.log('onBeforeMount')
+        console.log(state);
+      });
+      onMounted(() => {
+        console.log('onMounted')
+        console.log(state);
+      });
+      onUnmounted(() => {
+        console.log('onUnmounted')
+        console.log(state);
+      });
+
+      const bfEnter: BaseTransitionProps['onBeforeEnter'] = (el) => {
         gsap.set(el, {
           x: 150,
           y: 50,
         });
-      },
-      enter(el, done) {
+      };
+
+      const enter: BaseTransitionProps['onEnter'] = (el, done) => {
         gsap.to(el, {
           duration: moveTime,
           x: 'random([450,500,600])',
@@ -57,12 +74,20 @@
           ease: 'expo.in',
           onComplete: done,
         });
-      },
-      afterEnter() {
-        this.flag = !this.flag;
-      },
+      };
+
+      const afEnter: BaseTransitionProps['onAfterEnter'] = () => {
+        flag.value = !flag.value;
+      };
+
+      return {
+        flag,
+        bfEnter,
+        enter,
+        afEnter,
+      };
     },
-  };
+  });
 </script>
 
 <style>

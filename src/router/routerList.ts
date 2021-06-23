@@ -49,7 +49,7 @@ export const List: routesListType[] = [
         component: 'LifeCycle'
     },
     {
-        path: '/CrossComponentsShared',
+        path: '/crossComponentsShared',
         component: 'CrossComponentsShared'
     },
     {
@@ -62,41 +62,45 @@ export const List: routesListType[] = [
         suffix: '.tsx'
     },
     {
-        path: '/CaptureTest',
+        path: '/captureTest',
         component: 'CaptureTest',
     },
     {
-        path: '/RouterApi',
+        path: '/routerApi',
         component: 'RouterApi',
         suffix: '.tsx'
     },
     {
-        path: '/AsyncComponent',
+        path: '/asyncComponent',
         component: 'AsyncComponent',
-        suffix: '.jsx'
+        suffix: '.tsx'
     },
     {
-        path: '/FunctionRender',
+        path: '/functionRender',
         component: 'FunctionRender',
     },
     {
-        path: '/Transition',
+        path: '/transition',
         component: 'Transition',
     },
     {
-        path: '/Fragments',
+        path: '/fragments',
         component: 'Fragments',
     },
     {
-        path: '/CustomRef',
+        path: '/customRef',
         component: 'CustomRef',
     },
     {
-        path: '/ScriptSetup',
+        path: '/scriptSetup',
         component: 'ScriptSetup',
     },
     {
-        path: '/Directive',
+        path: '/cssVar',
+        component: 'CssVar',
+    },
+    {
+        path: '/directive',
         component: 'Directive'
     }
 ]

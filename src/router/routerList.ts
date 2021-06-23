@@ -59,7 +59,6 @@ export const List: routesListType[] = [
     {
         path: '/tsxTest',
         component: 'TsxTest',
-        suffix: '.tsx'
     },
     {
         path: '/captureTest',
@@ -68,12 +67,10 @@ export const List: routesListType[] = [
     {
         path: '/routerApi',
         component: 'RouterApi',
-        suffix: '.tsx'
     },
     {
         path: '/asyncComponent',
         component: 'AsyncComponent',
-        suffix: '.tsx'
     },
     {
         path: '/functionRender',

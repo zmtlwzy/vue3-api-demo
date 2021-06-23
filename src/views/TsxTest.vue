@@ -1,3 +1,4 @@
+<script lang="tsx">
 import {
   defineComponent,
   reactive,
@@ -124,3 +125,6 @@ export default defineComponent({
     );
   },
 });
+
+
+</script>

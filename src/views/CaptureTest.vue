@@ -16,7 +16,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import { vModelCom1, vModelCom2 } from './TsxTest';
+  import { vModelCom1, vModelCom2 } from './TsxTest.vue';
   export default defineComponent({
     name: 'CaptureTest',
     data() {

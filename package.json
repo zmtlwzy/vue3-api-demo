@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite build && vite preview",
     "preview:dist": "vite preview",
+    "preview:nw": "vite preview --host",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",

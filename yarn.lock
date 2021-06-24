@@ -1133,10 +1133,10 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-naive-ui@^2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/naive-ui/-/naive-ui-2.13.0.tgz#f33ca965b3f807a2f1f04ae18ecf0c25546a843b"
-  integrity sha512-5afgVWuIYz44VUmX2i88CG9s9bT14C/uxhK9USsdfp0SWKWRlyeotuRroiDpEDcVH3MIPZi6IfQLWFMTa5daFQ==
+naive-ui@^2.14.0:
+  version "2.14.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/naive-ui/-/naive-ui-2.14.0.tgz#59daa990d718ea589f4f590f4cef2d2a50b50ba6"
+  integrity sha512-SNo+bUNg2c3zLYBllp5wF8cmOrme4IYYVo0tkdbng5BKgUWAqArbg2l72e1HjLwTnTnv1STNSJRmtxgvdwD4GQ==
   dependencies:
     "@css-render/plugin-bem" "^0.15.4"
     "@css-render/vue3-ssr" "^0.15.4"

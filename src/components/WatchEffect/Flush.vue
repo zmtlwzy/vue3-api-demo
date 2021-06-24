@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h3>Flush</h3>
+    <n-h4>Flush</n-h4>
     <p>open console</p>
     <DesTable :varObj="{ count, other }" ref="el"></DesTable>
     <br />

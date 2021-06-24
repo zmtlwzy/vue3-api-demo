@@ -1,15 +1,4 @@
-import { ComponentInternalInstance } from "vue";
-
-interface theNum {
+export interface theNum {
   a: number;
   b: number;
-}
-
-interface all extends theNum {
-  el: ComponentInternalInstance | Element | null
-}
-
-export {
-  theNum,
-  all
 }

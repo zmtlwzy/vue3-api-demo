@@ -6,8 +6,8 @@
   </div>
 </template>
 
-<script>
-  import { customRef } from 'vue';
+<script lang="ts">
+  import { customRef, defineComponent } from 'vue';
   function useDebouncedRef(value, delay = 500) {
     let timeout;
     return customRef((track, trigger) => {
@@ -27,14 +27,14 @@
     });
   }
 
-  export default {
+  export default defineComponent({
     name: 'CustomRef',
     setup() {
       return {
         text: useDebouncedRef('hello'),
       };
     },
-  };
+  });
 </script>
 
 <style></style>

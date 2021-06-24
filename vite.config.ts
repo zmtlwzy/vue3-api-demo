@@ -5,6 +5,7 @@ import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import WindiCSS from 'vite-plugin-windicss';
+import ViteComponents, { NaiveUiResolver } from 'vite-plugin-components'
 
 export default ({ command }: ConfigEnv): UserConfig => {
 
@@ -26,6 +27,12 @@ export default ({ command }: ConfigEnv): UserConfig => {
       vueJsx(),
       WindiCSS({
         safelist: 'no-select',
+      }),
+
+      //自动 import Naive组件
+      ViteComponents({
+        globalComponentsDeclaration: true,
+        customComponentResolvers: NaiveUiResolver()
       })
     ],
     build: {

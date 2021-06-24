@@ -11,7 +11,7 @@ import App from './App.vue';
 import router, { setupRouter } from '@/router';
 import { setupStore } from '@/store';
 import { setupGlobDirectives } from '@/directive';
-import { setupNaiveUI } from '@/lib/naive';
+// import { setupNaiveUI } from '@/lib/naive';
 
 async function bootstrap() {
     const app = createApp(App);
@@ -22,7 +22,7 @@ async function bootstrap() {
     // Configure routing
     setupRouter(app);
 
-    setupNaiveUI(app);
+    // setupNaiveUI(app);
 
     // Register global directive
     setupGlobDirectives(app);

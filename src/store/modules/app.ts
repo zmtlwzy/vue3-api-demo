@@ -4,14 +4,18 @@ import { store } from '@/store';
 
 interface AppState {
   x: number,
-  y: number
+  y: number,
+  headerHeight: number,
+  siderWidth: number,
 }
 
 export const useAppStore = defineStore({
   id: 'app',
   state: (): AppState => ({
     x: 0,
-    y: 0
+    y: 0,
+    headerHeight: 64,
+    siderWidth: 250,
   }),
   getters: {
     getX(): number {
@@ -19,6 +23,12 @@ export const useAppStore = defineStore({
     },
     getY(): number {
       return this.y;
+    },
+    getHeaderHeight(): number {
+      return this.headerHeight;
+    },
+    getSiderWidth(): number {
+      return this.siderWidth;
     }
   },
   actions: {

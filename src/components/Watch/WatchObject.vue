@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h2>WatchObject</h2>
+    <n-h4>WatchObject</n-h4>
     <span>{{ count }}</span>
     <span>{{ name }}</span>
     -------------------------

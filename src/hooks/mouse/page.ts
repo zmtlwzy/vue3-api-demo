@@ -1,12 +1,12 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 export default function () {
-  const x = ref(0);
-  const y = ref(0);
+  const pageX = ref(0);
+  const pageY = ref(0);
 
   function update(e: MouseEvent) {
-    x.value = e.pageX;
-    y.value = e.pageY;
+    pageX.value = e.pageX;
+    pageY.value = e.pageY;
   }
 
   onMounted(() => {
@@ -17,5 +17,5 @@ export default function () {
     window.removeEventListener('mousemove', update);
   });
 
-  return { x, y };
+  return { pageX, pageY };
 }

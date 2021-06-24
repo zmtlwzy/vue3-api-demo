@@ -3,8 +3,8 @@ import type { App } from 'vue';
 import {
     create,
     // component
-    NH1,
-    NH2,
+    // NH1,
+    // NH2,
     NSpin,
     NIcon,
     NMenu,
@@ -16,7 +16,7 @@ import {
     NSwitch,
     NLayout,
     NCheckbox,
-    NEllipsis,
+    // NEllipsis,
     NLayoutContent,
     NLayoutFooter,
     NLayoutSider,
@@ -25,8 +25,8 @@ import {
 
 const naive = create({
     components: [
-        NH1,
-        NH2,
+        // NH1,
+        // NH2,
         NSpin,
         NIcon,
         NMenu,
@@ -38,7 +38,7 @@ const naive = create({
         NSwitch,
         NLayout,
         NCheckbox,
-        NEllipsis,
+        // NEllipsis,
         NLayoutContent,
         NLayoutFooter,
         NLayoutSider,

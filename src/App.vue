@@ -1,5 +1,6 @@
 <template>
-  <n-layout-header class="h-$header-height" bordered>
+  <div>
+    <n-layout-header class="h-$header-height" bordered>
     <h2 class="leading-$header-height ml-8 text-2xl font-bold">Vue3 Api Demo</h2>
   </n-layout-header>
   <n-layout position="absolute" class="!top-$header-height" has-sider>
@@ -27,18 +28,23 @@
         </main>
       </div>
       <n-layout-footer bordered position="absolute" class="p-5">
-        <n-space vertical align="center">
-          <h4>vue version: {{ version }} (footer)</h4>
-          <n-button type="primary" @click="refreshId++">refresh</n-button>
-        </n-space>
+        <footer>
+          <n-space vertical align="center">
+            <h4>vue version: {{ version }} (footer)</h4>
+            <n-button type="primary" @click="refreshId++">refresh</n-button>
+          </n-space>
+        </footer>
       </n-layout-footer>
     </n-layout>
   </n-layout>
+  </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent, onBeforeMount, ref, version } from 'vue';
-  import { MenuOption } from 'naive-ui';
+  import { defineComponent, onBeforeMount, ref, version, useCssVars } from 'vue';
+  import type { MenuOption } from 'naive-ui';
+
+  import { useAppStore } from '@/store/modules/app';
 
   import { List as routerList } from '@/router/routerList';
 
@@ -58,9 +64,13 @@
 
   export default defineComponent({
     setup() {
+      const appStore = useAppStore();
       const inverted = ref<boolean>(false);
       const refreshId = ref<number>(0);
       const defaultValue = ref<string>();
+      useCssVars(() => ({
+        'header-height': `${appStore.getHeaderHeight}px`,
+      }));
       onBeforeMount(() => {
         const path = useRoute().path;
         defaultValue.value = path.slice(1, 2).toUpperCase() + path.slice(2);

@@ -1,7 +1,7 @@
 <template>
   <n-space vertical>
     <h3>{{ $options.name }}</h3>
-    <div class="textClass">moduleClass</div>
+    <div class="textClass">textClass</div>
   </n-space>
 </template>
 

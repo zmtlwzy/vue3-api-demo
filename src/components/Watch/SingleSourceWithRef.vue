@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h2>signle-Ref</h2>
+    <n-h4>signle-Ref</n-h4>
     <span>{{ count }}</span>
     <span>{{ other }}</span>
     <br />

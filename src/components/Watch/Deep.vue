@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h2>Deep</h2>
+    <n-h4>Deep</n-h4>
     <span class="m-2">{{ arr }}</span>
     <n-space vertical align="center">
       <n-button type="primary" @click="changeArrIndex">changeArrIndex</n-button>

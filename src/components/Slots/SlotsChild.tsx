@@ -1,44 +1,35 @@
-import { reactive, defineComponent } from 'vue';
-import { all } from './interface';
+import { reactive, defineComponent, ref } from 'vue';
+import { NButton, NCard, NSpace } from 'naive-ui';
+import { theNum } from './interface';
 
 export default defineComponent({
   setup(_, { slots }) {
-    const state: all = reactive({
+    const state = reactive<theNum>({
       a: 1,
       b: 1,
-      el: null,
     });
 
+    const el = ref<HTMLElement>();
     const tsx_default = () => <span style={{ margin: '0 5px' }}>default</span>;
     const handleClick = () => {
       state.a *= 2;
       state.b += 2;
     };
     return () => (
-      <>
-        <div
-          class="content"
-          ref={(el) => {
-            state.el = el;
-          }}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          state.a:-{state.a}
+      <NCard ref={el}>
+        <NSpace vertical align="center">
+          <div>state.a:-{state.a}</div>
           {slots.default?.() || tsx_default()}
           {slots.test?.({
             a: state.a,
             b: state.b,
           })}
-          {state.el instanceof HTMLElement ? `offsetHeight:${state.el?.offsetHeight}px` : ''}
-          <n-button type="primary" onClick={handleClick}>
+          {el.value instanceof HTMLElement ? `offsetHeight:${el.value?.offsetHeight}px` : ''}
+          <NButton type="primary" onClick={handleClick}>
             click
-          </n-button>
-        </div>
-      </>
+          </NButton>
+        </NSpace>
+      </NCard>
     );
   },
 });

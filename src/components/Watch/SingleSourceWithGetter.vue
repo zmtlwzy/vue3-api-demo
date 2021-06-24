@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h2>single-getter</h2>
+    <n-h4>single-getter</n-h4>
     <DesTable :varObj="{ count, other }"></DesTable>
     <br />
    <n-button type="primary" @click="add">add</n-button>

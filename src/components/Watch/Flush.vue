@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h2>Flush</h2>
+    <n-h4>Flush</n-h4>
     <span>{{ count }}</span>
     <span>{{ other }}</span>
     <br />

@@ -1,14 +1,7 @@
 <template>
   <n-card>
     <div class="grid-layout">
-      <SingleSourceWithGetter />
-      <SingleSourceWithRef />
-      <MultipleSource />
-      <Flush />
-      <Deep />
-      <Immediate />
-      <WatchArray />
-      <WatchObject />
+      <component v-for="comp in allComps" :is="comp" />
       <span>open console</span>
     </div>
   </n-card>
@@ -16,31 +9,11 @@
 
 <script>
   import { defineComponent } from 'vue';
-
-  import {
-    SingleSourceWithGetter,
-    SingleSourceWithRef,
-    MultipleSource,
-    Flush,
-    Deep,
-    Immediate,
-    WatchArray,
-    WatchObject,
-  } from '../components/Watch';
-
   export default defineComponent({
     name: 'watch',
-    components: {
-      SingleSourceWithGetter,
-      SingleSourceWithRef,
-      MultipleSource,
-      Flush,
-      Deep,
-      Immediate,
-      WatchArray,
-      WatchObject,
-    },
   });
 </script>
-
-<style lang="less"></style>
+<script setup>
+  import * as AllComps from '@/components/Watch';
+  const allComps = AllComps;
+</script>

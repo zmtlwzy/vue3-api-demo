@@ -1,5 +1,7 @@
 import { defineAsyncComponent } from 'vue';
 
+import { NSpin, NAlert } from 'naive-ui';
+
 interface Options {
   size?: 'small' | 'medium' | 'large' | number;
   delay?: number;
@@ -15,12 +17,12 @@ export function createAsyncComponent(loader: Fn, options: Options = {}) {
     // 工厂函数
     loader,
     // 加载异步组件时要使用的组件
-    loadingComponent: <n-spin size={size} />,
+    loadingComponent: <NSpin size={size} />,
     // 加载失败时要使用的组件
     errorComponent: (
-      <n-alert title="Error" type="error">
+      <NAlert title="Error" type="error">
         alert
-      </n-alert>
+      </NAlert>
     ),
     // 在显示 loadingComponent 之前的延迟 | 默认值：200（单位 ms）
     delay,

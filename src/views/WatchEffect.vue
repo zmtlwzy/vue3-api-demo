@@ -1,18 +1,18 @@
 <template>
   <div class="grid container">
     <FetchDemo />
-    <Flush @change="handleChange" :mode="saveMode" :key="keyId" />
+    <WatchEffectFlush @change="handleChange" :mode="saveMode" :key="keyId" />
   </div>
 </template>
 
 <script lang="ts">
-  import { FetchDemo, Flush } from '@/components/WatchEffect';
+  import { FetchDemo, Flush as WatchEffectFlush } from '@/components/WatchEffect';
   import { defineComponent, ref, WatchOptionsBase } from 'vue';
   export default defineComponent({
     name: 'watchEffect',
     components: {
       FetchDemo,
-      Flush,
+      WatchEffectFlush,
     },
     setup() {
       const keyId = ref<number>(0);

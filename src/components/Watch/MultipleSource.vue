@@ -1,6 +1,6 @@
 <template>
   <div class="column-layout">
-    <h2>Multiple</h2>
+    <n-h4>Multiple</n-h4>
     <span>{{ count }}</span>
     <br />
     <span>{{ count2 }}</span>

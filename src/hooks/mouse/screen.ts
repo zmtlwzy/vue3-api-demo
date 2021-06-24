@@ -1,12 +1,12 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 export default function () {
-  const X = ref(0);
-  const Y = ref(0);
+  const screenX = ref(0);
+  const screenY = ref(0);
 
   function update(e: MouseEvent) {
-    X.value = e.screenX;
-    Y.value = e.screenY;
+    screenX.value = e.screenX;
+    screenY.value = e.screenY;
   }
 
   onMounted(() => {
@@ -17,5 +17,5 @@ export default function () {
     window.removeEventListener('mousemove', update);
   });
 
-  return { X, Y };
+  return { screenX, screenY };
 }

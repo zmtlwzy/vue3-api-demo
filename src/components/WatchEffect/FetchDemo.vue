@@ -1,7 +1,7 @@
 <template>
   <div class="column-layout">
-    <h3>FetchDemo</h3>
-    <ul v-if="todoList.length !== 0">
+    <n-h4>FetchDemo</n-h4>
+    <ul v-if="todoList.length !== 0" class="mb-5">
       <li v-for="item in todoList" :key="item.id">
         {{ item.id }} --- {{ item.title }} --- <n-checkbox v-model:checked="item.completed" />
       </li>

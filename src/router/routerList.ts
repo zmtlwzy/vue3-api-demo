@@ -4,7 +4,6 @@ type same = Pick<RouteRecordRaw, 'path' | 'redirect'>
 export interface routesListType extends same {
     component?: string;
     children?: routesListType[] | undefined;
-    suffix?: string | undefined;
 }
 
 export const List: routesListType[] = [
@@ -21,10 +20,6 @@ export const List: routesListType[] = [
         component: 'Reactive'
     },
     {
-        path: '/toRef',
-        component: 'ToRef'
-    },
-    {
         path: '/computed',
         component: 'Computed'
     },
@@ -35,6 +30,10 @@ export const List: routesListType[] = [
     {
         path: '/watchEffect',
         component: 'WatchEffect'
+    },
+    {
+        path: '/event',
+        component: 'Event'
     },
     {
         path: '/slots',
@@ -49,20 +48,12 @@ export const List: routesListType[] = [
         component: 'LifeCycle'
     },
     {
-        path: '/crossComponentsShared',
-        component: 'CrossComponentsShared'
+        path: '/crossComponent',
+        component: 'CrossComponent'
     },
     {
-        path: '/mouseEvent',
-        component: 'MouseDemo'
-    },
-    {
-        path: '/tsxTest',
-        component: 'TsxTest',
-    },
-    {
-        path: '/captureTest',
-        component: 'CaptureTest',
+        path: '/useHooks',
+        component: 'UseHooks'
     },
     {
         path: '/routerApi',
@@ -85,10 +76,6 @@ export const List: routesListType[] = [
         component: 'Fragments',
     },
     {
-        path: '/customRef',
-        component: 'CustomRef',
-    },
-    {
         path: '/scriptSetup',
         component: 'ScriptSetup',
     },
@@ -97,7 +84,11 @@ export const List: routesListType[] = [
         component: 'CssVar',
     },
     {
-        path: '/directive',
-        component: 'Directive'
+        path: '/customDirective',
+        component: 'CustomDirective'
+    },
+    {
+        path: '/otherApi',
+        component: 'OtherApi'
     }
 ]

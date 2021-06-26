@@ -31,7 +31,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
 
       //自动 import Naive组件
       ViteComponents({
-        globalComponentsDeclaration: true,
+        globalComponentsDeclaration: 'types/components.d.ts',
         customComponentResolvers: NaiveUiResolver()
       })
     ],
@@ -41,7 +41,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
         compress: {
           keep_infinity: true,
           // Used to delete console in production environment
-          drop_console: true,
+          drop_console: false,
         },
         format: {
           comments: false

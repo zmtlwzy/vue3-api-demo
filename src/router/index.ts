@@ -16,7 +16,7 @@ const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
     let obj: RouteRecordRaw
     obj = {
       ...other,
-      component: () => import(`../views/${component}.vue`),
+      component: () => import(`../views/${component}/index.vue`),
     }
     if (children) {
       obj.children = getRoutesArr(children);

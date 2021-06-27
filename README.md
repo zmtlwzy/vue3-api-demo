@@ -13,6 +13,7 @@
 - **最新技术栈**：使用 Vue3/vite2 等前端前沿技术开发
 - **TypeScript**: 应用程序级 JavaScript 的语言
 - **UI**：使用最新Naive UI
+- **Windi Css**：下一代效率优先的css框架
 
 ## 准备
 
@@ -22,6 +23,7 @@
 - [Es6+](http://es6.ruanyifeng.com/) - 熟悉 es6 基本语法
 - [Vue-Router-Next](https://next.router.vuejs.org/) - 熟悉 vue-router 基本使用
 - [Naive UI](https://www.naiveui.com/) - ui 基本使用
+- [Windi Css](https://windicss.org/) - WindiCss 基本使用
 
 
 ## Project setup
@@ -43,7 +45,7 @@ yarn dev:nw
 yarn build
 ```
 
-### preview
+### Preview
 
 ```
 yarn preview

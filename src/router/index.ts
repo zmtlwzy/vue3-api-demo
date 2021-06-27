@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 import type { App } from 'vue';
+import { LoadingBarProviderInst } from "naive-ui"
 
 import {
   createRouter,
@@ -9,10 +10,16 @@ import {
 
 import { List, routesListType } from "./routerList";
 
+interface loadingBarApiRef {
+  value?:LoadingBarProviderInst
+}
+
+export const loadingBarApiRef:loadingBarApiRef = {}
+
 const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
   const arr: RouteRecordRaw[] = [];
   for (let item of Arr) {
-    const { component, children, suffix, ...other } = item;
+    const { component, children, ...other } = item;
     let obj: RouteRecordRaw
     obj = {
       ...other,
@@ -35,6 +42,23 @@ const router = createRouter({
       : createWebHistory(),
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  if (!from || to.path !== from.path) {
+    if (loadingBarApiRef.value) {
+      loadingBarApiRef.value?.start()
+    }
+    next()
+  }
+})
+
+router.afterEach((to, from) => {
+  if (!from || to.path !== from.path) {
+    if (loadingBarApiRef.value) {
+      loadingBarApiRef.value?.finish()
+    }
+  }
+})
 
 // config router
 export function setupRouter(app: App<Element>) {

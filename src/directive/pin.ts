@@ -3,16 +3,19 @@ import type { App, Directive, DirectiveBinding } from 'vue';
 const mounted = (el: HTMLElement, binding: DirectiveBinding<any>) => {
     console.log(el, 'el')
     console.log(binding, 'binding')
-    el.style.position = 'fixed'
+    const style = el.style
+    style.position = 'fixed'
+    style.bottom = '10rem'
     const s = binding.arg || 'left'
-    el.style[s] = binding.value + 'px'
+    style[s] = binding.value + 'px'
 };
 
 const updated = (el: HTMLElement, binding: DirectiveBinding<any>) => {
+    const style = el.style
     const s = binding.arg || 'left'
-    el.style.left = ''
-    el.style.right = ''
-    el.style[s] = binding.value + 'px'
+    style.left = ''
+    style.right = ''
+    style[s] = binding.value + 'px'
 };
 
 const pinDirective: Directive = {

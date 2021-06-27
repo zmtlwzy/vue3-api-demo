@@ -1,5 +1,5 @@
 import { defineAsyncComponent } from "vue";
 
 export default defineAsyncComponent(() =>
-  import('@/views/Ref/index.vue')
+  import('views/Ref/index.vue')
 )

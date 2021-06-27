@@ -6,7 +6,7 @@ import 'virtual:windi-utilities.css'
 import './global.less'
 
 import { createApp } from 'vue';
-import App from './App.vue';
+import App from './AppRoot.vue';
 
 import router, { setupRouter } from '@/router';
 import { setupStore } from '@/store';

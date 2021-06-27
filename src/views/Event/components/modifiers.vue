@@ -15,12 +15,18 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
+  import { useMessage } from 'naive-ui';
   export default defineComponent({
     name: 'eventModifiers',
-    methods: {
-      handleClick(text: Object) {
-        alert(text.toString());
-      },
+    setup() {
+      const message = useMessage();
+      const handleClick = (text: any) => {
+        message.success(`${text}`);
+      };
+
+      return {
+        handleClick,
+      };
     },
   });
 </script>

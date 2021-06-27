@@ -129,9 +129,9 @@
           <vModelCom1 v-model={[state.a, 'customName', ['capitalize', 'other']]} label="label : " />
           <vModelCom2 v-model={state.a} />
           <n-input-number
-            v-pin={[state.a, direction, ['c', 'd']]}
+            v-pin={[state.a, direction.value, ['c', 'd']]}
             v-model={[state.a, 'value']}
-            onFocus={alertEvent('focus')}
+            onFocus={console.log('focus')}
           />
         </div>
       );

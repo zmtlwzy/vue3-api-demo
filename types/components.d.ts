@@ -4,26 +4,26 @@
 declare module 'vue' {
   export interface GlobalComponents {
     DesTable: typeof import('./../src/components/DesTable/index.vue')['default']
+    NElement: typeof import('naive-ui')['NElement']
+    NSwitch: typeof import('naive-ui')['NSwitch']
+    NH4: typeof import('naive-ui')['NH4']
     NButton: typeof import('naive-ui')['NButton']
+    NSpace: typeof import('naive-ui')['NSpace']
     NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
     NMenu: typeof import('naive-ui')['NMenu']
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
-    NSpace: typeof import('naive-ui')['NSpace']
     NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
     NLayout: typeof import('naive-ui')['NLayout']
-    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NCard: typeof import('naive-ui')['NCard']
-    NH4: typeof import('naive-ui')['NH4']
     NButtonGroup: typeof import('naive-ui')['NButtonGroup']
     NCheckbox: typeof import('naive-ui')['NCheckbox']
     NSkeleton: typeof import('naive-ui')['NSkeleton']
     NInputNumber: typeof import('naive-ui')['NInputNumber']
-    NInput: typeof import('naive-ui')['NInput']
+    NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
     NTag: typeof import('naive-ui')['NTag']
-    NSlider: typeof import('naive-ui')['NSlider']
     NColorPicker: typeof import('naive-ui')['NColorPicker']
-    NSwitch: typeof import('naive-ui')['NSwitch']
   }
 }
 

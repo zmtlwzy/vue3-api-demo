@@ -8,16 +8,16 @@
 <script>
   import { toRefs, computed } from 'vue';
 
-  import { useAppStore } from '@/store/modules/app';
+  import { useDemoStore } from '@/store/modules/demo';
 
   export default {
     setup() {
-      const appStore = useAppStore();
+      const demoStore = useDemoStore();
 
       return {
-        x: computed(() => appStore.getX),
-        y: computed(() => appStore.getY),
-        add: (...params) => appStore.setValue(params),
+        x: computed(() => demoStore.getX),
+        y: computed(() => demoStore.getY),
+        add: (...params) => demoStore.setValue(params),
       };
     },
   };

@@ -2,10 +2,12 @@
 # yarn lockfile v1
 
 
-"@antfu/utils@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.2.2.tgz#b74c5b6f6de64f7e47a669deba054790b26f85d8"
-  integrity sha512-8GwVE0j48SpZaLxsHO0BSO0sEpkb+EhFQcABFBFomH4O8AwNVVvGQNRCBKOPUwU4Vxj3ZSVz8PDjUrPGwaYP9A==
+"@antfu/utils@^0.2.3":
+  version "0.2.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/@antfu/utils/-/utils-0.2.4.tgz#c7d33fc6faa0d3a6fcc2555673f5e9b19c0fbc15"
+  integrity sha512-2bZNkVfL9IZESmvE26UKi8SzyvSoaIsGXDcnbHFMtmGMqUiB1fXpAJ1ijGf+tSqKRQ5yagck2U1Qk0p+705/kw==
+  dependencies:
+    "@types/throttle-debounce" "^2.1.0"
 
 "@babel/code-frame@^7.14.5":
   version "7.14.5"
@@ -361,7 +363,7 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.170.tgz#0d67711d4bf7f4ca5147e9091b847479b87925d6"
   integrity sha512-bpcvu/MKHHeYX+qeEN8GE7DIravODWdACVA1ctevD8CN24RhPZIKMn9ntfAsrvLfSX3cR5RrBKAbYm9bGs0A+Q==
 
-"@types/node@*", "@types/node@^15.12.4":
+"@types/node@*":
   version "15.12.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.4.tgz#e1cf817d70a1e118e81922c4ff6683ce9d422e26"
   integrity sha512-zrNj1+yqYF4WskCMOHwN+w9iuD12+dGm0rQ35HLl9/Ouuq52cEtd0CH9qMgrdNmi5ejC1/V7vKEXYubB+65DkA==
@@ -371,10 +373,20 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
   integrity sha512-e6ZowgGJmTuXa3GyaPbTGxX17tnThl2aSSizrFthQ7m9uLGZBXiGhgE55cjRZTF5kjZvYn9EOPOMljdjwbflxw==
 
+"@types/node@^15.12.5":
+  version "15.12.5"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/node/-/node-15.12.5.tgz#9a78318a45d75c9523d2396131bd3cca54b2d185"
+  integrity sha512-se3yX7UHv5Bscf8f1ERKvQOD6sTyycH3hdaoozvaLxgUiY5lIGEeH37AD0G0Qi9kPqihPn0HOfd2yaIEN9VwEg==
+
 "@types/node@~14.14.31":
   version "14.14.45"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.45.tgz#ec2dfb5566ff814d061aef7e141575aedba245cf"
   integrity sha512-DssMqTV9UnnoxDWu959sDLZzfvqCF0qDNRjaWeYSui9xkFe61kKo4l1TWNTQONpuXEm+gLMRvdlzvNHBamzmEw==
+
+"@types/throttle-debounce@^2.1.0":
+  version "2.1.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/throttle-debounce/-/throttle-debounce-2.1.0.tgz#1c3df624bfc4b62f992d3012b84c56d41eab3776"
+  integrity sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==
 
 "@types/yargs-parser@*":
   version "20.2.0"
@@ -475,7 +487,7 @@
     "@vue/compiler-dom" "3.1.2"
     "@vue/shared" "3.1.2"
 
-"@vue/devtools-api@^6.0.0-beta.12", "@vue/devtools-api@^6.0.0-beta.14":
+"@vue/devtools-api@^6.0.0-beta.14":
   version "6.0.0-beta.14"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.14.tgz#6ed2d6f8d66a9256c9ad04bfff08309ba87b9723"
   integrity sha512-44fPrrN1cqcs6bFkT0C+yxTM6PZXLbR+ESh1U1j8UD22yO04gXvxH62HApMjLbS3WqJO/iCNC+CYT+evPQh2EQ==
@@ -509,12 +521,12 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.1.2.tgz#1069c0bc7d6f4bd15ccf3a5f3be29450aca368f9"
   integrity sha512-EmH/poaDWBPJaPILXNI/1fvUbArJQmmTyVCwvvyDYDFnkPoTclAbHRAtyIvqfez7jybTDn077HTNILpxlsoWhg==
 
-"@windicss/plugin-utils@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-1.1.0.tgz#c0834165f40142bf52f24eced1bbf68cbf8bd506"
-  integrity sha512-v9WhtcGKRehsbY2Omd9m+Jd0IsjbKJmRSa712BuPLZ+fZuCSomne9twjqtPn29IGqS6T/9lM8aOjW7mRMU1x/g==
+"@windicss/plugin-utils@1.1.1":
+  version "1.1.1"
+  resolved "https://repo.huaweicloud.com/repository/npm/@windicss/plugin-utils/-/plugin-utils-1.1.1.tgz#7f70952adc8d33f607706e434a153e2cdff52b64"
+  integrity sha512-niKEDyUpOfCGemFHopI9fxdWPpJQIZ/jmaU4spQXsGc1oEts164P8LUJPQmXc8C6vjKwkrH7KA+lxYNG5LmlDA==
   dependencies:
-    "@antfu/utils" "^0.2.2"
+    "@antfu/utils" "^0.2.3"
     debug "^4.3.2"
     fast-glob "^3.2.5"
     jiti "^1.10.1"
@@ -1212,12 +1224,12 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pinia@2.0.0-beta.2:
-  version "2.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.0-beta.2.tgz#2d4321166ad77950abc35036dbefead0f0c81319"
-  integrity sha512-fzjzS5gaZyWNFfQBL60Bn967Jwy3nbYuVCjzpqCCbI/wzrIN/NqLRy9ACRaZvAf+T/VEv5+A0J87UkWalSJY0w==
+pinia@2.0.0-beta.3:
+  version "2.0.0-beta.3"
+  resolved "https://repo.huaweicloud.com/repository/npm/pinia/-/pinia-2.0.0-beta.3.tgz#c6f0d07da54dc5aa237f4cc9281898e927b33d16"
+  integrity sha512-4ygKhe9FrYD69tJ7nSdgHm9Ldb0aM/Nzyb8Qz/RZuzOyOr85jWHNmCAhCytWy0l9C4/ypGJYCEJ3vuZfyWjcZA==
   dependencies:
-    "@vue/devtools-api" "^6.0.0-beta.12"
+    "@vue/devtools-api" "^6.0.0-beta.14"
 
 postcss-modules-extract-imports@^3.0.0:
   version "3.0.0"
@@ -1283,10 +1295,10 @@ postcss@^8.1.10, postcss@^8.3.4:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
-prettier@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
-  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
+prettier@^2.3.2:
+  version "2.3.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
+  integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
 
 pretty-format@^26.0.0, pretty-format@^26.6.2:
   version "26.6.2"
@@ -1491,12 +1503,12 @@ vite-plugin-components@^0.11.2:
     magic-string "^0.25.7"
     minimatch "^3.0.4"
 
-vite-plugin-windicss@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.1.0.tgz#b02bd0d835cddd05b8e1eb45448809771fa12973"
-  integrity sha512-vb8jwOlLGCzHcAfh7gtBa/+gioTXmcJYqACoHhaDD1MEwMB55qTODJckvi1eeQ74yV4uBTizOCRrucY+gI2xAg==
+vite-plugin-windicss@^1.1.1:
+  version "1.1.1"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-windicss/-/vite-plugin-windicss-1.1.1.tgz#c13d4c2d9fec4afae2eea5058f426c693255d02f"
+  integrity sha512-J1n3DoSg8BkQ42HDNzh+FqPhvBgCRgQ0Nvp2HLvb5FVl8FKEPw26Frc/oLaC1g9ypSlvkSM8011gHi+c+pxsRQ==
   dependencies:
-    "@windicss/plugin-utils" "1.1.0"
+    "@windicss/plugin-utils" "1.1.1"
     chalk "^4.1.1"
     debug "^4.3.2"
     windicss "^3.1.3"

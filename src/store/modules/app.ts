@@ -1,40 +1,51 @@
 
 import { defineStore } from 'pinia';
 import { store } from '@/store';
+import { darkTheme } from 'naive-ui'
 
 interface AppState {
-  x: number,
-  y: number,
   headerHeight: number,
   siderWidth: number,
+  themeName: 'dark' | 'light',
 }
 
 export const useAppStore = defineStore({
   id: 'app',
   state: (): AppState => ({
-    x: 0,
-    y: 0,
+
     headerHeight: 64,
     siderWidth: 250,
+    themeName: 'light',
   }),
   getters: {
-    getX(): number {
-      return this.x;
-    },
-    getY(): number {
-      return this.y;
-    },
+
     getHeaderHeight(): number {
       return this.headerHeight;
     },
     getSiderWidth(): number {
       return this.siderWidth;
-    }
+    },
+    getThemeName(): AppState['themeName'] {
+      return this.themeName;
+    },
+    getThemeCssVars(): null | typeof darkTheme {
+      return this.themeName === 'dark' ? darkTheme : null;
+    },
   },
   actions: {
-    setValue(arr: [number, number]) {
-      this.x += 1
-      this.y += arr[0]
+
+    setThemeName(val: AppState['themeName']) {
+      this.themeName = val
+    },
+    toggleTheme() {
+      switch (this.themeName) {
+        case 'dark':
+          this.setThemeName('light')
+          break;
+        case 'light':
+          this.setThemeName('dark')
+          break;
+      }
     }
   }
 })

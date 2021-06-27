@@ -3,7 +3,7 @@
   import Child from './SlotsChild.vue';
   import { theNum } from './interface';
 
-  import DesTable from '@/components/DesTable';
+  import DesTable from 'comps/DesTable';
 
   export default defineComponent({
     components: {

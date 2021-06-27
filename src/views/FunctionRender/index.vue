@@ -1,18 +1,20 @@
-<script>
+<script lang="ts">
   import { h, reactive, withModifiers, withDirectives, resolveDirective } from 'vue';
-
+  import { useMessage } from 'naive-ui';
+  
   export default {
     name: 'FunctionRender',
-    setup(props, { slots, attrs, emit }) {
-      const MyDirective = resolveDirective('pin');
+    setup() {
+      const MyDirective = resolveDirective('pin')!;
+      const message = useMessage();
 
       const state = reactive({
         count: 0,
       });
 
-      function increment(str) {
+      function increment(str: any) {
         state.count++;
-        str && alert(str);
+        str && message.info(str);
       }
 
       // return the render function
@@ -66,7 +68,7 @@
                 MyDirective,
                 (state.count % 16) * 50,
                 state.count % 16 > 8 ? 'top' : 'right',
-                { prevent: true, other: 'otherStr' },
+                { prevent: true, other: 'otherStr' as any },
               ],
             ]),
           ]

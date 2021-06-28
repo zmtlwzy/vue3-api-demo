@@ -1,5 +1,7 @@
 import type { UserConfig, ConfigEnv } from 'vite';
 
+import { loadEnv } from 'vite';
+
 import { resolve } from 'path'
 
 import vue from '@vitejs/plugin-vue';
@@ -7,7 +9,11 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import WindiCSS from 'vite-plugin-windicss';
 import ViteComponents, { NaiveUiResolver } from 'vite-plugin-components'
 
-export default ({ command }: ConfigEnv): UserConfig => {
+export default ({ command, mode }: ConfigEnv): UserConfig => {
+
+  const root = process.cwd();
+
+  const env = loadEnv(mode, root);
 
   const isBuild = command === 'build';
 
@@ -21,7 +27,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
         views: resolve(__dirname, 'src/views'),
       },
     },
-    base: '/vue3-demo/',
+    base: env.VITE_PUBLIC_PATH,
     plugins: [
       vue(),
       vueJsx(),

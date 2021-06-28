@@ -36,11 +36,10 @@ const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
 const routes = getRoutesArr(List);
 
 const router = createRouter({
-  // history:
-  //   import.meta.env.DEV
-  //     ? createWebHashHistory()
-  //     : createWebHistory(),
-  history: createWebHashHistory(),
+  history:
+    import.meta.env.DEV
+      ? createWebHistory()
+      : createWebHashHistory(),
   routes,
 });
 

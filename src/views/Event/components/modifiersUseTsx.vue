@@ -62,12 +62,12 @@
     },
   });
 
+  const compName = 'modifiersUseTsx';
   export default defineComponent({
-    name: 'modifiersUseTsx',
+    name: compName,
     setup(_, { attrs }) {
       const state = reactive({
         a: 600,
-        flag: false,
       });
 
       const message = useMessage();
@@ -80,12 +80,11 @@
         flexDirection: 'column',
       };
       const alertEvent = (text: string): void => {
-        message.success(text)
+        message.success(text);
       };
 
       return () => (
-        <div class="column-layout">
-          <n-h4>modifiersUseTsx</n-h4>
+        <n-card title={compName}>
           <div {...attrs}>
             <n-space vertical align="center">
               <span>{state.a}</span>
@@ -94,17 +93,12 @@
                 type="primary"
                 onClick={() => {
                   state.a++;
-                  state.flag || (state.flag = true);
                 }}
               >
                 ++
               </n-button>
             </n-space>
-            <div
-              v-show={state.flag}
-              style={style}
-              onClick={withModifiers(() => alertEvent('container'), ['capture'])}
-            >
+            <div style={style} onClick={withModifiers(() => alertEvent('container'), ['capture'])}>
               container-capture
               <div style={style} onClick={() => alertEvent('child-0')}>
                 child-0
@@ -133,7 +127,7 @@
             v-model={[state.a, 'value']}
             onFocus={console.log('focus')}
           />
-        </div>
+        </n-card>
       );
     },
   });

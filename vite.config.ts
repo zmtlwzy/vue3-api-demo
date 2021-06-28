@@ -29,10 +29,12 @@ export default ({ command }: ConfigEnv): UserConfig => {
         safelist: 'no-select',
       }),
 
-      //自动 import Naive组件
       ViteComponents({
+      //auto import dirs compontents 
+        dirs: ['src/components','src/layout'],
+      //auto import Naive compontents
+        customComponentResolvers: NaiveUiResolver(), 
         globalComponentsDeclaration: 'types/components.d.ts',
-        customComponentResolvers: NaiveUiResolver()
       })
     ],
     build: {

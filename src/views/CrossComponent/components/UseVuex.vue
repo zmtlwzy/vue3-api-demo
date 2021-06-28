@@ -1,8 +1,10 @@
 <template>
-  <div class="column-layout">
-    <span>x : {{ x }}--y : {{ y }}</span>
-   <n-button type="primary" @click="add(8, $event)">++</n-button>
-  </div>
+  <n-card :title="$options.name">
+    <des-table :var-obj="{ x, y }" />
+    <template #action>
+      <n-button @click="add(8, $event)">++</n-button>
+    </template>
+  </n-card>
 </template>
 
 <script>
@@ -11,6 +13,7 @@
   import { useDemoStore } from '@/store/modules/demo';
 
   export default {
+    name: 'usePinia',
     setup() {
       const demoStore = useDemoStore();
 

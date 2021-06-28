@@ -1,6 +1,5 @@
 <template>
-  <div class="column-layout">
-    <n-h4>{{ $options.name }}</n-h4>
+  <n-card :title="$options.name">
     <n-space vertical align="center">
       <div class="border" @click.capture="handleClick('1')">
         1
@@ -10,7 +9,7 @@
         </div>
       </div>
     </n-space>
-  </div>
+  </n-card>
 </template>
 
 <script lang="ts">

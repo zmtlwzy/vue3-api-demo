@@ -12,7 +12,6 @@ interface AppState {
 export const useAppStore = defineStore({
   id: 'app',
   state: (): AppState => ({
-
     headerHeight: 64,
     siderWidth: 250,
     themeName: 'light',
@@ -33,19 +32,8 @@ export const useAppStore = defineStore({
     },
   },
   actions: {
-
     setThemeName(val: AppState['themeName']) {
       this.themeName = val
-    },
-    toggleTheme() {
-      switch (this.themeName) {
-        case 'dark':
-          this.setThemeName('light')
-          break;
-        case 'light':
-          this.setThemeName('dark')
-          break;
-      }
     }
   }
 })

@@ -6,25 +6,17 @@
 
 ## 简介
 
-这是一个使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，用于vue3新特性学习参考的项目。
+这是一个使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，用于 vue3 新特性学习参考的项目。
 
-## 特性
+## 依赖
 
-- **最新技术栈**：使用 Vue3/vite2 等前端前沿技术开发
-- **TypeScript**: 应用程序级 JavaScript 的语言
-- **UI**：使用最新Naive UI
-- **Windi Css**：下一代效率优先的css框架
-
-## 准备
-
-- [Vite](https://vitejs.dev/) - 熟悉 vite 特性
-- [Vue3](https://v3.vuejs.org/) - 熟悉 Vue 基础语法
-- [TypeScript](https://www.typescriptlang.org/) - 熟悉`TypeScript`基本语法
-- [Es6+](http://es6.ruanyifeng.com/) - 熟悉 es6 基本语法
-- [Vue-Router-Next](https://next.router.vuejs.org/) - 熟悉 vue-router 基本使用
-- [Naive UI](https://www.naiveui.com/) - ui 基本使用
-- [Windi Css](https://windicss.org/) - WindiCss 基本使用
-
+- [Vite](https://vitejs.dev/) - 新型前端构建工具
+- [Vue3](https://v3.vuejs.org/) - 最新 vue
+- [Vue-Router-Next](https://next.router.vuejs.org/) - vue3 版 router
+- [pinia](https://pinia.esm.dev/) - 提前使用 vuex5
+- [TypeScript](https://www.typescriptlang.org/) - 应用程序级 JavaScript 的语言
+- [Naive UI](https://www.naiveui.com/) - 使用最新 Naive UI
+- [Windi Css](https://windicss.org/) - 下一代效率优先的 css 框架
 
 ## Project setup
 

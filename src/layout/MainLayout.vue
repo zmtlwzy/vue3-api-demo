@@ -42,6 +42,7 @@
   import { useAppStore } from '@/store/modules/app';
 
   export default defineComponent({
+    name:'MainLayout',
     props: ['menuOptions', 'menuValue'],
     setup() {
       const appStore = useAppStore();

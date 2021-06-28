@@ -1,5 +1,5 @@
 <template>
-  <Layout :menuOptions="menuOptions" :menuValue="menuValue">
+  <MainLayout :menuOptions="menuOptions" :menuValue="menuValue">
     <template #header>
       <div class="flex flex-row items-center px-8 h-full justify-between">
         <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
@@ -28,10 +28,10 @@
     <template #footer>
       <div class="flex w-full justify-center items-center">
         <p class="mr-15 text-md">vue version: {{ version }} (footer)</p>
-        <n-button type="primary" @click="refreshId++">refresh</n-button>
+        <n-button type="primary" @click="handleRefresh">refresh</n-button>
       </div>
     </template>
-  </Layout>
+  </MainLayout>
 </template>
 
 <script lang="ts">
@@ -39,8 +39,7 @@
   import { MenuOption, useLoadingBar } from 'naive-ui';
 
   import { useAppStore } from '@/store/modules/app';
-
-  import Layout from '@/layout/main.vue';
+  import { useDemoStore } from '@/store/modules/demo';
 
   import { loadingBarApiRef } from '@/router';
   import { List as routerList } from '@/router/routerList';
@@ -48,6 +47,7 @@
   import { rederRouter } from 'comps/render';
 
   import { useRoute } from 'vue-router';
+import MainLayout from './layout/MainLayout.vue';
 
   const list = routerList.filter((item) => {
     return !Object.keys(item).includes('redirect');
@@ -61,41 +61,45 @@
   }) as MenuOption[];
 
   export default defineComponent({
-    name: 'app',
-    components: { Layout },
+    name: "app",
     setup() {
-      const route = useRoute();
-      const loadingBar = useLoadingBar();
-      const appStore = useAppStore();
+        const route = useRoute();
+        const loadingBar = useLoadingBar();
+        const appStore = useAppStore();
+        const demoStore = useDemoStore()
 
-      const active = ref<boolean>(false);
-      const refreshId = ref<number>(0);
+        const active = ref<boolean>(false);
+        const refreshId = ref<number>(0);
+        const menuValue = computed(() => {
+            const path = route.path;
+            return path.slice(1, 2).toUpperCase() + path.slice(2);
+        });
+        watchEffect(() => {
+            if (active.value) {
+                appStore.setThemeName("dark");
+            }
+            else {
+                appStore.setThemeName("light");
+            }
+        });
+        onMounted(() => {
+            loadingBarApiRef.value = loadingBar;
+            loadingBar?.finish();
+        });
 
-      const menuValue = computed(() => {
-        const path = route.path;
-        return path.slice(1, 2).toUpperCase() + path.slice(2);
-      });
-
-      watchEffect(() => {
-        if (active.value) {
-          appStore.setThemeName('dark');
-        } else {
-          appStore.setThemeName('light');
+        const handleRefresh = ()=>{
+          demoStore.$reset()
+          refreshId.value++
         }
-      });
-
-      onMounted(() => {
-        loadingBarApiRef.value = loadingBar;
-        loadingBar?.finish();
-      });
-
-      return {
-        version,
-        menuOptions,
-        menuValue,
-        active,
-        refreshId,
-      };
+        return {
+            version,
+            menuOptions,
+            menuValue,
+            active,
+            refreshId,
+            handleRefresh
+        };
     },
-  });
+    components: { MainLayout },
+});
 </script>

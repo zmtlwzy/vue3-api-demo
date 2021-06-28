@@ -1,9 +1,15 @@
 <template>
-  <n-card>
-    <div class="grid-layout">
-      <component v-for="comp in comps" :is="comp" />
-    </div>
-  </n-card>
+  <n-grid :cols="2" x-gap="16" y-gap="24">
+    <n-grid-item>
+      <eventBase />
+    </n-grid-item>
+    <n-grid-item>
+      <modifiers />
+    </n-grid-item>
+    <n-grid-item :span="2">
+      <modifiersUseTsx />
+    </n-grid-item>
+  </n-grid>
 </template>
 
 <script>
@@ -13,6 +19,5 @@
   });
 </script>
 <script setup>
-  import * as all from './components';
-  const comps = all;
+  import { base as eventBase, modifiers, modifiersUseTsx } from './components';
 </script>

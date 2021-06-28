@@ -1,9 +1,9 @@
-import A from './UseReactive.vue'
-import B from './Provide & Inject.vue'
-import C from './UseVuex.vue'
+import UseVuex from './UseVuex.vue'
+import PAndI from './Provide & Inject.vue'
+import UseReactive from './UseReactive.vue'
 
 export {
-    A,
-    B,
-    C
+    UseVuex,
+    PAndI,
+    UseReactive,
 }

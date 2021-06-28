@@ -30,14 +30,15 @@ export default ({ command }: ConfigEnv): UserConfig => {
       }),
 
       ViteComponents({
-      //auto import dirs compontents 
-        dirs: ['src/components','src/layout'],
-      //auto import Naive compontents
-        customComponentResolvers: NaiveUiResolver(), 
+        //auto import dirs compontents 
+        dirs: ['src/components', 'src/layout'],
+        //auto import Naive compontents
+        customComponentResolvers: NaiveUiResolver(),
         globalComponentsDeclaration: 'types/components.d.ts',
       })
     ],
     build: {
+      outDir: 'docs',
       target: 'es2015',
       terserOptions: {
         compress: {

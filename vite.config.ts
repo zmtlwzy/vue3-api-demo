@@ -38,6 +38,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
       })
     ],
     build: {
+      base: '/vue3-demo',
       outDir: 'docs',
       target: 'es2015',
       terserOptions: {

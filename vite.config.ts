@@ -21,7 +21,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
         views: resolve(__dirname, 'src/views'),
       },
     },
-    base: '',
+    base: '/vue3-demo/',
     plugins: [
       vue(),
       vueJsx(),
@@ -38,8 +38,6 @@ export default ({ command }: ConfigEnv): UserConfig => {
       })
     ],
     build: {
-      base: '/vue3-demo',
-      outDir: 'docs',
       target: 'es2015',
       terserOptions: {
         compress: {

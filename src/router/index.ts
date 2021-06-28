@@ -11,10 +11,10 @@ import {
 import { List, routesListType } from "./routerList";
 
 interface loadingBarApiRef {
-  value?:LoadingBarProviderInst
+  value?: LoadingBarProviderInst
 }
 
-export const loadingBarApiRef:loadingBarApiRef = {}
+export const loadingBarApiRef: loadingBarApiRef = {}
 
 const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
   const arr: RouteRecordRaw[] = [];
@@ -36,10 +36,11 @@ const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
 const routes = getRoutesArr(List);
 
 const router = createRouter({
-  history:
-    import.meta.env.DEV
-      ? createWebHashHistory()
-      : createWebHistory(),
+  // history:
+  //   import.meta.env.DEV
+  //     ? createWebHashHistory()
+  //     : createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

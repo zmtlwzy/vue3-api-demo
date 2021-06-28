@@ -4,25 +4,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     DesTable: typeof import('./../src/components/DesTable/index.vue')['default']
-    MainLayout: typeof import('./../src/layout/MainLayout.vue')['default']
     GridLayout: typeof import('./../src/layout/GridLayout.vue')['default']
-    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
-    NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
-    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
-    NElement: typeof import('naive-ui')['NElement']
-    NSwitch: typeof import('naive-ui')['NSwitch']
-    NButton: typeof import('naive-ui')['NButton']
-    NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
-    NMenu: typeof import('naive-ui')['NMenu']
-    NLayoutSider: typeof import('naive-ui')['NLayoutSider']
-    NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
-    NLayout: typeof import('naive-ui')['NLayout']
-    NGridItem: typeof import('naive-ui')['NGridItem']
-    NGrid: typeof import('naive-ui')['NGrid']
-    NH4: typeof import('naive-ui')['NH4']
-    NSpace: typeof import('naive-ui')['NSpace']
-    NInputNumber: typeof import('naive-ui')['NInputNumber']
-    NCard: typeof import('naive-ui')['NCard']
+    MainLayout: typeof import('./../src/layout/MainLayout.vue')['default']
   }
 }
 

@@ -1,0 +1,1 @@
+import{e as o,g as r,V as t}from"./vendor.ffd8cda6.js";var a=o({name:"GridLayout",props:["cols"],setup(o,{slots:a}){const e=Number(o.cols),s="[object Number]"===Object.prototype.toString.call(e)?e:2;return()=>r(t,{cols:s,"x-gap":"16","y-gap":"24"},{default:()=>{var o;return[null==(o=a.default)?void 0:o.call(a)]}})}});export{a as _};

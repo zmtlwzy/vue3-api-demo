@@ -1,10 +1,18 @@
 <template>
-  <n-space vertical>
-    <n-h4>{{ $options.name }}</n-h4>
+  <n-card :title="$options.name">
     <n-tag class="mb-2 tag-class">{{ color }}</n-tag>
-    <n-color-picker :modes="['hex']" :show-alpha="false" class="w-50" v-model:value="color.input" />
-    <n-button type="primary" @click="handleClick">changeColor</n-button>
-  </n-space>
+    <template #action>
+      <div class="flex items-center">
+        <n-color-picker
+          :modes="['hex']"
+          :show-alpha="false"
+          class="flex-1 mr-12vw"
+          v-model:value="color.input"
+        />
+        <n-button type="primary" @click="handleClick">changeColor</n-button>
+      </div>
+    </template>
+  </n-card>
 </template>
 
 <script lang="ts">

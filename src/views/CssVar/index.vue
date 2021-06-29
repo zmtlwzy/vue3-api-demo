@@ -1,10 +1,13 @@
 <template>
-  <div class="grid container">
-    <component v-for="comp in comps" :is="comp" class="column-layout"></component>
-  </div>
+  <GridLayout>
+    <n-grid-item :span="2">
+      <CssVarBase />
+    </n-grid-item>
+    <UseCssModule />
+    <UseCssVars />
+  </GridLayout>
 </template>
 
 <script setup lang="ts">
-  import * as all from './components';
-  const comps = all
+  import { Base as CssVarBase, UseCssModule, UseCssVars } from './components';
 </script>

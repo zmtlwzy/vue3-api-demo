@@ -5,9 +5,7 @@
 
   export default defineComponent({
     setup() {
-      const AsyncCom = createAsyncComponent(
-        () => import('./components/LargeImg.vue')
-      );
+      const AsyncCom = createAsyncComponent(() => import('./components/LargeImg.vue'));
       return () => (
         <>
           Set the network speed to slow3G in devtools

@@ -2,7 +2,10 @@
   <n-card :title="$options.name">
     <des-table :var-obj="{ x, y }" />
     <template #action>
-      <n-button @click="add(8, $event)">++</n-button>
+      <n-space>
+        <n-button @click="add(8, $event)">++</n-button>
+        <n-button @click="resetState">reset</n-button>
+      </n-space>
     </template>
   </n-card>
 </template>
@@ -20,7 +23,12 @@
       return {
         x: computed(() => demoStore.getX),
         y: computed(() => demoStore.getY),
-        add: (...params) => demoStore.setValue(params),
+        add: (...params) => {
+          demoStore.setValue(params);
+        },
+        resetState: () => {
+          demoStore.$reset();
+        },
       };
     },
   };

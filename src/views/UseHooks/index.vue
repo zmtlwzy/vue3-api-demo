@@ -9,10 +9,10 @@
 </template>
 
 <script>
-  import {defineComponent} from 'vue'
+  import { defineComponent } from 'vue';
   export default defineComponent({
-    name:'useHook-MouseEvent'
-  })
+    name: 'useHook-MouseEvent',
+  });
 </script>
 
 <script setup>

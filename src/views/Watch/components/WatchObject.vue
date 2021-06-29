@@ -6,7 +6,7 @@
     -------------------------
     <span>{{ num }}</span>
     <span>{{ str }}</span>
-   <n-button type="primary" @click="add">add</n-button>
+    <n-button type="primary" @click="add">add</n-button>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
-import A from './base.vue'
-import B from './useContext.vue'
+import Base from './base.vue'
+import UseContext from './useContext.vue'
 
 export {
-    A, B
+    Base,
+    UseContext
 }

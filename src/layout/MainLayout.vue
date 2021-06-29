@@ -22,7 +22,6 @@
       content-style="min-height: calc(100vh - var(--header-height));padding:2rem;"
     >
       <div>
-        <div id="teleport-container"></div>
         <main>
           <slot name="content"></slot>
         </main>
@@ -42,7 +41,7 @@
   import { useAppStore } from '@/store/modules/app';
 
   export default defineComponent({
-    name:'MainLayout',
+    name: 'MainLayout',
     props: ['menuOptions', 'menuValue'],
     setup() {
       const appStore = useAppStore();

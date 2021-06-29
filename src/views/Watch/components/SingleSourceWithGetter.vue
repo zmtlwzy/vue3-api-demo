@@ -3,7 +3,7 @@
     <n-h4>single-getter</n-h4>
     <des-table :varObj="{ count, other }"></des-table>
     <br />
-   <n-button type="primary" @click="add">add</n-button>
+    <n-button type="primary" @click="add">add</n-button>
   </div>
 </template>
 

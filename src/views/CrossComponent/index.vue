@@ -1,6 +1,6 @@
 <template>
-  <GridLayout>
-    <n-grid-item :span="2">
+  <GridLayout :cols="3">
+    <n-grid-item :span="3">
       <n-card>
         <div class="flex justify-evenly w-full">
           <des-table :var-obj="{ count, count2, count3 }"

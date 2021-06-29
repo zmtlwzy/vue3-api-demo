@@ -1,9 +1,10 @@
 <template>
-  <n-space vertical>
-    <n-h4>{{$options.name}}</n-h4>
-    <n-button type="primary" @click="hangleClick">inc</n-button>
-    <des-table :var-obj="{a,b}" />
-  </n-space>
+  <n-card :title="$options.name">
+    <n-space vertical>
+      <n-button type="primary" @click="hangleClick">inc</n-button>
+      <des-table :var-obj="{ a, b }" />
+    </n-space>
+  </n-card>
 </template>
 
 <script lang="ts">

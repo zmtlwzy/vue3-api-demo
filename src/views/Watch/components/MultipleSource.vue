@@ -5,7 +5,7 @@
     <br />
     <span>{{ count2 }}</span>
     <br />
-   <n-button type="primary" @click="add">add</n-button>
+    <n-button type="primary" @click="add">add</n-button>
   </div>
 </template>
 

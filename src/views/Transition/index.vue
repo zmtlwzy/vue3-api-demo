@@ -3,8 +3,8 @@
     <n-button type="primary" @click="flag = !flag">start</n-button>
   </n-card>
   <transition :css="false" @before-enter="bfEnter" @enter="enter" @after-enter="afEnter">
-      <div class="ball" v-if="flag"></div>
-    </transition>
+    <div class="ball" v-if="flag"></div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -21,21 +21,21 @@
   const moveTime = 1;
   const fallTime = 0.6;
   export default defineComponent({
-    name:'transitionHook',
+    name: 'transitionHook',
     setup() {
       const flag = ref<boolean>(false);
       const state = useTransitionState();
 
       onBeforeMount(() => {
-        console.log('onBeforeMount')
+        console.log('onBeforeMount');
         console.log(state);
       });
       onMounted(() => {
-        console.log('onMounted')
+        console.log('onMounted');
         console.log(state);
       });
       onUnmounted(() => {
-        console.log('onUnmounted')
+        console.log('onUnmounted');
         console.log(state);
       });
 

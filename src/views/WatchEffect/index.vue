@@ -18,7 +18,7 @@
       const keyId = ref<number>(0);
       const saveMode = ref<string>();
       const handleChange = (str: WatchOptionsBase['flush']) => {
-        console.log('fuck')
+        console.log('fuck');
         keyId.value++;
         saveMode.value = str;
       };

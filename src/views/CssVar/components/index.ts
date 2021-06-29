@@ -1,3 +1,9 @@
-export { default as A } from './base.vue'
-export { default as B } from './useCssModule.vue'
-export { default as C } from './useCssVars.vue'
+import Base from './base.vue'
+import UseCssModule from './useCssModule.vue'
+import UseCssVars from './useCssVars.vue'
+
+export {
+    Base,
+    UseCssModule,
+    UseCssVars
+}

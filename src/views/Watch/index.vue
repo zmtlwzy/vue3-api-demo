@@ -1,10 +1,8 @@
 <template>
-  <n-card>
-    <div class="grid-layout">
-      <component v-for="comp in allComps" :is="comp" />
-      <span>open console</span>
-    </div>
-  </n-card>
+  <n-h2>open console</n-h2>
+  <GridLayout :cols="3">
+    <component v-for="comp in allComps" :is="comp" />
+  </GridLayout>
 </template>
 
 <script>

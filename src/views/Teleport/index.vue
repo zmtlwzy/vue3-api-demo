@@ -1,33 +1,44 @@
 <template>
-  <div>
-   <n-button type="primary" @click="changeTarget">change</n-button>
-    <teleport :to="target">
-      <span>teleport</span>
-    </teleport>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical>
+      <n-button type="primary" @click="changeTarget">change</n-button>
+      <div id="teleport-container"></div>
+    </n-space>
+  </n-card>
+
+  <teleport :to="target" v-if="isShow">
+    <n-tag size="large">teleport tag</n-tag>
+  </teleport>
 </template>
 
-<script>
+<script lang="ts">
+  import { defineComponent, nextTick, ref } from 'vue';
   function* toggleTarget() {
     while (true) {
-      yield document.querySelector('footer');
+      yield document.querySelector('footer .teleport-footer-container');
       yield '#teleport-container';
-      yield document.querySelector('header');
+      yield '.teleport-header-container';
     }
   }
   const toggle = toggleTarget();
-  export default {
-    data() {
+  export default defineComponent({
+    name: 'Teleport',
+    setup() {
+      const target = ref<any>('#teleport-container');
+      const isShow = ref<boolean>(false);
+      const changeTarget = () => {
+        target.value = toggle.next().value;
+      };
+      nextTick(() => {
+        isShow.value = true;
+      });
       return {
-        target: '#teleport-container',
+        isShow,
+        target,
+        changeTarget,
       };
     },
-    methods: {
-      changeTarget() {
-        this.target = toggle.next().value;
-      },
-    },
-  };
+  });
 </script>
 
 <style scoped>

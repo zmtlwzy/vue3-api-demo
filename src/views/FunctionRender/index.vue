@@ -1,7 +1,7 @@
 <script lang="ts">
   import { h, reactive, withModifiers, withDirectives, resolveDirective } from 'vue';
   import { useMessage } from 'naive-ui';
-  
+
   export default {
     name: 'FunctionRender',
     setup() {

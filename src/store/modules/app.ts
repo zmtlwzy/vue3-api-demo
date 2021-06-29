@@ -2,22 +2,30 @@
 import { defineStore } from 'pinia';
 import { store } from '@/store';
 import { darkTheme } from 'naive-ui'
+import { useDemoStore } from './demo';
+import { resetSharedState } from '@/hooks/Common';
+
 
 interface AppState {
   headerHeight: number,
   siderWidth: number,
   themeName: 'dark' | 'light',
+  refreshId: number
 }
 
 export const useAppStore = defineStore({
   id: 'app',
   state: (): AppState => ({
+    refreshId: 0,
     headerHeight: 64,
     siderWidth: 250,
     themeName: 'light',
   }),
   getters: {
 
+    getRefreshId(): number {
+      return this.refreshId;
+    },
     getHeaderHeight(): number {
       return this.headerHeight;
     },
@@ -34,6 +42,11 @@ export const useAppStore = defineStore({
   actions: {
     setThemeName(val: AppState['themeName']) {
       this.themeName = val
+    },
+    resetAllState() {
+      this.refreshId++
+      useDemoStore().$reset()
+      resetSharedState()
     }
   }
 })

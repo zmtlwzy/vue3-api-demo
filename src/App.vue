@@ -3,6 +3,7 @@
     <template #header>
       <div class="flex flex-row items-center px-8 h-full justify-between">
         <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
+        <div class="teleport-header-container"></div>
         <div class="flex flex-row items-center">
           <n-element
             tag="span"
@@ -26,9 +27,9 @@
       <router-view :key="refreshId" />
     </template>
     <template #footer>
-      <div class="flex w-full justify-center items-center">
+      <div class="flex w-full justify-center items-center teleport-footer-container">
         <p class="mr-15 text-md">vue version: {{ version }} (footer)</p>
-        <n-button type="primary" @click="handleRefresh">refresh</n-button>
+        <n-button type="primary" class="mr-15" @click="handleRefresh">refresh</n-button>
       </div>
     </template>
   </MainLayout>
@@ -39,7 +40,7 @@
   import { MenuOption, useLoadingBar } from 'naive-ui';
 
   import { useAppStore } from '@/store/modules/app';
-  import { useDemoStore } from '@/store/modules/demo';
+  // import { useDemoStore } from '@/store/modules/demo';
 
   import { loadingBarApiRef } from '@/router';
   import { List as routerList } from '@/router/routerList';
@@ -47,7 +48,7 @@
   import { rederRouter } from 'comps/render';
 
   import { useRoute } from 'vue-router';
-import MainLayout from './layout/MainLayout.vue';
+  import MainLayout from './layout/MainLayout.vue';
 
   const list = routerList.filter((item) => {
     return !Object.keys(item).includes('redirect');
@@ -61,45 +62,49 @@ import MainLayout from './layout/MainLayout.vue';
   }) as MenuOption[];
 
   export default defineComponent({
-    name: "app",
+    name: 'app',
     setup() {
-        const route = useRoute();
-        const loadingBar = useLoadingBar();
-        const appStore = useAppStore();
-        const demoStore = useDemoStore()
+      const route = useRoute();
+      const loadingBar = useLoadingBar();
+      const appStore = useAppStore();
+      // const demoStore = useDemoStore();
 
-        const active = ref<boolean>(false);
-        const refreshId = ref<number>(0);
-        const menuValue = computed(() => {
-            const path = route.path;
-            return path.slice(1, 2).toUpperCase() + path.slice(2);
-        });
-        watchEffect(() => {
-            if (active.value) {
-                appStore.setThemeName("dark");
-            }
-            else {
-                appStore.setThemeName("light");
-            }
-        });
-        onMounted(() => {
-            loadingBarApiRef.value = loadingBar;
-            loadingBar?.finish();
-        });
+      const active = ref<boolean>(false);
 
-        const handleRefresh = ()=>{
-          demoStore.$reset()
-          refreshId.value++
+      const refreshId = computed(() => appStore.getRefreshId);
+      const menuValue = computed(() => {
+        const path = route.path;
+        return path.slice(1, 2).toUpperCase() + path.slice(2);
+      });
+
+      const handleRefresh = () => {
+        // demoStore.$reset();
+        // refreshId.value++;
+        appStore.resetAllState();
+      };
+
+      watchEffect(() => {
+        if (active.value) {
+          appStore.setThemeName('dark');
+        } else {
+          appStore.setThemeName('light');
         }
-        return {
-            version,
-            menuOptions,
-            menuValue,
-            active,
-            refreshId,
-            handleRefresh
-        };
+      });
+
+      onMounted(() => {
+        loadingBarApiRef.value = loadingBar;
+        loadingBar?.finish();
+      });
+
+      return {
+        version,
+        menuOptions,
+        menuValue,
+        active,
+        refreshId,
+        handleRefresh,
+      };
     },
     components: { MainLayout },
-});
+  });
 </script>

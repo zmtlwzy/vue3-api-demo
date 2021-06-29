@@ -1,19 +1,17 @@
 <template>
-  <div class="grid container">
-    <A class="column-layout" />
-    <B msg="demo2" class="column-layout" @inc="handleClick">
+  <GridLayout>
+    <ScriptSetupBase />
+    <UseContext msg="demo2" @inc="handleClick">
       <template #default>slot_default</template>
       <template #other>slot_other</template>
-    </B>
-  </div>
+    </UseContext>
+  </GridLayout>
 </template>
 
 <script setup>
-  import { A, B } from './components';
+  import { Base as ScriptSetupBase, UseContext } from './components';
   import { isRef } from 'vue';
   const handleClick = (e) => {
     isRef(e) && e.value++;
   };
 </script>
-
-<style></style>

@@ -17,7 +17,7 @@
           return <DesTable varObj={{ a, b }}>666</DesTable>;
         },
       };
-      return ():JSX.Element => <Child v-slots={slots} />;
+      return (): JSX.Element => <Child v-slots={slots} />;
     },
   });
 </script>

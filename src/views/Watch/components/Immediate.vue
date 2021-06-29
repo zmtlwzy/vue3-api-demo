@@ -1,15 +1,17 @@
 <template>
-  <div class="column-layout">
-    <n-h4>Immediate</n-h4>
-    <span>{{ count }}</span>
-    <span>{{ other }}</span>
-    <br />
-    <n-button type="primary" @click="add">add</n-button>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <des-table :var-obj="{ count, count2 }"></des-table>
+      <n-space>
+        <n-button type="primary" @click="add">add</n-button>
+        <n-button type="primary" @click="sub">sub</n-button>
+      </n-space>
+    </n-space>
+  </n-card>
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, toRefs, watch } from 'vue';
+  import { defineComponent, reactive, toRefs, watch, ref } from 'vue';
   import { useMessage } from 'naive-ui';
   export default defineComponent({
     name: 'watchOptionsImmediate',
@@ -17,30 +19,43 @@
       const message = useMessage();
       const state = reactive({
         count: 1,
-        other: 2,
       });
+
+      const count2 = ref(1);
 
       const add = () => {
         state.count++;
+        count2.value++;
       };
 
       const sub = () => {
         state.count--;
+        count2.value--;
       };
 
       watch(
         () => state.count,
-        (val) => {
-          state.other = val * 2;
-          message.info(`watchOptionsImmediate: ${state.count} -- ${state.other}`);
+        (val, oldVal) => {
+          message.success(`Immediate:true ==> count:${val}---old:${oldVal}`);
         },
         {
-          immediate: true,
+          immediate: true, //组件首次加载或刷新时触发，与watchEffect相同
+        }
+      );
+
+      watch(
+        () => count2.value,
+        (val, oldVal) => {
+          message.warning(`Immediate:false ==> count:${val}---old:${oldVal}`);
+        },
+        {
+          immediate: false,
         }
       );
 
       return {
         ...toRefs(state),
+        count2,
         add,
         sub,
       };

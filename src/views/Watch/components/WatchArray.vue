@@ -3,7 +3,7 @@
     <n-h4>WatchArray</n-h4>
     <span class="m-2">{{ arr }}</span>
     <div :style="{ display: 'inline-grid', gridAutoRows: '30px', gridGap: '5px' }">
-     <n-button type="primary" @click="add">Increase</n-button>
+      <n-button type="primary" @click="add">Increase</n-button>
     </div>
   </div>
 </template>

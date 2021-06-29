@@ -1,11 +1,12 @@
 <template>
-  <n-space vertical>
-    <n-h4>{{$options.name}}</n-h4>
-    <n-button type="primary" @click="handleClick">{{ msg }}</n-button>
-    <div>count : {{ count }}</div>
-    <slot></slot>
-    <slot name="other"></slot>
-  </n-space>
+  <n-card :title="$options.name">
+    <n-space vertical>
+      <n-button type="primary" @click="handleClick">{{ msg }}</n-button>
+      <div>count : {{ count }}</div>
+      <slot></slot>
+      <slot name="other"></slot>
+    </n-space>
+  </n-card>
 </template>
 
 <script lang="ts">

@@ -1,8 +1,7 @@
 <template>
-  <n-space vertical>
-    <n-h4>{{ $options.name }}</n-h4>
+  <n-card :title="$options.name">
     <div class="textClass">textClass</div>
-  </n-space>
+  </n-card>
 </template>
 
 <script lang="ts">

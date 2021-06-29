@@ -1,7 +1,11 @@
 <template>
   <div class="column-layout">
     <n-h4>{{ $options.name }}</n-h4>
-    <n-input type="input" v-model:value="refValue" placeholder="停止输入500ms后,输入值将在下方更新"/>
+    <n-input
+      type="input"
+      v-model:value="refValue"
+      placeholder="停止输入500ms后,输入值将在下方更新"
+    />
     <n-tag class="mt-5">{{ customRefValue }}</n-tag>
   </div>
 </template>

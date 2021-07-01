@@ -1,8 +1,47 @@
+<template>
+  <n-card :title="$options.name">
+    <grid-layout class="mt-5">
+      <n-card title="useVshow">
+        <n-tabs type="line">
+          <n-tab-pane
+            v-for="item in componentArr"
+            :name="item"
+            :tab="item"
+            display-directive="show"
+          >
+            <component :is="item" />
+          </n-tab-pane>
+        </n-tabs>
+      </n-card>
+      <n-card title="useKeepAlive">
+        <n-space vertical>
+          <n-space>
+            <n-button-group>
+              <n-button
+                v-for="(item, index) in componentArr"
+                :key="index"
+                :ghost="currentTab === item ? false : true"
+                @click="handleClick(item)"
+                type="primary"
+              >
+                {{ item }}
+              </n-button>
+            </n-button-group>
+          </n-space>
+          <keep-alive>
+            <component :is="currentTab" />
+          </keep-alive>
+        </n-space>
+      </n-card>
+    </grid-layout>
+  </n-card>
+</template>
+
 <script lang="tsx">
   import {
-    h,
+    // h,
     onBeforeMount,
-    reactive,
+    ref,
     onMounted,
     onBeforeUpdate,
     onUpdated,
@@ -14,13 +53,15 @@
     onRenderTriggered,
     onErrorCaptured,
     defineComponent,
-    resolveComponent,
-    KeepAlive,
+    toRefs,
+    ComponentPublicInstance,
+    // resolveComponent,
+    // KeepAlive,
   } from 'vue';
 
   import { common } from '@/hooks/Common';
 
-  const A = defineComponent({
+  const lifeCycleItemA = defineComponent({
     name: 'lifeCycleItemA',
     setup() {
       const { count, add } = common();
@@ -40,18 +81,17 @@
     },
     render({ $options: { name } }) {
       return (
-        <div class="column-layout">
-          <h3>{name}</h3>
+        <n-space vertical>
           {this.count}
           <n-button type="primary" onClick={this.add}>
             +
           </n-button>
-        </div>
+        </n-space>
       );
     },
   });
 
-  const B = defineComponent({
+  const lifeCycleItemB = defineComponent({
     name: 'lifeCycleItemB',
     setup() {
       const { count2, add } = common();
@@ -71,18 +111,17 @@
     },
     render({ $options: { name } }) {
       return (
-        <div class="column-layout">
-          <h3>{name}</h3>
+        <n-space vertical>
           {this.count2}
           <n-button type="primary" onClick={this.add}>
             +
           </n-button>
-        </div>
+        </n-space>
       );
     },
   });
 
-  const C = defineComponent({
+  const lifeCycleItemC = defineComponent({
     name: 'lifeCycleItemC',
     setup() {
       const { count3, add } = common();
@@ -102,24 +141,24 @@
     },
     render({ $options: { name } }) {
       return (
-        <div class="column-layout">
-          <h3>{name}</h3>
+        <n-space vertical>
           {this.count3}
           <n-button type="primary" onClick={this.add}>
             +
           </n-button>
-        </div>
+        </n-space>
       );
     },
   });
 
+  const componentArr = [lifeCycleItemA.name, lifeCycleItemB.name, lifeCycleItemC.name];
   export default defineComponent({
     name: 'LifeCycle',
     components: {
-      A,
-      B,
-      C,
-      KeepAlive,
+      lifeCycleItemA,
+      lifeCycleItemB,
+      lifeCycleItemC,
+      // KeepAlive,
     },
     beforeCreate() {
       console.log('beforeCreate');
@@ -128,12 +167,14 @@
       console.log('created');
     },
     setup() {
-      const state = reactive({
-        tabs: ['A', 'B', 'C'],
-        currentTab: 'A',
-      });
+      // const state = reactive({
+      //   tabs: [A, B, C],
+      //   currentTab: A,
+      // });
 
-      const { count, add } = common();
+      const currentTab = ref<string>(lifeCycleItemA.name);
+
+      // const { count, add } = common();
 
       // LifeCycle
       onBeforeMount(() => {
@@ -165,34 +206,51 @@
         console.log('onRenderTriggered', key, target, type);
       });
 
-      return () => {
-        return (
-          <n-card>
-            <n-space vertical align="center">
-              {count.value}
-              <n-button type="primary" onClick={add}>
-                +
-              </n-button>
-              <n-space>
-                {state.tabs.map((item, index) => (
-                  <n-button
-                    type="primary"
-                    key={index}
-                    class={state.currentTab === item ? 'active' : ''}
-                    onClick={() => {
-                      state.currentTab = item;
-                    }}
-                  >
-                    {item}
-                  </n-button>
-                ))}
-              </n-space>
-              <keep-alive>{h(resolveComponent(state.currentTab))}</keep-alive>
-              open console
-            </n-space>
-          </n-card>
-        );
+      const handleClick = (name: any) => {
+        currentTab.value = name;
       };
+
+      return {
+        // count,
+        // add,
+        componentArr,
+        handleClick,
+        currentTab,
+      };
+
+      // const nBtnSlot = {
+      //   icon: () => <span>+</span>,
+      //   default: () => count.value,
+      // };
+
+      // return () => {
+      //   return (
+      //     <n-card title={componentName}>
+      //       <n-space align="center">
+      //         <n-button type="primary" onClick={add} v-slots={nBtnSlot}></n-button>
+      //         open console
+      //       </n-space>
+      //       <grid-layout class="mt-5">
+      //         <n-space vertical align="center">
+      //           <n-space>
+      //             {state.tabs.map((item, index) => (
+      //               <n-button
+      //                 type={state.currentTab === item ? 'primary' : ''}
+      //                 key={index}
+      //                 onClick={() => {
+      //                   state.currentTab = item;
+      //                 }}
+      //               >
+      //                 {item}
+      //               </n-button>
+      //             ))}
+      //           </n-space>
+      //           <keep-alive>{h(resolveComponent(state.currentTab))}</keep-alive>
+      //         </n-space>
+      //       </grid-layout>
+      //     </n-card>
+      //   );
+      // };
     },
   });
 </script>

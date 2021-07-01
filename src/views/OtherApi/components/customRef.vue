@@ -1,13 +1,14 @@
 <template>
-  <div class="column-layout">
-    <n-h4>{{ $options.name }}</n-h4>
-    <n-input
-      type="input"
-      v-model:value="refValue"
-      placeholder="停止输入500ms后,输入值将在下方更新"
-    />
-    <n-tag class="mt-5">{{ customRefValue }}</n-tag>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <n-input
+        type="input"
+        v-model:value="refValue"
+        placeholder="停止输入500ms后,输入值将在下方更新"
+      />
+      <n-tag class="mt-5">{{ customRefValue }}</n-tag>
+    </n-space>
+  </n-card>
 </template>
 
 <script lang="ts">

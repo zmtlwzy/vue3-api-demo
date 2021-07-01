@@ -1,10 +1,10 @@
 <template>
-  <div class="column-layout">
-    <n-h4>single-getter</n-h4>
-    <des-table :varObj="{ count, other }"></des-table>
-    <br />
-    <n-button type="primary" @click="add">add</n-button>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <des-table :varObj="{ count, other }"></des-table>
+      <n-button type="primary" @click="add">add</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>

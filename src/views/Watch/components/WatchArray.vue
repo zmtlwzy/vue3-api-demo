@@ -1,11 +1,10 @@
 <template>
-  <div class="column-layout">
-    <n-h4>WatchArray</n-h4>
-    <span class="m-2">{{ arr }}</span>
-    <div :style="{ display: 'inline-grid', gridAutoRows: '30px', gridGap: '5px' }">
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <des-table :varObj="{ arr }"></des-table>
       <n-button type="primary" @click="add">Increase</n-button>
-    </div>
-  </div>
+    </n-space>
+  </n-card>
 </template>
 
 <script>

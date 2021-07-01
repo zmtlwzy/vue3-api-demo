@@ -1,8 +1,8 @@
 <template>
-  <div class="grid container">
+  <GridLayout>
     <FetchDemo />
     <WatchEffectFlush @change="handleChange" :mode="saveMode" :key="keyId" />
-  </div>
+  </GridLayout>
 </template>
 
 <script lang="ts">

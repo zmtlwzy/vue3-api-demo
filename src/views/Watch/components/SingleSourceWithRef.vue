@@ -1,11 +1,10 @@
 <template>
-  <div class="column-layout">
-    <n-h4>signle-Ref</n-h4>
-    <span>{{ count }}</span>
-    <span>{{ other }}</span>
-    <br />
-    <n-button type="primary" @click="add">add</n-button>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <des-table :varObj="{ count, other }"></des-table>
+      <n-button type="primary" @click="add">add</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>

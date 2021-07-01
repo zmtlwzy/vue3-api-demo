@@ -1,13 +1,11 @@
 <template>
-  <div class="column-layout">
-    <n-h4>WatchObject</n-h4>
-    <span>{{ count }}</span>
-    <span>{{ name }}</span>
-    -------------------------
-    <span>{{ num }}</span>
-    <span>{{ str }}</span>
-    <n-button type="primary" @click="add">add</n-button>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <des-table :varObj="{ count:state.count, key:state.key }"></des-table>
+      <des-table :varObj="{ num, str }"></des-table>
+      <n-button type="primary" @click="add">add</n-button>
+    </n-space>
+  </n-card>
 </template>
 
 <script>
@@ -18,9 +16,9 @@
   export default {
     name: 'WatchObject',
     setup() {
-      const state = reactive({
+      const state = ref({
         count: 0,
-        name: 'name',
+        key: 'num',
       });
       const watchObj = reactive({
         num: 100,
@@ -28,9 +26,11 @@
       });
       const add = () => {
         watchObj.num++;
+        state.value.count++;
       };
       const sub = () => {
         watchObj.num--;
+        state.value.count--;
       };
       watchEffect(() => {
         console.log(Object.values(watchObj));
@@ -43,6 +43,14 @@
         }
       );
       watch(
+        state,
+        (val) => {
+          console.log('watch ref use depp', val);
+        },
+        { deep: true }
+      );
+
+      watch(
         watchObj,
         (val) => {
           console.log('watch use depp', val);
@@ -50,7 +58,7 @@
         { deep: true }
       );
       return {
-        ...toRefs(state),
+        state,
         ...toRefs(watchObj),
         add,
         sub,

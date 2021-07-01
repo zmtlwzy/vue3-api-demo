@@ -1,20 +1,21 @@
 <template>
-  <div class="column-layout">
-    <n-h4>Flush</n-h4>
-    <p>open console</p>
-    <des-table :varObj="{ count, other }" ref="el"></des-table>
-    <br />
-    <n-button type="primary" @click="add">add</n-button>
-    <n-button-group class="mt-5">
-      <n-button
-        v-for="item in ['pre', 'post', 'sync']"
-        :type="flushState === `${item}` ? 'primary' : 'default'"
-        @click="changeFlush(`${item}`)"
-      >
-        {{ item }}
-      </n-button>
-    </n-button-group>
-  </div>
+  <n-card :title="$options.name">
+    <n-space vertical align="center">
+      <p>open console</p>
+      <des-table :varObj="{ count, other }" ref="el"></des-table>
+      <br />
+      <n-button type="primary" @click="add">add</n-button>
+      <n-button-group class="mt-5">
+        <n-button
+          v-for="item in ['pre', 'post', 'sync']"
+          :type="flushState === `${item}` ? 'primary' : 'default'"
+          @click="changeFlush(`${item}`)"
+        >
+          {{ item }}
+        </n-button>
+      </n-button-group>
+    </n-space>
+  </n-card>
 </template>
 
 <script lang="ts">

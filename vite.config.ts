@@ -29,7 +29,13 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     base: env.VITE_PUBLIC_PATH,
     plugins: [
-      vue(),
+      vue(
+        {
+          script: {
+            refSugar: true
+          }
+        }
+      ),
       vueJsx(),
       WindiCSS({
         safelist: 'no-select',

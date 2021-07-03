@@ -28,7 +28,8 @@
     </template>
     <template #footer>
       <div class="flex w-full justify-center items-center teleport-footer-container">
-        <p class="mr-15 text-md">vue version: {{ version }} (footer)</p>
+        <p class="mr-15 text-md">vue version: {{ vueVer }}</p>
+        <p class="mr-15 text-md">naive-ui version: {{ naiveuiVer }}</p>
         <n-button type="primary" class="mr-15" @click="handleRefresh">refresh</n-button>
       </div>
     </template>
@@ -36,30 +37,23 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, onMounted, ref, version, watchEffect } from 'vue';
-  import { MenuOption, useLoadingBar } from 'naive-ui';
-
-  import { useAppStore } from '@/store/modules/app';
-  // import { useDemoStore } from '@/store/modules/demo';
-
-  import { loadingBarApiRef } from '@/router';
-  import { List as routerList } from '@/router/routerList';
-
-  import { rederRouter } from 'comps/render';
-
+  import { computed, defineComponent, onMounted, ref, version as vueVer, watchEffect } from 'vue';
   import { useRoute } from 'vue-router';
+  
+  import { useLoadingBar,version as naiveuiVer } from 'naive-ui';
+  
+  import { useAppStore } from '@/store/modules/app';
+  import { loadingBarApiRef } from '@/router';
+  import { List as routerList } from '@/router/routesList';
+
+  import { genMeunList } from '@/router/menuList';
+
   import MainLayout from './layout/MainLayout.vue';
 
-  const list = routerList.filter((item) => {
-    return !Object.keys(item).includes('redirect');
-  });
 
-  const menuOptions = list.map((item) => {
-    return {
-      label: rederRouter(item),
-      key: item.component,
-    };
-  }) as MenuOption[];
+  const list = routerList.filter((item) => {
+    return item.path !== '/';
+  });
 
   export default defineComponent({
     name: 'app',
@@ -67,19 +61,13 @@
       const route = useRoute();
       const loadingBar = useLoadingBar();
       const appStore = useAppStore();
-      // const demoStore = useDemoStore();
 
       const active = ref<boolean>(false);
 
       const refreshId = computed(() => appStore.getRefreshId);
-      const menuValue = computed(() => {
-        const path = route.path;
-        return path.slice(1, 2).toUpperCase() + path.slice(2);
-      });
+      const menuValue = computed(() => route.path);
 
       const handleRefresh = () => {
-        // demoStore.$reset();
-        // refreshId.value++;
         appStore.resetAllState();
       };
 
@@ -89,6 +77,8 @@
         } else {
           appStore.setThemeName('light');
         }
+
+        console.log(menuValue.value, 'menuValue');
       });
 
       onMounted(() => {
@@ -96,8 +86,11 @@
         loadingBar?.finish();
       });
 
+      const menuOptions = genMeunList(list);
+      
       return {
-        version,
+        vueVer,
+        naiveuiVer,
         menuOptions,
         menuValue,
         active,

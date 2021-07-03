@@ -1,42 +1,43 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical>
-      <n-button type="primary" @click="handleClick">{{ msg }}</n-button>
-      <div>count : {{ count }}</div>
+      <des-table :var-obj="{ count, msg }"></des-table>
       <slot></slot>
       <slot name="other"></slot>
     </n-space>
+    <template #action>
+      <n-button type="primary" @click="handleClick">add</n-button>
+    </template>
   </n-card>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
   export default defineComponent({
-    name: 'useContext',
+    name: 'useSlots & useAttrs & defineEmits & defineProps',
   });
 </script>
 
 <script setup lang="ts">
-  import { defineProps, defineEmit, useContext } from 'vue';
-  const { emit, attrs, slots } = useContext();
+  import { defineProps, defineEmits, useSlots, useAttrs } from 'vue';
+  const slots = useSlots();
+  const attrs = useAttrs();
   const props = defineProps({
     msg: {
       type: String,
       default: 'msg',
     },
   });
-
-  const Emit = defineEmit(['inc']);
+  const emit = defineEmits(['inc']);
 
   ref: count = 1;
 
   const handleClick = () => {
     emit('inc', $count);
-    Emit('inc', count);
   };
 
   console.log(props?.msg);
-  console.log(Emit, emit);
+  console.log(emit);
   console.log(attrs, 'attrs');
   console.log(slots, 'slots');
 </script>

@@ -1,10 +1,11 @@
 <template>
   <n-card :title="$options.name">
-    <n-space vertical align="center">
+    <n-space vertical>
       <n-input
         type="input"
         v-model:value="refValue"
         placeholder="停止输入500ms后,输入值将在下方更新"
+        class="max-w-1/2"
       />
       <n-tag class="mt-5">{{ customRefValue }}</n-tag>
     </n-space>

@@ -8,25 +8,33 @@ import {
   createWebHistory,
 } from "vue-router";
 
-import { List, routesListType } from "./routerList";
+import { List, routesListType } from "./routesList";
+
+import { renderRouterView } from './render'
 
 interface loadingBarApiRef {
   value?: LoadingBarProviderInst
 }
 
+
 export const loadingBarApiRef: loadingBarApiRef = {}
 
-const getRoutesArr: (arr: routesListType[]) => RouteRecordRaw[] = (Arr) => {
+type GetRoutesArr = (list: routesListType[], meta?: routesListType['meta']) => RouteRecordRaw[]
+const getRoutesArr: GetRoutesArr = (List, Meta) => {
   const arr: RouteRecordRaw[] = [];
-  for (let item of Arr) {
-    const { component, children, ...other } = item;
-    let obj: RouteRecordRaw
-    obj = {
+  const dir = Meta?.dir || ''
+  for (let item of List) {
+    const { component, children, meta, ...other } = item;
+    const obj = {
       ...other,
-      component: () => import(`../views/${component}/index.vue`),
+    } as RouteRecordRaw
+    if (component) {
+      obj.component = () => import(`../views${dir}/${component}/index.vue`)
+    } else {
+      obj.component = renderRouterView()
     }
     if (children) {
-      obj.children = getRoutesArr(children);
+      obj.children = getRoutesArr(children, meta);
     }
     arr.push(obj);
   }

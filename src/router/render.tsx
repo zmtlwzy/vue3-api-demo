@@ -2,8 +2,14 @@ import { resolveComponent } from 'vue';
 import type { routesListType } from '@/router/routesList';
 import { NIcon } from 'naive-ui';
 
-export function rederRouter(obj: routesListType) {
-  return () => <router-link to={obj.path}>{obj.component}</router-link>;
+export function renderRouter({ component }: routesListType, link: string) {
+  return () => <router-link to={link}>{component}</router-link>;
+}
+
+export function renderRouterView() {
+  return {
+    render: () => <router-view />,
+  };
 }
 
 export function renderIcon(icon: string) {

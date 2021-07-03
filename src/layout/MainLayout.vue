@@ -12,10 +12,10 @@
       :collapsed-width="0"
       :width="siderWidth"
       :show-collapsed-content="false"
-      show-trigger
+      show-trigger="bar"
       content-style="padding-right: 10px;"
     >
-      <n-menu :value="menuValue" :options="menuOptions" />
+      <n-menu :value="menuValue" :options="menuOptions" default-expand-all />
     </n-layout-sider>
     <n-layout
       :native-scrollbar="false"

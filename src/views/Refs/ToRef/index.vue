@@ -3,9 +3,6 @@
     <n-space vertical align="center">
       <n-descriptions label-placement="top" bordered :column="3">
         <n-descriptions-item label="count">
-          <des-table :var-obj="{ x, y }"></des-table>
-        </n-descriptions-item>
-        <n-descriptions-item label="other">
           <des-table :var-obj="{ a, b }"></des-table>
         </n-descriptions-item>
         <n-descriptions-item label="r">
@@ -17,8 +14,8 @@
   </n-card>
 </template>
 
-<script>
-  import { reactive, toRefs, toRef, ref, defineComponent } from 'vue';
+<script lang="ts">
+  import { reactive, toRef, ref, defineComponent } from 'vue';
 
   export default defineComponent({
     name: 'toRef',
@@ -28,25 +25,17 @@
         y: 0,
       });
 
-      const other = reactive({
-        a: 100,
-        b: 100,
-      });
-
       const r = { z: ref(1) };
 
       const handle = () => {
         count.x++;
         count.y += 2;
-        other.a--;
-        other.b -= 2;
         r.z.value++;
       };
 
       return {
-        ...toRefs(count),
-        a: toRef(other, 'a'),
-        b: toRef(other, 'b'),
+        a: toRef(count, 'x'),
+        b: toRef(count, 'y'),
         z: toRef(r, 'z'),
         handle,
       };

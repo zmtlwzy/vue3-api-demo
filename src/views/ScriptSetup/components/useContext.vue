@@ -14,12 +14,12 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
   export default defineComponent({
-    name: 'useSlots & useAttrs & defineEmits & defineProps',
+    name: 'useContext',
   });
 </script>
 
 <script setup lang="ts">
-  import { defineProps, defineEmits, useSlots, useAttrs } from 'vue';
+  import { useSlots, useAttrs } from 'vue';
   const slots = useSlots();
   const attrs = useAttrs();
   const props = defineProps({
@@ -31,6 +31,11 @@
   const emit = defineEmits(['inc']);
 
   ref: count = 1;
+  let count2 = 2;
+  defineExpose({
+    $count,
+    count2,
+  });
 
   const handleClick = () => {
     emit('inc', $count);

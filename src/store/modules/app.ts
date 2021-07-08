@@ -1,9 +1,10 @@
 
 import { defineStore } from 'pinia';
 import { store } from '@/store';
-import { darkTheme } from 'naive-ui'
+import { darkTheme,GlobalThemeOverrides } from 'naive-ui'
 import { useDemoStore } from './demo';
 import { resetSharedState } from '@/hooks/Common';
+import themeOverrides from '@/naive-ui-theme-overrides.json';
 
 
 interface AppState {
@@ -38,6 +39,9 @@ export const useAppStore = defineStore({
     getThemeCssVars(): null | typeof darkTheme {
       return this.themeName === 'dark' ? darkTheme : null;
     },
+    getThemeOverries(): GlobalThemeOverrides | undefined {
+      return this.themeName === 'dark' ? undefined : themeOverrides
+    }
   },
   actions: {
     setThemeName(val: AppState['themeName']) {

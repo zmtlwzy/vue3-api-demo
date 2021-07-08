@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@antfu/utils@^0.2.3":
+"@antfu/utils@^0.2.4":
   version "0.2.4"
   resolved "https://repo.huaweicloud.com/repository/npm/@antfu/utils/-/utils-0.2.4.tgz#c7d33fc6faa0d3a6fcc2555673f5e9b19c0fbc15"
   integrity sha512-2bZNkVfL9IZESmvE26UKi8SzyvSoaIsGXDcnbHFMtmGMqUiB1fXpAJ1ijGf+tSqKRQ5yagck2U1Qk0p+705/kw==
@@ -521,18 +521,27 @@
   resolved "https://repo.huaweicloud.com/repository/npm/@vue/shared/-/shared-3.1.4.tgz#c14c461ec42ea2c1556e86f60b0354341d91adc3"
   integrity sha512-6O45kZAmkLvzGLToBxEz4lR2W6kXohCtebV2UxjH9GXjd8X9AhEn68FN9eNanFtWNzvgw1hqd6HkPRVQalqf7Q==
 
-"@windicss/plugin-utils@1.2.0":
-  version "1.2.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/@windicss/plugin-utils/-/plugin-utils-1.2.0.tgz#f9c657f981d7696dfa6b8e8069b311161a2ac9b4"
-  integrity sha512-6OAsyz2yI0VKNHACT35FjWWzMZlMEF7Z0pIiNUd9+R9jc73+qJcK1DRCZ3YxnjuGk0G76b542uXQEJgv2jL3vA==
+"@windicss/config@1.2.4":
+  version "1.2.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/@windicss/config/-/config-1.2.4.tgz#24b36d30c1698fff14a9bacaebc93afaf2fe9019"
+  integrity sha512-81oah5NF7m/ltHrP2VpKu12qejP03erelNckH9ho86vuItsSd/tNehW3oJqOThZYsbuROCzIU55QDfe7MBd+Iw==
   dependencies:
-    "@antfu/utils" "^0.2.3"
     debug "^4.3.2"
-    fast-glob "^3.2.5"
     jiti "^1.10.1"
+    windicss "^3.1.4"
+
+"@windicss/plugin-utils@1.2.4":
+  version "1.2.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/@windicss/plugin-utils/-/plugin-utils-1.2.4.tgz#b319355d6e9b4e529c965b5a55af6d57679e417f"
+  integrity sha512-0G0zPx+gLfnP2isVMrsY+C0BDXASgFwtiT7g+YL+0LCTxjPxGOMnu5lCaAoYq+1LAskliPagqnu5mgKUYMyf2Q==
+  dependencies:
+    "@antfu/utils" "^0.2.4"
+    "@windicss/config" "1.2.4"
+    debug "^4.3.2"
+    fast-glob "^3.2.6"
     magic-string "^0.25.7"
     micromatch "^4.0.4"
-    windicss "^3.1.3"
+    windicss "^3.1.4"
 
 ansi-regex@^5.0.0:
   version "5.0.0"
@@ -778,18 +787,6 @@ evtd@^0.2.2:
   resolved "https://registry.yarnpkg.com/evtd/-/evtd-0.2.2.tgz#bebbe27e15aedc1d5c18bc2620dfc90f260787c3"
   integrity sha512-YRUY9BHnnOmeeaOOLlIfUEp3itg4oFEd+uWPGMs0m4WUJaGcEgxFx8PLRRQaaDKvN2B+19lYzhATILGfXuprnA==
 
-fast-glob@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.5.tgz#7939af2a656de79a4f1901903ee8adcaa7cb9661"
-  integrity sha512-2DtFcgT68wiTTiwZ2hNdJfcHNke9XOfnwmBRWXhmeKM8rF0TGwmC/Qto3S7RoZKp5cilZbxzO5iTNTQsJ+EeDg==
-  dependencies:
-    "@nodelib/fs.stat" "^2.0.2"
-    "@nodelib/fs.walk" "^1.2.3"
-    glob-parent "^5.1.0"
-    merge2 "^1.3.0"
-    micromatch "^4.0.2"
-    picomatch "^2.2.1"
-
 fast-glob@^3.2.6:
   version "3.2.6"
   resolved "https://repo.huaweicloud.com/repository/npm/fast-glob/-/fast-glob-3.2.6.tgz#434dd9529845176ea049acc9343e8282765c6e1a"
@@ -842,7 +839,7 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-glob-parent@^5.1.0, glob-parent@^5.1.2:
+glob-parent@^5.1.2:
   version "5.1.2"
   resolved "https://repo.huaweicloud.com/repository/npm/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
@@ -895,7 +892,7 @@ hash-sum@^2.0.0:
 
 highlight.js@^11.0.1:
   version "11.0.1"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.0.1.tgz#a78bafccd9aa297978799fe5eed9beb7ee1ef887"
+  resolved "https://repo.huaweicloud.com/repository/npm/highlight.js/-/highlight.js-11.0.1.tgz#a78bafccd9aa297978799fe5eed9beb7ee1ef887"
   integrity sha512-EqYpWyTF2s8nMfttfBA2yLKPNoZCO33pLS4MnbXQ4hECf1TKujCt1Kq7QAdrio7roL4+CqsfjqwYj4tYgq0pJQ==
 
 html-tags@^3.1.0:
@@ -1086,7 +1083,7 @@ merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
-micromatch@^4.0.2, micromatch@^4.0.4:
+micromatch@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.4.tgz#896d519dfe9db25fce94ceb7a500919bf881ebf9"
   integrity sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==
@@ -1121,10 +1118,10 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-naive-ui@^2.15.2:
-  version "2.15.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/naive-ui/-/naive-ui-2.15.2.tgz#11b6504c726d33b9f95c34826de12e2739858fcd"
-  integrity sha512-gcfefDgvfzDRGGyM99m7xKTsmZwa7b6g7SQ/NDdJVMIEGA/QLC4JcEcrxti5VUX3inHU3mFGi0g5ZBCBg+HTKQ==
+naive-ui@^2.15.3:
+  version "2.15.3"
+  resolved "https://repo.huaweicloud.com/repository/npm/naive-ui/-/naive-ui-2.15.3.tgz#7f5cca6d9da716e8c78bb3069f1d3796347867c8"
+  integrity sha512-+LmJHbnaYuKUY9O0YzkyjOWTyN5SRIJ3evnwd3non7mqCT5Yb1vzaUi2lxiixPu+hdVe/r+bsXnElTeNYPPbhg==
   dependencies:
     "@css-render/plugin-bem" "^0.15.4"
     "@css-render/vue3-ssr" "^0.15.4"
@@ -1185,7 +1182,7 @@ path-parse@^1.0.6:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.2.3:
+picomatch@^2.2.2, picomatch@^2.2.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
   integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
@@ -1257,7 +1254,7 @@ postcss-value-parser@^4.1.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@^8.1.10, postcss@^8.3.4:
+postcss@^8.1.10, postcss@^8.3.5:
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.5.tgz#982216b113412bc20a86289e91eb994952a5b709"
   integrity sha512-NxTuJocUhYGsMiMFHDUkmjSKT3EdH4/WbGF6GCi1NDGk+vbcUTun4fpbOqaPtD8IIsztA2ilZm2DhYCuyN58gA==
@@ -1456,33 +1453,33 @@ vfonts@^0.1.0:
   resolved "https://registry.yarnpkg.com/vfonts/-/vfonts-0.1.0.tgz#c16af37ca044b2725ae55553049280efbe6222a9"
   integrity sha512-vQBcvntBlnAPonAkGNM8iJ9NxE3PucA+V2W95xiN75YJKxirLJvOws2kEyOEO45T4N+YTbQOCR2m77Y05pfVhQ==
 
-vite-plugin-components@^0.12.0:
-  version "0.12.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-components/-/vite-plugin-components-0.12.0.tgz#7a20ba88be63625f759902d670c1310cf7cd9d0b"
-  integrity sha512-LJAn25KFLFw97mNQw74fsWvGAaaFXbDNGkReFpITPtIrmdRrwWowieg23INXAniPaGJVIhspLk0ippMPi/q0qA==
+vite-plugin-components@^0.12.2:
+  version "0.12.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-components/-/vite-plugin-components-0.12.2.tgz#3afc97772cfad0bd61aa709924bf06e12abe9cf1"
+  integrity sha512-ecGCqEQMEwPw556WfdbRwbDsdGtBWkjSkuOXw5sKbgaZzVSlybOfrXhGjiYEatR13KCUxTHzioU2eOLu1tpWVQ==
   dependencies:
     debug "^4.3.2"
     fast-glob "^3.2.6"
     magic-string "^0.25.7"
     minimatch "^3.0.4"
 
-vite-plugin-windicss@^1.2.0:
-  version "1.2.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-windicss/-/vite-plugin-windicss-1.2.0.tgz#6b21e76f3aae1cd2f71c548c4bfe8d87b4328ad0"
-  integrity sha512-3teAmQHCDDDcy7On5fOj1sYTRVo8zAwJJd4SOapeGI7EuEzO2fHy6oDS6sPXVUnstbfoPbvrng1xvc3VAqI+sg==
+vite-plugin-windicss@^1.2.4:
+  version "1.2.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-windicss/-/vite-plugin-windicss-1.2.4.tgz#b9ea60482dd8b6ba4fbc717ff5a9d17dedb0683b"
+  integrity sha512-U+mW8AiPRgC5wbUqjtvEIbZR3LzOwhNU0wnYQueT2SjjTfjlP74vcQg37yrULxycKibpdTYVHZuDuW4QkglPng==
   dependencies:
-    "@windicss/plugin-utils" "1.2.0"
+    "@windicss/plugin-utils" "1.2.4"
     chalk "^4.1.1"
     debug "^4.3.2"
-    windicss "^3.1.3"
+    windicss "^3.1.4"
 
-vite@^2.3.8:
-  version "2.3.8"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.8.tgz#42e3e03953859fd410e4e6ab3d1cca0aab2adc3c"
-  integrity sha512-QiEx+iqNnJntSgSF2fWRQvRey9pORIrtNJzNyBJXwc+BdzWs83FQolX84cTBo393cfhObrtWa6180dAa4NLDiQ==
+vite@^2.4.1:
+  version "2.4.1"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite/-/vite-2.4.1.tgz#2e48b8dbfc69e4edbf7f4d1c0798d621585cb8da"
+  integrity sha512-4BpKRis9uxIqPfIEcJ18LTBsamqnDFxTx45CXwagHjNltHa6PFEvf8Pe6OpgIHb0OyWT30OXOSSQvdOaX4OBiQ==
   dependencies:
     esbuild "^0.12.8"
-    postcss "^8.3.4"
+    postcss "^8.3.5"
     resolve "^1.20.0"
     rollup "^2.38.5"
   optionalDependencies:
@@ -1523,10 +1520,10 @@ vueuc@^0.4.9:
     vdirs "^0.1.4"
     vooks "^0.2.4"
 
-windicss@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/windicss/-/windicss-3.1.3.tgz#a4b80af48bdd5d4be13520f700b497af455df700"
-  integrity sha512-l7fpoba2LY9AYRy4UgcuOpbPsed8UsbpEQYUVWRR1wdAwiKxK6bGIMfpiKJtjPAPdh0GOGUqr6KJar0EDZSxzg==
+windicss@^3.1.4:
+  version "3.1.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/windicss/-/windicss-3.1.4.tgz#557eaf8e3c08064a309ccb5d887c82c4bce25069"
+  integrity sha512-3RBcANxdOy/n4dLVT8+0X409sGI+piO06ARbQ8RncxGuYgdw5Ip3hrhGIYajH67lV+tHc7xNVGxj73amOC9N0g==
 
 wrappy@1:
   version "1.0.2"

@@ -40,10 +40,10 @@ export const List: routesListType[] = [
                 path: 'toRefs',
                 component: 'ToRefs'
             },
-            // {
-            //     path: 'isRef',
-            //     component: 'IsRef'
-            // },
+            {
+                path: 'isRef',
+                component: 'IsRef'
+            },
             {
                 path: 'customRef',
                 component: 'CustomRef'
@@ -58,50 +58,53 @@ export const List: routesListType[] = [
             }
         ]
     },
-    // {
-    //     path: '/baseReactivity',
-    //     dir: '/BaseReactivity',
-    //     redirect: '/baseReactivity/reactive',
-    //     children: [
-    //         {
-    //             path: '/reactive',
-    //             component: 'Reactive'
-    //         },
-    //         {
-    //             path: '/readonly',
-    //             component: 'Readonly'
-    //         },
-    //         {
-    //             path: '/isProxy',
-    //             component: 'IsProxy'
-    //         },
-    //         {
-    //             path: '/isReactive',
-    //             component: 'IsReactive'
-    //         },
-    //         {
-    //             path: '/isReadonly',
-    //             component: 'IsReadonly'
-    //         },
-    //         {
-    //             path: '/toRaw',
-    //             component: 'ToRaw'
-    //         },
-    //         {
-    //             path: '/markRaw',
-    //             component: 'MarkRaw'
-    //         },
-    //         {
-    //             path: '/shallowReactive',
-    //             component: 'ShallowReactive'
-    //         },
-    //         {
-    //             path: '/shallowReadonly',
-    //             component: 'ShallowReadonly'
-    //         },
+    {
+        path: '/baseReactivity',
+        name: 'BaseReactivity',
+        meta: {
+            dir: '/BaseReactivity',
+        },
+        redirect: '/baseReactivity/reactive',
+        children: [
+            {
+                path: 'reactive',
+                component: 'Reactive'
+            },
+            {
+                path: 'readonly',
+                component: 'Readonly'
+            },
+            {
+                path: 'isProxy',
+                component: 'IsProxy'
+            },
+            {
+                path: 'isReactive',
+                component: 'IsReactive'
+            },
+            {
+                path: 'isReadonly',
+                component: 'IsReadonly'
+            },
+            {
+                path: 'toRaw',
+                component: 'ToRaw'
+            },
+            {
+                path: 'markRaw',
+                component: 'MarkRaw'
+            },
+            {
+                path: 'shallowReactive',
+                component: 'ShallowReactive'
+            },
+            {
+                path: 'shallowReadonly',
+                component: 'ShallowReadonly'
+            },
 
-    //     ]
-    // },
+        ]
+    },
 
     {
         path: '/computed',

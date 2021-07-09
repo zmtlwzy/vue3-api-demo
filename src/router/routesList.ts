@@ -1,177 +1,200 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-type same = Omit<RouteRecordRaw, 'component' | 'components' | 'children'>
-
+type same = Omit<RouteRecordRaw, 'name' | 'children'>
 export interface routesListType extends same {
     name?: string;
-    component?: string;
-    children?: routesListType[] | undefined;
-    meta?: {
-        dir?: string
-    }
+    children?: routesListType[] | undefined
 }
 
 export const List: routesListType[] = [
     {
         path: '/',
-        redirect: '/refs'
+        redirect: '/refs',
     },
     {
         path: '/refs',
         name: 'Refs',
-        meta: {
-            dir: '/Refs',
-        },
         redirect: '/refs/ref',
         children: [
             {
                 path: 'ref',
-                component: 'Ref'
+                name: 'Ref',
+                component: () => import('views/Refs/Ref/index.vue')
             },
             {
                 path: 'unRef',
-                component: 'UnRef'
+                name: 'UnRef',
+                component: () => import('views/Refs/UnRef/index.vue')
             },
             {
                 path: 'toRef',
-                component: 'ToRef'
+                name: 'ToRef',
+                component: () => import('views/Refs/ToRef/index.vue')
             },
             {
                 path: 'toRefs',
-                component: 'ToRefs'
+                name: 'ToRefs',
+                component: () => import('views/Refs/ToRefs/index.vue')
             },
             {
                 path: 'isRef',
-                component: 'IsRef'
+                name: 'IsRef',
+                component: () => import('views/Refs/IsRef/index.vue')
             },
             {
                 path: 'customRef',
-                component: 'CustomRef'
+                name: 'CustomRef',
+                component: () => import('views/Refs/CustomRef/index.vue')
             },
             {
                 path: 'shallowRef',
-                component: 'ShallowRef'
+                name: 'ShallowRef',
+                component: () => import('views/Refs/ShallowRef/index.vue')
             },
             {
                 path: 'triggerRef',
-                component: 'TriggerRef'
+                name: 'TriggerRef',
+                component: () => import('views/Refs/TriggerRef/index.vue')
+
             }
         ]
     },
     {
         path: '/baseReactivity',
         name: 'BaseReactivity',
-        meta: {
-            dir: '/BaseReactivity',
-        },
         redirect: '/baseReactivity/reactive',
         children: [
             {
                 path: 'reactive',
-                component: 'Reactive'
+                name: 'Reactive',
+                component: () => import('views/BaseReactivity/Reactive/index.vue')
             },
             {
                 path: 'readonly',
-                component: 'Readonly'
+                name: 'Readonly',
+                component: () => import('views/BaseReactivity/Readonly/index.vue')
             },
             {
                 path: 'isProxy',
-                component: 'IsProxy'
+                name: 'IsProxy',
+                component: () => import('views/BaseReactivity/IsProxy/index.vue')
             },
             {
                 path: 'isReactive',
-                component: 'IsReactive'
+                name: 'IsReactive',
+                component: () => import('views/BaseReactivity/IsReactive/index.vue')
             },
             {
                 path: 'isReadonly',
-                component: 'IsReadonly'
+                name: 'IsReadonly',
+                component: () => import('views/BaseReactivity/IsReadonly/index.vue')
             },
             {
                 path: 'toRaw',
-                component: 'ToRaw'
+                name: 'ToRaw',
+                component: () => import('views/BaseReactivity/ToRaw/index.vue')
             },
             {
                 path: 'markRaw',
-                component: 'MarkRaw'
+                name: 'MarkRaw',
+                component: () => import('views/BaseReactivity/MarkRaw/index.vue')
             },
             {
                 path: 'shallowReactive',
-                component: 'ShallowReactive'
+                name: 'ShallowReactive',
+                component: () => import('views/BaseReactivity/ShallowReactive/index.vue')
             },
             {
                 path: 'shallowReadonly',
-                component: 'ShallowReadonly'
+                name: 'ShallowReadonly',
+                component: () => import('views/BaseReactivity/ShallowReadonly/index.vue')
             },
 
         ]
     },
-
     {
         path: '/computed',
-        component: 'Computed'
+        name: 'Computed',
+        component: () => import('views/Computed/index.vue')
     },
     {
         path: '/watch',
-        component: 'Watch'
+        name: 'Watch',
+        component: () => import('views/Watch/index.vue')
     },
     {
         path: '/watchEffect',
-        component: 'WatchEffect'
+        name: 'WatchEffect',
+        component: () => import('views/WatchEffect/index.vue')
     },
     {
         path: '/event',
-        component: 'Event'
+        name: 'Event',
+        component: () => import('views/Event/index.vue')
     },
     {
         path: '/slots',
-        component: 'Slots'
+        name: 'Slots',
+        component: () => import('views/Slots/index.vue')
     },
     {
         path: '/teleport',
-        component: 'Teleport'
+        name: 'Teleport',
+        component: () => import('views/Teleport/index.vue')
     },
     {
         path: '/lifeCycle',
-        component: 'LifeCycle'
+        name: 'LifeCycle',
+        component: () => import('views/LifeCycle/index.vue')
     },
     {
         path: '/crossComponent',
-        component: 'CrossComponent'
+        name: 'CrossComponent',
+        component: () => import('views/CrossComponent/index.vue')
     },
     {
         path: '/useHooks',
-        component: 'UseHooks'
+        name: 'UseHooks',
+        component: () => import('views/UseHooks/index.vue')
     },
     {
         path: '/routerApi',
-        component: 'RouterApi',
+        name: 'RouterApi',
+        component: () => import('views/RouterApi/index.vue')
     },
     {
         path: '/asyncComponent',
-        component: 'AsyncComponent',
+        name: 'AsyncComponent',
+        component: () => import('views/AsyncComponent/index.vue')
     },
     {
         path: '/functionRender',
-        component: 'FunctionRender',
+        name: 'FunctionRender',
+        component: () => import('views/FunctionRender/index.vue')
     },
     {
         path: '/transition',
-        component: 'Transition',
+        name: 'Transition',
+        component: () => import('views/Transition/index.vue')
     },
     {
         path: '/fragments',
-        component: 'Fragments',
+        name: 'Fragments',
+        component: () => import('views/Fragments/index.vue')
     },
     {
         path: '/scriptSetup',
-        component: 'ScriptSetup',
+        name: 'ScriptSetup',
+        component: () => import('views/ScriptSetup/index.vue')
     },
     {
         path: '/cssVar',
-        component: 'CssVar',
+        name: 'CssVar',
+        component: () => import('views/CssVar/index.vue')
     },
     {
         path: '/customDirective',
-        component: 'CustomDirective'
+        name: 'CustomDirective',
+        component: () => import('views/CustomDirective/index.vue')
     },
 ]

@@ -6,7 +6,7 @@
     "dev": "vite",
     "dev:nw": "vite --host",
     "build": "vite build",
-    "preview": "vite build && vite preview",
+    "preview": "vite build --mode preview && vite preview",
     "preview:dist": "vite preview --host",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "highlight.js": "^11.0.1",
+    "lodash-es": "^4.17.21",
     "pinia": "^2.0.0-beta.3",
     "vue": "^3.1.4",
     "vue-router": "^4.0.10"

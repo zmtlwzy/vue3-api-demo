@@ -22,7 +22,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       alias: {
         '#': resolve(__dirname, './'),
         '@': resolve(__dirname, 'src'),
-        assets: resolve(__dirname, 'src/assets'),
         comps: resolve(__dirname, 'src/components'),
         views: resolve(__dirname, 'src/views'),
       },

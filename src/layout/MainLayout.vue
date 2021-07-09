@@ -15,7 +15,12 @@
       show-trigger="bar"
       content-style="padding-right: 10px;"
     >
-      <n-menu :value="menuValue" :options="menuOptions" default-expand-all />
+      <n-menu
+        :value="menuValue"
+        :options="menuOptions"
+        :expanded-keys="expandedKeys"
+        @update:expanded-keys="handleUpdateExpandedKeys"
+      />
     </n-layout-sider>
     <n-layout
       :native-scrollbar="false"
@@ -36,7 +41,9 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, useCssVars } from 'vue';
+  import { defineComponent, useCssVars, ref, computed, watch } from 'vue';
+
+  import { useRoute } from 'vue-router';
 
   import { useAppStore } from '@/store/modules/app';
 
@@ -44,14 +51,40 @@
     name: 'MainLayout',
     props: ['menuOptions', 'menuValue'],
     setup() {
+      const route = useRoute();
       const appStore = useAppStore();
 
       useCssVars(() => ({
         'header-height': `${appStore.getHeaderHeight}px`,
       }));
 
+      const menuValue = computed(() => route.name);
+
+      const expandedKeys = ref<string[]>([]);
+
+      watch(
+        () => route.path,
+        (path) => {
+          const arr = path.split('/');
+          const rawKey = arr[arr.length - 2];
+          const res = [rawKey.charAt(0).toLocaleUpperCase() + rawKey.slice(1)];
+          expandedKeys.value = res;
+        },
+        {
+          immediate: true,
+        }
+      );
+
+      const handleUpdateExpandedKeys = (e: string[]) => {
+        console.log(e);
+        expandedKeys.value = e;
+      };
+
       return {
         siderWidth: appStore.getSiderWidth,
+        expandedKeys,
+        menuValue,
+        handleUpdateExpandedKeys,
       };
     },
   });

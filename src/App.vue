@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :menuOptions="menuOptions" :menuValue="menuValue">
+  <MainLayout :menuOptions="menuOptions">
     <template #header>
       <div class="flex flex-row items-center px-8 h-full justify-between">
         <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
@@ -38,10 +38,9 @@
 
 <script lang="ts">
   import { computed, defineComponent, onMounted, ref, version as vueVer, watchEffect } from 'vue';
-  import { useRoute } from 'vue-router';
-  
-  import { useLoadingBar,version as naiveuiVer } from 'naive-ui';
-  
+
+  import { useLoadingBar, version as naiveuiVer } from 'naive-ui';
+
   import { useAppStore } from '@/store/modules/app';
   import { loadingBarApiRef } from '@/router';
   import { List as routerList } from '@/router/routesList';
@@ -50,7 +49,6 @@
 
   import MainLayout from './layout/MainLayout.vue';
 
-
   const list = routerList.filter((item) => {
     return item.path !== '/';
   });
@@ -58,14 +56,12 @@
   export default defineComponent({
     name: 'app',
     setup() {
-      const route = useRoute();
       const loadingBar = useLoadingBar();
       const appStore = useAppStore();
 
       const active = ref<boolean>(false);
 
       const refreshId = computed(() => appStore.getRefreshId);
-      const menuValue = computed(() => route.path);
 
       const handleRefresh = () => {
         appStore.resetAllState();
@@ -77,8 +73,6 @@
         } else {
           appStore.setThemeName('light');
         }
-
-        console.log(menuValue.value, 'menuValue');
       });
 
       onMounted(() => {
@@ -87,12 +81,11 @@
       });
 
       const menuOptions = genMeunList(list);
-      
+
       return {
         vueVer,
         naiveuiVer,
         menuOptions,
-        menuValue,
         active,
         refreshId,
         handleRefresh,

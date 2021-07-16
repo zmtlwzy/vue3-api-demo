@@ -16,7 +16,7 @@
 </script>
 
 <script setup>
-  import { useMousePosition, useScreenPosition, useHalfPosition } from '@/hooks/mouse';
+  import { useMousePosition, useScreenPosition, useHalfPosition } from '@/composables/mouse';
 
   const { pageX, pageY } = useMousePosition();
   const { screenX, screenY } = useScreenPosition();

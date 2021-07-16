@@ -59,7 +59,7 @@
     // KeepAlive,
   } from 'vue';
 
-  import { common } from '@/hooks/Common';
+  import { common } from '@/composables/Common';
 
   const lifeCycleItemA = defineComponent({
     name: 'lifeCycleItemA',

@@ -28,7 +28,7 @@
   import { useDemoStore } from '@/store/modules/demo';
 
   import { UseVuex, PAndI, UseReactive } from './components';
-  import { common, sharedState } from '@/hooks/Common';
+  import { common, sharedState } from '@/composables/Common';
   import { CountSymbol_2 } from './components/sharedKey';
 
   export default {

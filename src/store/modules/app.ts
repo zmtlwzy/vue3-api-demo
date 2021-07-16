@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import { store } from '@/store';
 import { darkTheme,GlobalThemeOverrides } from 'naive-ui'
 import { useDemoStore } from './demo';
-import { resetSharedState } from '@/hooks/Common';
+import { resetSharedState } from '@/composables/Common';
 import themeOverrides from '@/naive-ui-theme-overrides.json';
 
 

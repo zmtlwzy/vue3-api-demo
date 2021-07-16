@@ -373,10 +373,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
   integrity sha512-e6ZowgGJmTuXa3GyaPbTGxX17tnThl2aSSizrFthQ7m9uLGZBXiGhgE55cjRZTF5kjZvYn9EOPOMljdjwbflxw==
 
-"@types/node@^16.0.0":
-  version "16.0.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/@types/node/-/node-16.0.0.tgz#067a6c49dc7a5c2412a505628e26902ae967bf6f"
-  integrity sha512-TmCW5HoZ2o2/z2EYi109jLqIaPIi9y/lc2LmDCWzuCi35bcaQ+OtUh6nwBiFK7SOu25FAU5+YKdqFZUwtqGSdg==
+"@types/node@^16.3.2":
+  version "16.3.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/node/-/node-16.3.2.tgz#655432817f83b51ac869c2d51dd8305fb8342e16"
+  integrity sha512-jJs9ErFLP403I+hMLGnqDRWT0RYKSvArxuBVh2veudHV7ifEC1WAmjJADacZ7mRbA2nWgHtn8xyECMAot0SkAw==
 
 "@types/node@~14.14.31":
   version "14.14.45"
@@ -412,10 +412,10 @@
     "@vue/babel-plugin-jsx" "^1.0.6"
     hash-sum "^2.0.0"
 
-"@vitejs/plugin-vue@^1.2.4":
-  version "1.2.4"
-  resolved "https://repo.huaweicloud.com/repository/npm/@vitejs/plugin-vue/-/plugin-vue-1.2.4.tgz#a7aa6e6a31c556a8b781de730316deeecf7f56f2"
-  integrity sha512-D/3H9plevPQGgQGwmV6eecvOnooLTecPR63HPffVVWPEhbfvmtYLWgznzs456NBb2DItiRTCIa1yWxvGqC+I8A==
+"@vitejs/plugin-vue@^1.2.5":
+  version "1.2.5"
+  resolved "https://repo.huaweicloud.com/repository/npm/@vitejs/plugin-vue/-/plugin-vue-1.2.5.tgz#ef7dc4a92e53fe866b54bcc1266788513262ac09"
+  integrity sha512-GIR31mdXTEfvElmBUaRhDc5v7lfdkEdawWQqJRiaRL/5qKsH+xusukglkvJz5y7+c6dEpxgmvcATv2BbB7+fzQ==
 
 "@vue/babel-helper-vue-transform-on@^1.0.2":
   version "1.0.2"
@@ -492,6 +492,11 @@
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.14.tgz#6ed2d6f8d66a9256c9ad04bfff08309ba87b9723"
   integrity sha512-44fPrrN1cqcs6bFkT0C+yxTM6PZXLbR+ESh1U1j8UD22yO04gXvxH62HApMjLbS3WqJO/iCNC+CYT+evPQh2EQ==
 
+"@vue/devtools-api@^6.0.0-beta.15":
+  version "6.0.0-beta.15"
+  resolved "https://repo.huaweicloud.com/repository/npm/@vue/devtools-api/-/devtools-api-6.0.0-beta.15.tgz#ad7cb384e062f165bcf9c83732125bffbc2ad83d"
+  integrity sha512-quBx4Jjpexo6KDiNUGFr/zF/2A4srKM9S9v2uHgMXSU//hjgq1eGzqkIFql8T9gfX5ZaVOUzYBP3jIdIR3PKIA==
+
 "@vue/reactivity@3.1.4":
   version "3.1.4"
   resolved "https://repo.huaweicloud.com/repository/npm/@vue/reactivity/-/reactivity-3.1.4.tgz#d926ed46fb0d48582ccf8665b062d37b5d35ba99"
@@ -520,6 +525,21 @@
   version "3.1.4"
   resolved "https://repo.huaweicloud.com/repository/npm/@vue/shared/-/shared-3.1.4.tgz#c14c461ec42ea2c1556e86f60b0354341d91adc3"
   integrity sha512-6O45kZAmkLvzGLToBxEz4lR2W6kXohCtebV2UxjH9GXjd8X9AhEn68FN9eNanFtWNzvgw1hqd6HkPRVQalqf7Q==
+
+"@vueuse/core@^5.1.3":
+  version "5.1.3"
+  resolved "https://repo.huaweicloud.com/repository/npm/@vueuse/core/-/core-5.1.3.tgz#a9edda9202513423a27fbac896dd7bc918d1ac6c"
+  integrity sha512-5CmF/epSo9L1Obz3A37UJOpDdno0BDw46zyXq0DHgvzEwL6gPb9GgJZcy4Hm5YSjQYIeQPo35uO8qsZyIjEZog==
+  dependencies:
+    "@vueuse/shared" "5.1.3"
+    vue-demi "*"
+
+"@vueuse/shared@5.1.3":
+  version "5.1.3"
+  resolved "https://repo.huaweicloud.com/repository/npm/@vueuse/shared/-/shared-5.1.3.tgz#11faa3a1a2b4d3dc41eac7a825900a8894efe95e"
+  integrity sha512-p8n/69QMtSsLN5rri9c3sN5QJJXWA7cm9chgo3DowTBRYLBni1I9kGY2nz299Tur6XEFuf+63E5TvMTJVJeHHw==
+  dependencies:
+    vue-demi "*"
 
 "@windicss/config@1.2.4":
   version "1.2.4"
@@ -895,6 +915,11 @@ highlight.js@^11.0.1:
   resolved "https://repo.huaweicloud.com/repository/npm/highlight.js/-/highlight.js-11.0.1.tgz#a78bafccd9aa297978799fe5eed9beb7ee1ef887"
   integrity sha512-EqYpWyTF2s8nMfttfBA2yLKPNoZCO33pLS4MnbXQ4hECf1TKujCt1Kq7QAdrio7roL4+CqsfjqwYj4tYgq0pJQ==
 
+highlight.js@^11.1.0:
+  version "11.1.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/highlight.js/-/highlight.js-11.1.0.tgz#0198f7326e64ddfbea5f76b00e84ab542cf24ae8"
+  integrity sha512-X9VVhYKHQPPuwffO8jk4bP/FVj+ibNCy3HxZZNDXFtJrq4O5FdcdCDRIkDis5MiMnjh7UwEdHgRZJcHFYdzDdA==
+
 html-tags@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
@@ -1118,10 +1143,10 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-naive-ui@^2.15.3:
-  version "2.15.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/naive-ui/-/naive-ui-2.15.3.tgz#7f5cca6d9da716e8c78bb3069f1d3796347867c8"
-  integrity sha512-+LmJHbnaYuKUY9O0YzkyjOWTyN5SRIJ3evnwd3non7mqCT5Yb1vzaUi2lxiixPu+hdVe/r+bsXnElTeNYPPbhg==
+naive-ui@^2.15.4:
+  version "2.15.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/naive-ui/-/naive-ui-2.15.4.tgz#56c53b03e277ac9e55396bfb85dc2b49293ca6c3"
+  integrity sha512-YcGT3bJA4HHYunw01ksKoiHJcCR4/aEHv155BT1JoN+wctVgoAkYBJtbldQbPvjKWuRJYbKPwXEI45XD/WZjqQ==
   dependencies:
     "@css-render/plugin-bem" "^0.15.4"
     "@css-render/vue3-ssr" "^0.15.4"
@@ -1192,12 +1217,12 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pinia@^2.0.0-beta.3:
-  version "2.0.0-beta.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/pinia/-/pinia-2.0.0-beta.3.tgz#c6f0d07da54dc5aa237f4cc9281898e927b33d16"
-  integrity sha512-4ygKhe9FrYD69tJ7nSdgHm9Ldb0aM/Nzyb8Qz/RZuzOyOr85jWHNmCAhCytWy0l9C4/ypGJYCEJ3vuZfyWjcZA==
+pinia@^2.0.0-beta.5:
+  version "2.0.0-beta.5"
+  resolved "https://repo.huaweicloud.com/repository/npm/pinia/-/pinia-2.0.0-beta.5.tgz#4825e66f939a50d6b11ffc4816b6e56b22fd0752"
+  integrity sha512-0XvufXNkEvl7Fk6wrg5DH/JYPihkoknet950SQNIlWxXpeI7omwR0H00QPIiEYkrdbsiHXJyvI2XndWGvD4v5A==
   dependencies:
-    "@vue/devtools-api" "^6.0.0-beta.14"
+    "@vue/devtools-api" "^6.0.0-beta.15"
 
 postcss-modules-extract-imports@^3.0.0:
   version "3.0.0"
@@ -1473,10 +1498,10 @@ vite-plugin-windicss@^1.2.4:
     debug "^4.3.2"
     windicss "^3.1.4"
 
-vite@^2.4.1:
-  version "2.4.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/vite/-/vite-2.4.1.tgz#2e48b8dbfc69e4edbf7f4d1c0798d621585cb8da"
-  integrity sha512-4BpKRis9uxIqPfIEcJ18LTBsamqnDFxTx45CXwagHjNltHa6PFEvf8Pe6OpgIHb0OyWT30OXOSSQvdOaX4OBiQ==
+vite@^2.4.2:
+  version "2.4.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite/-/vite-2.4.2.tgz#07d00615775c808530bc9f65641062b349b67929"
+  integrity sha512-2MifxD2I9fjyDmmEzbULOo3kOUoqX90A58cT6mECxoVQlMYFuijZsPQBuA14mqSwvV3ydUsqnq+BRWXyO9Qa+w==
   dependencies:
     esbuild "^0.12.8"
     postcss "^8.3.5"
@@ -1491,6 +1516,11 @@ vooks@^0.2.4, vooks@^0.2.6:
   integrity sha512-3/v7IhETurHVXYvVY37bR65fSk7siSBFAx8wwmpca7zl8bSvuA0tWmlSvyCqfHoAyppgK8OjTi8UvgzMKdkI8Q==
   dependencies:
     evtd "^0.2.2"
+
+vue-demi@*:
+  version "0.10.1"
+  resolved "https://repo.huaweicloud.com/repository/npm/vue-demi/-/vue-demi-0.10.1.tgz#229b81395510f02f4ee255344557a12cc0120930"
+  integrity sha512-L6Oi+BvmMv6YXvqv5rJNCFHEKSVu7llpWWJczqmAQYOdmPPw5PNYoz1KKS//Fxhi+4QP64dsPjtmvnYGo1jemA==
 
 vue-router@^4.0.10:
   version "4.0.10"

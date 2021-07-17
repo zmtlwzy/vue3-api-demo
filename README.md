@@ -21,30 +21,30 @@
 ## Project setup
 
 ```
-yarn bootstrap
+pnpm bootstrap
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn dev
-yarn dev:nw
+pnpm dev
+pnpm dev:nw
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn build
+pnpm build
 ```
 
 ### Preview
 
 ```
-yarn preview
+pnpm preview
 ```
 
 ### Lints and fixes files
 
 ```
-yarn lint:prettier
+pnpm lint:prettier
 ```

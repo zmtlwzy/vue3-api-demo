@@ -6,7 +6,7 @@
     "url": "https://github.com/anncwb"
   },
   "scripts": {
-    "bootstrap": "yarn install",
+    "bootstrap": "pnpm install",
     "dev": "vite",
     "dev:nw": "vite --host",
     "build": "vite build",
@@ -15,7 +15,7 @@
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
-    "reinstall": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && yarn bootstrap"
+    "reinstall": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && pnpm bootstrap"
   },
   "dependencies": {
     "@vueuse/core": "^5.1.3",

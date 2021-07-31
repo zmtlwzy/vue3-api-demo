@@ -3,8 +3,6 @@ import 'virtual:windi-base.css'
 import 'virtual:windi-components.css'
 import 'virtual:windi-utilities.css'
 
-import './global.less'
-
 import { createApp } from 'vue';
 import App from './AppRoot.vue';
 

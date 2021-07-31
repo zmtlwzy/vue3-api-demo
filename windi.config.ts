@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite-plugin-windicss'
+import themeOverrides from './naive-ui-theme-overrides.json';
 
 export default defineConfig({
   // purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -6,23 +7,20 @@ export default defineConfig({
   attributify: {
     prefix: 'w:'
   },
-  preflight:false,
+  preflight: false,
   // prefix:'tw-',
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT:'#42b983',
-          'lighten': '#65c8a0',
-          'darken':'#379c6e'
+          DEFAULT: themeOverrides.common.primaryColor,
+          'lighten': themeOverrides.common.primaryColorHover,
+          'darken': themeOverrides.common.primaryColorPressed
         },
       },
     },
   },
-  shortcuts: {
-    'btn': 'px-2 border bg-primary rounded-md active:bg-primary-darken',
-    'column-layout':'flex flex-col items-center mb-5 p-3 border border-dashed border-gray-300'
-  },
+  shortcuts: {},
   variants: {},
   plugins: [],
 });

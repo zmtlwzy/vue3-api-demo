@@ -4,7 +4,7 @@
       <div class="flex flex-row items-center px-8 h-full justify-between">
         <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
         <div class="teleport-header-container"></div>
-        <n-button-group size="small">
+        <n-button-group size="small" inverted>
           <n-button
             v-for="str in themeMode"
             :type="str === currentMode ? 'primary' : 'default'"
@@ -49,13 +49,10 @@
 
   import { genMeunList } from '@/router/menuList';
 
-  import MainLayout from './layout/MainLayout.vue';
-
-  
   const list = routerList.filter((item) => {
     return item.path !== '/';
   });
-  
+
   type themeMode = 'light' | 'auto' | 'dark';
   const themeMode = ['light', 'auto', 'dark'] as const;
   const defaultThemeMode: themeMode = 'auto';
@@ -121,6 +118,5 @@
         handleRefresh,
       };
     },
-    components: { MainLayout },
   });
 </script>

@@ -4,7 +4,7 @@ import { store } from '@/store';
 import { darkTheme,GlobalThemeOverrides } from 'naive-ui'
 import { useDemoStore } from './demo';
 import { resetSharedState } from '@/composables/Common';
-import themeOverrides from '@/naive-ui-theme-overrides.json';
+import themeOverrides from '#/naive-ui-theme-overrides.json';
 
 
 interface AppState {

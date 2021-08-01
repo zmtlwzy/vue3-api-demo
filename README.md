@@ -28,7 +28,6 @@ pnpm bootstrap
 
 ```
 pnpm dev
-pnpm dev:nw
 ```
 
 ### Compiles and minifies for production

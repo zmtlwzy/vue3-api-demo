@@ -6,7 +6,7 @@
   },
   "scripts": {
     "bootstrap": "pnpm install",
-    "dev:nw": "vite --host",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite build --mode preview && vite preview",
     "preview:dist": "vite preview --host",

@@ -2,7 +2,6 @@
 node_modules
 /dist
 /types/components.d.ts
-pnpm-lock.yaml
 
 
 # local env files

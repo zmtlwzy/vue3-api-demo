@@ -1,31 +1,38 @@
 <template>
-  <div>
-    <F
-      class="parent-class"
-      id="parent-id"
-      :style="{ padding: '10px', backgroundColor: '#dfc59f' }"
-    />
-    <Ftsx
+  <GridLayout>
+    <n-card title="UseAttrs">
+      <n-space vertical align="center">
+        <UseAttrs
+          class="parent-class"
+          id="parent-id"
+          :style="{ padding: '10px', backgroundColor: '#dfc59f' }"
+        />
+      </n-space>
+    </n-card>
+    <UseAttrsTsx
       class="parent-tsx-class"
       id="parent-tsx-id"
       :style="{ padding: '15px', backgroundColor: 'red' }"
     />
     <FInherit class="parent-inherit-class" id="parent-inherit-id" :style="{ color: 'yellow' }" />
-  </div>
+    <MergeProps class="hover:bg-red-400">MergeProps</MergeProps>
+  </GridLayout>
 </template>
 
 <script>
-  import Ftsx from './components/UseAttrs';
-  import FInherit from './components/InheritAttrs';
-  import F from './components/UseAttrs.vue';
-  export default {
+  import { defineComponent } from 'vue';
+  import UseAttrsTsx from './components/UseAttrsTsx.vue';
+  import FInherit from './components/InheritAttrs.vue';
+  import UseAttrs from './components/UseAttrs.vue';
+  import MergeProps from './components/MergeProps.vue';
+
+  export default defineComponent({
     name: 'Fragments',
     components: {
-      F,
-      Ftsx,
+      UseAttrs,
+      UseAttrsTsx,
       FInherit,
+      MergeProps,
     },
-  };
+  });
 </script>
-
-<style></style>

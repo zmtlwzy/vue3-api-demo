@@ -16,32 +16,32 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, watch } from 'vue';
+  import { defineComponent, ref, watch } from 'vue';
   export default defineComponent({
     name: 'Base_demo',
   });
 </script>
 
 <script setup lang="ts">
-  ref: color = {
-    font: null,
-    input: '#cccccc',
-  } as {
+  const color = ref<{
     font: null | string;
     input: string;
-  };
+  }>({
+    font: null,
+    input: '#cccccc',
+  });
 
   watch(
-    () => color.input,
+    () => color.value.input,
     (val) => {
-      color.font = val;
+      color.value.font = val;
     }
   );
 
   const handleClick = () => {
-    color.font = color.font === 'red' ? 'yellow' : color.font === 'yellow' ? 'red' : 'red';
-    color.input =
-      color.input === '#cccccc' ? '#666ddd' : color.input === '#666ddd' ? '#cccccc' : '#cccccc';
+    color.value.font = color.value.font === 'red' ? 'yellow' : color.value.font === 'yellow' ? 'red' : 'red';
+    color.value.input =
+      color.value.input === '#cccccc' ? '#666ddd' : color.value.input === '#666ddd' ? '#cccccc' : '#cccccc';
   };
 </script>
 

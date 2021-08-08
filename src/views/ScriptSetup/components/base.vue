@@ -17,14 +17,14 @@
 </script>
 
 <script setup lang="ts">
-  ref: a = 1;
+  const a = ref(1);
   const b = ref<number>(200);
   const inc = () => {
-    a++;
+    a.value++;
   };
   const inc2 = () => {
     setTimeout(() => {
-      $a.value++;
+      a.value++;
     }, 100);
   };
   const inc3 = () => {

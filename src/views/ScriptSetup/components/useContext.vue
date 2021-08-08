@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, ref } from 'vue';
   export default defineComponent({
     name: 'useContext',
   });
@@ -30,15 +30,15 @@
   });
   const emit = defineEmits(['inc']);
 
-  ref: count = 1;
+  const count = ref(1);
   let count2 = 2;
   defineExpose({
-    $count,
+    $count: count,
     count2,
   });
 
   const handleClick = () => {
-    emit('inc', $count);
+    emit('inc', count);
   };
 
   console.log(props?.msg);

@@ -10,13 +10,13 @@
 
 <script setup>
   import { Base as ScriptSetupBase, UseContext } from './components';
-  import { isRef, watch } from 'vue';
+  import { isRef, ref, watch } from 'vue';
   const handleClick = (e) => {
     isRef(e) && e.value++;
   };
-  ref: comp = null;
+  const comp = ref(null);
   watch(
-    () => comp?.count,
+    () => comp.value?.count,
     (val) => {
       console.log(val, 'comp expose count');
     }

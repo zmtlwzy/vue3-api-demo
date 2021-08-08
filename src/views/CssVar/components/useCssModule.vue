@@ -9,16 +9,16 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, useCssModule } from 'vue';
+  import { defineComponent, ref, useCssModule } from 'vue';
   export default defineComponent({
     name: 'useCssModule',
   });
 </script>
 
 <script setup lang="ts">
-  ref: module = useCssModule();
-  ref: fatherModule = useCssModule('other');
-  console.log(module, fatherModule);
+  const module = ref(useCssModule());
+  const fatherModule = ref(useCssModule('other'));
+  console.log(module.value, fatherModule.value);
 </script>
 
 <style module>

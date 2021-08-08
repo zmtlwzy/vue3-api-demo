@@ -1,6 +1,6 @@
 {
   "name": "vue3-api-demo",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": {
     "name": "zmtlwzy"
   },
@@ -17,17 +17,17 @@
   },
   "dependencies": {
     "@vueuse/core": "latest",
-    "highlight.js": "^11.1.0",
+    "highlight.js": "latest",
     "lodash-es": "latest",
-    "pinia": "2.0.0-beta.5",
-    "vue": "next",
+    "pinia": "2.0.0-rc.3",
+    "vue": "3.2.0-beta.8",
     "vue-router": "next"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vitejs/plugin-vue-jsx": "latest",
-    "@vue/compiler-sfc": "latest",
+    "@vue/compiler-sfc": "3.2.0-beta.8",
     "less": "latest",
     "naive-ui": "latest",
     "prettier": "^2.3.2",
@@ -37,7 +37,7 @@
     "vite": "^2.4.4",
     "vite-plugin-components": "latest",
     "vite-plugin-windicss": "latest",
-    "windicss": "^3.1.6"
+    "windicss": "latest"
   },
   "license": "MIT"
 }

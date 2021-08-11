@@ -18,7 +18,9 @@ export default defineConfig({
       },
     },
   },
-  alias:{},
+  alias:{
+    'column-layout':'flex flex-col border border-dashed p-3 my-3'
+  },
   shortcuts: {},
   variants: {},
   plugins: [],

@@ -22,7 +22,7 @@
         h(
           'div',
           {
-            class: 'column-layout',
+            class: '*column-layout',
             onClickCapture: () => increment(1),
           },
           [
@@ -38,7 +38,7 @@
             h(
               'div',
               {
-                class: 'column-layout',
+                class: '*column-layout',
                 onClick: withModifiers(() => increment(2), ['self']),
               },
               [
@@ -46,7 +46,7 @@
                 h(
                   'div',
                   {
-                    class: 'column-layout',
+                    class: '*column-layout',
                     onClick: () => increment(3),
                   },
                   state.count
@@ -54,7 +54,7 @@
                 h(
                   'a',
                   {
-                    class: 'column-layout',
+                    class: '*column-layout',
                     href: 'https://www.baidu.com',
                     onClick: withModifiers(() => increment(3), ['prevent', 'stop']),
                   },
@@ -63,7 +63,7 @@
               ]
             ),
             // [directive, value, arg, modifiers]
-            withDirectives(h('div', { class: 'column-layout' }, state.count), [
+            withDirectives(h('div', { class: '*column-layout' }, state.count), [
               [
                 MyDirective,
                 (state.count % 16) * 50,

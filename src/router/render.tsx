@@ -1,9 +1,9 @@
 import { resolveComponent } from 'vue';
-import type { routesListType } from '@/router/routesList';
+// import type { routesListType } from '@/router/routesList';
 import { NIcon } from 'naive-ui';
 
-export function renderRouter({ name }: routesListType, link: string) {
-  return () => <router-link to={link}>{name}</router-link>;
+export function renderRouter(title: string, link: string) {
+  return () => <router-link to={link}>{title}</router-link>;
 }
 
 export function renderRouterView() {

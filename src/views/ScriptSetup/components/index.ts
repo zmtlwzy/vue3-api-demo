@@ -1,7 +1,7 @@
 import Base from './base.vue'
 import UseContext from './useContext.vue'
 
-export {
+export const Comps = {
     Base,
     UseContext
 }

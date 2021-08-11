@@ -66,10 +66,6 @@
       watch(
         () => route.path,
         (path) => {
-          // const arr = path.split('/');
-          // const rawKey = arr[arr.length - 2];
-          // const res = [rawKey.charAt(0).toLocaleUpperCase() + rawKey.slice(1)];
-          // expandedKeys.value = res;
           const arr = path.split('/');
           const rawKeys = arr.slice(1, arr.length - 1);
           const res = rawKeys.map((item) => {

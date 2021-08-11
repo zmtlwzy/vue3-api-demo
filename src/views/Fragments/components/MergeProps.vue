@@ -16,11 +16,18 @@
       };
     },
     render() {
-      return h(NCard, { title: name }, [
-        h(NSpace, { vertical: true, align: 'center' }, [
-          h('div', mergeProps(this.$attrs, this.obj), this.$slots),
-        ]),
-      ]);
+      return h(
+        NCard,
+        { title: name },
+        {
+          default: () =>
+            h(
+              NSpace,
+              { vertical: true, align: 'center' },
+              { default: () => h('div', mergeProps(this.$attrs, this.obj), this.$slots) }
+            ),
+        }
+      );
     },
   });
 </script>

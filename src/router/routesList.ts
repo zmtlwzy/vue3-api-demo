@@ -1,15 +1,52 @@
 import type { RouteRecordRaw } from 'vue-router';
 
 type same = Omit<RouteRecordRaw, 'name' | 'children'>
+
+type meta = {
+    title?: string
+}
 export interface routesListType extends same {
     name?: string;
-    children?: routesListType[] | undefined
+    children?: routesListType[] | undefined;
+    meta?: meta
 }
 
 export const List: routesListType[] = [
     {
         path: '/',
         redirect: '/refs',
+    },
+    {
+        path: '/rfcs',
+        name: 'Rfcs',
+        redirect: '/rfcs/scriptSetup',
+        children: [
+            {
+                path: 'scriptSetup',
+                name: 'ScriptSetup',
+                component: () => import('views/ScriptSetup/index.vue')
+            }
+        ]
+    },
+    {
+        path: '/newFeatures',
+        name: 'NewFeatures',
+        redirect: '/newFeatures/vbindModifiers',
+        meta: {
+            title: 'NewFeatures in 3.2.x'
+        },
+        children: [
+            {
+                path: 'vbindModifiers',
+                name: 'VbindModifiers',
+                component: () => import('views/NewFeatures/vBind.vue')
+            },
+            {
+                path: 'v-memo',
+                name: 'V-memo',
+                component: () => import('views/NewFeatures/vMemo.vue')
+            }
+        ]
     },
     {
         path: '/refs',
@@ -182,11 +219,11 @@ export const List: routesListType[] = [
         name: 'Fragments',
         component: () => import('views/Fragments/index.vue')
     },
-    {
-        path: '/scriptSetup',
-        name: 'ScriptSetup',
-        component: () => import('views/ScriptSetup/index.vue')
-    },
+    // {
+    //     path: '/scriptSetup',
+    //     name: 'ScriptSetup',
+    //     component: () => import('views/ScriptSetup/index.vue')
+    // },
     {
         path: '/cssVar',
         name: 'CssVar',

@@ -1,7 +1,7 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical>
-      <des-table :var-obj="{ count, msg }"></des-table>
+      <des-table :var-obj="{ count, count2, msg }"></des-table>
       <slot></slot>
       <slot name="other"></slot>
     </n-space>
@@ -14,7 +14,7 @@
 <script lang="ts">
   import { defineComponent, ref } from 'vue';
   export default defineComponent({
-    name: 'useContext',
+    name: 'useSlots useAttrs defineExpose defineProps defineEmits',
   });
 </script>
 
@@ -30,15 +30,17 @@
   });
   const emit = defineEmits(['inc']);
 
-  const count = ref(1);
-  let count2 = 2;
+  let count = $ref(1);
+  const count2 = ref(count + 1);
+
   defineExpose({
-    $count: count,
+    count,
     count2,
   });
 
   const handleClick = () => {
-    emit('inc', count);
+    count+=2
+    emit('inc', count2);
   };
 
   console.log(props?.msg);

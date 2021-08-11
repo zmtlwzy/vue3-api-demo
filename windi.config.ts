@@ -7,8 +7,6 @@ export default defineConfig({
   attributify: {
     prefix: 'w:'
   },
-  preflight: false,
-  // prefix:'tw-',
   theme: {
     extend: {
       colors: {
@@ -20,6 +18,7 @@ export default defineConfig({
       },
     },
   },
+  alias:{},
   shortcuts: {},
   variants: {},
   plugins: [],

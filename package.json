@@ -5,7 +5,7 @@
     "name": "zmtlwzy"
   },
   "scripts": {
-    "bootstrap": "pnpm install",
+    "bootstrap": "yarn install",
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite build --mode preview && vite preview --host",
@@ -13,21 +13,21 @@
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
-    "reinstall": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && pnpm bootstrap"
+    "reinstall": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && yarn bootstrap"
   },
   "dependencies": {
     "@vueuse/core": "latest",
     "highlight.js": "latest",
     "lodash-es": "latest",
-    "pinia": "2.0.0-rc.3",
-    "vue": "3.2.0-beta.8",
+    "pinia": "next",
+    "vue": "next",
     "vue-router": "next"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vitejs/plugin-vue-jsx": "latest",
-    "@vue/compiler-sfc": "3.2.0-beta.8",
+    "@vue/compiler-sfc": "latest",
     "less": "latest",
     "naive-ui": "latest",
     "prettier": "^2.3.2",

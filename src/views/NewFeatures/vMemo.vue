@@ -1,13 +1,19 @@
 <template>
-  <n-button @click="update(['key'])" class="mb-5"> cannot update </n-button>
-  <n-button @click="update(['name'])" class="mb-5"> update </n-button>
-  <n-list bordered class="w-100">
+  <div class="flex flex-col justify-center items-center">
+    <n-space class="!mb-5" align="center">
+    <n-radio :checked="isUpdate" @change="setVMemoValue(['key'])">Cannot update</n-radio>
+    <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'name'])">
+      Can update
+    </n-radio>
+    <n-button @click="updateListData"> updateListData </n-button>
+  </n-space>
+  <n-list bordered class="w-99 mb-15">
     <n-list-item v-for="item in listRef" v-memo="getMemoValue(item, getMemoKey)">
       <template #prefix>
         {{ item.key }}
       </template>
       <div class="flex">
-        <div class="w-120px">{{ item.name }}</div>
+        <div class="w-29">{{ item.name }}</div>
         <div class="px-5">{{ item.age }}</div>
       </div>
       <template #suffix>
@@ -15,10 +21,11 @@
       </template>
     </n-list-item>
   </n-list>
+  </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from 'vue';
+  import { defineComponent, ref, unref, computed } from 'vue';
   import { genRandomNumber, genRandomString } from '@/utils/genRandomData';
   import { useMessage } from 'naive-ui';
 
@@ -31,14 +38,14 @@
 
   type ListKey = keyof List;
 
-  const genfakeList = (num: number): List[] => {
+  const genfakeList = (num: number = 25): List[] => {
     const list = [] as List[];
     for (let i = 0; i < num; i++) {
       list.push({
         key: i,
         name: `John ${genRandomString(genRandomNumber([3, 7]))}`,
         age: genRandomNumber([18, 100]),
-        isCheck: false,
+        isCheck: Math.round(Math.random()) ? false : true,
       });
     }
     return list;
@@ -48,22 +55,37 @@
     name: 'v-memo',
     setup() {
       const message = useMessage();
-      const listRef = ref(genfakeList(100));
+      const listRef = ref(genfakeList());
       const getMemoKey = ref<ListKey[]>(['key']);
-      const update = (arr: ListKey[]) => {
-        message.success(`v-memo=[item.${arr}]`);
+
+      const isUpdate = computed(() => {
+        const key = unref(getMemoKey);
+        if (key.length === 1 && key[0] === 'key') {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      const setVMemoValue = (arr: ListKey[]) => {
+        console.log(arr);
+        message.success(`v-memo=[${arr.map((key) => `item.${key}`)}]`);
         getMemoKey.value = arr;
-        listRef.value = genfakeList(100);
+      };
+
+      const updateListData = () => {
+        listRef.value = genfakeList();
       };
       const getMemoValue = (item: List, keys: ListKey[]) => {
         return keys.map((key) => item[key]);
       };
 
       return {
-        update,
+        setVMemoValue,
         listRef,
+        isUpdate,
         getMemoValue,
         getMemoKey,
+        updateListData,
       };
     },
   });

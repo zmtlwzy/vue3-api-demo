@@ -185,19 +185,9 @@ export const List: routesListType[] = [
         component: () => import('views/LifeCycle/index.vue')
     },
     {
-        path: '/crossComponent',
-        name: 'CrossComponent',
-        component: () => import('views/CrossComponent/index.vue')
-    },
-    {
         path: '/useHooks',
         name: 'UseHooks',
         component: () => import('views/UseHooks/index.vue')
-    },
-    {
-        path: '/routerApi',
-        name: 'RouterApi',
-        component: () => import('views/RouterApi/index.vue')
     },
     {
         path: '/asyncComponent',
@@ -219,11 +209,6 @@ export const List: routesListType[] = [
         name: 'Fragments',
         component: () => import('views/Fragments/index.vue')
     },
-    // {
-    //     path: '/scriptSetup',
-    //     name: 'ScriptSetup',
-    //     component: () => import('views/ScriptSetup/index.vue')
-    // },
     {
         path: '/cssVar',
         name: 'CssVar',
@@ -234,4 +219,22 @@ export const List: routesListType[] = [
         name: 'CustomDirective',
         component: () => import('views/CustomDirective/index.vue')
     },
+    {
+        path: '/other',
+        name: 'Other',
+        redirect: '/other/routerApi',
+        children: [
+            {
+                path: 'routerApi',
+                name: 'RouterApi',
+                component: () => import('views/RouterApi/index.vue')
+            },
+            {
+                path: 'crossComponent',
+                name: 'CrossComponent',
+                component: () => import('views/CrossComponent/index.vue')
+            },
+
+        ]
+    }
 ]

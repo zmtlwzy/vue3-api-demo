@@ -1,6 +1,6 @@
 <template>
   <n-h2>open console</n-h2>
-  <GridLayout :cols="1">
+  <GridLayout>
     <component v-for="comp in allComps" :is="comp" />
   </GridLayout>
 </template>

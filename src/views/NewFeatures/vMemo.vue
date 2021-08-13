@@ -1,26 +1,24 @@
 <template>
   <div class="flex flex-col justify-center items-center">
     <n-space class="!mb-5" align="center">
-    <n-radio :checked="isUpdate" @change="setVMemoValue(['key'])">Cannot update</n-radio>
-    <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'name'])">
-      Can update
-    </n-radio>
-    <n-button @click="updateListData"> updateListData </n-button>
-  </n-space>
-  <n-list bordered class="w-99 mb-15">
-    <n-list-item v-for="item in listRef" v-memo="getMemoValue(item, getMemoKey)">
-      <template #prefix>
-        {{ item.key }}
-      </template>
-      <div class="flex">
-        <div class="w-29">{{ item.name }}</div>
-        <div class="px-5">{{ item.age }}</div>
-      </div>
-      <template #suffix>
-        <n-checkbox v-model:checked="item.isCheck" />
-      </template>
-    </n-list-item>
-  </n-list>
+      <n-radio :checked="isUpdate" @change="setVMemoValue(['key'])">Cannot update</n-radio>
+      <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'name'])"> Can update </n-radio>
+      <n-button @click="updateListData"> updateListData </n-button>
+    </n-space>
+    <n-list bordered class="w-99 mb-15">
+      <n-list-item v-for="item in listRef" v-memo="getMemoValue(item, getMemoKey)">
+        <template #prefix>
+          {{ item.key }}
+        </template>
+        <div class="flex">
+          <div class="w-29">{{ item.name }}</div>
+          <div class="px-5">{{ item.age }}</div>
+        </div>
+        <template #suffix>
+          <n-checkbox v-model:checked="item.isCheck" />
+        </template>
+      </n-list-item>
+    </n-list>
   </div>
 </template>
 
@@ -28,6 +26,8 @@
   import { defineComponent, ref, unref, computed } from 'vue';
   import { genRandomNumber, genRandomString } from '@/utils/genRandomData';
   import { useMessage } from 'naive-ui';
+
+  import { isEqual } from 'lodash-es';
 
   type List = {
     key: number;
@@ -58,14 +58,8 @@
       const listRef = ref(genfakeList());
       const getMemoKey = ref<ListKey[]>(['key']);
 
-      const isUpdate = computed(() => {
-        const key = unref(getMemoKey);
-        if (key.length === 1 && key[0] === 'key') {
-          return true;
-        } else {
-          return false;
-        }
-      });
+      const isUpdate = computed(() => isEqual(unref(getMemoKey), ['key']));
+
       const setVMemoValue = (arr: ListKey[]) => {
         console.log(arr);
         message.success(`v-memo=[${arr.map((key) => `item.${key}`)}]`);

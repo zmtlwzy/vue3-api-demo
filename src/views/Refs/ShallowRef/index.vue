@@ -9,26 +9,27 @@
           <des-table :var-obj="{ count2 }"></des-table>
         </n-descriptions-item>
       </n-descriptions>
-      <n-button type="primary" @click="handle">add</n-button>
+      <n-space>
+        <n-button @click="add">add</n-button>
+        <n-button type="primary" @click="overlayShallowRef">overlayShallowRef</n-button>
+      </n-space>
     </n-space>
   </n-card>
 </template>
 
 <script lang="ts">
-  import { defineComponent, shallowRef, ref, watch } from 'vue';
+  import { defineComponent, shallowRef, ref, watch, } from 'vue';
 
   export default defineComponent({
     name: 'ShallowRef',
     setup() {
-      const count = shallowRef({
-        x: 0,
-        y: 0,
-      });
+      const obj = {
+        x:0,
+        y:0
+      }
+      const count = shallowRef({...obj});
 
-      const count2 = ref({
-        a: 0,
-        b: 0,
-      });
+      const count2 = ref({...obj});
 
       watch(
         () => count,
@@ -46,14 +47,20 @@
         { deep: true }
       );
 
-      const handle = () => {
-        count.value.x++;
-        count2.value.a++;
+      const add = () => {
+        obj.x++;
+        count.value.x = obj.x
+        count2.value.x = obj.x
       };
+
+      const overlayShallowRef = () => {
+        count.value = {...obj}
+      }
 
 
       return {
-        handle,
+        add,
+        overlayShallowRef,
         count,
         count2,
       };

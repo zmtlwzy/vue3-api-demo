@@ -3,16 +3,13 @@
     <n-space vertical align="center">
       <n-descriptions label-placement="top" bordered :column="2">
         <n-descriptions-item label="shallowRef">
-          <n-space vertical>
-            <des-table :var-obj="{ count }"></des-table>
-            <n-space>
-              <n-button @click="overlay">overlay</n-button>
-              <n-button @click="TriggerRef">TriggerRef</n-button>
-            </n-space>
-          </n-space>
+          <des-table :var-obj="{ count }"></des-table>
         </n-descriptions-item>
       </n-descriptions>
-      <n-button type="primary" @click="handle">add</n-button>
+      <n-space>
+        <n-button @click="handle">add</n-button>
+        <n-button @click="TriggerRef" type="primary" >TriggerRef</n-button>
+      </n-space>
     </n-space>
   </n-card>
 </template>
@@ -40,10 +37,6 @@
         count.value.x++;
       };
 
-      const overlay = () => {
-        triggerRef(count);
-      };
-
       const TriggerRef = () => {
         triggerRef(count);
       };
@@ -55,7 +48,6 @@
       return {
         handle,
         TriggerRef,
-        overlay,
         count,
       };
     },

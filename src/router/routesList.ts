@@ -45,6 +45,16 @@ export const List: routesListType[] = [
                 path: 'v-memo',
                 name: 'V-memo',
                 component: () => import('views/NewFeatures/vMemo.vue')
+            },
+            {
+                path: 'customElement',
+                name: 'CustomElement',
+                component: () => import('views/NewFeatures/customElement.vue')
+            },
+            {
+                path: 'effectScope',
+                name: 'effectScope',
+                component: () => import('views/NewFeatures/effectScope.vue')
             }
         ]
     },

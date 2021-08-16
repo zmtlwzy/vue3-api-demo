@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-center items-center">
     <n-space class="!mb-5" align="center">
       <n-radio :checked="isUpdate" @change="setVMemoValue(['key'])">Cannot update</n-radio>
-      <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'name'])"> Can update </n-radio>
+      <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'isCheck'])"> Can update </n-radio>
       <n-button @click="updateListData"> updateListData </n-button>
     </n-space>
     <n-list bordered class="w-99 mb-15">

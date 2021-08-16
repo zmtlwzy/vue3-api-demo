@@ -32,6 +32,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         {
           script: {
             refSugar: true
+          },
+          template: {
+            compilerOptions: {
+              isCustomElement: tag => tag.startsWith('my-')
+            }
           }
         }
       ),

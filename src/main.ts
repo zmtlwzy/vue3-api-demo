@@ -9,7 +9,7 @@ import App from './AppRoot.vue';
 import router, { setupRouter } from '@/router';
 import { setupStore } from '@/store';
 import { setupGlobDirectives } from '@/directive';
-// import { setupNaiveUI } from '@/lib/naive';
+import { registerCustomEl } from '@/webComponents'
 
 async function bootstrap() {
     const app = createApp(App);
@@ -17,10 +17,10 @@ async function bootstrap() {
     // Configure store
     setupStore(app);
 
+    registerCustomEl();
+
     // Configure routing
     setupRouter(app);
-
-    // setupNaiveUI(app);
 
     // Register global directive
     setupGlobDirectives(app);

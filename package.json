@@ -5,15 +5,16 @@
     "name": "zmtlwzy"
   },
   "scripts": {
-    "bootstrap": "yarn install",
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite build --mode preview && vite preview --host",
     "preview:dist": "vite preview --host",
-    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
-    "clean:lib": "rimraf node_modules",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
-    "reinstall": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && yarn bootstrap"
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lock": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json",
+    "clean:lib": "rimraf node_modules",
+    "update:lib": "yarn clean:lock && yarn",
+    "reinstall": "yarn clean:lock && yarn clean:lib && yarn"
   },
   "dependencies": {
     "@vueuse/core": "latest",

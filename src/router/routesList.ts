@@ -3,7 +3,8 @@ import type { RouteRecordRaw } from 'vue-router';
 type same = Omit<RouteRecordRaw, 'name' | 'children'>
 
 type meta = {
-    title?: string
+    title?: string,
+    dir?:string,
 }
 export interface routesListType extends same {
     name?: string;
@@ -20,10 +21,14 @@ export const List: routesListType[] = [
         path: '/rfcs',
         name: 'Rfcs',
         redirect: '/rfcs/scriptSetup',
+        
         children: [
             {
                 path: 'scriptSetup',
                 name: 'ScriptSetup',
+                meta: {
+                    dir: 'ScriptSetup/index.vue'
+                },
                 component: () => import('views/ScriptSetup/index.vue')
             }
         ]
@@ -39,21 +44,33 @@ export const List: routesListType[] = [
             {
                 path: 'vbindModifiers',
                 name: 'VbindModifiers',
+                meta: {
+                    dir: 'NewFeatures/vBind.vue'
+                },
                 component: () => import('views/NewFeatures/vBind.vue')
             },
             {
                 path: 'v-memo',
                 name: 'V-memo',
+                meta: {
+                    dir: 'NewFeatures/vMemo.vue'
+                },
                 component: () => import('views/NewFeatures/vMemo.vue')
             },
             {
                 path: 'customElement',
                 name: 'CustomElement',
+                meta: {
+                    dir: 'NewFeatures/customElement.vue'
+                },
                 component: () => import('views/NewFeatures/customElement.vue')
             },
             {
                 path: 'effectScope',
-                name: 'effectScope',
+                name: 'EffectScope',
+                meta: {
+                    dir: 'NewFeatures/effectScope.vue'
+                },
                 component: () => import('views/NewFeatures/effectScope.vue')
             }
         ]
@@ -237,11 +254,17 @@ export const List: routesListType[] = [
             {
                 path: 'routerApi',
                 name: 'RouterApi',
+                meta: {
+                    dir: 'RouterApi/index.vue'
+                },
                 component: () => import('views/RouterApi/index.vue')
             },
             {
                 path: 'crossComponent',
                 name: 'CrossComponent',
+                meta: {
+                    dir: 'CrossComponent/index.vue'
+                },
                 component: () => import('views/CrossComponent/index.vue')
             },
 

@@ -29,9 +29,11 @@
       content-style="min-height: calc(100vh - var(--header-height));padding:2rem;"
     >
       <n-back-top />
-      <main>
-        <slot name="content"></slot>
-      </main>
+      <Source>
+        <main>
+          <slot name="content"></slot>
+        </main>
+      </Source>
       <n-layout-footer bordered position="absolute" class="p-5">
         <footer>
           <slot name="footer"></slot>
@@ -48,9 +50,12 @@
 
   import { useAppStore } from '@/store/modules/app';
 
+  import Source from './Source.vue';
+
   export default defineComponent({
     name: 'MainLayout',
     props: ['menuOptions', 'menuValue'],
+    components: { Source },
     setup() {
       const route = useRoute();
       const appStore = useAppStore();

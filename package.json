@@ -33,9 +33,9 @@
     "naive-ui": "latest",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "typescript": "^4.3.5",
+    "typescript": "latest",
     "vfonts": "latest",
-    "vite": "^2.4.4",
+    "vite": "latest",
     "vite-plugin-components": "latest",
     "vite-plugin-windicss": "latest",
     "windicss": "latest"

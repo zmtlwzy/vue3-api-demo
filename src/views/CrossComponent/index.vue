@@ -1,16 +1,15 @@
 <template>
-  <GridLayout :cols="3">
-    <n-grid-item :span="3">
+  <GridLayout :cols="2">
+    <n-grid-item :span="2">
       <n-card>
         <div class="flex justify-evenly w-full">
-          <des-table :var-obj="{ count, count2, count3 }"
-            >shared width provide and inject</des-table
-          >
-          <des-table :var-obj="{ num, num2, num3 }">shared width reactive</des-table>
-          <des-table :var-obj="{ x, y }">shared width vuex</des-table>
+          <des-table :var-obj="{ count, count2, count3 }">provide and inject</des-table>
+          <des-table :var-obj="{ num, num2, num3 }">reactive</des-table>
+          <des-table :var-obj="{ x, y }">vuex(pinia)</des-table>
+          <des-table :var-obj="{ vueuseCount }">vueuse</des-table>
         </div>
         <template #footer>
-          <p>total:{{ count + count2 + count3 + num + num2 + num3 + x + y }}</p>
+          <p>total:{{ count + count2 + count3 + num + num2 + num3 + x + y + vueuseCount }}</p>
         </template>
         <template #action>
           <n-button type="primary" @click="add">add</n-button>
@@ -20,6 +19,7 @@
     <UseVuex />
     <PAndI />
     <UseReactive />
+    <UseVueUse />
   </GridLayout>
 </template>
 
@@ -27,9 +27,10 @@
   import { ref, provide, toRefs, computed } from 'vue';
   import { useDemoStore } from '@/store/modules/demo';
 
-  import { UseVuex, PAndI, UseReactive } from './components';
+  import { UseVuex, PAndI, UseReactive, UseVueUse } from './components';
   import { common, sharedState } from '@/composables/Common';
   import { CountSymbol_2 } from './components/sharedKey';
+  import { useSharedCounter } from './components/UseVueUse.vue';
 
   export default {
     name: 'CrossComponentsShared',
@@ -37,10 +38,12 @@
       UseVuex,
       PAndI,
       UseReactive,
+      UseVueUse,
     },
     setup() {
       const { add, ...countArr } = common();
       const demoStore = useDemoStore();
+      const { count: vueuseCount } = useSharedCounter();
 
       provide(CountSymbol_2, countArr.count);
 
@@ -58,6 +61,7 @@
         vuexAdd: (...val) => {
           demoStore.setValue(val);
         },
+        vueuseCount,
       };
     },
   };

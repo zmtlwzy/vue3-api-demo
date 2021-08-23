@@ -24,17 +24,14 @@
         @update:expanded-keys="handleUpdateExpandedKeys"
       />
     </n-layout-sider>
-    <n-layout
-      :native-scrollbar="false"
-      content-style="min-height: calc(100vh - var(--header-height));padding:2rem;"
-    >
+    <n-layout :native-scrollbar="false" :content-style="getStyle">
       <n-back-top />
-      <Source>
+      <Source class="flex-1">
         <main>
           <slot name="content"></slot>
         </main>
       </Source>
-      <n-layout-footer bordered position="absolute" class="p-5">
+      <n-layout-footer bordered class="p-5 -m-8">
         <footer>
           <slot name="footer"></slot>
         </footer>
@@ -44,7 +41,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, useCssVars, ref, computed, watch } from 'vue';
+  import { defineComponent, useCssVars, ref, computed, watch, CSSProperties } from 'vue';
 
   import { useRoute } from 'vue-router';
 
@@ -63,6 +60,13 @@
       useCssVars(() => ({
         'header-height': `${appStore.getHeaderHeight}px`,
       }));
+
+      const getStyle = ref<CSSProperties>({
+        minHeight: 'calc(100vh - var(--header-height))',
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+      });
 
       const menuValue = computed(() => route.name);
 
@@ -91,6 +95,7 @@
         siderWidth: appStore.getSiderWidth,
         expandedKeys,
         menuValue,
+        getStyle,
         handleUpdateExpandedKeys,
       };
     },

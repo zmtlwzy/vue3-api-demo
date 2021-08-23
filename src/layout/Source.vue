@@ -15,7 +15,7 @@
     name: 'SourceLink',
     setup() {
       const { currentRoute } = useRouter();
-      console.log(currentRoute.value);
+      // console.log(currentRoute.value);
 
       const getDir = computed(() => {
         return unref(currentRoute).meta?.dir;

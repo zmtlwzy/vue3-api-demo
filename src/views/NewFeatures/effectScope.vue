@@ -7,7 +7,8 @@
         <n-button @click="handleScope('on')">on</n-button>
         <n-button @click="handleScope('off')">off</n-button>
         <n-button @click="handleScope('stop')">stop</n-button>
-        <n-button @click="handleScope('all stop')">all stop</n-button>
+        <n-button @click="handleScope('currentStop')">currentStop</n-button>
+        <n-button @click="handleScope('scope2On')">scope2On</n-button>
       </n-space>
     </template>
   </n-card>
@@ -19,6 +20,7 @@
     computed,
     defineComponent,
     effectScope,
+    EffectScope,
     getCurrentScope,
     onScopeDispose,
     watch,
@@ -50,7 +52,6 @@
         };
       });
 
-      scope2.on();
       scope2.cleanups.push(() => {
         console.log('scope2 cleanups push');
       });
@@ -58,20 +59,35 @@
         console.log('scope cleanups push');
       });
 
-      const handleScope = (keyName: 'on' | 'off' | 'stop' | 'all stop') => {
-        const curScope = getCurrentScope();
-        console.log(curScope);
-        if (keyName === 'all stop') {
-          return console.log(curScope?.stop());
+      currentScope()
+
+      const handleScope = (keyName: 'on' | 'off' | 'stop' | 'currentStop' | 'scope2On') => {
+        let curScope: EffectScope | undefined;
+        if (keyName === 'currentStop') {
+          console.log(currentScope()?.stop());
+          return;
         }
+
+        if (keyName === 'scope2On') {
+          scope2.on();
+          currentScope()
+          return;
+        }
+
         scope[keyName]();
+        curScope = currentScope();
         console.log(curScope === scope, curScope === scope2);
       };
+
+      function currentScope() {
+        const s = getCurrentScope()
+        console.log(s,'current')
+        return s
+      }
 
       return {
         ...state,
         counter,
-        scope,
         handleScope,
       };
     },

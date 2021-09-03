@@ -7,7 +7,10 @@ import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import WindiCSS from 'vite-plugin-windicss';
-import ViteComponents, { NaiveUiResolver } from 'vite-plugin-components'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
 
@@ -26,13 +29,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         views: resolve(__dirname, 'src/views'),
       },
     },
-    base: env.VITE_PUBLIC_PATH,
+    // base: env.VITE_PUBLIC_PATH,
     plugins: [
       vue(
         {
-          script: {
-            refSugar: true
-          },
+          refTransform: 'src/views/ScriptSetup/**/*.vue',
           template: {
             compilerOptions: {
               isCustomElement: tag => tag.startsWith('my-')
@@ -45,12 +46,21 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         safelist: 'no-select',
       }),
 
-      ViteComponents({
+      Components({
+        dts: 'types/components.d.ts',
         //auto import dirs compontents 
         dirs: ['src/components', 'src/layout'],
-        //auto import Naive compontents
-        customComponentResolvers: NaiveUiResolver(),
-        globalComponentsDeclaration: 'types/components.d.ts',
+        //auto import Icon & Naive compontents
+        resolvers: [IconsResolver({
+          componentPrefix: 'i'
+        }), NaiveUiResolver()],
+      }),
+      Icons({
+        scale: 1.2, // Scale of icons against 1em
+        defaultStyle: '', // Style apply to icons
+        defaultClass: '', // Class names apply to icons
+        compiler: 'vue3', // 'vue2', 'vue3', 'jsx'
+        jsx: 'react' // 'react' or 'preact'
       })
     ],
     build: {

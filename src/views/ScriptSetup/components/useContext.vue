@@ -11,14 +11,14 @@
   </n-card>
 </template>
 
-<script lang="ts">
+<script>
   import { defineComponent, ref } from 'vue';
   export default defineComponent({
     name: 'useSlots useAttrs defineExpose defineProps defineEmits',
   });
 </script>
 
-<script setup lang="ts">
+<script setup>
   import { useSlots, useAttrs } from 'vue';
   const slots = useSlots();
   const attrs = useAttrs();

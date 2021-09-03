@@ -4,15 +4,10 @@
       <div class="flex flex-row items-center px-8 h-full justify-between">
         <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
         <div class="teleport-header-container"></div>
-        <n-button-group size="small" inverted>
-          <n-button
-            v-for="str in themeMode"
-            :type="str === currentMode ? 'primary' : 'default'"
-            @click="handleClick(str)"
-          >
-            {{ str }}
-          </n-button>
-        </n-button-group>
+        <n-button text style="font-size: 1.35em" @click="handleClick">
+          <n-icon v-if="currentMode === 'light'" color="#f5eb35"> <i-bi-sun-fill /> </n-icon>
+          <n-icon v-else-if="currentMode === 'dark'" color="#d0d0d0"> <i-bi-moon-fill /> </n-icon>
+        </n-button>
       </div>
     </template>
     <template #content>
@@ -22,7 +17,14 @@
       <div class="flex w-full justify-center items-center teleport-footer-container">
         <p class="mr-15 text-md">vue version: {{ vueVer }}</p>
         <p class="mr-15 text-md">naive-ui version: {{ naiveuiVer }}</p>
-        <n-button type="primary" class="mr-15" @click="handleRefresh">refresh</n-button>
+        <n-button type="primary" class="mr-15" @click="handleRefresh">
+          <template #icon>
+            <n-icon>
+              <i-ion-refresh />
+            </n-icon>
+          </template>
+          refresh
+        </n-button>
       </div>
     </template>
   </MainLayout>
@@ -32,11 +34,11 @@
   import {
     computed,
     defineComponent,
+    onBeforeMount,
     onMounted,
     ref,
     version as vueVer,
     watch,
-    watchEffect,
   } from 'vue';
 
   import { useLoadingBar, version as naiveuiVer } from 'naive-ui';
@@ -53,9 +55,8 @@
     return item.path !== '/';
   });
 
-  type themeMode = 'light' | 'auto' | 'dark';
-  const themeMode = ['light', 'auto', 'dark'] as const;
-  const defaultThemeMode: themeMode = 'auto';
+  type themeMode = 'light' | 'dark';
+  const defaultThemeMode: themeMode = 'light';
 
   export default defineComponent({
     name: 'app',
@@ -82,33 +83,44 @@
 
       const localTheme = useLocalStorage('__theme__', defaultThemeMode);
 
-      watch(currentMode, (val) => {
-        switch (val) {
-          case 'light':
-            appStore.setThemeName('light');
-            break;
-          case 'dark':
-            appStore.setThemeName('dark');
-            break;
-        }
+      onBeforeMount(() => {
+        localTheme.value && (currentMode.value = localTheme.value as themeMode);
       });
 
-      watchEffect(() => {
-        if (currentMode.value !== 'auto') return;
-        if (isDark.value) {
-          appStore.setThemeName('dark');
-        } else {
-          appStore.setThemeName('light');
+      watch(
+        currentMode,
+        (val) => {
+          switch (val) {
+            case 'light':
+              appStore.setThemeName('light');
+              break;
+            case 'dark':
+              appStore.setThemeName('dark');
+              break;
+          }
+        },
+        {
+          immediate: true,
         }
-      });
+      );
 
-      const handleClick = (str: themeMode) => {
-        currentMode.value = str;
-        localTheme.value = str;
+      watch(
+        isDark,
+        () => {
+          if (!isDark.value) currentMode.value = 'light';
+          else currentMode.value = 'dark';
+        },
+        {
+          immediate: true,
+        }
+      );
+
+      const handleClick = () => {
+        if (currentMode.value === 'light') currentMode.value = 'dark';
+        else currentMode.value = 'light';
       };
 
       return {
-        themeMode,
         currentMode,
         handleClick,
         vueVer,

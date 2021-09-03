@@ -3,6 +3,7 @@
     <NGridItem :span="2">
       <NH2>{{ $options.name }}</NH2>
     </NGridItem>
+
     <Comps.Base />
     <Comps.UseContext msg="demo2" @inc="handleClick" ref="comp">
       <template #default>slot_default</template>
@@ -18,13 +19,13 @@
   });
 </script>
 <script setup>
-  import { Comps } from './components';
+  import * as Comps from './components';
   import { isRef, watch } from 'vue';
 
   const handleClick = (e) => {
     isRef(e) && e.value++;
   };
-  let comp = $ref(null);
+  let comp = $ref(123);
   watch(
     () => comp?.count2,
     (val) => {

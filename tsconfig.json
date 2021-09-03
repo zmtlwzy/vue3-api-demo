@@ -17,7 +17,7 @@
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "lib": ["dom", "esnext"],
-    "types": ["vite/client"],
+    "types": ["vite/client", "unplugin-icons/types/vue"],
     "typeRoots": ["./node_modules/@types/", "./types"],
     "incremental": true,
     "noImplicitAny": false,
@@ -26,7 +26,7 @@
       "#/*": ["./*"],
       "@/*": ["src/*"],
       "comps/*": ["src/components/*"],
-      "views/*": ["src/views/*"],
+      "views/*": ["src/views/*"]
     }
   },
   "include": [
@@ -35,7 +35,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "types/**/*.d.ts",
-    "types/**/*.ts",
+    "types/**/*.ts"
   ],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }

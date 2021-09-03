@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite build --mode preview && vite preview --host",
+    "preview": "vite build --mode preview && vite preview --mode preview --host",
     "preview:dist": "vite preview --host",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
@@ -25,6 +25,7 @@
     "vue-router": "next"
   },
   "devDependencies": {
+    "@iconify/json": "^1.1.397",
     "@types/node": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vitejs/plugin-vue-jsx": "latest",
@@ -34,9 +35,10 @@
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "typescript": "latest",
+    "unplugin-icons": "latest",
+    "unplugin-vue-components": "latest",
     "vfonts": "latest",
     "vite": "latest",
-    "vite-plugin-components": "latest",
     "vite-plugin-windicss": "latest",
     "windicss": "latest"
   },

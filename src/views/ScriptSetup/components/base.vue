@@ -13,17 +13,17 @@
   </n-card>
 </template>
 
-<script lang="ts">
+<script>
   import { defineComponent, ref } from 'vue';
   import { useMouse } from '@vueuse/core';
   export default defineComponent({
-    name: '$ref $computed $fromRefs $raw $shallowRef',
+    name: '$ref $computed $raw $shallowRef',
   });
 </script>
 
-<script setup lang="ts">
+<script setup>
   let a = $ref(1);
-  const raw_a = $raw(a);
+  const raw_a = $$(a);
   const b = ref(200);
   let c = $computed(() => a + b.value);
   let d = $shallowRef({
@@ -32,7 +32,7 @@
     c,
   });
 
-  const { x, y } = $fromRefs(useMouse());
+  let { x, y } = $(useMouse());
   let z = $computed(() => x + y);
 
   const updateShallowRef = () => {

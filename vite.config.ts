@@ -29,7 +29,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         views: resolve(__dirname, 'src/views'),
       },
     },
-    // base: env.VITE_PUBLIC_PATH,
+    base: env.VITE_PUBLIC_PATH,
     plugins: [
       vue(
         {

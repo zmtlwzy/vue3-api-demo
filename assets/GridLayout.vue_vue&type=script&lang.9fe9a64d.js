@@ -1,0 +1,1 @@
+import{g as a,m as s,a6 as l}from"./vendor.173cf73b.js";var o=a({name:"GridLayout",props:{cols:{type:Number,default:2}},setup:(a,{slots:o})=>()=>s(l,{cols:a.cols,"x-gap":"16","y-gap":"24"},{default:()=>{var a;return[null==(a=o.default)?void 0:a.call(o)]}})});export{o as _};

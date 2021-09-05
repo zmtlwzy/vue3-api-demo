@@ -2,7 +2,12 @@
   <div>
     <slot></slot>
     <div class="mt-15 mb-20">
-      <a :href="getUrl" target="_blank" class="text-primary hover:underline">Source</a>
+    <n-a :href="getUrl" target="_blank">
+    <div class="group *flex-VC">
+      <span>Source</span>
+      <i-akar-icons-arrow-right class="text-0.8em transform opacity-0 transition group-hover:(opacity-100 translate-x-1)"/>
+    </div>
+    </n-a>
     </div>
   </div>
 </template>
@@ -15,7 +20,6 @@
     name: 'SourceLink',
     setup() {
       const { currentRoute } = useRouter();
-      // console.log(currentRoute.value);
 
       const getDir = computed(() => {
         return unref(currentRoute).meta?.dir;

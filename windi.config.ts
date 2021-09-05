@@ -19,7 +19,8 @@ export default defineConfig({
     },
   },
   alias:{
-    'column-layout':'flex flex-col border border-dashed p-3 my-3'
+    'column-layout':'flex flex-col border border-dashed p-3 my-3',
+    'flex-VC': 'flex items-center'
   },
   shortcuts: {},
   variants: {},

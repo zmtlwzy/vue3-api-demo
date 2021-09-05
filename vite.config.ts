@@ -18,8 +18,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
   const env = loadEnv(mode, root);
 
-  const isBuild = command === 'build';
-
   return {
     resolve: {
       alias: {
@@ -48,9 +46,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
       Components({
         dts: 'types/components.d.ts',
-        //auto import dirs compontents 
+        // auto import dirs compontents 
         dirs: ['src/components', 'src/layout'],
-        //auto import Icon & Naive compontents
+        // auto import Icon & Naive compontents
         resolvers: [IconsResolver({
           componentPrefix: 'i'
         }), NaiveUiResolver()],

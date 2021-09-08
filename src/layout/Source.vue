@@ -3,7 +3,7 @@
     <slot></slot>
     <div class="mt-15 mb-20">
     <n-a :href="getUrl" target="_blank">
-    <div class="group *flex-VC">
+    <div class="group inline-flex items-center">
       <span>Source</span>
       <i-akar-icons-arrow-right class="text-0.8em transform opacity-0 transition group-hover:(opacity-100 translate-x-1)"/>
     </div>

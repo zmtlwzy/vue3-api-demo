@@ -1,7 +1,7 @@
 <template>
   <GridLayout>
     <FetchDemo />
-    <WatchEffectFlush @change="handleChange" :mode="saveMode" :key="keyId" />
+    <WatchEffectFlush />
   </GridLayout>
 </template>
 
@@ -18,7 +18,6 @@
       const keyId = ref<number>(0);
       const saveMode = ref<string>();
       const handleChange = (str: WatchOptionsBase['flush']) => {
-        console.log('fuck');
         keyId.value++;
         saveMode.value = str;
       };

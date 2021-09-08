@@ -1,7 +1,8 @@
 <template>
   <n-card>
     <n-space vertical align="center">
-      <des-table :varObj="{ count, com1, com2, com3 }"></des-table>
+      <n-button @click="show = !show">{{ show ? 'hide' : 'show' }}</n-button>
+      <des-table v-if="show" :varObj="{ count, com1, com2, com3 }"></des-table>
 
       <br />
       <n-space>
@@ -14,7 +15,9 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, toRefs, reactive, computed } from 'vue';
+  import { defineComponent, ref, toRefs, reactive, computed } from 'vue';
+  import { eagerComputed } from '@vueuse/core';
+
   export default defineComponent({
     name: 'computed',
     setup() {
@@ -22,13 +25,33 @@
         count: 0,
         com1: computed((): number => state.count + 1),
       });
-      const com2 = computed(() => state.com1 + 1);
-      const com3 = computed({
-        get: () => com2.value + 1,
+
+      const bool = computed(() => fun(), {
+        onTrack(e) {
+          console.log('track', e.target);
+        },
+        onTrigger(e) {
+          console.log('trigger', e);
+        },
+      });
+
+      const eager_bool = eagerComputed(() => fun());
+
+      const com2 = computed({
+        get: () => {
+          console.log('com2 run');
+          return bool.value ? state.count * 2 : -1;
+        },
         set: (val) => {
           state.count = val;
         },
       });
+
+      const com3 = computed(() => {
+        console.log('com3 run');
+        return eager_bool.value ? state.count * 2 : -1;
+      });
+
       const add = () => {
         state.count++;
       };
@@ -36,13 +59,18 @@
         state.count--;
       };
       const set = () => {
-        com3.value = 0;
+        com2.value = 0;
       };
+
+      function fun() {
+        return state.count < 5;
+      }
 
       return {
         ...toRefs(state),
         com2,
         com3,
+        show: ref(false),
         add,
         sub,
         set,
@@ -51,9 +79,3 @@
   });
 </script>
 
-<style lang="less">
-  .label {
-    display: inline-block;
-    width: 110px;
-  }
-</style>

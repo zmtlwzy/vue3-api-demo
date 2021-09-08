@@ -2,18 +2,15 @@
   <n-card :title="$options.name">
     <n-space vertical align="center">
       <p>open console</p>
-      <des-table :varObj="{ count, other }" ref="el"></des-table>
+      <des-table :varObj="{ count, count2, other }" ref="el"></des-table>
       <br />
       <n-button type="primary" @click="add">add</n-button>
-      <n-button-group class="mt-5">
-        <n-button
-          v-for="item in ['pre', 'post', 'sync']"
-          :type="flushState === `${item}` ? 'primary' : 'default'"
-          @click="changeFlush(`${item}`)"
-        >
-          {{ item }}
-        </n-button>
-      </n-button-group>
+
+      <n-radio-group class="mt-5" v-model:value="mode" name="watchEffectFlush">
+        <n-radio-button v-for="item in modeOpt" :key="item.value" :value="item.value">
+          {{ item.label }}
+        </n-radio-button>
+      </n-radio-group>
     </n-space>
   </n-card>
 </template>
@@ -25,66 +22,67 @@
     toRefs,
     watch,
     watchEffect,
-    WatchOptionsBase,
+    WatchStopHandle,
     ref,
+    WatchOptionsBase,
     ComponentPublicInstance,
-    computed,
-    // toRef,
-    // Ref
   } from 'vue';
+
   export default defineComponent({
     name: 'watchFlushFlush',
-    props: ['mode'],
-    emits: ['change'],
-    setup(props, { emit }) {
+    setup() {
       const el = ref<ComponentPublicInstance>();
-      const flushState = ref<WatchOptionsBase['flush']>(props.mode ?? 'post');
-      // const flushState:Ref<WatchOptionsBase['flush']> = toRef(props,'mode');
-      // pre : 默认值 dom更新前运行
-      // post: dom更新后运行
-      // sync: 同步运行(这将强制效果始终同步触发。然而，这是低效的，应该很少需要)
+      const mode = ref<WatchOptionsBase['flush']>('post');
+
+      let stop: WatchStopHandle;
+
+      const modeOpt = [
+        {
+          label: 'post',
+          value: 'post',
+        },
+        {
+          label: 'pre',
+          value: 'pre',
+        },
+        {
+          label: 'sync',
+          value: 'sync',
+        },
+      ];
       const state = reactive({
         count: 1,
         other: 2,
       });
+      const count2 = ref(3);
       const add = () => {
         state.count++;
+        count2.value++;
       };
-      const sub = () => {
-        state.count--;
-      };
-
-      const changeFlush = (str: string) => {
-        flushState.value = str as WatchOptionsBase['flush'];
-      };
-
-      const optsBase = computed(() => ({ flush: flushState.value }));
 
       watch(
-        () => flushState.value,
-        () => {
-          emit('change', flushState);
-        }
+        mode,
+        (val) => {
+          stop?.();
+          stop = watchEffect(watchFun, { flush: val });
+        },
+        { immediate: true }
       );
 
-      const watchFun = () => {
-        state.other = state.count * 2;
+      function watchFun() {
+        state.other = state.count * 2 + count2.value;
         const domValue =
           el.value?.$el.firstElementChild.lastElementChild.firstElementChild.innerText * 1;
-        if (domValue === state.count && state.count !== 1) {
-          debugger;
-        }
-      };
-
-      watchEffect(watchFun, optsBase.value);
+        console.log(`domValue:${domValue}  state.count:${state.count}`);
+      }
 
       return {
         ...toRefs(state),
+        count2,
         el,
-        flushState,
-        changeFlush,
+        mode,
+        modeOpt,
         add,
-        sub,
       };
     },
   });

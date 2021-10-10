@@ -9,6 +9,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import WindiCSS from 'vite-plugin-windicss';
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
@@ -50,15 +51,21 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         dirs: ['src/components', 'src/layout'],
         // auto import Icon & Naive compontents
         resolvers: [IconsResolver({
-          componentPrefix: 'i'
+          prefix: 'i',
+          customCollections: [
+            'my-svg'
+        ]
         }), NaiveUiResolver()],
       }),
       Icons({
-        scale: 1.2, // Scale of icons against 1em
-        defaultStyle: '', // Style apply to icons
+        scale: 1, // Scale of icons against 1em
+        defaultStyle: 'display:inline-block;', // Style apply to icons
         defaultClass: '', // Class names apply to icons
         compiler: 'vue3', // 'vue2', 'vue3', 'jsx'
-        jsx: 'react' // 'react' or 'preact'
+        jsx: 'react', // 'react' or 'preact'
+        customCollections: {
+          'my-svg': FileSystemIconLoader(resolve(process.cwd(), 'src/assets/icons'))
+      }
       })
     ],
     build: {

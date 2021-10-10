@@ -1,0 +1,1 @@
+import{_ as e,F as o}from"./index.bae27874.js";import{g as s,e as t,o as n}from"./vendor.4ec7e586.js";const r=s({name:"customElement",setup(){console.log(o.styles)}});function a(c,m,p,f,l,_){return n(),t("my-foo")}var u=e(r,[["render",a]]);export{u as default};

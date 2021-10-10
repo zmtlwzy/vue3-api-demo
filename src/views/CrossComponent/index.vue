@@ -1,6 +1,6 @@
 <template>
-  <GridLayout :cols="2">
-    <n-grid-item :span="2">
+  <div class="grid-layout-2">
+    <div class="col-span-2">
       <n-card>
         <div class="flex justify-evenly w-full">
           <des-table :var-obj="{ count, count2, count3 }">provide and inject</des-table>
@@ -15,12 +15,12 @@
           <n-button type="primary" @click="add">add</n-button>
         </template>
       </n-card>
-    </n-grid-item>
+    </div>
     <UseVuex />
     <PAndI />
     <UseReactive />
     <UseVueUse />
-  </GridLayout>
+  </div>
 </template>
 
 <script>

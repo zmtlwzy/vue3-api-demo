@@ -1,11 +1,11 @@
 <template>
-  <GridLayout>
-    <n-grid-item :span="2">
+  <div class="grid-layout-2">
+    <div class="col-span-2">
       <CssVarBase />
-    </n-grid-item>
+    </div>
     <UseCssModule />
     <UseCssVars />
-  </GridLayout>
+  </div>
 </template>
 
 <script setup lang="ts">

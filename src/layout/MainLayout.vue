@@ -49,6 +49,8 @@
 
   import Source from './Source.vue';
 
+  import { upperFirst } from 'lodash-es'
+
   export default defineComponent({
     name: 'MainLayout',
     props: ['menuOptions', 'menuValue'],
@@ -77,9 +79,7 @@
         (path) => {
           const arr = path.split('/');
           const rawKeys = arr.slice(1, arr.length - 1);
-          const res = rawKeys.map((item) => {
-            return item.charAt(0).toLocaleUpperCase() + item.slice(1);
-          });
+          const res = rawKeys.map((item) => upperFirst(item));
           expandedKeys.value = res;
         },
         {

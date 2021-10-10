@@ -1,5 +1,5 @@
 <template>
-  <GridLayout>
+  <div class="grid-layout-2">
     <n-card title="UseAttrs">
       <n-space vertical align="center">
         <UseAttrs
@@ -16,7 +16,7 @@
     />
     <FInherit class="parent-inherit-class" id="parent-inherit-id" :style="{ color: 'yellow' }" />
     <MergeProps class="hover:bg-red-400">MergeProps</MergeProps>
-  </GridLayout>
+  </div>
 </template>
 
 <script>

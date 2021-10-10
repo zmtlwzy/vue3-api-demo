@@ -1,8 +1,8 @@
 <template>
-  <GridLayout>
+  <div class="grid-layout-2">
     <FetchDemo />
     <WatchEffectFlush />
-  </GridLayout>
+  </div>
 </template>
 
 <script lang="ts">

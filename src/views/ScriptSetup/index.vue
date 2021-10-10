@@ -1,15 +1,12 @@
 <template>
-  <GridLayout>
-    <NGridItem :span="2">
-      <NH2>{{ $options.name }}</NH2>
-    </NGridItem>
-
-    <Comps.Base />
-    <Comps.UseContext msg="demo2" @inc="handleClick" ref="comp">
-      <template #default>slot_default</template>
-      <template #other>slot_other</template>
-    </Comps.UseContext>
-  </GridLayout>
+  <n-h2>{{ $options.name }}</n-h2>
+  <div class="grid-layout-2">
+      <Comps.Base />
+      <Comps.UseContext msg="demo2" :num="123" @inc="handleClick" ref="comp">
+        <template #default>slot_default</template>
+        <template #other>slot_other</template>
+      </Comps.UseContext>
+  </div>
 </template>
 
 <script>

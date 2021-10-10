@@ -1,6 +1,6 @@
 <template>
   <n-card :title="$options.name">
-    <grid-layout class="mt-5">
+    <div class="grid-layout-2 mt-5">
       <n-card title="useVshow">
         <n-tabs type="line">
           <n-tab-pane
@@ -33,7 +33,7 @@
           </keep-alive>
         </n-space>
       </n-card>
-    </grid-layout>
+    </div>
   </n-card>
 </template>
 

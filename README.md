@@ -4,11 +4,11 @@
 
 **English** | [中文](./README.zh-CN.md)
 
-## 简介
+## Introduction
 
 Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development, used for learning reference vue3 new feature.
 
-## 依赖
+## Main Dependencies
 
 - [Vite](https://vitejs.dev/) - A build tool that aims to provide faster and leaner development experience for modern web projects.
 - [Vue3](https://v3.vuejs.org/) - The next vue version.

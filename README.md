@@ -20,6 +20,7 @@ Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology d
 
 ## Project setup
 
+### Install all dependencies for a project
 ```
 pnpm i
 ```

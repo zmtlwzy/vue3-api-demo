@@ -18,8 +18,9 @@
 - [Naive UI](https://www.naiveui.com/) - vue3版 UI框架 Naive UI
 - [Windi Css](https://windicss.org/) - 下一代效率优先的 CSS 框架
 
-## 依赖安装
+## 建立项目
 
+### 依赖安装
 ```
 pnpm i
 ```

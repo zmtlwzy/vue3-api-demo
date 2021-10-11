@@ -1,28 +1,28 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@iconify/json': latest
-  '@types/node': latest
-  '@vitejs/plugin-vue': latest
-  '@vitejs/plugin-vue-jsx': latest
-  '@vue/compiler-sfc': latest
-  '@vueuse/core': latest
-  highlight.js: latest
-  less: latest
-  lodash-es: latest
-  naive-ui: latest
+  '@iconify/json': ^1.1.412
+  '@types/node': ^16.10.3
+  '@vitejs/plugin-vue': ^1.9.3
+  '@vitejs/plugin-vue-jsx': ^1.2.0
+  '@vue/compiler-sfc': ^3.2.20
+  '@vueuse/core': ^6.5.3
+  highlight.js: ^11.2.0
+  less: ^4.1.2
+  lodash-es: ^4.17.21
+  naive-ui: ^2.19.6
   pinia: ^2.0.0-rc.12
-  prettier: latest
+  prettier: ^2.4.1
   rimraf: ^3.0.2
-  typescript: latest
-  unplugin-icons: latest
-  unplugin-vue-components: latest
-  vfonts: latest
-  vite: latest
-  vite-plugin-windicss: latest
-  vue: next
-  vue-router: next
-  windicss: latest
+  typescript: ^4.4.3
+  unplugin-icons: ^0.12.12
+  unplugin-vue-components: ^0.15.6
+  vfonts: ^0.1.0
+  vite: ^2.6.5
+  vite-plugin-windicss: ^1.4.10
+  vue: ^3.2.20
+  vue-router: ^4.0.11
+  windicss: ^3.1.9
 
 dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/6.5.3_vue@3.2.20
@@ -1439,6 +1439,9 @@ packages:
     peerDependencies:
       '@vue/composition-api': ^1.0.0-rc.1
       vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
     dependencies:
       vue: registry.npmmirror.com/vue/3.2.20
     dev: false

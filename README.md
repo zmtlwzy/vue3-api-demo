@@ -2,48 +2,48 @@
 <h1>Vue3 Api Demo</h1>
 </div>
 
-**中文** | [English](./README.md)
+**English** | [中文](./README.zh-CN.md)
 
 ## 简介
 
-这是一个使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，用于 vue3 新特性学习参考的项目。
+Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development, used for learning reference vue3 new feature.
 
 ## 依赖
 
-- [Vite](https://vitejs.dev/) - 新型前端构建工具
-- [Vue3](https://v3.vuejs.org/) - 最新 vue
-- [Vue-Router-Next](https://next.router.vuejs.org/) - vue3 版 router
-- [Pinia](https://pinia.esm.dev/) - 提前使用 vuex5
-- [TypeScript](https://www.typescriptlang.org/) - 应用程序级 JavaScript 的语言
-- [Naive UI](https://www.naiveui.com/) - 使用最新 Naive UI
-- [Windi Css](https://windicss.org/) - 下一代效率优先的 css 框架
+- [Vite](https://vitejs.dev/) - A build tool that aims to provide faster and leaner development experience for modern web projects.
+- [Vue3](https://v3.vuejs.org/) - The next vue version.
+- [Vue-Router-Next](https://next.router.vuejs.org/) - The next vue-router.
+- [Pinia](https://pinia.esm.dev/) - Use it like Vuex5.
+- [TypeScript](https://www.typescriptlang.org/) - Application-level JavaScript language.
+- [Naive UI](https://www.naiveui.com/) - The vue3 UI Framework.
+- [Windi Css](https://windicss.org/) - A next-generation utility-first CSS Framework.
 
 ## Project setup
 
 ```
-yarn bootstrap
+pnpm i
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn dev
+pnpm dev
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn build
+pnpm build
 ```
 
 ### Preview
 
 ```
-yarn preview
+pnpm preview
 ```
 
 ### Lints and fixes files
 
 ```
-yarn lint:prettier
+pnpm lint:prettier
 ```

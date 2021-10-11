@@ -2,6 +2,7 @@
 node_modules
 /dist
 /types/components.d.ts
+.pnpm-debug.log
 
 
 # local env files

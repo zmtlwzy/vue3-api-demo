@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :hljs="hljs" :theme="theme" :theme-overrides="themeOverrides">
+  <n-config-provider :hljs="hljs" v-bind="{ ...getProps }">
     <n-loading-bar-provider>
       <n-message-provider>
         <App />
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, computed } from 'vue';
+  import { defineComponent, computed} from 'vue';
   import { useAppStore } from '@/store/modules/app';
 
   import hljs from 'highlight.js/lib/core';
@@ -23,13 +23,11 @@
     },
     setup() {
       const appStore = useAppStore();
-      const theme = computed(() => appStore.getThemeCssVars);
-      const themeOverrides = computed(() => appStore.getThemeOverries);
-
+      const getProps = computed(() => appStore.getNaiveThemeProps);
+      
       hljs.registerLanguage('javascript', js);
       return {
-        theme,
-        themeOverrides,
+        getProps,
         hljs,
       };
     },

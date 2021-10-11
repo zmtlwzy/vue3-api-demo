@@ -1,47 +1,40 @@
 <template>
-  <MainLayout :menuOptions="menuOptions">
-    <template #header>
-      <div class="flex flex-row items-center px-8 h-full justify-between">
-        <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
-        <div class="teleport-header-container"></div>
-        <div class="text-21px cursor-pointer" @click="handleClick">
-          <i-my-svg-sun v-if="currentMode === 'light'" />
-          <i-my-svg-moon v-else-if="currentMode === 'dark'" />
+  <div>
+    <MainLayout :menuOptions="menuOptions">
+      <template #header>
+        <div class="flex flex-row items-center px-8 h-full justify-between">
+          <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
+          <div class="teleport-header-container"></div>
+          <div class="text-21px cursor-pointer" @click="handleClick">
+            <i-my-svg-sun v-if="currentMode === 'light'" />
+            <i-my-svg-moon v-else-if="currentMode === 'dark'" />
+          </div>
         </div>
-      </div>
-    </template>
-    <template #content>
-      <router-view :key="refreshId" />
-    </template>
-    <template #footer>
-      <div class="flex w-full justify-center items-center teleport-footer-container">
-        <p class="mr-15 text-md">vue version: {{ vueVer }}</p>
-        <p class="mr-15 text-md">naive-ui version: {{ naiveuiVer }}</p>
-        <n-button type="primary" class="mr-15" @click="handleRefresh">
-          <template #icon>
-            <n-icon>
-              <i-ion-refresh />
-            </n-icon>
-          </template>
-          refresh
-        </n-button>
-      </div>
-    </template>
-  </MainLayout>
+      </template>
+      <template #content>
+        <router-view :key="refreshId" />
+      </template>
+      <template #footer>
+        <div class="flex w-full justify-center items-center teleport-footer-container">
+          <p class="mr-15 text-md">vue version: {{ vueVer }}</p>
+          <p class="mr-15 text-md">naive-ui version: {{ naiveuiVer }}</p>
+          <n-button type="primary" class="mr-15" @click="handleRefresh">
+            <template #icon>
+              <n-icon>
+                <i-ion-refresh />
+              </n-icon>
+            </template>
+            refresh
+          </n-button>
+        </div>
+      </template>
+    </MainLayout>
+  </div>
 </template>
 
 <script lang="ts">
-  import {
-    computed,
-    defineComponent,
-    watchEffect,
-    onMounted,
-    version as vueVer,
-    watch,
-  } from 'vue';
-
-  import { useLoadingBar, version as naiveuiVer } from 'naive-ui';
-
+  import { computed, defineComponent, useCssVars, onMounted, version as vueVer, watch } from 'vue';
+  import { useLoadingBar, useThemeVars, version as naiveuiVer } from 'naive-ui';
   import { usePreferredDark, useLocalStorage } from '@vueuse/core';
 
   import { useAppStore } from '@/store/modules/app';
@@ -49,16 +42,11 @@
   import { List as routerList } from '@/router/routesList';
 
   import { genMeunList } from '@/router/menuList';
+  import { ThemeEnum, localThemeKey } from '@/enums/themeEnum';
 
   const list = routerList.filter((item) => {
     return item.path !== '/';
   });
-
-  enum ThemeEnum {
-    DARK = 'dark',
-    LIGHT = 'light',
-  }
-  const defaultThemeMode = ThemeEnum.LIGHT;
 
   export default defineComponent({
     name: 'app',
@@ -67,6 +55,17 @@
 
       const loadingBar = useLoadingBar();
       const appStore = useAppStore();
+      const themeVars = useThemeVars();
+
+      useCssVars(() => {
+        const list = themeVars.value;
+        return {
+          'primary-color': list.primaryColor,
+          'primary-hover-color': list.primaryColorHover,
+          'primary-pressed-color': list.primaryColorPressed,
+          'primary-suppl-color': list.primaryColorSuppl,
+        };
+      });
 
       const refreshId = computed(() => appStore.getRefreshId);
 
@@ -83,22 +82,24 @@
 
       const isOsDark = usePreferredDark();
 
-      const localTheme = useLocalStorage('__theme__', defaultThemeMode);
+      const getOsTheme = computed(() => (isOsDark ? DARK : LIGHT));
 
-
-      watchEffect(() => {
-        const modeVal = localTheme.value;
-        if (modeVal === LIGHT) {
-          appStore.setThemeName(LIGHT);
-        } else if (modeVal === DARK) {
-          appStore.setThemeName(DARK);
-        }
-      });
+      const localTheme = useLocalStorage<ThemeEnum>(localThemeKey, appStore.getThemeMode);
 
       watch(
-        isOsDark,
+        localTheme,
         (val) => {
-          appStore.setThemeName(val ? DARK : LIGHT) 
+          appStore.setThemeMode(val);
+        },
+        {
+          immediate: true,
+        }
+      );
+
+      watch(
+        getOsTheme,
+        (val) => {
+          if (val !== getOsTheme.value) appStore.setThemeMode(val);
         },
         {
           immediate: true,
@@ -106,12 +107,11 @@
       );
 
       const handleClick = () => {
-        if (localTheme.value === 'light') localTheme.value = 'dark';
-        else localTheme.value = 'light';
+        localTheme.value = localTheme.value === LIGHT ? DARK : LIGHT;
       };
 
       return {
-        currentMode:localTheme,
+        currentMode: localTheme,
         handleClick,
         vueVer,
         naiveuiVer,

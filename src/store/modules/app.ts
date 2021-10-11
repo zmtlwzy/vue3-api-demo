@@ -1,16 +1,17 @@
 
 import { defineStore } from 'pinia';
 import { store } from '@/store';
-import { darkTheme,GlobalThemeOverrides } from 'naive-ui'
+import { darkTheme } from 'naive-ui'
 import { useDemoStore } from './demo';
 import { resetSharedState } from '@/composables/Common';
 import themeOverrides from '#/naive-ui-theme-overrides.json';
+import { defaultThemeMode, ThemeEnum } from '@/enums/themeEnum';
 
 
 interface AppState {
   headerHeight: number,
   siderWidth: number,
-  themeName: 'dark' | 'light',
+  themeMode: ThemeEnum,
   refreshId: number
 }
 
@@ -20,7 +21,7 @@ export const useAppStore = defineStore({
     refreshId: 0,
     headerHeight: 64,
     siderWidth: 250,
-    themeName: 'light',
+    themeMode: defaultThemeMode,
   }),
   getters: {
 
@@ -33,19 +34,24 @@ export const useAppStore = defineStore({
     getSiderWidth(): number {
       return this.siderWidth;
     },
-    getThemeName(): AppState['themeName'] {
-      return this.themeName;
+    getThemeMode(): ThemeEnum {
+      return this.themeMode;
     },
-    getThemeCssVars(): null | typeof darkTheme {
-      return this.themeName === 'dark' ? darkTheme : null;
-    },
-    getThemeOverries(): GlobalThemeOverrides | undefined {
-      return this.themeName === 'dark' ? undefined : themeOverrides
+    getNaiveThemeProps() {
+      if (this.themeMode === 'dark')
+        return {
+          theme: darkTheme,
+          'theme-overrides': null
+        }
+      else
+        return {
+          'theme-overrides': themeOverrides
+        }
     }
   },
   actions: {
-    setThemeName(val: AppState['themeName']) {
-      this.themeName = val
+    setThemeMode(val: ThemeEnum) {
+      this.themeMode = val
     },
     resetAllState() {
       this.refreshId++

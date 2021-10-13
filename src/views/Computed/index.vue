@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, toRefs, reactive, computed } from 'vue';
   import { eagerComputed } from '@vueuse/core';
 
   export default defineComponent({

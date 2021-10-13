@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import { ref, provide, toRefs, computed } from 'vue';
   import { useDemoStore } from '@/store/modules/demo';
 
   import { UseVuex, PAndI, UseReactive, UseVueUse } from './components';

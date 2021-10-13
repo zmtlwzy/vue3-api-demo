@@ -16,12 +16,11 @@
   </n-card>
 </template>
 
-<script>
-  import { computed, isRef, ref, toRef } from 'vue';
+<script lang="ts">
   const obj = {
     a: 1,
   };
-  export default {
+  export default defineComponent({
     name: 'IsRef',
     setup() {
       const num = 0;
@@ -33,5 +32,5 @@
         aBool: computed(() => isRef(a)),
       };
     },
-  };
+  });
 </script>

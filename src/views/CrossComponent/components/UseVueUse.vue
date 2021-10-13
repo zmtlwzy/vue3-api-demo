@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-
   export const useSharedCounter = createSharedComposable(useCounter);
 
   export default defineComponent({

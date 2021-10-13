@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, unref, computed } from 'vue';
   import { genRandomNumber, genRandomString } from '@/utils/genRandomData';
   import { useMessage } from 'naive-ui';
 

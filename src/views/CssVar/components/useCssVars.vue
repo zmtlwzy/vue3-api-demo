@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, useCssVars } from 'vue';
   export default defineComponent({
     name: 'useCssVars',
   });

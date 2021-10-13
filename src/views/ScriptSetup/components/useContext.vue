@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, useSlots, useAttrs } from 'vue';
   export default defineComponent({
     name: 'useSlots useAttrs defineExpose defineProps defineEmits',
   });

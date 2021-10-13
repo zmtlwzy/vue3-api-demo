@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, nextTick, ref } from 'vue';
   function* toggleTarget() {
     while (true) {
       yield document.querySelector('footer .teleport-footer-container');

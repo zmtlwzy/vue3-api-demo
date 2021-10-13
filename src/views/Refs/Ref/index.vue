@@ -7,9 +7,8 @@
   </n-card>
 </template>
 
-<script>
-  import { ref } from 'vue';
-  export default {
+<script lang="ts">
+  export default defineComponent({
     name: 'Ref',
     setup() {
       const count = ref(0);
@@ -21,5 +20,5 @@
         add,
       };
     },
-  };
+  });
 </script>

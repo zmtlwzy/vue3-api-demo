@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, unref } from 'vue';
-  import { useRouter } from 'vue-router';
 
   export default defineComponent({
     name: 'SourceLink',

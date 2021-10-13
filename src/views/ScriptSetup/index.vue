@@ -10,14 +10,12 @@
 </template>
 
 <script>
-  import { defineComponent } from 'vue';
   export default defineComponent({
     name: 'Namespaced Component tags in ScriptSetup',
   });
 </script>
 <script setup>
   import * as Comps from './components';
-  import { isRef, watch } from 'vue';
 
   const handleClick = (e) => {
     isRef(e) && e.value++;

@@ -38,26 +38,6 @@
 </template>
 
 <script lang="tsx">
-  import {
-    // h,
-    onBeforeMount,
-    ref,
-    onMounted,
-    onBeforeUpdate,
-    onUpdated,
-    onBeforeUnmount,
-    onActivated,
-    onDeactivated,
-    onUnmounted,
-    onRenderTracked,
-    onRenderTriggered,
-    onErrorCaptured,
-    defineComponent,
-    toRefs,
-    ComponentPublicInstance,
-    // resolveComponent,
-    // KeepAlive,
-  } from 'vue';
 
   import { common } from '@/composables/Common';
 

@@ -11,8 +11,6 @@
 </template>
 
 <script>
-  import { toRefs, computed } from 'vue';
-
   import { useDemoStore } from '@/store/modules/demo';
 
   export default {

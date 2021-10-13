@@ -1,5 +1,4 @@
 <script lang="tsx">
-  import { defineAsyncComponent } from 'vue';
   export default defineAsyncComponent(
     () =>
       new Promise((resolve) => {

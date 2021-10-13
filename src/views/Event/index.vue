@@ -12,12 +12,11 @@
   </n-grid>
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
+<script lang="ts">
   export default defineComponent({
     name: 'event',
   });
 </script>
-<script setup>
+<script setup lang="ts">
   import { base as eventBase, modifiers, modifiersUseTsx } from './components';
 </script>

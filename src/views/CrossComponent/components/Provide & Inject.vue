@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, inject, ref, Ref, unref } from 'vue';
+  import type { Ref } from 'vue';
   import { CountSymbol_1, CountSymbol_2, CountSymbol_3 } from './sharedKey';
   export default defineComponent({
     name: 'Provide & Inject',

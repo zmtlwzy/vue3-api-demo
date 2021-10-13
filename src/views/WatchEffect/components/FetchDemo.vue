@@ -18,8 +18,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, toRefs, watchEffect } from 'vue';
-
   interface fetchDataType {
     completed: boolean;
     id: number;

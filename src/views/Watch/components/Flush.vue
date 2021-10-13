@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, watch, watchEffect, WatchOptionsBase, WatchStopHandle } from 'vue';
+  import type { WatchOptionsBase, WatchStopHandle } from 'vue';
 
   export default defineComponent({
     name: 'watchFlush',

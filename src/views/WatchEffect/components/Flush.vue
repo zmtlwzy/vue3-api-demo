@@ -16,17 +16,7 @@
 </template>
 
 <script lang="ts">
-  import {
-    defineComponent,
-    reactive,
-    toRefs,
-    watch,
-    watchEffect,
-    WatchStopHandle,
-    ref,
-    WatchOptionsBase,
-    ComponentPublicInstance,
-  } from 'vue';
+  import type { WatchStopHandle, WatchOptionsBase, ComponentPublicInstance } from 'vue';
 
   export default defineComponent({
     name: 'watchFlushFlush',

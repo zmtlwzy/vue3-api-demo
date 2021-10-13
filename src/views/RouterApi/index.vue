@@ -1,5 +1,4 @@
 <script lang="tsx">
-  import { defineComponent } from 'vue';
   import * as r from 'vue-router';
   import { List } from '@/router/routesList';
 

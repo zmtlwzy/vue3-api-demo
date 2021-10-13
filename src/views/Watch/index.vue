@@ -5,13 +5,12 @@
   </div>
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
+<script lang="ts">
   export default defineComponent({
     name: 'watch',
   });
 </script>
-<script setup>
+<script setup lang="ts">
   import * as AllComps from './components';
   const allComps = AllComps;
 </script>

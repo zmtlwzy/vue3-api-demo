@@ -17,7 +17,6 @@ console.log(toRaw(reactiveFoo) === foo); // true
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, toRaw } from 'vue';
   export default defineComponent({
     name: 'ToRaw',
     setup() {

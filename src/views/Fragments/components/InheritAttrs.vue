@@ -1,5 +1,4 @@
 <script lang="tsx">
-  import { defineComponent, onMounted } from 'vue';
 
   const name = 'inheritAttrs';
   export default defineComponent({

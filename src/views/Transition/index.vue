@@ -8,15 +8,7 @@
 </template>
 
 <script lang="ts">
-  import {
-    defineComponent,
-    ref,
-    useTransitionState,
-    BaseTransitionProps,
-    onBeforeMount,
-    onUnmounted,
-    onMounted,
-  } from 'vue';
+  import { useTransitionState, BaseTransitionProps } from 'vue';
 
   const moveTime = 1;
   const fallTime = 0.6;

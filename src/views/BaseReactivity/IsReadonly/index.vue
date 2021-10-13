@@ -21,7 +21,6 @@ isReadonly(state.nested.bar); // false
 </template>
 
 <script lang="ts">
-  import { defineComponent, readonly,isReadonly } from 'vue';
   export default defineComponent({
     name: 'IsReadonly',
     setup() {

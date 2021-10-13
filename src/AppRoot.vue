@@ -9,7 +9,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, computed} from 'vue';
   import { useAppStore } from '@/store/modules/app';
 
   import hljs from 'highlight.js/lib/core';

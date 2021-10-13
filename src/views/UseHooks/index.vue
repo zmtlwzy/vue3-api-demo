@@ -8,17 +8,16 @@
   </n-card>
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
+<script lang="ts">
   export default defineComponent({
     name: 'useHook-MouseEvent',
   });
 </script>
 
-<script setup>
+<script setup lang="ts">
   import { useMousePosition, useScreenPosition, useHalfPosition } from '@/composables/mouse';
 
   const { pageX, pageY } = useMousePosition();
   const { screenX, screenY } = useScreenPosition();
-  const { halfX, halfY } = useHalfPosition(pageX, pageY);
+  const { halfX, halfY } = useHalfPosition(pageX);
 </script>

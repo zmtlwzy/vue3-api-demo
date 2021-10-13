@@ -41,15 +41,13 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, useCssVars, ref, computed, watch, CSSProperties } from 'vue';
-
-  import { useRoute } from 'vue-router';
+  import type { CSSProperties } from 'vue';
 
   import { useAppStore } from '@/store/modules/app';
 
   import Source from './Source.vue';
 
-  import { upperFirst } from 'lodash-es'
+  import { upperFirst } from 'lodash-es';
 
   export default defineComponent({
     name: 'MainLayout',

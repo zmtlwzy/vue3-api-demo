@@ -7,13 +7,12 @@
   </n-card>
 </template>
 
-<script>
+<script lang="ts">
   // 只能监听 数组,Set 长度的变化，如length,size,push,pop,add,delete,splice等,
   // vue3 新api deep:true
   // 或者使用变通方法Object.values
-  import { computed, onUpdated, reactive, toRefs, watchEffect, watch } from 'vue';
 
-  export default {
+  export default defineComponent({
     name: 'WatchArray',
     setup() {
       const state = reactive({
@@ -89,5 +88,5 @@
         change3,
       };
     },
-  };
+  });
 </script>

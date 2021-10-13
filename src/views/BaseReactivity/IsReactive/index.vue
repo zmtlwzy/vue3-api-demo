@@ -26,7 +26,6 @@ console.log(isReactive(stateCopy)); // -> true
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, readonly, isReactive } from 'vue';
 
   export default defineComponent({
     name: 'IsReactive',

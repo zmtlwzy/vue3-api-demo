@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, ref } from 'vue';
   import { useAppStore } from '@/store/modules/app';
 
   export default defineComponent({

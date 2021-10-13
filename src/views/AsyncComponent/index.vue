@@ -1,5 +1,4 @@
 <script lang="tsx">
-  import { defineComponent } from 'vue';
   import { A, B } from './components';
   import { createAsyncComponent } from './components/createAsyncComponents';
 

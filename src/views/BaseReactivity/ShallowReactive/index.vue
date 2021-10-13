@@ -26,7 +26,6 @@ state.nested.bar++; // 非响应式
 </template>
 
 <script lang="ts">
-  import { defineComponent, shallowReactive, isReactive } from 'vue';
   export default defineComponent({
     name: 'ShallowReactive',
     setup() {

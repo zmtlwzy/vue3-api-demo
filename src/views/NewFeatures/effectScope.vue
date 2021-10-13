@@ -15,17 +15,7 @@
 </template>
 
 <script lang="ts">
-  import {
-    ref,
-    computed,
-    defineComponent,
-    effectScope,
-    EffectScope,
-    getCurrentScope,
-    onScopeDispose,
-    watch,
-    watchEffect,
-  } from 'vue';
+  import { effectScope, EffectScope, getCurrentScope, onScopeDispose } from 'vue';
 
   export default defineComponent({
     name: 'effectScope',
@@ -59,7 +49,7 @@
         console.log('scope cleanups push');
       });
 
-      currentScope()
+      currentScope();
 
       const handleScope = (keyName: 'on' | 'off' | 'stop' | 'currentStop' | 'scope2On') => {
         let curScope: EffectScope | undefined;
@@ -70,7 +60,7 @@
 
         if (keyName === 'scope2On') {
           scope2.on();
-          currentScope()
+          currentScope();
           return;
         }
 
@@ -80,9 +70,9 @@
       };
 
       function currentScope() {
-        const s = getCurrentScope()
-        console.log(s,'current')
-        return s
+        const s = getCurrentScope();
+        console.log(s, 'current');
+        return s;
       }
 
       return {

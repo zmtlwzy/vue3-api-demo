@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, toRefs, watch, ref } from 'vue';
   import { useMessage } from 'naive-ui';
   export default defineComponent({
     name: 'watchOptionsImmediate',

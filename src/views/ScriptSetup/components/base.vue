@@ -13,15 +13,14 @@
   </n-card>
 </template>
 
-<script>
-  import { defineComponent, ref } from 'vue';
+<script lang="ts">
   import { useMouse } from '@vueuse/core';
   export default defineComponent({
     name: '$ref $computed $raw $shallowRef',
   });
 </script>
 
-<script setup>
+<script setup lang="ts">
   let a = $ref(1);
   const raw_a = $$(a);
   const b = ref(200);

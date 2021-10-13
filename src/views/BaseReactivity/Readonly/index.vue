@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, readonly } from 'vue';
   export default defineComponent({
     name: 'Readonly',
     setup() {
@@ -30,6 +29,8 @@
       };
 
       const changeCopy = () => {
+        //@ts-ignore
+        // make warn
         copy.count++;
       };
 

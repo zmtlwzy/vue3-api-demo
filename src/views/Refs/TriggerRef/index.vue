@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted, shallowRef, triggerRef, watch } from 'vue';
 
   export default defineComponent({
     name: 'TriggerRef',

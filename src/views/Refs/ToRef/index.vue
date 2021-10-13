@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts">
-  import { reactive, toRef, ref, defineComponent } from 'vue';
 
   export default defineComponent({
     name: 'toRef',

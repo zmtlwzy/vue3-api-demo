@@ -13,7 +13,6 @@
 </template>
 
 <script>
-  import { ref, reactive, watch, defineComponent, toRefs } from 'vue';
 
   export default defineComponent({
     name: 'watchOptionsDeep',

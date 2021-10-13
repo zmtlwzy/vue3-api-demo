@@ -19,8 +19,7 @@
   </div>
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
+<script lang="ts">
   import UseAttrsTsx from './components/UseAttrsTsx.vue';
   import FInherit from './components/InheritAttrs.vue';
   import UseAttrs from './components/UseAttrs.vue';

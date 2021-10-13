@@ -12,7 +12,6 @@
 
 <script lang="ts">
   import { sharedState, resetSharedState } from '@/composables/Common';
-  import { defineComponent, toRefs } from 'vue';
   export default defineComponent({
     name: 'useReactive',
     setup() {

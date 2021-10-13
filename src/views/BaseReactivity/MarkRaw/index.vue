@@ -30,7 +30,6 @@ console.log(foo2.nested, bar2.nested);
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, markRaw, isReactive } from 'vue';
   export default defineComponent({
     name: 'MakeRaw',
     setup() {

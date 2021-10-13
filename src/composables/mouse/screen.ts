@@ -1,5 +1,3 @@
-import { ref, onMounted, onUnmounted } from 'vue';
-
 export default function () {
   const screenX = ref(0);
   const screenY = ref(0);

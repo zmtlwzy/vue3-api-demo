@@ -21,7 +21,6 @@ console.log(isProxy(readonlyFoo)); // true
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, reactive, isProxy } from 'vue';
   export default defineComponent({
     name: 'IsProxy',
     setup() {

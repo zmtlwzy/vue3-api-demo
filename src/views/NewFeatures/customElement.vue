@@ -2,8 +2,7 @@
   <my-foo />
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
+<script lang="ts">
   import Foo from '@/webComponents/foo.ce.vue';
 
   export default defineComponent({

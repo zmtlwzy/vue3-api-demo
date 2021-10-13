@@ -1,5 +1,5 @@
 <script>
-  import { defineComponent, mergeProps, h } from 'vue';
+  import { mergeProps } from 'vue';
   import { NCard, NSpace } from 'naive-ui';
   const name = 'MergeProps';
 

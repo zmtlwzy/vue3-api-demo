@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, shallowRef, ref, watch, } from 'vue';
 
   export default defineComponent({
     name: 'ShallowRef',

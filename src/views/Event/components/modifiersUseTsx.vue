@@ -1,14 +1,5 @@
 <script lang="tsx">
-  import {
-    defineComponent,
-    reactive,
-    withModifiers,
-    withDirectives,
-    CSSProperties,
-    onMounted,
-    PropType,
-    computed,
-  } from 'vue';
+  import { withModifiers, withDirectives, CSSProperties, PropType } from 'vue';
 
   import { useMessage } from 'naive-ui';
 

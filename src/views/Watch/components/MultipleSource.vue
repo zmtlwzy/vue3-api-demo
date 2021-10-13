@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-  import { ref, watch, watchEffect, WatchOptionsBase, WatchStopHandle, defineComponent } from 'vue';
+  import type { WatchOptionsBase, WatchStopHandle } from 'vue';
   
   export default defineComponent({
     name: 'MultipleSource',

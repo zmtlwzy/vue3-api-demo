@@ -1,8 +1,5 @@
 <script lang="tsx">
-  import { reactive, defineComponent, ref } from 'vue';
   import { theNum } from './interface';
-
-  // import { NCard, NButton, NSpace } from 'naive-ui';
 
   export default defineComponent({
     setup(_, { slots }) {

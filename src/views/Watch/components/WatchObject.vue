@@ -8,8 +8,7 @@
   </n-card>
 </template>
 
-<script>
-  import { reactive, watchEffect, toRefs, ref, watch } from 'vue';
+<script lang="ts">
   // 需要对象的某个值改变时就触发watch,可以整个重新赋值，或者使用变通方法Object.values
   // 还有vue3 新api deep:true
 

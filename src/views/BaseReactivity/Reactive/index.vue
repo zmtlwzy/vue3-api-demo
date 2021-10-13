@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, ref, unref, watch } from 'vue';
   export default defineComponent({
     name:'Reactive',
     setup() {

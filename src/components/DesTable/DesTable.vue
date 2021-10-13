@@ -13,13 +13,12 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent } from 'vue';
   function getVarNameStr(v: Record<string, any>) {
     return Object.entries(v);
   }
 
   export default defineComponent({
-    name: 'des-table',
+    name: 'DesTable',
     props: {
       varObj: {
         type: Object,

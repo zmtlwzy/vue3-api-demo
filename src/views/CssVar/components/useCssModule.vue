@@ -9,7 +9,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, useCssModule } from 'vue';
   export default defineComponent({
     name: 'useCssModule',
   });

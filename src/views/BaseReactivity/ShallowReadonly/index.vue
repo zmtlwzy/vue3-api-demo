@@ -25,7 +25,6 @@ state.nested.bar++; // 适用
 </template>
 
 <script lang="ts">
-  import { defineComponent, shallowReadonly, isReadonly } from 'vue';
   export default defineComponent({
     name: 'ShallowReadonly',
     setup() {

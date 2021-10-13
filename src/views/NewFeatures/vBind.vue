@@ -4,14 +4,14 @@
   <div :someDomAttrs="value">vbind attr (default)</div>
 </template>
 
-<script>
-  import { defineComponent, onMounted, ref } from 'vue';
+<script lang="ts">
+  import { MaybeElementRef } from '@vueuse/core'
   export default defineComponent({
     name: 'v-bind',
-    setup(props) {
-      const el = ref(null);
+    setup() {
+      const el = ref<MaybeElementRef>(null);
       onMounted(() => {
-        console.log(el.value?.someDomProperty);
+        console.log(el.value);
       });
       return {
         value: ref(1),

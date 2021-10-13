@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, useCssVars, onMounted, version as vueVer, watch } from 'vue';
+  import { version as vueVer } from 'vue';
   import { useLoadingBar, useThemeVars, version as naiveuiVer } from 'naive-ui';
   import { usePreferredDark, useLocalStorage } from '@vueuse/core';
 

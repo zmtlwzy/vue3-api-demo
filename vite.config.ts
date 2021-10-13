@@ -8,9 +8,10 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import WindiCSS from 'vite-plugin-windicss';
 import Icons from 'unplugin-icons/vite'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
-import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
@@ -44,7 +45,23 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       WindiCSS({
         safelist: 'no-select',
       }),
-
+      AutoImport({
+        dts: 'types/auto-imports.d.ts',
+        include: [
+          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+          /\.vue$/, /\.vue\?vue/, // .vue
+          /\.md$/, // .md  
+        ],
+        // global imports to register
+        imports: [
+          // presets
+          'vue',
+          'vue-router',
+          {
+            vue: ['isProxy', 'isReactive', 'useCssVars']
+          }
+        ]
+      }),
       Components({
         dts: 'types/components.d.ts',
         // auto import dirs compontents 
@@ -54,7 +71,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           prefix: 'i',
           customCollections: [
             'my-svg'
-        ]
+          ]
         }), NaiveUiResolver()],
       }),
       Icons({
@@ -65,7 +82,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         jsx: 'react', // 'react' or 'preact'
         customCollections: {
           'my-svg': FileSystemIconLoader(resolve(process.cwd(), 'src/assets/icons'))
-      }
+        }
       })
     ],
     build: {

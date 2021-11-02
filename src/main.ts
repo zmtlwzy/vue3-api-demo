@@ -1,5 +1,7 @@
+import '@unocss/reset/normalize.css'
+import 'uno.css'
+
 // Register windi
-import 'virtual:windi-base.css'
 import 'virtual:windi-components.css'
 import 'virtual:windi-utilities.css'
 

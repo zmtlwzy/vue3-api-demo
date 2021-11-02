@@ -5,7 +5,7 @@
     <n-a :href="getUrl" target="_blank">
     <div class="group inline-flex items-center">
       <span>Source</span>
-      <i-akar-icons-arrow-right class="text-0.8em transform opacity-0 transition group-hover:(opacity-100 translate-x-1)"/>
+      <span class="i-akar-icons-arrow-right text-sm transform opacity-0 transition group-hover:(opacity-100 translate-x-1)"/>
     </div>
     </n-a>
     </div>

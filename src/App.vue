@@ -5,10 +5,14 @@
         <div class="flex flex-row items-center px-8 h-full justify-between">
           <h2 class="text-2xl font-bold">Vue3 Api Demo</h2>
           <div class="teleport-header-container"></div>
-          <div class="text-21px cursor-pointer" @click="handleClick">
-            <i-my-svg-sun v-if="currentMode === 'light'" />
-            <i-my-svg-moon v-else-if="currentMode === 'dark'" />
-          </div>
+          <i
+            @click="handleClick"
+            :class="{
+              'i-emojione-sun': currentMode === 'light',
+              'i-emojione-full-moon': currentMode === 'dark',
+            }"
+            class="text-xl cursor-pointer"
+          />
         </div>
       </template>
       <template #content>
@@ -20,9 +24,7 @@
           <p class="mr-15 text-md">naive-ui version: {{ naiveuiVer }}</p>
           <n-button type="primary" class="mr-15" @click="handleRefresh">
             <template #icon>
-              <n-icon>
-                <i-ion-refresh />
-              </n-icon>
+              <i class="i-ion-refresh" />
             </template>
             refresh
           </n-button>
@@ -56,6 +58,8 @@
       const loadingBar = useLoadingBar();
       const appStore = useAppStore();
       const themeVars = useThemeVars();
+
+      const tt = ref('i-ion-refresh-circle');
 
       useCssVars(() => {
         const list = themeVars.value;
@@ -118,6 +122,7 @@
         menuOptions,
         refreshId,
         handleRefresh,
+        tt,
       };
     },
   });

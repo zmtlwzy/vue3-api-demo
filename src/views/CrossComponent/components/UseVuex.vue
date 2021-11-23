@@ -14,7 +14,7 @@
   import { useDemoStore } from '@/store/modules/demo';
 
   export default {
-    name: 'usePinia',
+    name: 'UsePinia',
     setup() {
       const demoStore = useDemoStore();
 

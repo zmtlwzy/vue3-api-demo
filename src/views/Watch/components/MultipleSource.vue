@@ -2,7 +2,7 @@
   <n-card :title="$options.name">
     <n-space justify="space-around">
       <n-space vertical align="center">
-        <des-table :var-obj="{ count, count2 }"></des-table>
+        <des-table :var-obj="{ count, count2 }" />
         <n-button type="primary" @click="add">add</n-button>
       </n-space>
       <n-radio-group v-model:value="mode" name="radiogroup">
@@ -18,7 +18,7 @@
 
 <script lang="ts">
   import type { WatchOptionsBase, WatchStopHandle } from 'vue';
-  
+
   export default defineComponent({
     name: 'MultipleSource',
     setup() {
@@ -57,7 +57,7 @@
             console.log(`val:${val} -- preVal:${preVal}`);
             console.log(`val2:${val2} -- preVal2:${preVal2}`);
           },
-          { flush: mode.value }
+          { flush: mode.value },
         );
       });
 

@@ -51,8 +51,8 @@
 
   export default defineComponent({
     name: 'MainLayout',
-    props: ['menuOptions', 'menuValue'],
     components: { Source },
+    props: ['menuOptions', 'menuValue'],
     setup() {
       const route = useRoute();
       const appStore = useAppStore();
@@ -82,7 +82,7 @@
         },
         {
           immediate: true,
-        }
+        },
       );
 
       const handleUpdateExpandedKeys = (e: string[]) => {

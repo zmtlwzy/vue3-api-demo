@@ -18,7 +18,7 @@
   import { effectScope, EffectScope, getCurrentScope, onScopeDispose } from 'vue';
 
   export default defineComponent({
-    name: 'effectScope',
+    name: 'EffectScope',
     setup() {
       const counter = ref(1);
       const scope = effectScope();

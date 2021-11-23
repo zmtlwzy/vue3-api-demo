@@ -2,7 +2,9 @@
   <div class="flex flex-col justify-center items-center">
     <n-space class="!mb-5" align="center">
       <n-radio :checked="isUpdate" @change="setVMemoValue(['key'])">Cannot update</n-radio>
-      <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'isCheck'])"> Can update </n-radio>
+      <n-radio :checked="!isUpdate" @change="setVMemoValue(['key', 'isCheck'])">
+        Can update
+      </n-radio>
       <n-button @click="updateListData"> updateListData </n-button>
     </n-space>
     <n-list bordered class="w-99 mb-15">
@@ -37,7 +39,7 @@
 
   type ListKey = keyof List;
 
-  const genfakeList = (num: number = 25): List[] => {
+  const genfakeList = (num = 25): List[] => {
     const list = [] as List[];
     for (let i = 0; i < num; i++) {
       list.push({
@@ -51,7 +53,7 @@
   };
 
   export default defineComponent({
-    name: 'v-memo',
+    name: 'VMemo',
     setup() {
       const message = useMessage();
       const listRef = ref(genfakeList());

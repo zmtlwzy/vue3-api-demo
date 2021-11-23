@@ -32,7 +32,7 @@
   }
 
   export default defineComponent({
-    name: 'watchEffectFetch',
+    name: 'WatchEffectFetch',
     setup() {
       const state = reactive<State>({
         todoList: [],
@@ -52,7 +52,7 @@
                 state.todoList = [json];
                 state.isFirstFetch = false;
               },
-              state.isFirstFetch ? 1500 : 0
+              state.isFirstFetch ? 1500 : 0,
             );
           });
       });

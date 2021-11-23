@@ -1,14 +1,13 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical align="center">
-      <des-table :varObj="{ count }"></des-table>
+      <des-table :varObj="{ count }" />
       <n-button type="primary" @click="add">add</n-button>
     </n-space>
   </n-card>
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
     name: 'SingleSource',
     setup() {
@@ -21,7 +20,7 @@
         () => count.value,
         (val) => {
           console.log('SingleSource with getter', isRef(val));
-        }
+        },
       );
 
       watch(count, (val) => {

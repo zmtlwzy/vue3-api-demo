@@ -9,7 +9,7 @@
   import { FetchDemo, Flush as WatchEffectFlush } from './components';
   import type { WatchOptionsBase } from 'vue';
   export default defineComponent({
-    name: 'watchEffect',
+    name: 'WatchEffect',
     components: {
       FetchDemo,
       WatchEffectFlush,

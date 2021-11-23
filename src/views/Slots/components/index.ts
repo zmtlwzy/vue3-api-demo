@@ -1,1 +1,1 @@
-export { default } from './Slots.vue'
+export { default } from './Slots.vue';

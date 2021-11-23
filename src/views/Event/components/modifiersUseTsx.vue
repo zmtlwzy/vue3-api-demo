@@ -4,7 +4,7 @@
   import { useMessage } from 'naive-ui';
 
   export const vModelCom1 = defineComponent({
-    name: 'vModelCom1',
+    name: 'VModelCom1',
     props: ['customName', 'customNameModifiers', 'label'],
     setup(props, { emit }) {
       const handleChange = (num: number | string) => {
@@ -31,7 +31,7 @@
   });
 
   export const vModelCom2 = defineComponent({
-    name: 'vModelCom2',
+    name: 'VModelCom2',
     props: {
       modelValue: {
         type: [String, Number] as PropType<string | number>,

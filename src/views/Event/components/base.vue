@@ -13,7 +13,7 @@
   import { useMessage } from 'naive-ui';
 
   export default defineComponent({
-    name: 'eventBase',
+    name: 'EventBase',
     setup() {
       const message = useMessage();
       const handleClick = (e: MouseEvent) => {

@@ -1,37 +1,25 @@
 <template>
   <table>
     <tr v-for="item in arr">
-      <td
-        ><span class="mr-1">{{ item[0] }}</span
-        >:</td
-      >
-      <td
-        ><span class="pl-2">{{ item[1] }}</span></td
-      >
+      <td class="mr-1"> {{ `${item[0]}:` }}</td>
+      <td class="pl-2">{{ item[1] }}</td>
     </tr>
   </table>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
   function getVarNameStr(v: Record<string, any>) {
     return Object.entries(v);
   }
 
-  export default defineComponent({
-    name: 'DesTable',
-    props: {
-      varObj: {
-        type: Object,
-        default: {},
-      },
+  const props = defineProps({
+    varObj: {
+      type: Object,
+      default: {},
     },
-    setup(props) {
-      const arr = computed(() => {
-        return getVarNameStr(props.varObj);
-      });
-      return {
-        arr,
-      };
-    },
+  });
+
+  const arr = computed(() => {
+    return getVarNameStr(props.varObj);
   });
 </script>

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-  function useDebouncedRef(value: any, delay: number = 500) {
+  function useDebouncedRef(value: any, delay = 500) {
     let timeout: TimeoutHandle;
     return customRef((track, trigger) => {
       return {
@@ -33,7 +33,7 @@
   }
 
   export default defineComponent({
-    name: 'CustomRef_debounced',
+    name: 'CustomRefDebounced',
     setup() {
       const refValue = ref<string>('hello');
       const customRefValue = useDebouncedRef('hello');

@@ -4,6 +4,7 @@ node_modules
 /types/components.d.ts
 /types/auto-imports.d.ts
 .pnpm-debug.log
+.eslintcache
 
 
 # local env files

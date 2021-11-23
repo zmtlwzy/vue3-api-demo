@@ -19,7 +19,7 @@
 
 <script lang="ts">
   export default defineComponent({
-    name:'Reactive',
+    name: 'Reactive',
     setup() {
       const count = ref(99);
       const state = reactive({

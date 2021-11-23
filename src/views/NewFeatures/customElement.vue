@@ -6,7 +6,7 @@
   import Foo from '@/webComponents/foo.ce.vue';
 
   export default defineComponent({
-    name: 'customElement',
+    name: 'CustomElement',
     setup() {
       console.log(Foo.styles);
     },

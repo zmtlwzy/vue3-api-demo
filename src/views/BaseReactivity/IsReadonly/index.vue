@@ -38,4 +38,3 @@ isReadonly(state.nested.bar); // false
     },
   });
 </script>
-

@@ -6,7 +6,7 @@
 
 <script lang="ts">
   export default defineComponent({
-    name: 'useCssVars',
+    name: 'UseCssVars',
   });
 </script>
 

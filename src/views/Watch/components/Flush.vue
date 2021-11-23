@@ -20,7 +20,7 @@
   import type { WatchOptionsBase, WatchStopHandle } from 'vue';
 
   export default defineComponent({
-    name: 'watchFlush',
+    name: 'WatchFlush',
     setup() {
       const count = ref(1);
       const el = ref<HTMLElement>();
@@ -57,7 +57,7 @@
           },
           {
             flush: mode.value,
-          }
+          },
         );
       });
 

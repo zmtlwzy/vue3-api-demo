@@ -2,16 +2,13 @@ import type { UserConfig, ConfigEnv } from 'vite';
 
 import { loadEnv } from 'vite';
 
-import { resolve } from 'path'
+import { resolve } from 'path';
 
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import WindiCSS from 'vite-plugin-windicss';
-
-import getPlugins from './vite/plugins'
+import getPlugins from './vite/plugins';
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
-
   const root = process.cwd();
 
   const env = loadEnv(mode, root);
@@ -27,19 +24,16 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     base: env.VITE_PUBLIC_PATH,
     plugins: [
-      vue(
-        {
-          refTransform: 'src/views/ScriptSetup/**/*.vue',
-          template: {
-            compilerOptions: {
-              isCustomElement: tag => tag.startsWith('my-')
-            }
-          }
-        }
-      ),
+      vue({
+        refTransform: 'src/views/ScriptSetup/**/*.vue',
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => tag.startsWith('my-'),
+          },
+        },
+      }),
       vueJsx(),
-      WindiCSS(),
-      ...getPlugins
+      ...getPlugins,
     ],
     build: {
       target: 'es2015',
@@ -50,8 +44,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           drop_console: false,
         },
         format: {
-          comments: false
-        }
+          comments: false,
+        },
       },
       // Turning off brotliSize display can slightly reduce packaging time
       brotliSize: false,

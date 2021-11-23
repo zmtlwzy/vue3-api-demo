@@ -1,11 +1,11 @@
 <template>
   <n-h2>{{ $options.name }}</n-h2>
   <div class="grid-layout-2">
-      <Comps.Base />
-      <Comps.UseContext msg="demo2" :num="123" @inc="handleClick" ref="comp">
-        <template #default>slot_default</template>
-        <template #other>slot_other</template>
-      </Comps.UseContext>
+    <Comps.Base />
+    <Comps.UseContext msg="demo2" :num="123" @inc="handleClick" ref="comp">
+      <template #default>slot_default</template>
+      <template #other>slot_other</template>
+    </Comps.UseContext>
   </div>
 </template>
 
@@ -25,6 +25,6 @@
     () => comp?.count2,
     (val) => {
       console.log(val, 'comp expose count2');
-    }
+    },
   );
 </script>

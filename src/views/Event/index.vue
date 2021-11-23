@@ -14,7 +14,7 @@
 
 <script lang="ts">
   export default defineComponent({
-    name: 'event',
+    name: 'Event',
   });
 </script>
 <script setup lang="ts">

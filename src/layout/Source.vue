@@ -2,18 +2,20 @@
   <div>
     <slot></slot>
     <div class="mt-15 mb-20">
-    <n-a :href="getUrl" target="_blank">
-    <div class="group inline-flex items-center">
-      <span>Source</span>
-      <span class="i-akar-icons-arrow-right text-sm transform opacity-0 transition group-hover:(opacity-100 translate-x-1)"/>
-    </div>
-    </n-a>
+      <n-a :href="getUrl" target="_blank" class="no-underline">
+        <div class="group inline-flex items-center">
+          <span>Source</span>
+          <i
+            class="i-akar-icons-arrow-right text-sm transform op0 transition"
+            group-hover="opacity-100 translate-x-1"
+          />
+        </div>
+      </n-a>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
     name: 'SourceLink',
     setup() {

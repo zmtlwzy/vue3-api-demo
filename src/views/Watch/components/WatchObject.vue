@@ -1,8 +1,8 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical align="center">
-      <des-table :varObj="{ count:state.count, key:state.key }"></des-table>
-      <des-table :varObj="{ num, str }"></des-table>
+      <des-table :varObj="{ count: state.count, key: state.key }" />
+      <des-table :varObj="{ num, str }" />
       <n-button type="primary" @click="add">add</n-button>
     </n-space>
   </n-card>
@@ -39,14 +39,14 @@
         () => Object.entries(watchObj),
         (val, oldVal) => {
           console.log(val, oldVal);
-        }
+        },
       );
       watch(
         state,
         (val) => {
           console.log('watch ref use depp', val);
         },
-        { deep: true }
+        { deep: true },
       );
 
       watch(
@@ -54,7 +54,7 @@
         (val) => {
           console.log('watch use depp', val);
         },
-        { deep: true }
+        { deep: true },
       );
       return {
         state,

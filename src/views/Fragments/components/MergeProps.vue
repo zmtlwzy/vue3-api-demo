@@ -24,9 +24,9 @@
             h(
               NSpace,
               { vertical: true, align: 'center' },
-              { default: () => h('div', mergeProps(this.$attrs, this.obj), this.$slots) }
+              { default: () => h('div', mergeProps(this.$attrs, this.obj), this.$slots) },
             ),
-        }
+        },
       );
     },
   });

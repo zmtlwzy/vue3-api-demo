@@ -38,11 +38,10 @@
 </template>
 
 <script lang="tsx">
-
   import { common } from '@/composables/Common';
 
   const lifeCycleItemA = defineComponent({
-    name: 'lifeCycleItemA',
+    name: 'LifeCycleItemA',
     setup() {
       const { count, add } = common();
 
@@ -72,7 +71,7 @@
   });
 
   const lifeCycleItemB = defineComponent({
-    name: 'lifeCycleItemB',
+    name: 'LifeCycleItemB',
     setup() {
       const { count2, add } = common();
 
@@ -102,7 +101,7 @@
   });
 
   const lifeCycleItemC = defineComponent({
-    name: 'lifeCycleItemC',
+    name: 'LifeCycleItemC',
     setup() {
       const { count3, add } = common();
 
@@ -139,12 +138,6 @@
       lifeCycleItemB,
       lifeCycleItemC,
       // KeepAlive,
-    },
-    beforeCreate() {
-      console.log('beforeCreate');
-    },
-    created() {
-      console.log('created');
     },
     setup() {
       // const state = reactive({
@@ -231,6 +224,12 @@
       //     </n-card>
       //   );
       // };
+    },
+    beforeCreate() {
+      console.log('beforeCreate');
+    },
+    created() {
+      console.log('created');
     },
   });
 </script>

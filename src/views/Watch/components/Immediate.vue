@@ -1,7 +1,7 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical align="center">
-      <des-table :var-obj="{ count, count2 }"></des-table>
+      <des-table :var-obj="{ count, count2 }" />
       <n-space>
         <n-button type="primary" @click="add">add</n-button>
         <n-button type="primary" @click="sub">sub</n-button>
@@ -13,7 +13,7 @@
 <script lang="ts">
   import { useMessage } from 'naive-ui';
   export default defineComponent({
-    name: 'watchOptionsImmediate',
+    name: 'WatchOptionsImmediate',
     setup() {
       const message = useMessage();
       const state = reactive({
@@ -39,7 +39,7 @@
         },
         {
           immediate: true, //组件首次加载或刷新时触发，与watchEffect相同
-        }
+        },
       );
 
       watch(
@@ -49,7 +49,7 @@
         },
         {
           immediate: false,
-        }
+        },
       );
 
       return {

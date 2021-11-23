@@ -1,35 +1,38 @@
-import '@unocss/reset/normalize.css'
-import 'uno.css'
+import '@unocss/reset/normalize.css';
+import 'uno:components.css';
+// 'default' layers
+import 'uno:default.css';
+// 'icons' layer
+import 'uno:icons.css';
+// "utilities" layer will have the highest priority
+import 'uno:utilities.css';
 
-// Register windi
-import 'virtual:windi-components.css'
-import 'virtual:windi-utilities.css'
+// import 'uno.css';
 
 import App from './AppRoot.vue';
 
 import router, { setupRouter } from '@/router';
 import { setupStore } from '@/store';
 import { setupGlobDirectives } from '@/directive';
-import { registerCustomEl } from '@/webComponents'
+import { registerCustomEl } from '@/webComponents';
 
 async function bootstrap() {
-    const app = createApp(App);
+  const app = createApp(App);
 
-    // Configure store
-    setupStore(app);
+  // Configure store
+  setupStore(app);
 
-    registerCustomEl();
+  registerCustomEl();
 
-    // Configure routing
-    setupRouter(app);
+  // Configure routing
+  setupRouter(app);
 
-    // Register global directive
-    setupGlobDirectives(app);
+  // Register global directive
+  setupGlobDirectives(app);
 
-    await router.isReady()
+  await router.isReady();
 
-    app.mount('#app', true);
+  app.mount('#app', true);
 }
 
 void bootstrap();
-

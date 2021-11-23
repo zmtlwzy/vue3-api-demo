@@ -17,7 +17,7 @@
 
 <script lang="ts">
   export default defineComponent({
-    name: 'Base_demo',
+    name: 'BaseDemo',
   });
 </script>
 
@@ -34,13 +34,18 @@
     () => color.value.input,
     (val) => {
       color.value.font = val;
-    }
+    },
   );
 
   const handleClick = () => {
-    color.value.font = color.value.font === 'red' ? 'yellow' : color.value.font === 'yellow' ? 'red' : 'red';
+    color.value.font =
+      color.value.font === 'red' ? 'yellow' : color.value.font === 'yellow' ? 'red' : 'red';
     color.value.input =
-      color.value.input === '#cccccc' ? '#666ddd' : color.value.input === '#666ddd' ? '#cccccc' : '#cccccc';
+      color.value.input === '#cccccc'
+        ? '#666ddd'
+        : color.value.input === '#666ddd'
+        ? '#cccccc'
+        : '#cccccc';
   };
 </script>
 

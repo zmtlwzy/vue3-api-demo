@@ -1,16 +1,15 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical align="center">
-      <des-table :var-obj="{ count, count2, total, total2 }"></des-table>
+      <des-table :var-obj="{ count, count2, total, total2 }" />
       <n-button @click="add">++</n-button>
     </n-space>
   </n-card>
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
-    name: 'unRef',
+    name: 'UnRef',
     setup() {
       const count = ref<number>(0);
       const count2 = 2;

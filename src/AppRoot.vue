@@ -23,7 +23,7 @@
     setup() {
       const appStore = useAppStore();
       const getProps = computed(() => appStore.getNaiveThemeProps);
-      
+
       hljs.registerLanguage('javascript', js);
       return {
         getProps,

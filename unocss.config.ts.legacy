@@ -1,0 +1,37 @@
+import { presetUno, presetAttributify, defineConfig } from 'unocss';
+import presetIcons from '@unocss/preset-icons';
+
+export default defineConfig({
+  presets: [
+    presetAttributify({
+      prefix: 'un-',
+      prefixedOnly: false,
+    }),
+    presetUno(),
+    presetIcons({
+      prefix: 'i-',
+    }),
+  ],
+  theme: {
+    colors:{
+      primary: a.common.primaryColor,
+    }
+  },
+  rules: [
+    [
+      /^grid-layout-(\d+)(\/(\d+(.*)))?$/,
+      ([, row, , gap, gapUnit]) => {
+        return {
+          display: 'grid',
+          'grid-gap': `${gap ?? '36'}${gapUnit ? '' : 'px'}`,
+          'grid-template-columns': `repeat(${row}, minmax(0, 1fr))`,
+        };
+      },
+      { layer: 'components' },
+    ],
+  ],
+  shortcuts: {
+    'column-layout': 'flex flex-col border border-dashed p-3 my-3',
+    'flex-VC': 'flex items-center',
+  },
+});

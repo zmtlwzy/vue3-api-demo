@@ -13,9 +13,8 @@
 </template>
 
 <script>
-
   export default defineComponent({
-    name: 'watchOptionsDeep',
+    name: 'WatchOptionsDeep',
     data() {
       return {
         count: 0,

@@ -3,7 +3,7 @@
 
   export default defineComponent({
     name,
-    inheritAttrs:false,
+    inheritAttrs: false,
     setup(_, { attrs }) {
       return () => (
         <n-card title="Non-Prop Attributes">

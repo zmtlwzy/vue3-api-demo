@@ -3,19 +3,18 @@
     <n-space vertical align="center">
       <n-descriptions label-placement="top" bordered :column="2">
         <n-descriptions-item label="shallowRef">
-          <des-table :var-obj="{ count }"></des-table>
+          <des-table :var-obj="{ count }" />
         </n-descriptions-item>
       </n-descriptions>
       <n-space>
         <n-button @click="handle">add</n-button>
-        <n-button @click="TriggerRef" type="primary" >TriggerRef</n-button>
+        <n-button @click="TriggerRef" type="primary">TriggerRef</n-button>
       </n-space>
     </n-space>
   </n-card>
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
     name: 'TriggerRef',
     setup() {
@@ -29,7 +28,7 @@
         (val) => {
           console.log(val, 'count');
         },
-        { deep: true }
+        { deep: true },
       );
 
       const handle = () => {

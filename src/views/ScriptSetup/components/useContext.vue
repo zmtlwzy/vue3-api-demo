@@ -1,7 +1,7 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical>
-      <des-table :var-obj="{ count, count2, msg, num }"></des-table>
+      <des-table :var-obj="{ count, count2, msg, num }" />
       <slot></slot>
       <slot name="other"></slot>
     </n-space>

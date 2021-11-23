@@ -13,7 +13,7 @@
 <script lang="ts">
   import { sharedState, resetSharedState } from '@/composables/Common';
   export default defineComponent({
-    name: 'useReactive',
+    name: 'UseReactive',
     setup() {
       const add = () => {
         sharedState.num++;

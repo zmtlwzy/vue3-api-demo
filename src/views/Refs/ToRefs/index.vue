@@ -3,7 +3,7 @@
     <n-space vertical align="center">
       <n-descriptions label-placement="top" bordered :column="2">
         <n-descriptions-item label="count">
-          <des-table :var-obj="{ x, y }"></des-table>
+          <des-table :var-obj="{ x, y }" />
         </n-descriptions-item>
       </n-descriptions>
       <n-button type="primary" @click="handle">click</n-button>
@@ -12,9 +12,8 @@
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
-    name: 'toRefs',
+    name: 'ToRefs',
     setup() {
       const count = reactive({
         x: 0,

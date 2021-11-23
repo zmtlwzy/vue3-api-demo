@@ -1,7 +1,4 @@
-import FetchDemo from './FetchDemo.vue'
-import Flush from './Flush.vue'
+import FetchDemo from './FetchDemo.vue';
+import Flush from './Flush.vue';
 
-export {
-    FetchDemo,
-    Flush
-}
+export { FetchDemo, Flush };

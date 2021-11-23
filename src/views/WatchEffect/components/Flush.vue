@@ -2,7 +2,7 @@
   <n-card :title="$options.name">
     <n-space vertical align="center">
       <p>open console</p>
-      <des-table :varObj="{ count, count2, other }" ref="el"></des-table>
+      <des-table :varObj="{ count, count2, other }" ref="el" />
       <br />
       <n-button type="primary" @click="add">add</n-button>
 
@@ -17,9 +17,10 @@
 
 <script lang="ts">
   import type { WatchStopHandle, WatchOptionsBase, ComponentPublicInstance } from 'vue';
+  import { unrefElement } from '@vueuse/core';
 
   export default defineComponent({
-    name: 'watchFlushFlush',
+    name: 'WatchFlushFlush',
     setup() {
       const el = ref<ComponentPublicInstance>();
       const mode = ref<WatchOptionsBase['flush']>('post');
@@ -56,13 +57,13 @@
           stop?.();
           stop = watchEffect(watchFun, { flush: val });
         },
-        { immediate: true }
+        { immediate: true },
       );
 
       function watchFun() {
         state.other = state.count * 2 + count2.value;
         const domValue =
-          el.value?.$el.firstElementChild.lastElementChild.firstElementChild.innerText * 1;
+          unrefElement(el)?.firstElementChild?.lastElementChild?.innerText * 1;
         console.log(`domValue:${domValue}  state.count:${state.count}`);
       }
 

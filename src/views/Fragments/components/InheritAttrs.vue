@@ -1,5 +1,4 @@
 <script lang="tsx">
-
   const name = 'inheritAttrs';
   export default defineComponent({
     name,

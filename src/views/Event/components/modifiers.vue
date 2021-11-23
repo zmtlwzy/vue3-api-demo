@@ -15,7 +15,7 @@
 <script lang="ts">
   import { useMessage } from 'naive-ui';
   export default defineComponent({
-    name: 'eventModifiers',
+    name: 'EventModifiers',
     setup() {
       const message = useMessage();
       const handleClick = (text: any) => {

@@ -26,7 +26,6 @@ console.log(isReactive(stateCopy)); // -> true
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
     name: 'IsReactive',
     setup() {

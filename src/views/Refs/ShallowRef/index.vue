@@ -3,10 +3,10 @@
     <n-space vertical align="center">
       <n-descriptions label-placement="top" bordered :column="2">
         <n-descriptions-item label="shallowRef">
-          <des-table :var-obj="{ count }"></des-table>
+          <des-table :var-obj="{ count }" />
         </n-descriptions-item>
         <n-descriptions-item label="ref">
-          <des-table :var-obj="{ count2 }"></des-table>
+          <des-table :var-obj="{ count2 }" />
         </n-descriptions-item>
       </n-descriptions>
       <n-space>
@@ -18,24 +18,23 @@
 </template>
 
 <script lang="ts">
-
   export default defineComponent({
     name: 'ShallowRef',
     setup() {
       const obj = {
-        x:0,
-        y:0
-      }
-      const count = shallowRef({...obj});
+        x: 0,
+        y: 0,
+      };
+      const count = shallowRef({ ...obj });
 
-      const count2 = ref({...obj});
+      const count2 = ref({ ...obj });
 
       watch(
         () => count,
         (val) => {
           console.log(val, 'count');
         },
-        { deep: true }
+        { deep: true },
       );
 
       watch(
@@ -43,19 +42,18 @@
         (val) => {
           console.log(val, 'count2');
         },
-        { deep: true }
+        { deep: true },
       );
 
       const add = () => {
         obj.x++;
-        count.value.x = obj.x
-        count2.value.x = obj.x
+        count.value.x = obj.x;
+        count2.value.x = obj.x;
       };
 
       const overlayShallowRef = () => {
-        count.value = {...obj}
-      }
-
+        count.value = { ...obj };
+      };
 
       return {
         add,

@@ -1,7 +1,7 @@
 <template>
   <n-card :title="$options.name">
     <n-space vertical align="center">
-      <des-table :varObj="{ arr }"></des-table>
+      <des-table :varObj="{ arr }" />
       <n-button type="primary" @click="add">Increase</n-button>
     </n-space>
   </n-card>
@@ -54,14 +54,14 @@
         () => state.arr,
         (val) => {
           console.log(`watch arr:${val}`);
-        }
+        },
       );
 
       watch(
         () => Object.values(state.arr),
         (val) => {
           console.log(`Object.values watch arr:${val}`);
-        }
+        },
       );
 
       watch(
@@ -71,7 +71,7 @@
         },
         {
           deep: true,
-        }
+        },
       );
 
       watch(len, (val) => {

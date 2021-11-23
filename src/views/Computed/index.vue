@@ -2,7 +2,7 @@
   <n-card>
     <n-space vertical align="center">
       <n-button @click="show = !show">{{ show ? 'hide' : 'show' }}</n-button>
-      <des-table v-if="show" :varObj="{ count, com1, com2, com3 }"></des-table>
+      <des-table v-if="show" :varObj="{ count, com1, com2, com3 }" />
 
       <br />
       <n-space>
@@ -18,7 +18,7 @@
   import { eagerComputed } from '@vueuse/core';
 
   export default defineComponent({
-    name: 'computed',
+    name: 'Computed',
     setup() {
       const state = reactive({
         count: 0,
@@ -77,4 +77,3 @@
     },
   });
 </script>
-

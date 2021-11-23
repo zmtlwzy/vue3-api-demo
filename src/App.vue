@@ -12,7 +12,7 @@
               'i-emojione-full-moon': currentMode === 'dark',
             }"
             class="text-xl cursor-pointer"
-          />
+          ></i>
         </div>
       </template>
       <template #content>
@@ -24,7 +24,7 @@
           <p class="mr-15 text-md">naive-ui version: {{ naiveuiVer }}</p>
           <n-button type="primary" class="mr-15" @click="handleRefresh">
             <template #icon>
-              <i class="i-ion-refresh" />
+              <i class="i-ion-refresh"></i>
             </template>
             refresh
           </n-button>
@@ -51,7 +51,7 @@
   });
 
   export default defineComponent({
-    name: 'app',
+    name: 'App',
     setup() {
       const { DARK, LIGHT } = ThemeEnum;
 
@@ -97,7 +97,7 @@
         },
         {
           immediate: true,
-        }
+        },
       );
 
       watch(
@@ -107,7 +107,7 @@
         },
         {
           immediate: true,
-        }
+        },
       );
 
       const handleClick = () => {

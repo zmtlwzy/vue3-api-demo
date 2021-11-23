@@ -13,7 +13,7 @@
   const moveTime = 1;
   const fallTime = 0.6;
   export default defineComponent({
-    name: 'transitionHook',
+    name: 'TransitionHook',
     setup() {
       const flag = ref<boolean>(false);
       const state = useTransitionState();

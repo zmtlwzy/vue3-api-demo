@@ -20,6 +20,14 @@
     "prepare": "husky install",
     "postinstall": "patch-package"
   },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
   "dependencies": {
     "@formily/core": "latest",
     "@formily/vue": "latest",

@@ -17,20 +17,20 @@
 </template>
 
 <script lang="ts">
-  const obj = {
-    a: 1,
-  };
-  export default defineComponent({
-    name: 'IsRef',
-    setup() {
-      const num = 0;
-      const count = ref(num);
-      const a = toRef(obj, 'a');
-      return {
-        numBool: computed(() => isRef(num)),
-        countBool: computed(() => isRef(count)),
-        aBool: computed(() => isRef(a)),
-      };
-    },
-  });
+const obj = {
+  a: 1
+};
+export default defineComponent({
+  name: 'IsRef',
+  setup() {
+    const num = 0;
+    const count = ref(num);
+    const a = toRef(obj, 'a');
+    return {
+      numBool: computed(() => isRef(num)),
+      countBool: computed(() => isRef(count)),
+      aBool: computed(() => isRef(a))
+    };
+  }
+});
 </script>

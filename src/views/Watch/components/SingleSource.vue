@@ -8,29 +8,29 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'SingleSource',
-    setup() {
-      const count = ref(0);
-      const add = () => {
-        count.value++;
-      };
+export default defineComponent({
+  name: 'SingleSource',
+  setup() {
+    const count = ref(0);
+    const add = () => {
+      count.value++;
+    };
 
-      watch(
-        () => count.value,
-        (val) => {
-          console.log('SingleSource with getter', isRef(val));
-        },
-      );
+    watch(
+      () => count.value,
+      val => {
+        console.log('SingleSource with getter', isRef(val));
+      }
+    );
 
-      watch(count, (val) => {
-        console.log('SingleSource with ref', isRef(val));
-      });
+    watch(count, val => {
+      console.log('SingleSource with ref', isRef(val));
+    });
 
-      return {
-        count,
-        add,
-      };
-    },
-  });
+    return {
+      count,
+      add
+    };
+  }
+});
 </script>

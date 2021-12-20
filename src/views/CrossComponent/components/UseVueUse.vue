@@ -13,14 +13,14 @@
 </template>
 
 <script lang="ts">
-  export const useSharedCounter = createSharedComposable(useCounter);
+export const useSharedCounter = createSharedComposable(useCounter);
 
-  export default defineComponent({
-    name: 'UseVueUse',
-  });
+export default defineComponent({
+  name: 'UseVueUse'
+});
 </script>
 
 <script lang="ts" setup>
-  import { createSharedComposable, useCounter } from '@vueuse/core';
-  const { count, inc, dec, set, reset } = useSharedCounter();
+import { createSharedComposable, useCounter } from '@vueuse/core';
+const { count, inc, dec, set, reset } = useSharedCounter();
 </script>

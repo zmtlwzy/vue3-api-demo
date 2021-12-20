@@ -12,30 +12,30 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'ToRefs',
-    setup() {
-      const count = reactive({
-        x: 0,
-        y: 0,
-      });
+export default defineComponent({
+  name: 'ToRefs',
+  setup() {
+    const count = reactive({
+      x: 0,
+      y: 0
+    });
 
-      const countAsRefs = toRefs(count);
+    const countAsRefs = toRefs(count);
 
-      watchEffect(() => {
-        console.log(countAsRefs);
-        console.log(countAsRefs.x.value);
-      });
+    watchEffect(() => {
+      console.log(countAsRefs);
+      console.log(countAsRefs.x.value);
+    });
 
-      const handle = () => {
-        count.x++;
-        count.y += 2;
-      };
+    const handle = () => {
+      count.x++;
+      count.y += 2;
+    };
 
-      return {
-        ...toRefs(count),
-        handle,
-      };
-    },
-  });
+    return {
+      ...toRefs(count),
+      handle
+    };
+  }
+});
 </script>

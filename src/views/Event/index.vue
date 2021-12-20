@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'Event',
-  });
+export default defineComponent({
+  name: 'Event'
+});
 </script>
 <script setup lang="ts">
-  import { base as eventBase, modifiers, modifiersUseTsx } from './components';
+import { base as eventBase, modifiers, modifiersUseTsx } from './components';
 </script>

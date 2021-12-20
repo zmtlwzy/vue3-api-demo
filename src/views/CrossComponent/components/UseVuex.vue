@@ -11,25 +11,25 @@
 </template>
 
 <script>
-  import { useDemoStore } from '@/store/modules/demo';
+import { useDemoStore } from '@/store/modules/demo';
 
-  export default {
-    name: 'UsePinia',
-    setup() {
-      const demoStore = useDemoStore();
+export default {
+  name: 'UsePinia',
+  setup() {
+    const demoStore = useDemoStore();
 
-      return {
-        x: computed(() => demoStore.getX),
-        y: computed(() => demoStore.getY),
-        add: (...params) => {
-          demoStore.setValue(params);
-        },
-        resetState: () => {
-          demoStore.$reset();
-        },
-      };
-    },
-  };
+    return {
+      x: computed(() => demoStore.getX),
+      y: computed(() => demoStore.getY),
+      add: (...params) => {
+        demoStore.setValue(params);
+      },
+      resetState: () => {
+        demoStore.$reset();
+      }
+    };
+  }
+};
 </script>
 
 <style></style>

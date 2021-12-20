@@ -11,26 +11,26 @@
 </template>
 
 <script lang="ts">
-  import type { Ref } from 'vue';
-  import { CountSymbol_1, CountSymbol_2, CountSymbol_3 } from './sharedKey';
-  export default defineComponent({
-    name: 'ProvideAndInject',
-    setup() {
-      const constant = inject(CountSymbol_1, ref(10));
-      const num = inject(CountSymbol_2, 50) as unknown as Ref<number>;
-      const num2 = inject(CountSymbol_3, ref(100));
-      const add = () => {
-        num.value += unref(constant);
-        num2.value += unref(constant);
-      };
-      return {
-        constant,
-        num,
-        num2,
-        add,
-      };
-    },
-  });
+import type { Ref } from 'vue';
+import { CountSymbol_1, CountSymbol_2, CountSymbol_3 } from './sharedKey';
+export default defineComponent({
+  name: 'ProvideAndInject',
+  setup() {
+    const constant = inject(CountSymbol_1, ref(10));
+    const num = inject(CountSymbol_2, 50) as unknown as Ref<number>;
+    const num2 = inject(CountSymbol_3, ref(100));
+    const add = () => {
+      num.value += unref(constant);
+      num2.value += unref(constant);
+    };
+    return {
+      constant,
+      num,
+      num2,
+      add
+    };
+  }
+});
 </script>
 
 <style></style>

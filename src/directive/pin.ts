@@ -20,7 +20,7 @@ const updated = (el: HTMLElement, binding: DirectiveBinding<any>) => {
 
 const pinDirective: Directive = {
   mounted,
-  updated,
+  updated
 };
 
 export function setupPinDirective(app: App) {

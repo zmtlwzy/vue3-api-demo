@@ -17,57 +17,57 @@
 </template>
 
 <script lang="ts">
-  import type { WatchOptionsBase, WatchStopHandle } from 'vue';
+import type { WatchOptionsBase, WatchStopHandle } from 'vue';
 
-  export default defineComponent({
-    name: 'MultipleSource',
-    setup() {
-      const count = ref(0);
-      const count2 = ref(110);
-      const mode = ref<WatchOptionsBase['flush']>('post');
+export default defineComponent({
+  name: 'MultipleSource',
+  setup() {
+    const count = ref(0);
+    const count2 = ref(110);
+    const mode = ref<WatchOptionsBase['flush']>('post');
 
-      let stop: WatchStopHandle;
+    let stop: WatchStopHandle;
 
-      const modeOpt = [
-        {
-          label: 'post',
-          value: 'post',
+    const modeOpt = [
+      {
+        label: 'post',
+        value: 'post'
+      },
+      {
+        label: 'pre',
+        value: 'pre'
+      },
+      {
+        label: 'sync',
+        value: 'sync'
+      }
+    ];
+
+    const add = () => {
+      count.value++;
+      count2.value++;
+    };
+
+    watchEffect(() => {
+      stop?.();
+      stop = watch(
+        [count, count2],
+        ([val, val2], [preVal, preVal2]) => {
+          // sync mode will run 2 times
+          console.log(`val:${val} -- preVal:${preVal}`);
+          console.log(`val2:${val2} -- preVal2:${preVal2}`);
         },
-        {
-          label: 'pre',
-          value: 'pre',
-        },
-        {
-          label: 'sync',
-          value: 'sync',
-        },
-      ];
+        { flush: mode.value }
+      );
+    });
 
-      const add = () => {
-        count.value++;
-        count2.value++;
-      };
-
-      watchEffect(() => {
-        stop?.();
-        stop = watch(
-          [count, count2],
-          ([val, val2], [preVal, preVal2]) => {
-            // sync mode will run 2 times
-            console.log(`val:${val} -- preVal:${preVal}`);
-            console.log(`val2:${val2} -- preVal2:${preVal2}`);
-          },
-          { flush: mode.value },
-        );
-      });
-
-      return {
-        count,
-        count2,
-        mode,
-        modeOpt,
-        add,
-      };
-    },
-  });
+    return {
+      count,
+      count2,
+      mode,
+      modeOpt,
+      add
+    };
+  }
+});
 </script>

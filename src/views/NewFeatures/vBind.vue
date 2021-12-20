@@ -5,18 +5,18 @@
 </template>
 
 <script lang="ts">
-  import { MaybeElementRef } from '@vueuse/core';
-  export default defineComponent({
-    name: 'VBind',
-    setup() {
-      const el = ref<MaybeElementRef>(null);
-      onMounted(() => {
-        console.log(el.value);
-      });
-      return {
-        value: ref(1),
-        el,
-      };
-    },
-  });
+import { MaybeElementRef } from '@vueuse/core';
+export default defineComponent({
+  name: 'VBind',
+  setup() {
+    const el = ref<MaybeElementRef>(null);
+    onMounted(() => {
+      console.log(el.value);
+    });
+    return {
+      value: ref(1),
+      el
+    };
+  }
+});
 </script>

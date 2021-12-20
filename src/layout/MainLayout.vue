@@ -41,64 +41,64 @@
 </template>
 
 <script lang="ts">
-  import type { CSSProperties, PropType } from 'vue';
-  import { MenuProps } from 'naive-ui';
+import type { CSSProperties, PropType } from 'vue';
+import { MenuProps } from 'naive-ui';
 
-  import { useAppStore } from '@/store/modules/app';
+import { useAppStore } from '@/store/modules/app';
 
-  import Source from './Source.vue';
+import Source from './Source.vue';
 
-  import { upperFirst } from 'lodash-es';
+import { upperFirst } from 'lodash-es';
 
-  export default defineComponent({
-    name: 'MainLayout',
-    components: { Source },
-    props: {
-      menuOptions: Object as PropType<MenuProps['options']>,
-    },
-    setup() {
-      const route = useRoute();
-      const appStore = useAppStore();
+export default defineComponent({
+  name: 'MainLayout',
+  components: { Source },
+  props: {
+    menuOptions: Object as PropType<MenuProps['options']>
+  },
+  setup() {
+    const route = useRoute();
+    const appStore = useAppStore();
 
-      useCssVars(() => ({
-        'header-height': `${appStore.getHeaderHeight}px`,
-      }));
+    useCssVars(() => ({
+      'header-height': `${appStore.getHeaderHeight}px`
+    }));
 
-      const getStyle = ref<CSSProperties>({
-        minHeight: 'calc(100vh - var(--header-height))',
-        padding: '2rem',
-        display: 'flex',
-        flexDirection: 'column',
-      });
+    const getStyle = ref<CSSProperties>({
+      minHeight: 'calc(100vh - var(--header-height))',
+      padding: '2rem',
+      display: 'flex',
+      flexDirection: 'column'
+    });
 
-      const menuValue = computed(() => route.name);
+    const menuValue = computed(() => route.name);
 
-      const expandedKeys = ref<string[]>([]);
+    const expandedKeys = ref<string[]>([]);
 
-      watch(
-        () => route.path,
-        (path) => {
-          const arr = path.split('/');
-          const rawKeys = arr.slice(1, arr.length - 1);
-          const res = rawKeys.map((item) => upperFirst(item));
-          expandedKeys.value = res;
-        },
-        {
-          immediate: true,
-        },
-      );
+    watch(
+      () => route.path,
+      path => {
+        const arr = path.split('/');
+        const rawKeys = arr.slice(1, arr.length - 1);
+        const res = rawKeys.map(item => upperFirst(item));
+        expandedKeys.value = res;
+      },
+      {
+        immediate: true
+      }
+    );
 
-      const handleUpdateExpandedKeys = (e: string[]) => {
-        expandedKeys.value = e;
-      };
+    const handleUpdateExpandedKeys = (e: string[]) => {
+      expandedKeys.value = e;
+    };
 
-      return {
-        siderWidth: appStore.getSiderWidth,
-        expandedKeys,
-        menuValue,
-        getStyle,
-        handleUpdateExpandedKeys,
-      };
-    },
-  });
+    return {
+      siderWidth: appStore.getSiderWidth,
+      expandedKeys,
+      menuValue,
+      getStyle,
+      handleUpdateExpandedKeys
+    };
+  }
+});
 </script>

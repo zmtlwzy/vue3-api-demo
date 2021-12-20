@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'Watch',
-  });
+export default defineComponent({
+  name: 'Watch'
+});
 </script>
 <script setup lang="ts">
-  import * as allComps from './components';
+import * as allComps from './components';
 </script>

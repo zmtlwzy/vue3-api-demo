@@ -13,39 +13,39 @@
 </template>
 
 <script>
-  export default defineComponent({
-    name: 'WatchOptionsDeep',
-    data() {
-      return {
-        count: 0,
-        arr: [1, 2, 3],
-      };
+export default defineComponent({
+  name: 'WatchOptionsDeep',
+  data() {
+    return {
+      count: 0,
+      arr: [1, 2, 3]
+    };
+  },
+  watch: {
+    arr: {
+      handler(val) {
+        console.log(val, 'use deep');
+      },
+      deep: true
+    }
+  },
+  methods: {
+    changeArrIndex() {
+      this.arr[0] = ++this.count;
     },
-    watch: {
-      arr: {
-        handler(val) {
-          console.log(val, 'use deep');
-        },
-        deep: true,
-      },
+    replaceArr() {
+      const _arr = [...this.arr];
+      _arr[0] = ++this.count;
+      this.arr = _arr;
     },
-    methods: {
-      changeArrIndex() {
-        this.arr[0] = ++this.count;
-      },
-      replaceArr() {
-        const _arr = [...this.arr];
-        _arr[0] = ++this.count;
-        this.arr = _arr;
-      },
-      changeArrUseSplice() {
-        this.arr.splice(1, 1, ++this.count);
-      },
-      changeArrUseSort() {
-        this.arr.sort((a, b) => {
-          return Math.random() - 0.5;
-        });
-      },
+    changeArrUseSplice() {
+      this.arr.splice(1, 1, ++this.count);
     },
-  });
+    changeArrUseSort() {
+      this.arr.sort((a, b) => {
+        return Math.random() - 0.5;
+      });
+    }
+  }
+});
 </script>

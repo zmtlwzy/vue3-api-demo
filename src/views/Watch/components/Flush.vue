@@ -17,57 +17,57 @@
 </template>
 
 <script lang="ts">
-  import type { WatchOptionsBase, WatchStopHandle } from 'vue';
+import type { WatchOptionsBase, WatchStopHandle } from 'vue';
 
-  export default defineComponent({
-    name: 'WatchFlush',
-    setup() {
-      const count = ref(1);
-      const el = ref<HTMLElement>();
-      const mode = ref<WatchOptionsBase['flush']>('post');
+export default defineComponent({
+  name: 'WatchFlush',
+  setup() {
+    const count = ref(1);
+    const el = ref<HTMLElement>();
+    const mode = ref<WatchOptionsBase['flush']>('post');
 
-      let stop: WatchStopHandle;
+    let stop: WatchStopHandle;
 
-      const modeOpt = [
-        {
-          label: 'post',
-          value: 'post',
-        },
-        {
-          label: 'pre',
-          value: 'pre',
-        },
-        {
-          label: 'sync',
-          value: 'sync',
-        },
-      ];
+    const modeOpt = [
+      {
+        label: 'post',
+        value: 'post'
+      },
+      {
+        label: 'pre',
+        value: 'pre'
+      },
+      {
+        label: 'sync',
+        value: 'sync'
+      }
+    ];
 
-      const add = () => {
-        count.value++;
-      };
+    const add = () => {
+      count.value++;
+    };
 
-      watchEffect(() => {
-        stop?.();
-        stop = watch(
-          count,
-          (val) => {
-            // sync mode will run 2 times
-            console.log(`val:${val}--dom:${el.value?.innerText}`);
-          },
-          {
-            flush: mode.value,
-          },
-        );
-      });
-
-      return {
+    watchEffect(() => {
+      stop?.();
+      stop = watch(
         count,
-        mode,
-        el,
-        modeOpt,
-        add,
-      };
-    },
-  });
+        val => {
+          // sync mode will run 2 times
+          console.log(`val:${val}--dom:${el.value?.innerText}`);
+        },
+        {
+          flush: mode.value
+        }
+      );
+    });
+
+    return {
+      count,
+      mode,
+      el,
+      modeOpt,
+      add
+    };
+  }
+});
 </script>

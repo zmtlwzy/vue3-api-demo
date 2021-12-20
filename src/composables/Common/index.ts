@@ -4,7 +4,7 @@ export const common = function () {
   const state = reactive({
     count: 0,
     count2: 10,
-    count3: 100,
+    count3: 100
   });
 
   const add = () => {
@@ -15,14 +15,14 @@ export const common = function () {
 
   return {
     ...toRefs(state),
-    add,
+    add
   };
 };
 
 export const sharedState = reactive({
   num: 0,
   num2: computed((): number => sharedState.num + 1),
-  num3: computed((): number => sharedState.num + 2),
+  num3: computed((): number => sharedState.num + 2)
 });
 
 export const resetSharedState = () => {

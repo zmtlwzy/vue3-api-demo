@@ -16,28 +16,28 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'SourceLink',
-    setup() {
-      const { currentRoute } = useRouter();
+export default defineComponent({
+  name: 'SourceLink',
+  setup() {
+    const { currentRoute } = useRouter();
 
-      const getDir = computed(() => {
-        return unref(currentRoute).meta?.dir;
-      });
-      const getUrl = computed(() => {
-        const dir =
-          unref(getDir) ||
-          unref(currentRoute)
-            .fullPath.split('/')
-            .slice(1)
-            .map((item) => item.charAt(0).toLocaleUpperCase() + item.slice(1))
-            .join('/') + '/index.vue';
-        return `https://github.com/zmtlwzy/vue3-api-demo/blob/main/src/views/${dir}`;
-      });
+    const getDir = computed(() => {
+      return unref(currentRoute).meta?.dir;
+    });
+    const getUrl = computed(() => {
+      const dir =
+        unref(getDir) ||
+        unref(currentRoute)
+          .fullPath.split('/')
+          .slice(1)
+          .map(item => item.charAt(0).toLocaleUpperCase() + item.slice(1))
+          .join('/') + '/index.vue';
+      return `https://github.com/zmtlwzy/vue3-api-demo/blob/main/src/views/${dir}`;
+    });
 
-      return {
-        getUrl,
-      };
-    },
-  });
+    return {
+      getUrl
+    };
+  }
+});
 </script>

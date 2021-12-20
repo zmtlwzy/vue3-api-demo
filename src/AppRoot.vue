@@ -9,26 +9,26 @@
 </template>
 
 <script lang="ts">
-  import { useAppStore } from '@/store/modules/app';
+import { useAppStore } from '@/store/modules/app';
 
-  import hljs from 'highlight.js/lib/core';
-  import js from 'highlight.js/lib/languages/javascript';
+import hljs from 'highlight.js/lib/core';
+import js from 'highlight.js/lib/languages/javascript';
 
-  import App from './App.vue';
-  export default defineComponent({
-    name: 'AppProvider',
-    components: {
-      App,
-    },
-    setup() {
-      const appStore = useAppStore();
-      const getProps = computed(() => appStore.getNaiveThemeProps);
+import App from './App.vue';
+export default defineComponent({
+  name: 'AppProvider',
+  components: {
+    App
+  },
+  setup() {
+    const appStore = useAppStore();
+    const getProps = computed(() => appStore.getNaiveThemeProps);
 
-      hljs.registerLanguage('javascript', js);
-      return {
-        getProps,
-        hljs,
-      };
-    },
-  });
+    hljs.registerLanguage('javascript', js);
+    return {
+      getProps,
+      hljs
+    };
+  }
+});
 </script>

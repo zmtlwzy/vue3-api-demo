@@ -11,20 +11,20 @@
 </template>
 
 <script lang="ts">
-  import { sharedState, resetSharedState } from '@/composables/Common';
-  export default defineComponent({
-    name: 'UseReactive',
-    setup() {
-      const add = () => {
-        sharedState.num++;
-      };
-      return {
-        ...toRefs(sharedState),
-        add,
-        resetSharedState,
-      };
-    },
-  });
+import { sharedState, resetSharedState } from '@/composables/Common';
+export default defineComponent({
+  name: 'UseReactive',
+  setup() {
+    const add = () => {
+      sharedState.num++;
+    };
+    return {
+      ...toRefs(sharedState),
+      add,
+      resetSharedState
+    };
+  }
+});
 </script>
 
 <style></style>

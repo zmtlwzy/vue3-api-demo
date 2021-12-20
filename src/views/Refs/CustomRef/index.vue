@@ -13,38 +13,38 @@
 </template>
 
 <script lang="ts">
-  function useDebouncedRef(value: any, delay = 500) {
-    let timeout: TimeoutHandle;
-    return customRef((track, trigger) => {
-      return {
-        get() {
-          track();
-          return value;
-        },
-        set(newValue) {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            value = newValue;
-            trigger();
-          }, delay);
-        },
-      };
-    });
-  }
-
-  export default defineComponent({
-    name: 'CustomRefDebounced',
-    setup() {
-      const refValue = ref<string>('hello');
-      const customRefValue = useDebouncedRef('hello');
-
-      watch(refValue, (item) => {
-        customRefValue.value = item;
-      });
-      return {
-        refValue,
-        customRefValue,
-      };
-    },
+function useDebouncedRef(value: any, delay = 500) {
+  let timeout: TimeoutHandle;
+  return customRef((track, trigger) => {
+    return {
+      get() {
+        track();
+        return value;
+      },
+      set(newValue) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          value = newValue;
+          trigger();
+        }, delay);
+      }
+    };
   });
+}
+
+export default defineComponent({
+  name: 'CustomRefDebounced',
+  setup() {
+    const refValue = ref<string>('hello');
+    const customRefValue = useDebouncedRef('hello');
+
+    watch(refValue, item => {
+      customRefValue.value = item;
+    });
+    return {
+      refValue,
+      customRefValue
+    };
+  }
+});
 </script>

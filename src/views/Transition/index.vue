@@ -8,86 +8,86 @@
 </template>
 
 <script lang="ts">
-  import { useTransitionState, BaseTransitionProps } from 'vue';
+import { useTransitionState, BaseTransitionProps } from 'vue';
 
-  const moveTime = 1;
-  const fallTime = 0.6;
-  export default defineComponent({
-    name: 'TransitionHook',
-    setup() {
-      const flag = ref<boolean>(false);
-      const state = useTransitionState();
+const moveTime = 1;
+const fallTime = 0.6;
+export default defineComponent({
+  name: 'TransitionHook',
+  setup() {
+    const flag = ref<boolean>(false);
+    const state = useTransitionState();
 
-      onBeforeMount(() => {
-        console.log('onBeforeMount');
-        console.log(state);
+    onBeforeMount(() => {
+      console.log('onBeforeMount');
+      console.log(state);
+    });
+    onMounted(() => {
+      console.log('onMounted');
+      console.log(state);
+    });
+    onUnmounted(() => {
+      console.log('onUnmounted');
+      console.log(state);
+    });
+
+    const bfEnter: BaseTransitionProps['onBeforeEnter'] = el => {
+      gsap.set(el, {
+        x: 150,
+        y: 50
       });
-      onMounted(() => {
-        console.log('onMounted');
-        console.log(state);
+    };
+
+    const enter: BaseTransitionProps['onEnter'] = (el, done) => {
+      gsap.to(el, {
+        duration: moveTime,
+        x: 'random([450,500,600])',
+        ease: 'expo.inOut'
       });
-      onUnmounted(() => {
-        console.log('onUnmounted');
-        console.log(state);
+      gsap.to(el, {
+        scaleX: 1.5,
+        scaleY: 0.7,
+        duration: moveTime * 0.5,
+        ease: 'expo.in'
       });
+      gsap.to(el, {
+        delay: moveTime * 0.5,
+        scaleX: 1,
+        scaleY: 1,
+        duration: moveTime * 0.5,
+        ease: 'expo.out'
+      });
+      gsap.to(el, {
+        delay: moveTime * 0.7,
+        duration: fallTime,
+        scaleX: 0.6,
+        scaleY: 1.7,
+        y: 'random(300, 700, 5)',
+        opacity: 0,
+        ease: 'expo.in',
+        onComplete: done
+      });
+    };
 
-      const bfEnter: BaseTransitionProps['onBeforeEnter'] = (el) => {
-        gsap.set(el, {
-          x: 150,
-          y: 50,
-        });
-      };
+    const afEnter: BaseTransitionProps['onAfterEnter'] = () => {
+      flag.value = !flag.value;
+    };
 
-      const enter: BaseTransitionProps['onEnter'] = (el, done) => {
-        gsap.to(el, {
-          duration: moveTime,
-          x: 'random([450,500,600])',
-          ease: 'expo.inOut',
-        });
-        gsap.to(el, {
-          scaleX: 1.5,
-          scaleY: 0.7,
-          duration: moveTime * 0.5,
-          ease: 'expo.in',
-        });
-        gsap.to(el, {
-          delay: moveTime * 0.5,
-          scaleX: 1,
-          scaleY: 1,
-          duration: moveTime * 0.5,
-          ease: 'expo.out',
-        });
-        gsap.to(el, {
-          delay: moveTime * 0.7,
-          duration: fallTime,
-          scaleX: 0.6,
-          scaleY: 1.7,
-          y: 'random(300, 700, 5)',
-          opacity: 0,
-          ease: 'expo.in',
-          onComplete: done,
-        });
-      };
-
-      const afEnter: BaseTransitionProps['onAfterEnter'] = () => {
-        flag.value = !flag.value;
-      };
-
-      return {
-        flag,
-        bfEnter,
-        enter,
-        afEnter,
-      };
-    },
-  });
+    return {
+      flag,
+      bfEnter,
+      enter,
+      afEnter
+    };
+  }
+});
 </script>
 
 <style>
-  .ball {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: red;
-  }
+.ball {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+}
 </style>

@@ -18,38 +18,38 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'Reactive',
-    setup() {
-      const count = ref(99);
-      const state = reactive({
-        a: 0,
-        b: 0,
-        c: count,
-      });
-      const add = () => {
-        state.a++;
-        state.b += 2;
-        count.value++;
-      };
-      const sub = () => {
-        state.a--;
-        state.b--;
-        state.c--;
-      };
-      watch(count, (val) => {
-        if (val >= 100 && val <= 122) {
-          state[String.fromCharCode(unref(count))] = count;
-        }
-      });
-      return {
-        add,
-        sub,
-        count,
-        state,
-      };
-    },
-  });
+export default defineComponent({
+  name: 'Reactive',
+  setup() {
+    const count = ref(99);
+    const state = reactive({
+      a: 0,
+      b: 0,
+      c: count
+    });
+    const add = () => {
+      state.a++;
+      state.b += 2;
+      count.value++;
+    };
+    const sub = () => {
+      state.a--;
+      state.b--;
+      state.c--;
+    };
+    watch(count, val => {
+      if (val >= 100 && val <= 122) {
+        state[String.fromCharCode(unref(count))] = count;
+      }
+    });
+    return {
+      add,
+      sub,
+      count,
+      state
+    };
+  }
+});
 </script>
 
 <style></style>

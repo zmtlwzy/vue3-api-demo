@@ -46,6 +46,6 @@ export function createAsyncComponent(loader: Fn, options: Options = {}) {
         // 必须调用其中一个才能继续错误处理。
         fail();
       }
-    },
+    }
   });
 }

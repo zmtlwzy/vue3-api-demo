@@ -8,17 +8,17 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'Ref',
-    setup() {
-      const count = ref(0);
-      const add = () => {
-        count.value++;
-      };
-      return {
-        count,
-        add,
-      };
-    },
-  });
+export default defineComponent({
+  name: 'Ref',
+  setup() {
+    const count = ref(0);
+    const add = () => {
+      count.value++;
+    };
+    return {
+      count,
+      add
+    };
+  }
+});
 </script>

@@ -15,65 +15,65 @@
 </template>
 
 <script lang="ts">
-  import { eagerComputed } from '@vueuse/core';
+import { eagerComputed } from '@vueuse/core';
 
-  export default defineComponent({
-    name: 'Computed',
-    setup() {
-      const state = reactive({
-        count: 0,
-        com1: computed((): number => state.count + 1),
-      });
+export default defineComponent({
+  name: 'Computed',
+  setup() {
+    const state = reactive({
+      count: 0,
+      com1: computed((): number => state.count + 1)
+    });
 
-      const bool = computed(() => fun(), {
-        onTrack(e) {
-          console.log('track', e.target);
-        },
-        onTrigger(e) {
-          console.log('trigger', e);
-        },
-      });
-
-      const eager_bool = eagerComputed(() => fun());
-
-      const com2 = computed({
-        get: () => {
-          console.log('com2 run');
-          return bool.value ? state.count * 2 : -1;
-        },
-        set: (val) => {
-          state.count = val;
-        },
-      });
-
-      const com3 = computed(() => {
-        console.log('com3 run');
-        return eager_bool.value ? state.count * 2 : -1;
-      });
-
-      const add = () => {
-        state.count++;
-      };
-      const sub = () => {
-        state.count--;
-      };
-      const set = () => {
-        com2.value = 0;
-      };
-
-      function fun() {
-        return state.count < 5;
+    const bool = computed(() => fun(), {
+      onTrack(e) {
+        console.log('track', e.target);
+      },
+      onTrigger(e) {
+        console.log('trigger', e);
       }
+    });
 
-      return {
-        ...toRefs(state),
-        com2,
-        com3,
-        show: ref(false),
-        add,
-        sub,
-        set,
-      };
-    },
-  });
+    const eager_bool = eagerComputed(() => fun());
+
+    const com2 = computed({
+      get: () => {
+        console.log('com2 run');
+        return bool.value ? state.count * 2 : -1;
+      },
+      set: val => {
+        state.count = val;
+      }
+    });
+
+    const com3 = computed(() => {
+      console.log('com3 run');
+      return eager_bool.value ? state.count * 2 : -1;
+    });
+
+    const add = () => {
+      state.count++;
+    };
+    const sub = () => {
+      state.count--;
+    };
+    const set = () => {
+      com2.value = 0;
+    };
+
+    function fun() {
+      return state.count < 5;
+    }
+
+    return {
+      ...toRefs(state),
+      com2,
+      com3,
+      show: ref(false),
+      add,
+      sub,
+      set
+    };
+  }
+});
 </script>

@@ -12,39 +12,39 @@
 </template>
 
 <script lang="ts">
-  function* toggleTarget() {
-    while (true) {
-      yield document.querySelector('footer .teleport-footer-container');
-      yield '#teleport-container';
-      yield '.teleport-header-container';
-    }
+function* toggleTarget() {
+  while (true) {
+    yield document.querySelector('footer .teleport-footer-container');
+    yield '#teleport-container';
+    yield '.teleport-header-container';
   }
-  const toggle = toggleTarget();
-  export default defineComponent({
-    name: 'Teleport',
-    setup() {
-      const target = ref<any>('#teleport-container');
-      const isShow = ref<boolean>(false);
-      const changeTarget = () => {
-        target.value = toggle.next().value;
-      };
-      nextTick(() => {
-        isShow.value = true;
-      });
-      return {
-        isShow,
-        target,
-        changeTarget,
-      };
-    },
-  });
+}
+const toggle = toggleTarget();
+export default defineComponent({
+  name: 'Teleport',
+  setup() {
+    const target = ref<any>('#teleport-container');
+    const isShow = ref<boolean>(false);
+    const changeTarget = () => {
+      target.value = toggle.next().value;
+    };
+    nextTick(() => {
+      isShow.value = true;
+    });
+    return {
+      isShow,
+      target,
+      changeTarget
+    };
+  }
+});
 </script>
 
 <style scoped>
-  span {
-    padding: 5px;
-    margin: 5px;
-    background-color: rgba(70, 117, 148, 0.63);
-    border-radius: 0.3rem;
-  }
+span {
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(70, 117, 148, 0.63);
+  border-radius: 0.3rem;
+}
 </style>

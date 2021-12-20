@@ -4,7 +4,7 @@ import { MenuOption } from 'naive-ui';
 import { renderRouter } from '@/router/render';
 
 export function genMeunList(list: routesListType[], path: routesListType['path'] = '') {
-  return list.map((item) => {
+  return list.map(item => {
     const _item = {} as MenuOption;
     const link = `${path ? path + '/' : ''}${item.path}`;
     const title = item?.meta?.title ?? item.name!;

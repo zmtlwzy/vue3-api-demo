@@ -19,7 +19,7 @@ export const useAppStore = defineStore({
     refreshId: 0,
     headerHeight: 64,
     siderWidth: 250,
-    themeMode: defaultThemeMode,
+    themeMode: defaultThemeMode
   }),
   getters: {
     getRefreshId(): number {
@@ -38,13 +38,13 @@ export const useAppStore = defineStore({
       if (this.themeMode === 'dark')
         return {
           theme: darkTheme,
-          'theme-overrides': null,
+          'theme-overrides': null
         };
       else
         return {
-          'theme-overrides': themeOverrides,
+          'theme-overrides': themeOverrides
         };
-    },
+    }
   },
   actions: {
     setThemeMode(val: ThemeEnum) {
@@ -54,8 +54,8 @@ export const useAppStore = defineStore({
       this.refreshId++;
       useDemoStore().$reset();
       resetSharedState();
-    },
-  },
+    }
+  }
 });
 
 // Need to be used outside the setup

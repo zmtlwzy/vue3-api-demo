@@ -18,30 +18,30 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'Readonly',
-    setup() {
-      const original = reactive({ count: 0 });
-      const copy = readonly(original);
+export default defineComponent({
+  name: 'Readonly',
+  setup() {
+    const original = reactive({ count: 0 });
+    const copy = readonly(original);
 
-      const changeOriginal = () => {
-        original.count++;
-      };
+    const changeOriginal = () => {
+      original.count++;
+    };
 
-      const changeCopy = () => {
-        //@ts-ignore
-        // make warn
-        copy.count++;
-      };
+    const changeCopy = () => {
+      //@ts-ignore
+      // make warn
+      copy.count++;
+    };
 
-      return {
-        original,
-        copy,
-        changeOriginal,
-        changeCopy,
-      };
-    },
-  });
+    return {
+      original,
+      copy,
+      changeOriginal,
+      changeCopy
+    };
+  }
+});
 </script>
 
 <style></style>

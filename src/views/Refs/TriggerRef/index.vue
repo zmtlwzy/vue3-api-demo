@@ -15,39 +15,39 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'TriggerRef',
-    setup() {
-      const count = shallowRef({
-        x: 0,
-        y: 0,
-      });
+export default defineComponent({
+  name: 'TriggerRef',
+  setup() {
+    const count = shallowRef({
+      x: 0,
+      y: 0
+    });
 
-      watch(
-        () => count,
-        (val) => {
-          console.log(val, 'count');
-        },
-        { deep: true },
-      );
+    watch(
+      () => count,
+      val => {
+        console.log(val, 'count');
+      },
+      { deep: true }
+    );
 
-      const handle = () => {
-        count.value.x++;
-      };
+    const handle = () => {
+      count.value.x++;
+    };
 
-      const TriggerRef = () => {
-        triggerRef(count);
-      };
+    const TriggerRef = () => {
+      triggerRef(count);
+    };
 
-      onMounted(() => {
-        handle();
-      });
+    onMounted(() => {
+      handle();
+    });
 
-      return {
-        handle,
-        TriggerRef,
-        count,
-      };
-    },
-  });
+    return {
+      handle,
+      TriggerRef,
+      count
+    };
+  }
+});
 </script>

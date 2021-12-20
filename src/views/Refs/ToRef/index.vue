@@ -15,28 +15,28 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'ToRef',
-    setup() {
-      const count = reactive({
-        x: 0,
-        y: 0,
-      });
+export default defineComponent({
+  name: 'ToRef',
+  setup() {
+    const count = reactive({
+      x: 0,
+      y: 0
+    });
 
-      const r = { z: ref(1) };
+    const r = { z: ref(1) };
 
-      const handle = () => {
-        count.x++;
-        count.y += 2;
-        r.z.value++;
-      };
+    const handle = () => {
+      count.x++;
+      count.y += 2;
+      r.z.value++;
+    };
 
-      return {
-        a: toRef(count, 'x'),
-        b: toRef(count, 'y'),
-        z: toRef(r, 'z'),
-        handle,
-      };
-    },
-  });
+    return {
+      a: toRef(count, 'x'),
+      b: toRef(count, 'y'),
+      z: toRef(r, 'z'),
+      handle
+    };
+  }
+});
 </script>

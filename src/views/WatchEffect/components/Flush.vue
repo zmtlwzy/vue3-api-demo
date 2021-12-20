@@ -16,64 +16,64 @@
 </template>
 
 <script lang="ts">
-  import type { WatchStopHandle, WatchOptionsBase, ComponentPublicInstance } from 'vue';
-  import { unrefElement } from '@vueuse/core';
+import type { WatchStopHandle, WatchOptionsBase, ComponentPublicInstance } from 'vue';
+import { unrefElement } from '@vueuse/core';
 
-  export default defineComponent({
-    name: 'WatchFlushFlush',
-    setup() {
-      const el = ref<ComponentPublicInstance>();
-      const mode = ref<WatchOptionsBase['flush']>('post');
+export default defineComponent({
+  name: 'WatchFlushFlush',
+  setup() {
+    const el = ref<ComponentPublicInstance>();
+    const mode = ref<WatchOptionsBase['flush']>('post');
 
-      let stop: WatchStopHandle;
+    let stop: WatchStopHandle;
 
-      const modeOpt = [
-        {
-          label: 'post',
-          value: 'post',
-        },
-        {
-          label: 'pre',
-          value: 'pre',
-        },
-        {
-          label: 'sync',
-          value: 'sync',
-        },
-      ];
-      const state = reactive({
-        count: 1,
-        other: 2,
-      });
-      const count2 = ref(3);
-      const add = () => {
-        state.count++;
-        count2.value++;
-      };
-
-      watch(
-        mode,
-        (val) => {
-          stop?.();
-          stop = watchEffect(watchFun, { flush: val });
-        },
-        { immediate: true },
-      );
-
-      function watchFun() {
-        state.other = state.count * 2 + count2.value;
-        const domValue = unrefElement(el)?.firstElementChild?.lastElementChild?.innerText * 1;
-        console.log(`domValue:${domValue}  state.count:${state.count}`);
+    const modeOpt = [
+      {
+        label: 'post',
+        value: 'post'
+      },
+      {
+        label: 'pre',
+        value: 'pre'
+      },
+      {
+        label: 'sync',
+        value: 'sync'
       }
+    ];
+    const state = reactive({
+      count: 1,
+      other: 2
+    });
+    const count2 = ref(3);
+    const add = () => {
+      state.count++;
+      count2.value++;
+    };
 
-      return {
-        ...toRefs(state),
-        count2,
-        el,
-        mode,
-        modeOpt,
-        add,
-      };
-    },
-  });
+    watch(
+      mode,
+      val => {
+        stop?.();
+        stop = watchEffect(watchFun, { flush: val });
+      },
+      { immediate: true }
+    );
+
+    function watchFun() {
+      state.other = state.count * 2 + count2.value;
+      const domValue = unrefElement(el)?.firstElementChild?.lastElementChild?.innerText * 1;
+      console.log(`domValue:${domValue}  state.count:${state.count}`);
+    }
+
+    return {
+      ...toRefs(state),
+      count2,
+      el,
+      mode,
+      modeOpt,
+      add
+    };
+  }
+});
 </script>

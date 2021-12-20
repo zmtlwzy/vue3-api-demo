@@ -8,7 +8,7 @@ export function renderRouter(title: string, link: string) {
 
 export function renderRouterView() {
   return {
-    render: () => <router-view />,
+    render: () => <router-view />
   };
 }
 

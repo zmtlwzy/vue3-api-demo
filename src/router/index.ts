@@ -55,7 +55,7 @@ const routes = getRoutesArr(cloneDeep(List)) as RouteRecordRaw[];
 
 const router = createRouter({
   history: import.meta.env.DEV ? createWebHistory() : createWebHashHistory(),
-  routes,
+  routes
 });
 
 router.beforeEach((to, from, next) => {

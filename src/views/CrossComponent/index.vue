@@ -24,46 +24,46 @@
 </template>
 
 <script>
-  import { useDemoStore } from '@/store/modules/demo';
+import { useDemoStore } from '@/store/modules/demo';
 
-  import { UseVuex, PAndI, UseReactive, UseVueUse } from './components';
-  import { common, sharedState } from '@/composables/Common';
-  import { CountSymbol_2 } from './components/sharedKey';
-  import { useSharedCounter } from './components/UseVueUse.vue';
+import { UseVuex, PAndI, UseReactive, UseVueUse } from './components';
+import { common, sharedState } from '@/composables/Common';
+import { CountSymbol_2 } from './components/sharedKey';
+import { useSharedCounter } from './components/UseVueUse.vue';
 
-  export default {
-    name: 'CrossComponentsShared',
-    components: {
-      UseVuex,
-      PAndI,
-      UseReactive,
-      UseVueUse,
-    },
-    setup() {
-      const { add, ...countArr } = common();
-      const demoStore = useDemoStore();
-      const { count: vueuseCount } = useSharedCounter();
+export default {
+  name: 'CrossComponentsShared',
+  components: {
+    UseVuex,
+    PAndI,
+    UseReactive,
+    UseVueUse
+  },
+  setup() {
+    const { add, ...countArr } = common();
+    const demoStore = useDemoStore();
+    const { count: vueuseCount } = useSharedCounter();
 
-      provide(CountSymbol_2, countArr.count);
+    provide(CountSymbol_2, countArr.count);
 
-      const reactiveAdd = () => {
-        sharedState.num += 2;
-      };
+    const reactiveAdd = () => {
+      sharedState.num += 2;
+    };
 
-      return {
-        ...toRefs(sharedState),
-        ...countArr,
-        add,
-        reactiveAdd,
-        x: computed(() => demoStore.getX),
-        y: computed(() => demoStore.getY),
-        vuexAdd: (...val) => {
-          demoStore.setValue(val);
-        },
-        vueuseCount,
-      };
-    },
-  };
+    return {
+      ...toRefs(sharedState),
+      ...countArr,
+      add,
+      reactiveAdd,
+      x: computed(() => demoStore.getX),
+      y: computed(() => demoStore.getY),
+      vuexAdd: (...val) => {
+        demoStore.setValue(val);
+      },
+      vueuseCount
+    };
+  }
+};
 </script>
 
 <style></style>

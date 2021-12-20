@@ -18,49 +18,49 @@
 </template>
 
 <script lang="ts">
-  export default defineComponent({
-    name: 'ShallowRef',
-    setup() {
-      const obj = {
-        x: 0,
-        y: 0,
-      };
-      const count = shallowRef({ ...obj });
+export default defineComponent({
+  name: 'ShallowRef',
+  setup() {
+    const obj = {
+      x: 0,
+      y: 0
+    };
+    const count = shallowRef({ ...obj });
 
-      const count2 = ref({ ...obj });
+    const count2 = ref({ ...obj });
 
-      watch(
-        () => count,
-        (val) => {
-          console.log(val, 'count');
-        },
-        { deep: true },
-      );
+    watch(
+      () => count,
+      val => {
+        console.log(val, 'count');
+      },
+      { deep: true }
+    );
 
-      watch(
-        () => count2,
-        (val) => {
-          console.log(val, 'count2');
-        },
-        { deep: true },
-      );
+    watch(
+      () => count2,
+      val => {
+        console.log(val, 'count2');
+      },
+      { deep: true }
+    );
 
-      const add = () => {
-        obj.x++;
-        count.value.x = obj.x;
-        count2.value.x = obj.x;
-      };
+    const add = () => {
+      obj.x++;
+      count.value.x = obj.x;
+      count2.value.x = obj.x;
+    };
 
-      const overlayShallowRef = () => {
-        count.value = { ...obj };
-      };
+    const overlayShallowRef = () => {
+      count.value = { ...obj };
+    };
 
-      return {
-        add,
-        overlayShallowRef,
-        count,
-        count2,
-      };
-    },
-  });
+    return {
+      add,
+      overlayShallowRef,
+      count,
+      count2
+    };
+  }
+});
 </script>

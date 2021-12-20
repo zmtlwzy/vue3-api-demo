@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.3.4](https://github.com/zmtlwzy/vue3-api-demo/compare/v0.3.3...v0.3.4) (2021-12-20)
+
+
+### Bug Fixes
+
+* **projects:** update file name ([ed2e429](https://github.com/zmtlwzy/vue3-api-demo/commit/ed2e42984810c270e3906b41b654ecb8bec26275))
+
 ## [0.3.3](https://github.com/zmtlwzy/vue3-api-demo/compare/0.2.5...v0.3.3) (2021-12-20)
 
 

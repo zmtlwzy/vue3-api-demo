@@ -5,6 +5,8 @@
     "name": "zmtlwzy"
   },
   "scripts": {
+    "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite build && vite preview --host",
@@ -14,7 +16,9 @@
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lock": "rimraf yarn.lock && rimraf pnpm-lock.yaml && rimraf package.lock.json",
     "clean:lib": "rimraf node_modules",
-    "clean": "npm run clean:lock && npm run clean:lib"
+    "clean": "npm run clean:lock && npm run clean:lib",
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@formily/core": "latest",
@@ -51,6 +55,8 @@
     "jest": "^27.4.5",
     "less": "^4.1.2",
     "lint-staged": "^12.1.3",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "naive-ui": "^2.23.1",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",

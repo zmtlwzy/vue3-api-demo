@@ -12,18 +12,3 @@
 * **CrossComponent:** add vueuse ([3a2d3a0](https://github.com/zmtlwzy/vue3-api-demo/commit/3a2d3a07cadf16a5af4b549e57786483eab2575c))
 * **effectScope:** add functions ([3e9780f](https://github.com/zmtlwzy/vue3-api-demo/commit/3e9780f57d0665141a3666ab8fc1eb4a8e5292d8))
 * use unocss ([cc9ac44](https://github.com/zmtlwzy/vue3-api-demo/commit/cc9ac445f65778a3c8abac38c37cad7d22e40031))
-
-
-
-## [0.2.5](https://github.com/zmtlwzy/vue3-api-demo/compare/0.2.0...0.2.5) (2021-07-16)
-
-
-
-# [0.2.0](https://github.com/zmtlwzy/vue3-api-demo/compare/0.1.0...0.2.0) (2021-06-15)
-
-
-
-# 0.1.0 (2020-09-16)
-
-
-

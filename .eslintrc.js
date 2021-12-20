@@ -5,12 +5,18 @@ module.exports = defineConfig({
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es2021: true,
+  },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaVersion: 2020,
+    ecmaVersion: 12,
     sourceType: 'module',
     jsxPragma: 'React',
     ecmaFeatures: {
@@ -38,22 +44,9 @@ module.exports = defineConfig({
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
-    ],
-    'no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
-    ],
+    '@typescript-eslint/no-unused-vars': 'off',
+    'no-unused-vars': 'off',
     'space-before-function-paren': 'off',
-
     'vue/attributes-order': 'off',
     'vue/one-component-per-file': 'off',
     'vue/html-closing-bracket-newline': 'off',

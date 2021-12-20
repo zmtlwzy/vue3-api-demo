@@ -17,6 +17,11 @@ export const List: routesListType[] = [
     path: '/',
     redirect: '/refs',
   },
+  // {
+  //   path: '/test',
+  //   name: 'Test',
+  //   component: () => import('views/Test/index.vue'),
+  // },
   {
     path: '/rfcs',
     name: 'Rfcs',

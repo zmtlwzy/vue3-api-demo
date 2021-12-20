@@ -5,7 +5,12 @@
 
   export const vModelCom1 = defineComponent({
     name: 'VModelCom1',
-    props: ['customName', 'customNameModifiers', 'label'],
+    props: {
+      customName: String,
+      customNameModifiers: String,
+      label: String,
+    },
+    emits: ['update:customName'],
     setup(props, { emit }) {
       const handleChange = (num: number | string) => {
         emit('update:customName', Number(num));
@@ -34,9 +39,10 @@
     name: 'VModelCom2',
     props: {
       modelValue: {
-        type: [String, Number] as PropType<string | number>,
+        type: [String, Number],
       }, // v-model不带参数必须使用modelValue
     },
+    emits: ['update:modelValue'],
     setup(props, { emit }) {
       const handleChange = (num: string | number) => {
         emit('update:modelValue', Number(num));

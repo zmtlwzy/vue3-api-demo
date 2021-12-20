@@ -25,7 +25,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     base: env.VITE_PUBLIC_PATH,
     plugins: [
       vue({
-        refTransform: 'src/views/ScriptSetup/**/*.vue',
+        reactivityTransform: 'src/views/ScriptSetup/**/*.vue',
         template: {
           compilerOptions: {
             isCustomElement: (tag) => tag.startsWith('my-'),

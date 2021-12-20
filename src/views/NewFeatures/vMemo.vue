@@ -8,7 +8,7 @@
       <n-button @click="updateListData"> updateListData </n-button>
     </n-space>
     <n-list bordered class="w-99 mb-15">
-      <n-list-item v-for="item in listRef" v-memo="getMemoValue(item, getMemoKey)">
+      <n-list-item v-for="item in listRef" :key="item.key" v-memo="getMemoValue(item, getMemoKey)">
         <template #prefix>
           {{ item.key }}
         </template>

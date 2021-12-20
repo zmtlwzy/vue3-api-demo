@@ -14,7 +14,7 @@
   import type { Ref } from 'vue';
   import { CountSymbol_1, CountSymbol_2, CountSymbol_3 } from './sharedKey';
   export default defineComponent({
-    name: 'Provide & Inject',
+    name: 'ProvideAndInject',
     setup() {
       const constant = inject(CountSymbol_1, ref(10));
       const num = inject(CountSymbol_2, 50) as unknown as Ref<number>;

@@ -5,6 +5,7 @@
         <n-tabs type="line">
           <n-tab-pane
             v-for="item in componentArr"
+            :key="item"
             :name="item"
             :tab="item"
             display-directive="show"

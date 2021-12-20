@@ -62,8 +62,7 @@
 
       function watchFun() {
         state.other = state.count * 2 + count2.value;
-        const domValue =
-          unrefElement(el)?.firstElementChild?.lastElementChild?.innerText * 1;
+        const domValue = unrefElement(el)?.firstElementChild?.lastElementChild?.innerText * 1;
         console.log(`domValue:${domValue}  state.count:${state.count}`);
       }
 

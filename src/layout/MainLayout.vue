@@ -41,7 +41,8 @@
 </template>
 
 <script lang="ts">
-  import type { CSSProperties } from 'vue';
+  import type { CSSProperties, PropType } from 'vue';
+  import { MenuProps } from 'naive-ui';
 
   import { useAppStore } from '@/store/modules/app';
 
@@ -52,7 +53,9 @@
   export default defineComponent({
     name: 'MainLayout',
     components: { Source },
-    props: ['menuOptions', 'menuValue'],
+    props: {
+      menuOptions: Object as PropType<MenuProps['options']>,
+    },
     setup() {
       const route = useRoute();
       const appStore = useAppStore();

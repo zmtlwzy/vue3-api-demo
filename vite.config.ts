@@ -49,7 +49,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
       // Turning off brotliSize display can slightly reduce packaging time
       brotliSize: false,
-      chunkSizeWarningLimit: 600,
+      chunkSizeWarningLimit: 800,
     },
 
     css: {

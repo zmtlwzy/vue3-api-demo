@@ -11,9 +11,9 @@ export default function genComponents() {
     resolvers: [
       IconsResolver({
         prefix: 'i',
-        customCollections: ['my-svg'],
+        customCollections: ['my-svg']
       }),
-      NaiveUiResolver(),
-    ],
+      NaiveUiResolver()
+    ]
   });
 }

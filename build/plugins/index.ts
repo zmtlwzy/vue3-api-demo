@@ -10,4 +10,4 @@ plugins.push(genAutoImport());
 plugins.push(genComponents());
 plugins.push(genIcons());
 
-export default plugins
+export default plugins;

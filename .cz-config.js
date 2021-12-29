@@ -26,4 +26,4 @@ module.exports = {
   allowBreakingChanges: ['feat', 'fix'],
   subjectLimit: 100,
   breaklineChar: '|'
-}
+};

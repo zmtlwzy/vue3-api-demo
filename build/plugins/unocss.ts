@@ -8,21 +8,21 @@ export default function genUnocss() {
     presets: [
       presetAttributify({
         prefix: 'un-',
-        prefixedOnly: false,
+        prefixedOnly: false
       }),
       presetUno(),
       presetIcons({
-        prefix: 'i-',
-      }),
+        prefix: 'i-'
+      })
     ],
     theme: {
       colors: {
         primary: {
           DEFAULT: themeOverrides.common.primaryColor,
           lighten: themeOverrides.common.primaryColorHover,
-          darken: themeOverrides.common.primaryColorPressed,
-        },
-      },
+          darken: themeOverrides.common.primaryColorPressed
+        }
+      }
     },
     rules: [
       [
@@ -31,15 +31,15 @@ export default function genUnocss() {
           return {
             display: 'grid',
             'grid-gap': `${gap ?? '36'}${gapUnit ? '' : 'px'}`,
-            'grid-template-columns': `repeat(${row}, minmax(0, 1fr))`,
+            'grid-template-columns': `repeat(${row}, minmax(0, 1fr))`
           };
         },
-        { layer: 'components' },
-      ],
+        { layer: 'components' }
+      ]
     ],
     shortcuts: {
       'column-layout': 'flex flex-col border border-dashed p-3 my-3',
-      'flex-VC': 'flex items-center',
-    },
+      'flex-VC': 'flex items-center'
+    }
   });
 }

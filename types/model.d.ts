@@ -9,4 +9,4 @@ declare module 'virtual:*' {
   export default result;
 }
 
-declare const gsap = any
+declare const gsap = any;

@@ -10,21 +10,21 @@
 </template>
 
 <script>
-  export default defineComponent({
-    name: 'Namespaced Component tags in ScriptSetup',
-  });
+export default defineComponent({
+  name: 'NamespacedComponent'
+});
 </script>
 <script setup>
-  import * as Comps from './components';
+import * as Comps from './components';
 
-  const handleClick = (e) => {
-    isRef(e) && e.value++;
-  };
-  let comp = $ref(123);
-  watch(
-    () => comp?.count2,
-    (val) => {
-      console.log(val, 'comp expose count2');
-    },
-  );
+const handleClick = e => {
+  isRef(e) && e.value++;
+};
+let comp = $ref(123);
+watch(
+  () => comp?.count2,
+  val => {
+    console.log(val, 'comp expose count2');
+  }
+);
 </script>

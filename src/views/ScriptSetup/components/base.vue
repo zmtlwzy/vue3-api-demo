@@ -14,39 +14,39 @@
 </template>
 
 <script lang="ts">
-  import { useMouse } from '@vueuse/core';
-  export default defineComponent({
-    name: '$ref $computed $raw $shallowRef',
-  });
+import { useMouse } from '@vueuse/core';
+export default defineComponent({
+  name: 'Suger'
+});
 </script>
 
 <script setup lang="ts">
-  let a = $ref(1);
-  const raw_a = $$(a);
-  const b = ref(200);
-  let c = $computed(() => a + b.value);
-  let d = $shallowRef({
+let a = $ref(1);
+const raw_a = $$(a);
+const b = ref(200);
+let c = $computed(() => a + b.value);
+let d = $shallowRef({
+  a,
+  b,
+  c
+});
+
+let { x, y } = $(useMouse());
+let z = $computed(() => x + y);
+
+const updateShallowRef = () => {
+  d = {
     a,
     b,
-    c,
-  });
-
-  let { x, y } = $(useMouse());
-  let z = $computed(() => x + y);
-
-  const updateShallowRef = () => {
-    d = {
-      a,
-      b,
-      c,
-    };
+    c
   };
+};
 
-  const hangleClick = () => {
-    a++;
-    setTimeout(() => {
-      raw_a.value++;
-    }, 100);
-    b.value++;
-  };
+const hangleClick = () => {
+  a++;
+  setTimeout(() => {
+    raw_a.value++;
+  }, 100);
+  b.value++;
+};
 </script>

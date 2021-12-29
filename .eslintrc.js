@@ -5,13 +5,13 @@ module.exports = defineConfig({
   env: {
     browser: true,
     node: true,
-    es2021: true,
+    es2021: true
   },
   globals: {
     defineProps: 'readonly',
     defineEmits: 'readonly',
     defineExpose: 'readonly',
-    withDefaults: 'readonly',
+    withDefaults: 'readonly'
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -20,24 +20,22 @@ module.exports = defineConfig({
     sourceType: 'module',
     jsxPragma: 'React',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
+    'plugin:jest/recommended'
   ],
   rules: {
-    'vue/script-setup-uses-vars': 'error',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    'vue/custom-event-name-casing': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
@@ -47,6 +45,8 @@ module.exports = defineConfig({
     '@typescript-eslint/no-unused-vars': 'off',
     'no-unused-vars': 'off',
     'space-before-function-paren': 'off',
+    'vue/script-setup-uses-vars': 'error',
+    'vue/custom-event-name-casing': 'off',
     'vue/attributes-order': 'off',
     'vue/one-component-per-file': 'off',
     'vue/html-closing-bracket-newline': 'off',
@@ -56,17 +56,18 @@ module.exports = defineConfig({
     'vue/attribute-hyphenation': 'off',
     'vue/require-default-prop': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-setup-props-destructure': 'off',
     'vue/html-self-closing': [
       'off',
       {
         html: {
           void: 'always',
           normal: 'never',
-          component: 'always',
+          component: 'always'
         },
         svg: 'always',
-        math: 'always',
-      },
-    ],
-  },
+        math: 'always'
+      }
+    ]
+  }
 });

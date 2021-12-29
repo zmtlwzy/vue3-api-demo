@@ -6,7 +6,7 @@ import { resolve } from 'path';
 
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import getPlugins from './vite/plugins';
+import getPlugins from './build/plugins';
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
@@ -19,8 +19,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         '#': resolve(__dirname, './'),
         '@': resolve(__dirname, 'src'),
         comps: resolve(__dirname, 'src/components'),
-        views: resolve(__dirname, 'src/views'),
-      },
+        views: resolve(__dirname, 'src/views')
+      }
     },
     base: env.VITE_PUBLIC_PATH,
     plugins: [
@@ -28,12 +28,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         reactivityTransform: 'src/views/ScriptSetup/**/*.vue',
         template: {
           compilerOptions: {
-            isCustomElement: (tag) => tag.startsWith('my-'),
-          },
-        },
+            isCustomElement: tag => tag.startsWith('my-')
+          }
+        }
       }),
       vueJsx(),
-      ...getPlugins,
+      ...getPlugins
     ],
     build: {
       target: 'es2015',
@@ -41,23 +41,23 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         compress: {
           keep_infinity: true,
           // Used to delete console in production environment
-          drop_console: false,
+          drop_console: false
         },
         format: {
-          comments: false,
-        },
+          comments: false
+        }
       },
       // Turning off brotliSize display can slightly reduce packaging time
       brotliSize: false,
-      chunkSizeWarningLimit: 800,
+      chunkSizeWarningLimit: 800
     },
 
     css: {
       preprocessorOptions: {
         less: {
-          javascriptEnabled: true,
-        },
-      },
-    },
+          javascriptEnabled: true
+        }
+      }
+    }
   };
 };

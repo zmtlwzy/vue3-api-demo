@@ -10,8 +10,8 @@ Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology d
 
 ## Preview
 
-[github-preview](https://zmtlwzy.github.io/vue3-api-demo/)
-[vercel-preview](https://vue3-api-demo-zmtlwzy.vercel.app/)
+- [github-preview](https://zmtlwzy.github.io/vue3-api-demo/)
+- [vercel-preview](https://vue3-api-demo-zmtlwzy.vercel.app/)
 
 ## Main Dependencies
 
@@ -27,6 +27,7 @@ Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology d
 ## Project setup
 
 ### Install all dependencies for a project
+
 ```
 pnpm i
 ```

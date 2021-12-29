@@ -10,7 +10,7 @@ export default function genIcons() {
     compiler: 'vue3', // 'vue2', 'vue3', 'jsx'
     jsx: 'react', // 'react' or 'preact'
     customCollections: {
-      'my-svg': FileSystemIconLoader(resolve(process.cwd(), 'src/assets/icons')),
-    },
+      'my-svg': FileSystemIconLoader(resolve(process.cwd(), 'src/assets/icons'))
+    }
   });
 }

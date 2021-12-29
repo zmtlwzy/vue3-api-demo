@@ -12,4 +12,3 @@ dist
 .local
 /bin
 Dockerfile
-src/views/ScriptSetup

@@ -7,7 +7,7 @@ export default function genAutoImport() {
       /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
       /\.vue$/,
       /\.vue\?vue/, // .vue
-      /\.md$/, // .md
+      /\.md$/ // .md
     ],
     // global imports to register
     imports: [
@@ -16,7 +16,8 @@ export default function genAutoImport() {
       'vue-router',
       {
         vue: ['isProxy', 'isReactive', 'useCssVars'],
-      },
-    ],
+        'vue/macros': ['$', '$$', '$ref', '$computed', '$shallowRef']
+      }
+    ]
   });
 }

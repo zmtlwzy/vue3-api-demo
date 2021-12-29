@@ -8,6 +8,11 @@
 
 这是一个使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，用于 vue3 新特性学习参考的项目。
 
+## 预览
+
+[github站点](https://zmtlwzy.github.io/vue3-api-demo/)
+[vercel站点](https://vue3-api-demo-zmtlwzy.vercel.app/)
+
 ## 依赖
 
 - [Vite](https://vitejs.dev/) - 新型前端构建工具，能够显著提升前端开发体验。

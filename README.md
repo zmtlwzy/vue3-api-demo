@@ -8,6 +8,11 @@
 
 Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development, used for learning reference vue3 new feature.
 
+## Preview
+
+[github-preview](https://zmtlwzy.github.io/vue3-api-demo/)
+[vercel-preview](https://vue3-api-demo-zmtlwzy.vercel.app/)
+
 ## Main Dependencies
 
 - [Vite](https://vitejs.dev/) - A build tool that aims to provide faster and leaner development experience for modern web projects.

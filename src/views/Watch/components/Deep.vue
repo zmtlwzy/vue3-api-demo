@@ -2,12 +2,12 @@
   <n-card :title="$options.name">
     <n-space vertical align="center">
       <span class="m-2">{{ arr }}</span>
-      <n-grid x-gap="8" y-gap="8" :cols="2">
+      <div grid="~ cols-2 gap-4">
         <n-button type="primary" @click="changeArrIndex">changeArrIndex</n-button>
         <n-button type="primary" @click="replaceArr">replaceArr</n-button>
         <n-button type="primary" @click="changeArrUseSplice">changeArrUseSplice</n-button>
         <n-button type="primary" @click="changeArrUseSort">changeArrUseSort</n-button>
-      </n-grid>
+      </div>
     </n-space>
   </n-card>
 </template>

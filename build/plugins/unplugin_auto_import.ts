@@ -15,8 +15,8 @@ export default function genAutoImport() {
       'vue',
       'vue-router',
       {
-        vue: ['isProxy', 'isReactive', 'useCssVars'],
-        'vue/macros': ['$', '$$', '$ref', '$computed', '$shallowRef']
+        vue: ['isProxy', 'isReactive'],
+        'vue/macros': ['$$', '$ref', '$computed', '$shallowRef']
       }
     ]
   });

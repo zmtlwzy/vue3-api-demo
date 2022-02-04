@@ -1,7 +1,7 @@
 <template>
   <n-card>
     <n-space vertical align="center">
-      <p>count(use ref):{{ count }}</p>
+      <p hover="bg-dark-50 text-light-50">count(use ref):{{ count }}</p>
       <n-button type="primary" @click="add">+</n-button>
     </n-space>
   </n-card>

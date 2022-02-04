@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { useMouse } from '@vueuse/core';
+import { $ } from 'vue/macros';
 export default defineComponent({
   name: 'Suger'
 });

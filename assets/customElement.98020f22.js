@@ -1,0 +1,1 @@
+import{_ as e,F as o}from"./index.d3d73924.js";import{e as s,g as t,o as n}from"./vendor.e3cf30dd.js";const r=s({name:"CustomElement",setup(){console.log(o.styles)}});function a(c,m,d,p,f,l){return n(),t("my-foo")}var u=e(r,[["render",a]]);export{u as default};

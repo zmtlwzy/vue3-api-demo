@@ -5,11 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store/modules/app';
-import { ThemeEnum } from '@/enums/themeEnum';
+import { isDark } from '~/composables/dark'
 
-const appStore = useAppStore();
-const getClass = computed(() => (appStore.getThemeMode === ThemeEnum.DARK ? 'dark' : void 0));
+const getClass = computed(() => (isDark.value ? 'dark' : null))
 </script>
 
 <style>

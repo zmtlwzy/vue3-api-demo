@@ -1,38 +1,29 @@
-import '@unocss/reset/normalize.css';
-// import 'uno:components.css';
-// // 'default' layers
-// import 'uno:default.css';
-// // 'icons' layer
-// import 'uno:icons.css';
-// // "utilities" layer will have the highest priority
-// import 'uno:utilities.css';
+import { ViteSSG } from 'vite-ssg'
+import App from './App.vue'
+import { routes } from '~/router'
+import { registerCustomEl } from '~/webComponents'
+// import { setupGlobDirectives } from '~/directive'
 
-import 'uno.css';
+import '@unocss/reset/normalize.css'
+import './styles/main.css'
+import 'uno.css'
 
-import App from './AppRoot.vue';
+// https://github.com/antfu/vite-ssg
+export const createApp = ViteSSG(
+  App,
+  {
+    routes, base: import.meta.env.BASE_URL,
 
-import router, { setupRouter } from '@/router';
-import { setupStore } from '@/store';
-import { setupGlobDirectives } from '@/directive';
-import { registerCustomEl } from '@/webComponents';
+  },
+  (ctx) => {
+    // install all modules under `modules/`
+    Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))
+  },
+)
 
 async function bootstrap() {
-  const app = createApp(App);
-
-  // Configure store
-  setupStore(app);
-
-  registerCustomEl();
-
-  // Configure routing
-  setupRouter(app);
-
-  // Register global directive
-  setupGlobDirectives(app);
-
-  await router.isReady();
-
-  app.mount('#app', true);
+  const { app } = await createApp()
+  registerCustomEl()
 }
 
-void bootstrap();
+bootstrap()

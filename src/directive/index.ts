@@ -1,10 +1,10 @@
 /**
  * Configure and register global directives
  */
-import type { App } from 'vue';
+import type { App } from 'vue'
 
-import { setupPinDirective } from './pin';
+import { setupPinDirective } from './pin'
 
 export function setupGlobDirectives(app: App) {
-  setupPinDirective(app);
+  setupPinDirective(app)
 }

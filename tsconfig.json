@@ -1,34 +1,27 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "strictFunctionTypes": false,
-    "jsx": "preserve",
     "baseUrl": ".",
-    "allowJs": true,
-    "sourceMap": true,
+    "module": "ESNext",
+    "target": "es2016",
+    "lib": ["DOM", "ESNext"],
+    "strict": true,
     "esModuleInterop": true,
+    "incremental": false,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "lib": ["dom", "esnext"],
-    "types": ["vite/client", "unplugin-icons/types/vue"],
-    "typeRoots": ["./node_modules/@types/", "./types"],
-    "incremental": true,
-    "noImplicitAny": false,
-    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vite/client",
+      "vite-plugin-pages/client",
+      "vite-plugin-vue-layouts/client"
+    ],
     "paths": {
       "#/*": ["./*"],
-      "@/*": ["src/*"],
-      "comps/*": ["src/components/*"],
-      "views/*": ["src/views/*"]
+      "~/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts", "types/**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+  "exclude": ["dist", "node_modules", "cypress"]
 }

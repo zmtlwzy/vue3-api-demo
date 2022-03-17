@@ -16,14 +16,14 @@
 <script setup lang="ts">
 import * as Comps from './components'
 
-const handleClick = (e) => {
-  isRef(e) && e.value++
+const handleClick = (e: any) => {
+  isRef(e) && e.value as number;++
 }
-const comp = $ref(123)
+const comp = $ref<any>()
 watch(
-  () => comp?.count2,
-  (val) => {
-    console.log(val, 'comp expose count2')
+  () => comp,
+  (el) => {
+    console.log(el?.count2, 'comp expose count2')
   },
 )
 </script>

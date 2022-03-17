@@ -1,4 +1,4 @@
-import CssvarBase from './Base.vue'
+import CssvarBase from './CssvarBase.vue'
 import UseCssModule from './UseCssModule.vue'
 import UseCssVars from './UseCssVars.vue'
 

@@ -1,9 +1,9 @@
-import SingleSource from './singleSource.vue'
-import MultipleSource from './multipleSource.vue'
-import Flush from './flush.vue'
-import Deep from './deep.vue'
-import Immediate from './immediate.vue'
-import WatchArray from './watchArray.vue'
-import WatchObject from './watchObject.vue'
+import SingleSource from './SingleSource.vue'
+import MultipleSource from './MultipleSource.vue'
+import FlushDemo from './Flush.vue'
+import DeepDemo from './Deep.vue'
+import ImmediateDemo from './Immediate.vue'
+import WatchArray from './WatchArray.vue'
+import WatchObject from './WatchObject.vue'
 
-export { SingleSource, MultipleSource, Flush, Deep, Immediate, WatchArray, WatchObject }
+export { SingleSource, MultipleSource, FlushDemo, DeepDemo, ImmediateDemo, WatchArray, WatchObject }

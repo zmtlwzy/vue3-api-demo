@@ -150,6 +150,7 @@ export default defineConfig({
       'vue-router',
       '@vueuse/core',
       '@vueuse/head',
+      'naive-ui',
     ],
     exclude: [
       'vue-demi',

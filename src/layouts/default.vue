@@ -33,15 +33,10 @@
       show-trigger="bar"
       content-style="padding-right: 10px;"
     >
-      <n-menu
-        :inverted="false"
-        accordion
-        :value="(menuValue as string)"
-        :options="menuOptions"
-      />
+      <n-menu :inverted="false" accordion :value="(menuValue as string)" :options="menuOptions" />
     </n-layout-sider>
     <n-layout :native-scrollbar="false" :content-style="getStyle">
-      <n-back-top />
+      <NBackTop />
       <Source class="flex-1">
         <main>
           <router-view :key="appStore.refreshId" />

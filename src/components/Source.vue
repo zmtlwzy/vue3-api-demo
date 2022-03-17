@@ -2,15 +2,17 @@
   <div>
     <slot />
     <div mt-15 mb-20>
-      <n-a :href="getUrl" target="_blank" class="no-underline">
-        <div class="group inline-flex items-center">
-          <span>Source</span>
-          <i
-            i-carbon-arrow-right text-xs transform op0 transition
-            group-hover="op100 translate-x-1"
-          />
-        </div>
-      </n-a>
+      <n-button text ghost>
+        <a :href="getUrl" target="_blank" class="no-underline">
+          <div class="group inline-flex items-center">
+            <span font-bold group-hover="underline">Source</span>
+            <span
+              i-carbon-arrow-right text-xs transform op0 transition
+              group-hover="op100 translate-x-1"
+            />
+          </div>
+        </a>
+      </n-button>
     </div>
   </div>
 </template>

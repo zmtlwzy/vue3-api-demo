@@ -14,10 +14,11 @@
 </template>
 
 <script setup lang="ts">
+import type { Ref } from 'vue'
 import * as Comps from './components'
 
-const handleClick = (e: any) => {
-  isRef(e) && e.value as number;++
+const handleClick = (e: Ref<number>) => {
+  isRef(e) && e.value++
 }
 const comp = $ref<any>()
 watch(

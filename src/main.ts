@@ -22,7 +22,7 @@ export const createApp = ViteSSG(
 )
 
 async function bootstrap() {
-  const { app } = await createApp()
+  // const { app } = await createApp()
   registerCustomEl()
 }
 

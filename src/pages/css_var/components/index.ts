@@ -1,5 +1,5 @@
-import Base from './base.vue'
-import UseCssModule from './useCssModule.vue'
-import UseCssVars from './useCssVars.vue'
+import CssvarBase from './Base.vue'
+import UseCssModule from './UseCssModule.vue'
+import UseCssVars from './UseCssVars.vue'
 
-export { Base, UseCssModule, UseCssVars }
+export { CssvarBase, UseCssModule, UseCssVars }

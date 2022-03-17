@@ -1,4 +1,4 @@
-import base from './base.vue'
-import modifiers from './modifiers.vue'
+import EventBase from './Base.vue'
+import EventModifiers from './Modifiers.vue'
 
-export { base, modifiers }
+export { EventBase, EventModifiers }

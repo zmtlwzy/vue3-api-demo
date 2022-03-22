@@ -8,8 +8,13 @@
 
 这是一个使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，用于 vue3 新特性学习参考的项目。
 
+---
+
+[一个基于 Vitesse 的新项目](https://https://github.com/zmtlwzy/vue3ApiDemo-vitesse)
+
 ## 预览
 
+- [netlify 站点](https://vue3-api-demo-vitesse.netlify.app/) <small>(基于 Vitesse 构建)</small>
 - [github 站点](https://zmtlwzy.github.io/vue3-api-demo/)
 - [vercel 站点](https://vue3-api-demo-zmtlwzy.vercel.app/)
 

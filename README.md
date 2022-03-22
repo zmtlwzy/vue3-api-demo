@@ -8,8 +8,13 @@
 
 Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development, used for learning reference vue3 new feature.
 
+---
+
+[A new project base on Vitesse](https://https://github.com/zmtlwzy/vue3ApiDemo-vitesse)
+
 ## Preview
 
+- [netlify-preview](https://vue3-api-demo-vitesse.netlify.app/) <small>(Vitesse build)</small>
 - [github-preview](https://zmtlwzy.github.io/vue3-api-demo/)
 - [vercel-preview](https://vue3-api-demo-zmtlwzy.vercel.app/)
 

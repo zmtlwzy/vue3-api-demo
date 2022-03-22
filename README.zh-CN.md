@@ -10,7 +10,7 @@
 
 ---
 
-[一个基于 Vitesse 的新项目](https://https://github.com/zmtlwzy/vue3ApiDemo-vitesse)
+[一个基于 Vitesse 的新项目](https://github.com/zmtlwzy/vue3ApiDemo-vitesse)
 
 ## 预览
 

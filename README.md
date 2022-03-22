@@ -10,7 +10,7 @@ Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology d
 
 ---
 
-[A new project base on Vitesse](https://https://github.com/zmtlwzy/vue3ApiDemo-vitesse)
+[A new project base on Vitesse](https://github.com/zmtlwzy/vue3ApiDemo-vitesse)
 
 ## Preview
 
